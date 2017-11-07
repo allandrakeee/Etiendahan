@@ -8773,15 +8773,5 @@ a.text-dark:focus, a.text-dark:hover {
   .navbar-upper-inner .font-weight-500:hover {
     color: rgba(255, 255, 255, 0.7); }
 
-.navbar-upper-inner .fa-animate i.fa.fa-facebook:hover {
-  font-size: 1.1em;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out; }
-
-.navbar-upper-inner .fa-animate i.fa.fa-instagram:hover {
-  font-size: 1.1em;
-  -webkit-transition: .1s ease-out;
-  transition: .1s ease-out; }
-
 .pointer-text {
   cursor: text; }

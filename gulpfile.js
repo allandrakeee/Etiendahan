@@ -88,7 +88,7 @@ gulp.task('scripts', function(){
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
-    .pipe(concat('theme.css'))
+    .pipe(concat('theme.js'))
     .pipe(gulp.dest("assets/js"))
     .pipe(livereload());
 });
