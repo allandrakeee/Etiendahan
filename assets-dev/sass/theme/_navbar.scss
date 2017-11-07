@@ -1,0 +1,35 @@
+.navbar-upper-inner {
+	span.text-white, {
+		margin-top: 7px;
+	}
+
+	.font-weight-200 {
+	    font-weight: 200;
+
+	    &:hover {
+			color: hsla(0,0%,100%,.7);
+	    }
+	}
+
+	.font-weight-500 {
+	    font-weight: 500;
+
+	    &:hover {
+	    	color: hsla(0,0%,100%,.7);
+	    }
+	}
+
+	.fa-animate i.fa.fa-facebook:hover{
+	  font-size: 1.1em;
+	  transition: .1s ease-out;
+	}
+
+	.fa-animate i.fa.fa-instagram:hover{
+	  font-size: 1.1em;
+	  transition: .1s ease-out;
+	}
+}
+
+.pointer-text {
+	cursor: text;
+}
