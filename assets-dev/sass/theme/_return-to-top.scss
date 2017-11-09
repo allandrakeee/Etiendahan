@@ -1,0 +1,41 @@
+#return-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+    background: #dfdfdf;
+    width: 45px;
+    height: 45px;
+    display: block;
+    text-decoration: none;
+    display: none;
+    z-index: 999;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+}
+
+#return-to-top i {
+    color: rgb(30, 30, 30);
+    margin: 0;
+    position: relative;
+    left: 13px;
+    top: 16px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+    background: #dfdfdf;
+}
+
+#return-to-top:hover i {
+    top: 5px;
+    left: 16;
+}
