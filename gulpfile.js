@@ -32,7 +32,7 @@ function errorLog(error) {
 gulp.task('styles', function(){
     return gulp.src([
         'node_modules/bootstrap/scss/bootstrap.scss', 
-        'node_modules/font-awesome/scss/*.scss', 
+        'node_modules/font-awesome/scss/font-awesome.scss', 
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -55,7 +55,7 @@ gulp.task('styles', function(){
 gulp.task('styles-min', function(){
  return gulp.src([
      'node_modules/bootstrap/scss/bootstrap.scss', 
-     'node_modules/font-awesome/scss/*.scss', 
+     'node_modules/font-awesome/scss/font-awesome.scss', 
      'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -64,8 +64,8 @@ gulp.task('styles-min', function(){
     .pipe(concat('theme.min.css'))
     .pipe(prefix('last 2 versions'))
     .pipe(uglifycss({
-        "maxLineLen": 100,
-        "uglyComments": true
+     "maxLineLen": 100,
+     "uglyComments": true
     }))
     .pipe(gulp.dest("assets/css"))
 });
@@ -137,8 +137,8 @@ gulp.task('fonts', function () {
  */
 gulp.task('watch', ['styles', 'scripts'], function(){
     livereload.listen();
-    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'node_modules/font-awesome/scss/*.scss', 'assets-dev/sass/*.scss', 'assets-dev/sass/**/*.scss', 'assets/css/'], ['styles']);
-    gulp.watch(['node_modules/bootstrap/dist/js/bootstrap.js', 'node_modules/jquery/dist/jquery.js', 'node_modules/tether/dist/js/tether.js', 'assets-dev/js/*.js', 'assets/js/'], ['scripts']);
+    gulp.watch(['assets-dev/sass/**/*.scss', 'assets/css/'], ['styles']);
+    gulp.watch(['assets-dev/js/*.js', 'assets/js'], ['scripts']);
     gulp.watch('*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
