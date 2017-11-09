@@ -11,14 +11,13 @@ var gulp        = require('gulp'),
     uglifycss   = require('gulp-uglifycss');
     prefix      = require('gulp-autoprefixer'),
     concat      = require('gulp-concat'),
-    sourcemaps  = require('gulp-sourcemaps'),
     livereload  = require('gulp-livereload'),
-    gutil       = require('gulp-util'),
-    del         = require('del'),
-    browserSync = require('browser-sync').create();
+    beep        = require('beepbeep'),
+    del         = require('del');
 
 function errorLog(error) {
     console.error(error.message);
+    beep(3, 1000);
 }﻿
 
 // ================================ Styles Development ================================
