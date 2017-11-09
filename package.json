@@ -24,14 +24,10 @@
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^3.8.1",
-    "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-uglifycss": "^1.0.8",
-    "gulp-util": "^3.0.8",
-    "require-dir": "^0.3.2"
+    "gulp-uglifycss": "^1.0.8"
   }
 }
