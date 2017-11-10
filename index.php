@@ -26,7 +26,7 @@
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					
 					<!-- navbar -->
-					<nav class="navbar fixed-top navbar-expand-lg cl-effect-3 my-navbar">
+					<nav class="navbar fixed-top navbar-expand-lg cl-effect my-navbar">
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>
@@ -38,30 +38,30 @@
 							<div class="container">
 								<ul class="navbar-nav">
 									<li class="nav-item">
-										<a class="nav-link cl-effect-3" href="#">Sell On Etiendahan</a>
+										<a class="nav-link cl-effect" href="#">Sell On Etiendahan</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link cl-effect-3" href="#">Specialty in City</a>
+										<a class="nav-link cl-effect" href="https://www.facebook.com">Specialty in City</a>
 									</li>
 									<li class="nav-item dropdown">
-										<a class="nav-link cl-effect-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<a class="nav-link cl-effect" href="https://google.com" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Accessories
 										</a>
-									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<a class="dropdown-item" href="#">Action</a>
-										<a class="dropdown-item" href="#">Another action</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Something else here</a>
-									</div>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<a class="dropdown-item" href="#">Action</a>
+											<a class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link cl-effect-3" href="#">Men</a>
+										<a class="nav-link cl-effect" href="#">Men</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link cl-effect-3" href="#">Women</a>
+										<a class="nav-link cl-effect" href="#">Women</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link cl-effect-3" href="#">All Categories</a>
+										<a class="nav-link cl-effect" href="#">All Categories</a>
 									</li>
 								</ul>
 							</div>
@@ -85,11 +85,11 @@
 							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Third slide" ></div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="fa fa-angle-left" aria-hidden="true"></span>
 							<span class="sr-only">Previous</span>
 						</a>
 						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="fa fa-angle-right" aria-hidden="true"></span>
 							<span class="sr-only">Next</span>
 						</a>
 					</div>

@@ -24,13 +24,17 @@
 	        letter-spacing: 0.2em;
 		    font-family: 'Montserrat', sans-serif;
 
-		    &:hover {
+		    &:hover, &:focus {
 				color: rgba(255,255,255,0.8);
 		    }
 
-		    &:active, &:focus {
+		    &:active {
 		    	color: #fff !important;
 		    }
+	    }
+
+    	.dropdown-menu {
+	    	top: 98%;
 	    }
 	}   
 }
@@ -59,8 +63,38 @@ nav.shrink {
 	}	
 }
 
+.fake-cl-effect::after {
+	position: absolute;
+	top: 80%;
+	left: 0;
+	right: 0;
+	width: 30px;
+	height: 4px;
+	cursor: pointer;
+	background: dimgrey;
+	content: '';
+	opacity: 0;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+.fake-cl-effect:hover::after,
+.fake-cl-effect:focus::after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
 // effects when hover
-nav a.cl-effect-3 {
+nav a.cl-effect {
 	position: relative;
 }
 
@@ -70,11 +104,11 @@ nav a:focus {
 	text-decoration: none;
 }
 
-.cl-effect-3 a.cl-effect-3 {
+.cl-effect a.cl-effect {
 	padding: 8px 0;
 }
 
-.cl-effect-3 a.cl-effect-3::after {
+.cl-effect a.cl-effect::after {
 	position: absolute;
 	top: 80%;
 	left: 0;
@@ -95,8 +129,7 @@ nav a:focus {
 	transform: translateY(10px);
 }
 
-.cl-effect-3 a.cl-effect-3:hover::after,
-.cl-effect-3 a.cl-effect-3:focus::after {
+.cl-effect a.cl-effect:hover::after {
 	opacity: 1;
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
@@ -120,11 +153,15 @@ nav a:focus {
 	.carousel-indicators {
 		cursor: pointer;
 	   	bottom: 35px;
+
+	   	li {
+	   		width: 50px;
+	   	}
 	}
 
 	.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators {
 		opacity: 0;
-		transition: visibility 0s linear 600ms, opacity 600ms;
+		transition: visibility 0s linear 400ms, opacity 400ms;
 		visibility: hidden;
 	}
 
@@ -135,6 +172,10 @@ nav a:focus {
 			transition: visibility 0s linear 0s, opacity 200ms;
 			visibility:visible;
 		}		
+	}
+
+	.fa.fa-angle-left, .fa.fa-angle-right {
+		font-size: 4.125em;
 	}
 }
 

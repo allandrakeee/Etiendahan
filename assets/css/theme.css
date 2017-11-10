@@ -8773,10 +8773,12 @@ a.text-dark:focus, a.text-dark:hover {
       font-weight: 600;
       letter-spacing: 0.2em;
       font-family: 'Montserrat', sans-serif; }
-      .my-navbar .nav-item .nav-link:hover {
+      .my-navbar .nav-item .nav-link:hover, .my-navbar .nav-item .nav-link:focus {
         color: rgba(255, 255, 255, 0.8); }
-      .my-navbar .nav-item .nav-link:active, .my-navbar .nav-item .nav-link:focus {
+      .my-navbar .nav-item .nav-link:active {
         color: #fff !important; }
+    .my-navbar .nav-item .dropdown-menu {
+      top: 98%; }
 
 nav.shrink {
   background: rgba(0, 0, 0, 0.35); }
@@ -8793,7 +8795,34 @@ nav.shrink {
         line-height: 70px;
         color: dimgrey !important; }
 
-nav a.cl-effect-3 {
+.fake-cl-effect::after {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  width: 30px;
+  height: 4px;
+  cursor: pointer;
+  background: dimgrey;
+  content: '';
+  opacity: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px); }
+
+.fake-cl-effect:hover::after,
+.fake-cl-effect:focus::after {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px); }
+
+nav a.cl-effect {
   position: relative; }
 
 nav a:hover,
@@ -8801,10 +8830,10 @@ nav a:focus {
   outline: none;
   text-decoration: none; }
 
-.cl-effect-3 a.cl-effect-3 {
+.cl-effect a.cl-effect {
   padding: 8px 0; }
 
-.cl-effect-3 a.cl-effect-3::after {
+.cl-effect a.cl-effect::after {
   position: absolute;
   top: 80%;
   left: 0;
@@ -8824,8 +8853,7 @@ nav a:focus {
   -webkit-transform: translateY(10px);
   transform: translateY(10px); }
 
-.cl-effect-3 a.cl-effect-3:hover::after,
-.cl-effect-3 a.cl-effect-3:focus::after {
+.cl-effect a.cl-effect:hover::after {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px); }
@@ -8842,16 +8870,20 @@ nav a:focus {
   .my-carousel .carousel-indicators {
     cursor: pointer;
     bottom: 35px; }
+    .my-carousel .carousel-indicators li {
+      width: 50px; }
   .my-carousel .carousel-control-prev-icon, .my-carousel .carousel-control-next-icon, .my-carousel .carousel-indicators {
     opacity: 0;
-    -webkit-transition: visibility 0s linear 600ms, opacity 600ms;
-    transition: visibility 0s linear 600ms, opacity 600ms;
+    -webkit-transition: visibility 0s linear 400ms, opacity 400ms;
+    transition: visibility 0s linear 400ms, opacity 400ms;
     visibility: hidden; }
   .my-carousel:hover .carousel-control-prev-icon, .my-carousel:hover .carousel-control-next-icon, .my-carousel:hover .carousel-indicators {
     opacity: 1;
     -webkit-transition: visibility 0s linear 0s, opacity 200ms;
     transition: visibility 0s linear 0s, opacity 200ms;
     visibility: visible; }
+  .my-carousel .fa.fa-angle-left, .my-carousel .fa.fa-angle-right {
+    font-size: 4.125em; }
 
 .my-search {
   margin-top: -35px; }
