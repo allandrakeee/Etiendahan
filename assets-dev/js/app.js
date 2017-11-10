@@ -37,14 +37,22 @@ Hammer(el).on("swiperight", function () {
 })
 
 // Hover on drop down menu
-// $('ul.navbar-nav li').hover(function() {
-// 	$(this).find('.dropdown-menu').stop(true, true).fadeIn(200);
-// }, function() {
-// 	$(this).find('.dropdown-menu').stop(true, true).fadeOut(400);
-// });
+$('ul.navbar-nav li.dropdown').hover(function() {
+	$(this).find('.dropdown-menu').stop(true, true).fadeIn(200);
+}, function() {
+	$(this).find('.dropdown-menu').stop(true, true).fadeOut(400);
+});
 
-// $('ul.navbar-nav li.dropdown .dropdown-menu').hover(function(e) {
-// 	$('ul.navbar-nav li.dropdown a.nav-link').toggleClass('cl-effect');
-// });
+$('nav.my-navbar div.dropdown').hover(function() {
+	$(this).find('.dropdown-menu').stop(true, true).fadeIn(200);
+}, function() {
+	$(this).find('.dropdown-menu').stop(true, true).fadeOut(400);
+});
+
+$('ul.navbar-nav li.dropdown .dropdown-menu').hover(function(e) {
+	$('ul.navbar-nav li.dropdown a.nav-link').addClass('show');
+}, function() {
+	$('ul.navbar-nav li.dropdown a.nav-link').removeClass('show');
+});
 
 // ============ END OF SECTION 1 ============

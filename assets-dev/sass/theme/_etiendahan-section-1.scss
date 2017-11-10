@@ -3,6 +3,7 @@
 	background: none !important;
 	height: 90px;
     border-bottom: 1px solid rgba(248,248,248,0.3);
+    padding-right: 0px;
 	// -webkit-transition: all 0.1s ease-out;
 	// -moz-transition: all 0.1s ease-out;
 	// -o-transition: all 0.1s ease-out;
@@ -36,6 +37,30 @@
     	.dropdown-menu {
 	    	top: 98%;
 	    }
+
+	    &.right-nav {
+	    	width: 110px;
+	    	border-left: 1px solid rgba(248,248,248,0.3);
+
+	    	a.nav-link {
+	    		text-align: center;
+
+		    	.fa.fa-shopping-bag {
+		    		font-size: 20px;
+					vertical-align: middle;
+		    	}
+	    	}
+
+	    	.dropdown-menu {
+				border-radius: 0;
+				padding: 20px 0px;
+				box-shadow: none;
+				-webkit-box-shadow: none;
+				border-top: 4px solid #e6e6e6;
+				border-bottom: #dcdcdc solid 1px;
+			    left: -83px;
+	    	}
+	    }
 	}   
 }
 
@@ -46,10 +71,10 @@ nav.shrink {
 		border-bottom: #dcdcdc solid 1px;
 		height: 70px;
 		background: #fff !important;
-    	-webkit-transition: all 0.3s ease-out;
-    	-moz-transition: all 0.3s ease-out;
-    	-o-transition: all 0.3s ease-out;
-    	transition: all 0.3s ease-out;
+    	-webkit-transition: all 0.1s ease-out;
+    	-moz-transition: all 0.1s ease-out;
+    	-o-transition: all 0.1s ease-out;
+    	transition: all 0.1s ease-out;
 
 		.nav-item {
 			height: 70px;
@@ -59,39 +84,76 @@ nav.shrink {
 				line-height: 70px;
 				color: dimgrey !important;
 			}
+
+		    &.right-nav {
+		    	border-left: #dcdcdc solid 1px;
+		    }
 		}
 	}	
 }
 
-.fake-cl-effect::after {
-	position: absolute;
-	top: 80%;
-	left: 0;
-	right: 0;
-	width: 30px;
-	height: 4px;
-	cursor: pointer;
-	background: dimgrey;
-	content: '';
-	opacity: 0;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-	-webkit-transform: translateY(10px);
-	-moz-transform: translateY(10px);
-	transform: translateY(10px);
+
+
+
+
+
+// mega dropdown
+.mega-dropdown {
+	position: static !important;
+}
+.mega-dropdown-menu {
+	border-radius: 0;
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-top: 4px solid #e6e6e6;
+    border-bottom: #dcdcdc solid 1px;
+
+	a {
+		color: #9aa7af !important;
+		font-family: 'Montserrat', sans-serif;
+	}
+
+	a.primary-header {
+		font-size: 13px;
+    	font-weight: 600;
+	}
+
+	a.secondary-header {
+	    font-size: 12px;
+		letter-spacing: 0.1em;
+	}
+	
+    a.dropdown-header {
+    	padding: 8px 0;
+    	text-transform: uppercase;
+
+    	&:hover {
+    		color: dimgrey !important;
+    	}
+    }
+
+    a.dropdown-item {
+		padding: 8px 0;
+	    font-size: 12px;
+		letter-spacing: 0.1em;
+
+    	&:hover {
+    		color: dimgrey !important;
+    		background-color: transparent;
+    	}
+    }
+
+    .children {
+    	padding-left: 5px;
+    }
 }
 
-.fake-cl-effect:hover::after,
-.fake-cl-effect:focus::after {
-	opacity: 1;
-	-webkit-transform: translateY(0px);
-	-moz-transform: translateY(0px);
-	transform: translateY(0px);
-}
+
+
+
+
 
 // effects when hover
 nav a.cl-effect {
@@ -108,7 +170,7 @@ nav a:focus {
 	padding: 8px 0;
 }
 
-.cl-effect a.cl-effect::after {
+.cl-effect a.cl-effect::before {
 	position: absolute;
 	top: 80%;
 	left: 0;
@@ -129,15 +191,46 @@ nav a:focus {
 	transform: translateY(10px);
 }
 
-.cl-effect a.cl-effect:hover::after {
+.cl-effect a.cl-effect:hover::before,
+.cl-effect a.cl-effect:focus::before {
 	opacity: 1;
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
 	transform: translateY(0px);
 }
 
+.cl-effect a.cl-effect.hidden::before {
+	display: none;
+}
 
-// carousel
+.cl-effect a.cl-effect.show::before {
+	position: absolute;
+    top: 80%;
+	left: 0;
+	right: 0;
+	width: 30px;
+	height: 4px;
+	background: dimgrey;
+	content: '';
+	opacity: 1;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+
+
+
+
+
+
+
+/// carousel
 .my-carousel {
 	width: 100%;
 	height: 600px;
@@ -159,7 +252,7 @@ nav a:focus {
 	   	}
 	}
 
-	.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators {
+	.fa.fa-angle-left, .fa.fa-angle-right, .carousel-indicators {
 		opacity: 0;
 		transition: visibility 0s linear 400ms, opacity 400ms;
 		visibility: hidden;
@@ -167,7 +260,7 @@ nav a:focus {
 
 	&:hover {
 
-		.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators {
+		.fa.fa-angle-left, .fa.fa-angle-right, .carousel-indicators {
 			opacity: 1;
 			transition: visibility 0s linear 0s, opacity 200ms;
 			visibility:visible;
@@ -178,6 +271,11 @@ nav a:focus {
 		font-size: 4.125em;
 	}
 }
+
+
+
+
+
 
 // search
 .my-search {

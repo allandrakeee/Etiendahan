@@ -26,7 +26,7 @@
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					
 					<!-- navbar -->
-					<nav class="navbar fixed-top navbar-expand-lg cl-effect my-navbar">
+					<nav class="navbar fixed-top navbar-expand-lg cl-effect fake-cl-effect my-navbar">
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>
@@ -37,38 +37,183 @@
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<div class="container">
 								<ul class="navbar-nav">
+
+									<!-- SELL ON ETIENDAHAN -->
 									<li class="nav-item">
 										<a class="nav-link cl-effect" href="#">Sell On Etiendahan</a>
 									</li>
-									<li class="nav-item">
-										<a class="nav-link cl-effect" href="https://www.facebook.com">Specialty in City</a>
-									</li>
-									<li class="nav-item dropdown">
-										<a class="nav-link cl-effect" href="https://google.com" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Accessories
+
+									<!-- SPECIALTY IN CITY -->
+									<li class="nav-item dropdown mega-dropdown">
+										
+										<a class="nav-link cl-effect" href="https://google.com" id="specialtyInCity" role="button" aria-haspopup="true" aria-expanded="false">
+										Specialty in City
 										</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<a class="dropdown-item" href="#">Action</a>
-											<a class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
+										
+										<div class="dropdown-menu mega-dropdown-menu" aria-labelledby="specialtyInCity">
+											<div class="container">
+												<div class="row">
+												<!-- A -->
+													<div class="col-md-3">
+														<a class="dropdown-header primary-header" href="#">A</a>
+														<div class="dropdown-divider"></div>
+														<div class="row">
+															<div class="col-md-6">
+																<a class="dropdown-header secondary-header" href="https://google.com">Alaminos</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Hipon</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Alcala</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Damit</a>																	</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Anda</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Sapatos</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Aguilar</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												<!-- B -->
+													<div class="col-md-3">
+														<a class="dropdown-header primary-header" href="#">B</a>
+														<div class="dropdown-divider"></div>
+														<div class="row">
+															<div class="col-md-6">
+																<a class="dropdown-header secondary-header" href="https://google.com">Bolinao</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Hipon</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Bugallon</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Damit</a>																	</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Binalonan</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Sapatos</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Binmaley</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Burgos</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Basista</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<a class="dropdown-header" href="#">Baustista</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												<!-- C -->
+													<div class="col-md-3">
+														<a class="dropdown-header primary-header" href="#">C</a>
+														<div class="dropdown-divider"></div>
+														<div class="row">
+															<div class="col-md-6">
+																<a class="dropdown-header secondary-header" href="https://google.com">Calasiao</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Puto</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												<!-- D -->
+													<div class="col-md-3">
+														<a class="dropdown-header primary-header" href="#">D</a>
+														<div class="dropdown-divider"></div>
+														<div class="row">
+															<div class="col-md-6">
+																<a class="dropdown-header secondary-header" href="https://google.com">Dagupan</a>
+																<div class="children">
+																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Bangus</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</li>
+
+									<!-- ACCESSORIES -->
+									<li class="nav-item">
+										<a class="nav-link cl-effect" href="#">Accessories</a>
+									</li>
+
+									<!-- MEN -->
 									<li class="nav-item">
 										<a class="nav-link cl-effect" href="#">Men</a>
 									</li>
+
+									<!-- WOMEN -->
 									<li class="nav-item">
 										<a class="nav-link cl-effect" href="#">Women</a>
 									</li>
+
+									<!-- ALL CATEGORIES -->
 									<li class="nav-item">
 										<a class="nav-link cl-effect" href="#">All Categories</a>
 									</li>
+
 								</ul>
 							</div>
-							<form class="form-inline my-2 my-lg-0">
-								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-								<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-							</form>
+
+							<!-- CART -->
+							<div class="nav-item right-nav dropdown">
+								<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+									<span class="fa fa-shopping-bag"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="cart">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</div>
+							</div>
+
+							<!-- Sign Up -->
+							<div class="nav-item right-nav">
+								<a class="nav-link" href="#">Sign Up</a>
+							</div>
+
+							<!-- Login -->
+							<div class="nav-item right-nav">
+								<a class="nav-link" href="#">Login</a>
+							</div>
 						</div>
 					</nav>
 
