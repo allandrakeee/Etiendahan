@@ -200,11 +200,43 @@
 									  <i class="fa fa-shopping-bag fa-stack-1x"></i>
 									</span>
 								</a>
-								<div class="dropdown-menu" aria-labelledby="cart">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Something else here</a>
+
+								<!-- No items in the cart -->
+								<!-- <div class="dropdown-menu" aria-labelledby="cart">
+									<p>You have no items in your shopping cart.</p>
+								</div> -->
+
+								<!-- Have items in the cart -->
+								<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+									<p>Recently Added Products</p>
+
+									<div class="item">
+										<div class="item-left">
+											<img src="http://lorempixel.com/50/50/" alt="" />
+											<div class="item-info">
+												<span class="item-name">Item name</span>
+												<span class="item-price">₱1,000.00</span>
+											</div>
+										</div>
+										<div class="item-right">
+											<i class="fa fa-trash"></i>
+										</div>
+									</div>
+
+									<div class="item">
+										<div class="item-left">
+											<img src="http://lorempixel.com/50/50/" alt="" />
+											<div class="item-info">
+												<span class="item-name">Item name</span>
+												<span class="item-price">₱500.00</span>
+											</div>
+										</div>
+										<div class="item-right">
+											<i class="fa fa-trash"></i>
+										</div>
+									</div>
+
+									<button type="button" class="btn btn-dark">View Cart</button>
 								</div>
 							</div>
 
@@ -226,11 +258,13 @@
 							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 						</ol>
 						<div class="carousel-inner">
 							<div class="carousel-item active" draggable="false" style="background-image: url(https://cdn.shopify.com/s/files/1/0998/0122/files/ico_slide_1_b9b255c6-a8d0-49ac-add0-9e94c0039e4c.jpg?v=1490971377);" alt="First slide" ></div>
-							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1200x480);" alt="Second slide" ></div>
-							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Third slide" ></div>
+							<div class="carousel-item" draggable="false" style="background-image: url(https://cdn.shopify.com/s/files/1/0998/0122/files/ico_slide_2.jpg);" alt="Second slide" ></div>
+							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1200x480);" alt="Third slide" ></div>
+							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Fourth slide" ></div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 							<i class="fa fa-angle-left" aria-hidden="true"></i>
