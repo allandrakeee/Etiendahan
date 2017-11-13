@@ -13,6 +13,27 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 	}, 500);
 });
 
+// Smooth scrolling navigation
+$(document).ready(function(){
+	$('.navbar-nav li a').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+		&& location.hostname == this.hostname) {
+			var $target = $(this.hash);
+			$target = $target.length && $target
+			|| $('[name=' + this.hash.slice(1) +']');
+			if ($target.length) {
+				var targetOffset = $target.offset().top;
+				$('html,body')
+				.animate({scrollTop: targetOffset}, 1000);
+			return false;
+			}
+		}
+	});
+});
+
+// Delay when scroll mousewheel
+
+
 // ============ SECTION 1 ============
 
 // Nav shink

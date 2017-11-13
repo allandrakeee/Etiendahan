@@ -1174,11 +1174,3 @@ a.text-dark:focus,a.text-dark:hover{color:#1d2124 !important}.text-muted{color:#
 .fa-superpowers:before{content:""}.fa-wpexplorer:before{content:""}
 .fa-meetup:before{content:""}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
-.brand-primary-bg{background-color:#292954}.brand-primary-color{color:#292954}.brand-primary-faded-bg{background-color:#23234c}
-.brand-secondary-bg{background-color:#f6d626}.brand-secondary-color{color:#f6d626}.text-white{color:#fff}
-.input-group-addon{background-color:#f6d626}.fa-search,.fa-shopping-cart{color:#fff}.navbar-upper-inner span.text-white{margin-top:7px}
-.navbar-upper-inner .font-weight-200{font-weight:200}.navbar-upper-inner .font-weight-200:hover{color:rgba(255,255,255,0.7)}
-.navbar-upper-inner .font-weight-500{font-weight:500}.navbar-upper-inner .font-weight-500:hover{color:rgba(255,255,255,0.7)}
-.navbar-upper-inner .fa-animate i.fa.fa-facebook:hover{font-size:1.1em;-webkit-transition:.1s ease-out;transition:.1s ease-out}
-.navbar-upper-inner .fa-animate i.fa.fa-instagram:hover{font-size:1.1em;-webkit-transition:.1s ease-out;transition:.1s ease-out}
-.pointer-text{cursor:text}

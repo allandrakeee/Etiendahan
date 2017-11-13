@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -8725,7 +8727,6 @@ a.text-dark:focus, a.text-dark:hover {
   clip: auto; }
 
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
 /**
  * All theme core sass files
  * Pages, widgets, contact forms styles, etc.
@@ -8784,8 +8785,25 @@ a.text-dark:focus, a.text-dark:hover {
       width: 110px;
       border-left: 1px solid rgba(248, 248, 248, 0.3); }
       .my-navbar .nav-item.right-nav a.nav-link {
-        text-align: center; }
+        text-align: center;
+        padding: 0 0; }
+        .my-navbar .nav-item.right-nav a.nav-link .fa-stack[data-count]:after {
+          position: absolute;
+          right: -60%;
+          top: -70%;
+          content: attr(data-count);
+          font-size: 10px;
+          padding-left: 8px !important;
+          padding: .6em;
+          border-radius: 999px;
+          line-height: .75em;
+          color: white;
+          background: #000;
+          text-align: center;
+          min-width: 2em;
+          font-weight: bold; }
         .my-navbar .nav-item.right-nav a.nav-link .fa.fa-shopping-bag {
+          position: relative;
           font-size: 20px;
           vertical-align: middle; }
       .my-navbar .nav-item.right-nav .dropdown-menu {
@@ -8795,7 +8813,10 @@ a.text-dark:focus, a.text-dark:hover {
         -webkit-box-shadow: none;
         border-top: 4px solid #e6e6e6;
         border-bottom: #dcdcdc solid 1px;
-        left: -83px; }
+        border-left: #dcdcdc solid 1px;
+        border-right: #dcdcdc solid 1px;
+        right: 0;
+        left: auto; }
 
 nav.shrink {
   background: rgba(0, 0, 0, 0.35); }
@@ -8835,12 +8856,12 @@ nav.shrink {
     font-size: 12px;
     letter-spacing: 0.1em; }
   .mega-dropdown-menu a.dropdown-header {
-    padding: 8px 0;
+    padding: 6px 0;
     text-transform: uppercase; }
     .mega-dropdown-menu a.dropdown-header:hover {
       color: dimgrey !important; }
   .mega-dropdown-menu a.dropdown-item {
-    padding: 8px 0;
+    padding: 6px 0;
     font-size: 12px;
     letter-spacing: 0.1em; }
     .mega-dropdown-menu a.dropdown-item:hover {
@@ -8880,8 +8901,7 @@ nav a:focus {
   -webkit-transform: translateY(10px);
   transform: translateY(10px); }
 
-.cl-effect a.cl-effect:hover::before,
-.cl-effect a.cl-effect:focus::before {
+.cl-effect a.cl-effect:hover::before {
   opacity: 1;
   -webkit-transform: translateY(0px);
   transform: translateY(0px); }
@@ -8975,6 +8995,10 @@ nav a:focus {
     border-left: #dcdcdc solid 1px; }
     .my-search .search-box .search-btn:hover {
       cursor: pointer; }
+
+#shop-now {
+  position: relative;
+  bottom: 115px; }
 
 #return-to-top {
   position: fixed;

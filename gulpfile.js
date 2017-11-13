@@ -31,7 +31,7 @@ function errorLog(error) {
 gulp.task('styles', function(){
     return gulp.src([
         'node_modules/bootstrap/scss/bootstrap.scss', 
-        'node_modules/font-awesome/scss/font-awesome.scss', 
+        'node_modules/font-awesome/scss/font-awesome.scss',
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
 /*!
  * Bootstrap v4.0.0-beta (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -8725,7 +8727,6 @@ a.text-dark:focus, a.text-dark:hover {
   clip: auto; }
 
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
 /**
  * All theme core sass files
  * Pages, widgets, contact forms styles, etc.
@@ -8758,7 +8759,8 @@ a.text-dark:focus, a.text-dark:hover {
 .my-navbar {
   background: none !important;
   height: 90px;
-  border-bottom: 1px solid rgba(248, 248, 248, 0.3); }
+  border-bottom: 1px solid rgba(248, 248, 248, 0.3);
+  padding-right: 0px; }
   .my-navbar .nav-item {
     height: 90px; }
     .my-navbar .nav-item .nav-link {
@@ -8773,10 +8775,29 @@ a.text-dark:focus, a.text-dark:hover {
       font-weight: 600;
       letter-spacing: 0.2em;
       font-family: 'Montserrat', sans-serif; }
-      .my-navbar .nav-item .nav-link:hover {
+      .my-navbar .nav-item .nav-link:hover, .my-navbar .nav-item .nav-link:focus {
         color: rgba(255, 255, 255, 0.8); }
-      .my-navbar .nav-item .nav-link:active, .my-navbar .nav-item .nav-link:focus {
+      .my-navbar .nav-item .nav-link:active {
         color: #fff !important; }
+    .my-navbar .nav-item .dropdown-menu {
+      top: 98%; }
+    .my-navbar .nav-item.right-nav {
+      width: 110px;
+      border-left: 1px solid rgba(248, 248, 248, 0.3); }
+      .my-navbar .nav-item.right-nav a.nav-link {
+        text-align: center;
+        padding: 0 0; }
+        .my-navbar .nav-item.right-nav a.nav-link .fa.fa-shopping-bag {
+          font-size: 20px;
+          vertical-align: middle; }
+      .my-navbar .nav-item.right-nav .dropdown-menu {
+        border-radius: 0;
+        padding: 20px 0px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        border-top: 4px solid #e6e6e6;
+        border-bottom: #dcdcdc solid 1px;
+        left: -83px; }
 
 nav.shrink {
   background: rgba(0, 0, 0, 0.35); }
@@ -8784,16 +8805,53 @@ nav.shrink {
     border-bottom: #dcdcdc solid 1px;
     height: 70px;
     background: #fff !important;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out; }
+    -webkit-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out; }
     nav.shrink.my-navbar .nav-item {
       height: 70px; }
       nav.shrink.my-navbar .nav-item .nav-link {
         height: 70px;
         line-height: 70px;
         color: dimgrey !important; }
+      nav.shrink.my-navbar .nav-item.right-nav {
+        border-left: #dcdcdc solid 1px; }
 
-nav a.cl-effect-3 {
+.mega-dropdown {
+  position: static !important; }
+
+.mega-dropdown-menu {
+  border-radius: 0;
+  padding: 20px 0px;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-top: 4px solid #e6e6e6;
+  border-bottom: #dcdcdc solid 1px; }
+  .mega-dropdown-menu a {
+    color: #9aa7af !important;
+    font-family: 'Montserrat', sans-serif; }
+  .mega-dropdown-menu a.primary-header {
+    font-size: 13px;
+    font-weight: 600; }
+  .mega-dropdown-menu a.secondary-header {
+    font-size: 12px;
+    letter-spacing: 0.1em; }
+  .mega-dropdown-menu a.dropdown-header {
+    padding: 6px 0;
+    text-transform: uppercase; }
+    .mega-dropdown-menu a.dropdown-header:hover {
+      color: dimgrey !important; }
+  .mega-dropdown-menu a.dropdown-item {
+    padding: 6px 0;
+    font-size: 12px;
+    letter-spacing: 0.1em; }
+    .mega-dropdown-menu a.dropdown-item:hover {
+      color: dimgrey !important;
+      background-color: transparent; }
+  .mega-dropdown-menu .children {
+    padding-left: 5px; }
+
+nav a.cl-effect {
   position: relative; }
 
 nav a:hover,
@@ -8801,10 +8859,10 @@ nav a:focus {
   outline: none;
   text-decoration: none; }
 
-.cl-effect-3 a.cl-effect-3 {
+.cl-effect a.cl-effect {
   padding: 8px 0; }
 
-.cl-effect-3 a.cl-effect-3::after {
+.cl-effect a.cl-effect::before {
   position: absolute;
   top: 80%;
   left: 0;
@@ -8824,9 +8882,31 @@ nav a:focus {
   -webkit-transform: translateY(10px);
   transform: translateY(10px); }
 
-.cl-effect-3 a.cl-effect-3:hover::after,
-.cl-effect-3 a.cl-effect-3:focus::after {
+.cl-effect a.cl-effect:hover::before {
   opacity: 1;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px); }
+
+.cl-effect a.cl-effect.hidden::before {
+  display: none; }
+
+.cl-effect a.cl-effect.show::before {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  width: 30px;
+  height: 4px;
+  background: dimgrey;
+  content: '';
+  opacity: 1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
   -webkit-transform: translateY(0px);
   transform: translateY(0px); }
 
@@ -8842,16 +8922,20 @@ nav a:focus {
   .my-carousel .carousel-indicators {
     cursor: pointer;
     bottom: 35px; }
-  .my-carousel .carousel-control-prev-icon, .my-carousel .carousel-control-next-icon, .my-carousel .carousel-indicators {
+    .my-carousel .carousel-indicators li {
+      width: 50px; }
+  .my-carousel .fa.fa-angle-left, .my-carousel .fa.fa-angle-right, .my-carousel .carousel-indicators {
     opacity: 0;
-    -webkit-transition: visibility 0s linear 600ms, opacity 600ms;
-    transition: visibility 0s linear 600ms, opacity 600ms;
+    -webkit-transition: visibility 0s linear 400ms, opacity 400ms;
+    transition: visibility 0s linear 400ms, opacity 400ms;
     visibility: hidden; }
-  .my-carousel:hover .carousel-control-prev-icon, .my-carousel:hover .carousel-control-next-icon, .my-carousel:hover .carousel-indicators {
+  .my-carousel:hover .fa.fa-angle-left, .my-carousel:hover .fa.fa-angle-right, .my-carousel:hover .carousel-indicators {
     opacity: 1;
     -webkit-transition: visibility 0s linear 0s, opacity 200ms;
     transition: visibility 0s linear 0s, opacity 200ms;
     visibility: visible; }
+  .my-carousel .fa.fa-angle-left, .my-carousel .fa.fa-angle-right {
+    font-size: 4.125em; }
 
 .my-search {
   margin-top: -35px; }
@@ -8892,6 +8976,10 @@ nav a:focus {
     border-left: #dcdcdc solid 1px; }
     .my-search .search-box .search-btn:hover {
       cursor: pointer; }
+
+#shop-now {
+  position: relative;
+  bottom: 115px; }
 
 #return-to-top {
   position: fixed;

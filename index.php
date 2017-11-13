@@ -26,7 +26,7 @@
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					
 					<!-- navbar -->
-					<nav class="navbar fixed-top navbar-expand-lg cl-effect fake-cl-effect my-navbar">
+					<nav class="navbar fixed-top navbar-expand-md cl-effect fake-cl-effect my-navbar">
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>
@@ -47,7 +47,7 @@
 									<li class="nav-item dropdown mega-dropdown">
 										
 										<a class="nav-link cl-effect" href="https://google.com" id="specialtyInCity" role="button" aria-haspopup="true" aria-expanded="false">
-										Specialty in City
+										Specialty
 										</a>
 										
 										<div class="dropdown-menu mega-dropdown-menu" aria-labelledby="specialtyInCity">
@@ -61,26 +61,26 @@
 															<div class="col-md-6">
 																<a class="dropdown-header secondary-header" href="https://google.com">Alaminos</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Hipon</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Hipon</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Alcala</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Damit</a>																	</div>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Damit</a>																	</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Anda</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Sapatos</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Sapatos</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Aguilar</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Calamay</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 														</div>
@@ -93,47 +93,47 @@
 															<div class="col-md-6">
 																<a class="dropdown-header secondary-header" href="https://google.com">Bolinao</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Hipon</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Hipon</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Bugallon</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Damit</a>																	</div>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Damit</a>																	</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Binalonan</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Sapatos</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Sapatos</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Binmaley</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Calamay</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Burgos</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Calamay</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Basista</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Calamay</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 															<div class="col-md-6">
 																<a class="dropdown-header" href="#">Baustista</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Calamay</a>
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Isda</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Calamay</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Isda</a>
 																</div>
 															</div>
 														</div>
@@ -146,7 +146,7 @@
 															<div class="col-md-6">
 																<a class="dropdown-header secondary-header" href="https://google.com">Calasiao</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Puto</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Puto</a>
 																</div>
 															</div>
 														</div>
@@ -159,7 +159,7 @@
 															<div class="col-md-6">
 																<a class="dropdown-header secondary-header" href="https://google.com">Dagupan</a>
 																<div class="children">
-																	<a class="dropdown-item" href="#"><span class="fa fa-angle-right fa-fw"></span>Bangus</a>
+																	<a class="dropdown-item" href="#"><i class="fa fa-angle-right fa-fw"></i>Bangus</a>
 																</div>
 															</div>
 														</div>
@@ -186,7 +186,7 @@
 
 									<!-- ALL CATEGORIES -->
 									<li class="nav-item">
-										<a class="nav-link cl-effect" href="#">All Categories</a>
+										<a class="nav-link cl-effect" href="#shop-now">Shop Now</a>
 									</li>
 
 								</ul>
@@ -195,7 +195,10 @@
 							<!-- CART -->
 							<div class="nav-item right-nav dropdown">
 								<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-									<span class="fa fa-shopping-bag"></span>
+									<span class="fa-stack has-badge" data-count="1">
+									  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+									  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+									</span>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="cart">
 									<a class="dropdown-item" href="#">Action</a>
@@ -230,15 +233,16 @@
 							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Third slide" ></div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-							<span class="fa fa-angle-left" aria-hidden="true"></span>
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
 							<span class="sr-only">Previous</span>
 						</a>
 						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-							<span class="fa fa-angle-right" aria-hidden="true"></span>
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
-
+					
+					<div id="shop-now"></div>
 					<!-- search bar -->
 					<div class="container my-search">
 						<div class="row">
@@ -247,7 +251,7 @@
 									<form class="search-form">
 										<input class="form-control form-control-lg" placeholder="Search products" type="text">
 										<button class="btn btn-link search-btn">
-											<span><i class="fa fa-search"></i></span>
+											<i class="fa fa-search"></i>
 										</button>
 									</form>
 								</div>
