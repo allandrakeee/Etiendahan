@@ -26,11 +26,11 @@
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					
 					<!-- navbar -->
-					<nav class="navbar fixed-top navbar-expand-md cl-effect fake-cl-effect my-navbar">
+					<nav class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar">
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 
@@ -195,7 +195,7 @@
 							<!-- CART -->
 							<div class="nav-item right-nav dropdown">
 								<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-									<span class="fa-stack has-badge" data-count="1">
+									<span class="fa-stack has-badge" data-count="3">
 									  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
 									  <i class="fa fa-shopping-bag fa-stack-1x"></i>
 									</span>
@@ -212,10 +212,10 @@
 
 									<div class="item">
 										<div class="item-left">
-											<img src="http://lorempixel.com/50/50/" alt="" />
+											<img src="http://via.placeholder.com/50x50" alt="" />
 											<div class="item-info">
-												<span class="item-name">Item name</span>
-												<span class="item-price">₱1,000.00</span>
+												<div class="item-name">Item name</div>
+												<div class="item-price">₱1,000.00</div>
 											</div>
 										</div>
 										<div class="item-right">
@@ -225,10 +225,49 @@
 
 									<div class="item">
 										<div class="item-left">
-											<img src="http://lorempixel.com/50/50/" alt="" />
+											<img src="http://via.placeholder.com/50x50" alt="" />
 											<div class="item-info">
-												<span class="item-name">Item name</span>
-												<span class="item-price">₱500.00</span>
+												<div class="item-name">Item name</div>
+												<div class="item-price">₱500.00</div>
+											</div>
+										</div>
+										<div class="item-right">
+											<i class="fa fa-trash"></i>
+										</div>
+									</div>
+
+									<div class="item overlay">
+										<div class="item-left">
+											<img src="http://via.placeholder.com/50x50" alt="" />
+											<div class="item-info">
+												<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+												<div class="item-price">₱1,500.00</div>
+											</div>
+										</div>
+										<div class="item-right">
+											<i class="fa fa-trash"></i>
+										</div>
+									</div>
+
+									<div class="item">
+										<div class="item-left">
+											<img src="http://via.placeholder.com/50x50" alt="" />
+											<div class="item-info">
+												<div class="item-name">Item name</div>
+												<div class="item-price">₱500.00</div>
+											</div>
+										</div>
+										<div class="item-right">
+											<i class="fa fa-trash"></i>
+										</div>
+									</div>
+
+									<div class="item overlay">
+										<div class="item-left">
+											<img src="http://via.placeholder.com/50x50" alt="" />
+											<div class="item-info">
+												<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+												<div class="item-price">₱1,500.00</div>
 											</div>
 										</div>
 										<div class="item-right">
