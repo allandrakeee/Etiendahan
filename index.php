@@ -35,7 +35,7 @@
 						</button>
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<div class="container">
+							<div class="container-fluid">
 								<ul class="navbar-nav">
 
 									<!-- SELL ON ETIENDAHAN -->

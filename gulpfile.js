@@ -12,6 +12,7 @@ var gulp        = require('gulp'),
     prefix      = require('gulp-autoprefixer'),
     concat      = require('gulp-concat'),
     livereload  = require('gulp-livereload'),
+    htmlmin     = require('gulp-htmlmin'),
     beep        = require('beepbeep'),
     del         = require('del');
 
@@ -127,6 +128,22 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest("assets/fonts"));
 });
 
+// ================================ HTML minified Assets ================================
+
+/**
+ * Command: gulp html-min
+ * @description Find all php file in the project and minify
+ * before go to dist.
+ */
+gulp.task('html-min', function(){
+    return gulp.src(['*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/'));
+});
+
 // ================================ Watch Assets ================================
 
 /**
@@ -159,7 +176,7 @@ gulp.task('clear-dist', function () {
  * Command: gulp dist
  * @description Generates a clean theme for distribution
  */
-gulp.task('dist', ['clear-dist'], function() {
+gulp.task('dist', ['clear-dist', 'html-min'], function() {
     gulp.src([
         '**/*',
         '!assets-dev/',
@@ -187,6 +204,7 @@ gulp.task('dist', ['clear-dist'], function() {
         '!.travis.yml',
         '!jshintignore',
         '!codesniffer.ruleset.xml',
+        '!*.php',
         '*'
     ])
     .pipe(gulp.dest('dist/'))

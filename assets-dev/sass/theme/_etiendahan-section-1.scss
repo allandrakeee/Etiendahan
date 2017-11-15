@@ -520,7 +520,22 @@ nav a:focus {
 
 
 
-@media (max-width: 1200px) {
+// medias
+@media (min-width: 1200px) and (max-width: 1315px) {
+	.my-navbar {
+		.container-fluid {
+			padding: 0;
+
+			.nav-item {
+				.nav-link {
+				    padding: 0 12px !important;
+				}
+			}	
+		}
+	}
+}
+
+@media (max-width: 1199px) {
 	// nav
 	.my-navbar {
 		padding-right: 16px;
