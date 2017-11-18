@@ -39,12 +39,26 @@
 	    }
 
 	    &.right-nav {
-	    	width: 110px;
+	    	width: 120px;
 	    	border-left: 1px solid rgba(248,248,248,0.3);
 
 	    	a.nav-link {
 	    		text-align: center;
 	    		padding: 0 0;
+
+	    		&.nav-link {
+					text-align: center;
+	    			padding: 0 0;
+
+		    			.fa.fa-user-circle {
+		    			font-size: 24px;
+		    			vertical-align: middle;
+	    			    position: relative;
+						top: 2px;
+		    		}
+
+
+	    		}
 
 				// add badge
 				.fa-stack[data-count]:after{
@@ -91,7 +105,17 @@
 					vertical-align: middle;
 					padding: 10px 0 12px;
 					margin: 0;
+				    padding-top: 0 !important;
+				    font-style: italic;
 					font-family: 'Montserrat', sans-serif;
+				}
+
+				a {
+					font-family: 'Montserrat', sans-serif;
+					font-size: 12px;
+					line-height: 25px;
+					text-transform: uppercase;
+					color: dimgrey;
 				}
 	    	}
 	    }
@@ -159,11 +183,6 @@ nav.shrink {
 // Cart
 div.dropdown-menu.have-in-cart {
 	font-family: 'Montserrat', sans-serif;
-
-	p {
-		padding-top: 0 !important;
-		font-style: italic;
-	}
 
 	button {
 		cursor: pointer;
@@ -411,7 +430,7 @@ nav a:focus {
 
 
 
-/// carousel
+// carousel
 .my-carousel {
 	width: 100%;
 	height: 600px;
@@ -511,6 +530,7 @@ nav a:focus {
 
 
 
+
 // go to shop now
 #shop-now {
     position: relative;
@@ -523,7 +543,7 @@ nav a:focus {
 // medias
 @media (min-width: 1200px) and (max-width: 1315px) {
 	.my-navbar {
-		.container-fluid {
+		.container {
 			padding: 0;
 
 			.nav-item {
@@ -538,11 +558,132 @@ nav a:focus {
 @media (max-width: 1199px) {
 	// nav
 	.my-navbar {
-		padding-right: 16px;
+		
+		.nav-item {
+			height: 50px;
+
+			.nav-link {
+				line-height: 50px;
+				color: dimgrey !important;
+				border-bottom: #f6f6f6 solid 1px;
+
+				.fa.fa-shopping-bag, .fa.fa-user-circle {
+					color: #fff;
+				}
+			}
+
+			&.right-nav {
+				border: none;
+
+				&.dropdown {
+					height: 90px;
+					width: 80px;
+					border-left: 1px solid rgba(248, 248, 248, 0.3);
+				}
+
+				.nav-link {
+					width: 80px;
+					border: none;
+					line-height: 90px;
+					vertical-align: middle;
+					text-align: center;
+				}
+			}
+		}
+
+		.dropdown-menu {
+			top: 98% !important;
+		}
+
+		.custom-toggler {
+			height: 90px !important;
+			width: 80px;
+			padding: 0;
+			border: none;
+			border-left: 1px solid rgba(248, 248, 248, 0.3);
+		}
 	}
 
-	.custom-toggler {
-		height: 70px;
+	.navbar-collapse {
+		position: absolute;
+		width: 100%;
+		top: 90px;
+		right: 0;
+		left: 0;
+		background-color: #fff;
+		// padding: 10px 0;
+
+	}
+
+	// nav shink
+	nav.shrink {
+		
+		&.my-navbar {
+			
+			.nav-item {
+				height: 70px !important;
+
+				.nav-link {
+					height: 70px;
+					line-height: 70px;
+					color: dimgrey !important;
+					border-bottom: #f6f6f6 solid 1px;
+
+					.fa.fa-shopping-bag, .fa.fa-user-circle {
+						color: dimgrey;
+					}
+				}
+
+				&.right-nav {
+					border: none;
+
+					.nav-link {
+						border: none;
+					}
+
+					&.dropdown {
+						border-left: 1px solid #dcdcdc;
+					}
+				}
+			}	
+
+			.custom-toggler {
+				height: 70px !important;
+				line-height: 70px;
+				width: 80px;
+				padding: 0;
+				border: none;
+				border-left: 1px solid #dcdcdc;
+			}
+		}
+
+		.navbar-collapse {
+			position: absolute;
+			width: 100%;
+			top: 70px;
+			right: 0;
+			left: 0;
+			background-color: #fff;
+			// padding: 10px 0;
+
+		}
+	}
+
+
+
+
+	
+
+
+
+
+
+	.my-carousel {
+		height: 500px;
+
+		.carousel-item {
+			height: 500px;
+			max-height: 500px;
+		}
 	}
 }
-

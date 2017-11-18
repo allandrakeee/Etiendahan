@@ -8782,11 +8782,19 @@ a.text-dark:focus, a.text-dark:hover {
     .my-navbar .nav-item .dropdown-menu {
       top: 98%; }
     .my-navbar .nav-item.right-nav {
-      width: 110px;
+      width: 120px;
       border-left: 1px solid rgba(248, 248, 248, 0.3); }
       .my-navbar .nav-item.right-nav a.nav-link {
         text-align: center;
         padding: 0 0; }
+        .my-navbar .nav-item.right-nav a.nav-link.nav-link {
+          text-align: center;
+          padding: 0 0; }
+          .my-navbar .nav-item.right-nav a.nav-link.nav-link .fa.fa-user-circle {
+            font-size: 24px;
+            vertical-align: middle;
+            position: relative;
+            top: 2px; }
         .my-navbar .nav-item.right-nav a.nav-link .fa-stack[data-count]:after {
           position: absolute;
           top: 0;
@@ -8825,7 +8833,15 @@ a.text-dark:focus, a.text-dark:hover {
           vertical-align: middle;
           padding: 10px 0 12px;
           margin: 0;
+          padding-top: 0 !important;
+          font-style: italic;
           font-family: 'Montserrat', sans-serif; }
+        .my-navbar .nav-item.right-nav .dropdown-menu a {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 12px;
+          line-height: 25px;
+          text-transform: uppercase;
+          color: dimgrey; }
   .my-navbar .custom-toggler {
     height: 90px; }
     .my-navbar .custom-toggler:focus {
@@ -8856,9 +8872,6 @@ nav.shrink {
 
 div.dropdown-menu.have-in-cart {
   font-family: 'Montserrat', sans-serif; }
-  div.dropdown-menu.have-in-cart p {
-    padding-top: 0 !important;
-    font-style: italic; }
   div.dropdown-menu.have-in-cart button {
     cursor: pointer;
     margin: 12px 10px 0 0;
@@ -9107,11 +9120,82 @@ nav a:focus {
   position: relative;
   bottom: 115px; }
 
-@media (max-width: 1200px) {
-  .my-navbar {
-    padding-right: 16px; }
-  .custom-toggler {
-    height: 70px; } }
+@media (min-width: 1200px) and (max-width: 1315px) {
+  .my-navbar .container {
+    padding: 0; }
+    .my-navbar .container .nav-item .nav-link {
+      padding: 0 12px !important; } }
+
+@media (max-width: 1199px) {
+  .my-navbar .nav-item {
+    height: 50px; }
+    .my-navbar .nav-item .nav-link {
+      line-height: 50px;
+      color: dimgrey !important;
+      border-bottom: #f6f6f6 solid 1px; }
+      .my-navbar .nav-item .nav-link .fa.fa-shopping-bag, .my-navbar .nav-item .nav-link .fa.fa-user-circle {
+        color: #fff; }
+    .my-navbar .nav-item.right-nav {
+      border: none; }
+      .my-navbar .nav-item.right-nav.dropdown {
+        height: 90px;
+        width: 80px;
+        border-left: 1px solid rgba(248, 248, 248, 0.3); }
+      .my-navbar .nav-item.right-nav .nav-link {
+        width: 80px;
+        border: none;
+        line-height: 90px;
+        vertical-align: middle;
+        text-align: center; }
+  .my-navbar .dropdown-menu {
+    top: 98% !important; }
+  .my-navbar .custom-toggler {
+    height: 90px !important;
+    width: 80px;
+    padding: 0;
+    border: none;
+    border-left: 1px solid rgba(248, 248, 248, 0.3); }
+  .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    top: 90px;
+    right: 0;
+    left: 0;
+    background-color: #fff; }
+  nav.shrink.my-navbar .nav-item {
+    height: 70px !important; }
+    nav.shrink.my-navbar .nav-item .nav-link {
+      height: 70px;
+      line-height: 70px;
+      color: dimgrey !important;
+      border-bottom: #f6f6f6 solid 1px; }
+      nav.shrink.my-navbar .nav-item .nav-link .fa.fa-shopping-bag, nav.shrink.my-navbar .nav-item .nav-link .fa.fa-user-circle {
+        color: dimgrey; }
+    nav.shrink.my-navbar .nav-item.right-nav {
+      border: none; }
+      nav.shrink.my-navbar .nav-item.right-nav .nav-link {
+        border: none; }
+      nav.shrink.my-navbar .nav-item.right-nav.dropdown {
+        border-left: 1px solid #dcdcdc; }
+  nav.shrink.my-navbar .custom-toggler {
+    height: 70px !important;
+    line-height: 70px;
+    width: 80px;
+    padding: 0;
+    border: none;
+    border-left: 1px solid #dcdcdc; }
+  nav.shrink .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0;
+    left: 0;
+    background-color: #fff; }
+  .my-carousel {
+    height: 500px; }
+    .my-carousel .carousel-item {
+      height: 500px;
+      max-height: 500px; } }
 
 #return-to-top {
   position: fixed;

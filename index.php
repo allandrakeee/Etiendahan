@@ -30,12 +30,16 @@
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>
-						<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
+						
+						<!-- right nav -->
+						<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarRightContent" aria-controls="navbarRightContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="fa fa-trash"></span>
+						</button> -->
 
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<div class="container-fluid">
+						
+
+						<div class="collapse navbar-collapse" id="navbarCenterContent">
+							<div class="container">
 								<ul class="navbar-nav">
 
 									<!-- SELL ON ETIENDAHAN -->
@@ -188,107 +192,125 @@
 									<li class="nav-item">
 										<a class="nav-link cl-effect" href="#shop-now">Shop Now</a>
 									</li>
-
 								</ul>
 							</div>
 
-							<!-- CART -->
-							<div class="nav-item right-nav dropdown">
-								<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-									<span class="fa-stack has-badge" data-count="3">
-									  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-									  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-									</span>
-								</a>
+							
+						</div>
+								<div class="ml-auto d-flex">
+									<!-- CART -->
+									<div class="nav-item right-nav dropdown" id="cart">
+										<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+											<span class="fa-stack has-badge" data-count="3">
+											  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+											  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+											</span>
+										</a>
 
-								<!-- No items in the cart -->
-								<!-- <div class="dropdown-menu" aria-labelledby="cart">
-									<p>You have no items in your shopping cart.</p>
+										<!-- No items in the cart -->
+										<!-- <div class="dropdown-menu" aria-labelledby="cart">
+											<p>You have no items in your shopping cart.</p>
+										</div> -->
+
+										<!-- Have items in the cart -->
+										<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+											<p>Recently Added Products</p>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">₱1,000.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">₱500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item overlay">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+														<div class="item-price">₱1,500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">₱500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item overlay">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+														<div class="item-price">₱1,500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<button type="button" class="btn btn-dark">View Cart</button>
+										</div>
+									</div>
+
+									<div class="nav-item right-nav dropdown" id="user-account">
+										<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="fa fa-user-circle"></i>
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<p>Howdie.</p>
+
+											<a class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Log in</a>
+											<a class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Create an account</a>
+										</div>
+									</div>
+								</div>
+							
+								<!-- Sign Up -->
+								<!-- <div class="nav-item right-nav">
+									<a class="nav-link" href="#">Sign Up</a>
 								</div> -->
 
-								<!-- Have items in the cart -->
-								<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-									<p>Recently Added Products</p>
+								<!-- Login -->
+								<!-- <div class="nav-item right-nav">
+									<a class="nav-link" href="#">Login</a>
+								</div> -->
 
-									<div class="item">
-										<div class="item-left">
-											<img src="http://via.placeholder.com/50x50" alt="" />
-											<div class="item-info">
-												<div class="item-name">Item name</div>
-												<div class="item-price">₱1,000.00</div>
-											</div>
-										</div>
-										<div class="item-right">
-											<i class="fa fa-trash"></i>
-										</div>
-									</div>
-
-									<div class="item">
-										<div class="item-left">
-											<img src="http://via.placeholder.com/50x50" alt="" />
-											<div class="item-info">
-												<div class="item-name">Item name</div>
-												<div class="item-price">₱500.00</div>
-											</div>
-										</div>
-										<div class="item-right">
-											<i class="fa fa-trash"></i>
-										</div>
-									</div>
-
-									<div class="item overlay">
-										<div class="item-left">
-											<img src="http://via.placeholder.com/50x50" alt="" />
-											<div class="item-info">
-												<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-												<div class="item-price">₱1,500.00</div>
-											</div>
-										</div>
-										<div class="item-right">
-											<i class="fa fa-trash"></i>
-										</div>
-									</div>
-
-									<div class="item">
-										<div class="item-left">
-											<img src="http://via.placeholder.com/50x50" alt="" />
-											<div class="item-info">
-												<div class="item-name">Item name</div>
-												<div class="item-price">₱500.00</div>
-											</div>
-										</div>
-										<div class="item-right">
-											<i class="fa fa-trash"></i>
-										</div>
-									</div>
-
-									<div class="item overlay">
-										<div class="item-left">
-											<img src="http://via.placeholder.com/50x50" alt="" />
-											<div class="item-info">
-												<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-												<div class="item-price">₱1,500.00</div>
-											</div>
-										</div>
-										<div class="item-right">
-											<i class="fa fa-trash"></i>
-										</div>
-									</div>
-
-									<button type="button" class="btn btn-dark">View Cart</button>
-								</div>
-							</div>
-
-							<!-- Sign Up -->
-							<div class="nav-item right-nav">
-								<a class="nav-link" href="#">Sign Up</a>
-							</div>
-
-							<!-- Login -->
-							<div class="nav-item right-nav">
-								<a class="nav-link" href="#">Login</a>
-							</div>
-						</div>
+								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
 					</nav>
 
 					<!-- carousel -->

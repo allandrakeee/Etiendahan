@@ -33,6 +33,7 @@ gulp.task('styles', function(){
     return gulp.src([
         'node_modules/bootstrap/scss/bootstrap.scss', 
         'node_modules/font-awesome/scss/font-awesome.scss',
+        'node_modules/animate.css/animate.css',
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -56,6 +57,7 @@ gulp.task('styles-min', function(){
  return gulp.src([
      'node_modules/bootstrap/scss/bootstrap.scss', 
      'node_modules/font-awesome/scss/font-awesome.scss', 
+     'node_modules/animate.css/animate.css',
      'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -153,7 +155,7 @@ gulp.task('html-min', function(){
  */
 gulp.task('watch', ['styles', 'scripts'], function(){
     livereload.listen();
-    gulp.watch(['assets-dev/sass/**/*.scss', 'assets/css/'], ['styles']);
+    gulp.watch(['node_modules/animate.css/animate.css', 'assets-dev/sass/**/*.scss', 'assets/css/'], ['styles']);
     gulp.watch(['assets-dev/js/*.js', 'assets/js'], ['scripts']);
     gulp.watch('*.php').on('change', function(file) {
         livereload.changed(file.path);
