@@ -54,7 +54,6 @@
 		    			font-size: 24px;
 		    			vertical-align: middle;
 	    			    position: relative;
-						top: 2px;
 		    		}
 
 
@@ -63,7 +62,7 @@
 				// add badge
 				.fa-stack[data-count]:after{
 					position: absolute;
-    				top: 0;
+					top: 0;
     				left: 16px;
 					content: attr(data-count);
 					font-size: 10px;
@@ -110,12 +109,21 @@
 					font-family: 'Montserrat', sans-serif;
 				}
 
-				a {
+				.dropdown-item {
 					font-family: 'Montserrat', sans-serif;
 					font-size: 12px;
 					line-height: 25px;
 					text-transform: uppercase;
 					color: dimgrey;
+
+					&:hover, &:focus {
+						background-color: #f8f8f8;
+						cursor: pointer;
+					}
+
+					&:active {
+						background-color: transparent;
+					}
 				}
 	    	}
 	    }
@@ -569,7 +577,18 @@ nav a:focus {
 
 				.fa.fa-shopping-bag, .fa.fa-user-circle {
 					color: #fff;
+					width: 80px;
+					height: 90px;
+					line-height: 90px;
+
+					&:hover, &:focus {
+						color: rgba(255,255,255,0.8);
+				    }
 				}
+
+				&:active {
+			    	color: dimgrey !important;
+			    }
 			}
 
 			&.right-nav {
@@ -587,6 +606,16 @@ nav a:focus {
 					line-height: 90px;
 					vertical-align: middle;
 					text-align: center;
+				}
+
+				.fa-stack[data-count]:after{
+					top: 31px !important;
+					left: 44px !important;
+				}
+
+				.fa-stack {
+					display: block;
+					
 				}
 			}
 		}
@@ -621,24 +650,34 @@ nav a:focus {
 		&.my-navbar {
 			
 			.nav-item {
-				height: 70px !important;
+				height: 50px !important;
 
 				.nav-link {
-					height: 70px;
-					line-height: 70px;
+					height: 50px;
+					line-height: 50px;
 					color: dimgrey !important;
 					border-bottom: #f6f6f6 solid 1px;
 
 					.fa.fa-shopping-bag, .fa.fa-user-circle {
+						height: 70px;
+						line-height: 70px;
 						color: dimgrey;
 					}
 				}
 
 				&.right-nav {
+					height: 70px !important;
 					border: none;
 
 					.nav-link {
+						height: 70px;
+						line-height: 70px;
 						border: none;
+					}
+
+					// add badge
+					.fa-stack[data-count]:after{
+						top: 22px !important;
 					}
 
 					&.dropdown {
@@ -669,14 +708,9 @@ nav a:focus {
 		}
 	}
 
-
-
-
-	
-
-
-
-
+	.invisible {
+		display: none;
+	}
 
 	.my-carousel {
 		height: 500px;

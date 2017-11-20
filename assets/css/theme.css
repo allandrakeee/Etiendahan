@@ -11107,9 +11107,6 @@ a.text-dark:focus, a.text-dark:hover {
 ul.navbar-nav li.dropdown .dropdown-menu {
   -webkit-animation-duration: 0.2s; }
 
-.visible {
-  display: block !important; }
-
 .brand-primary-bg {
   background-color: #292954; }
 
@@ -11165,8 +11162,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           .my-navbar .nav-item.right-nav a.nav-link.nav-link .fa.fa-user-circle {
             font-size: 24px;
             vertical-align: middle;
-            position: relative;
-            top: 2px; }
+            position: relative; }
         .my-navbar .nav-item.right-nav a.nav-link .fa-stack[data-count]:after {
           position: absolute;
           top: 0;
@@ -11208,12 +11204,17 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           padding-top: 0 !important;
           font-style: italic;
           font-family: 'Montserrat', sans-serif; }
-        .my-navbar .nav-item.right-nav .dropdown-menu a {
+        .my-navbar .nav-item.right-nav .dropdown-menu .dropdown-item {
           font-family: 'Montserrat', sans-serif;
           font-size: 12px;
           line-height: 25px;
           text-transform: uppercase;
           color: dimgrey; }
+          .my-navbar .nav-item.right-nav .dropdown-menu .dropdown-item:hover, .my-navbar .nav-item.right-nav .dropdown-menu .dropdown-item:focus {
+            background-color: #f8f8f8;
+            cursor: pointer; }
+          .my-navbar .nav-item.right-nav .dropdown-menu .dropdown-item:active {
+            background-color: transparent; }
   .my-navbar .custom-toggler {
     height: 90px; }
     .my-navbar .custom-toggler:focus {
@@ -11506,7 +11507,14 @@ nav a:focus {
       color: dimgrey !important;
       border-bottom: #f6f6f6 solid 1px; }
       .my-navbar .nav-item .nav-link .fa.fa-shopping-bag, .my-navbar .nav-item .nav-link .fa.fa-user-circle {
-        color: #fff; }
+        color: #fff;
+        width: 80px;
+        height: 90px;
+        line-height: 90px; }
+        .my-navbar .nav-item .nav-link .fa.fa-shopping-bag:hover, .my-navbar .nav-item .nav-link .fa.fa-shopping-bag:focus, .my-navbar .nav-item .nav-link .fa.fa-user-circle:hover, .my-navbar .nav-item .nav-link .fa.fa-user-circle:focus {
+          color: rgba(255, 255, 255, 0.8); }
+      .my-navbar .nav-item .nav-link:active {
+        color: dimgrey !important; }
     .my-navbar .nav-item.right-nav {
       border: none; }
       .my-navbar .nav-item.right-nav.dropdown {
@@ -11519,6 +11527,11 @@ nav a:focus {
         line-height: 90px;
         vertical-align: middle;
         text-align: center; }
+      .my-navbar .nav-item.right-nav .fa-stack[data-count]:after {
+        top: 31px !important;
+        left: 44px !important; }
+      .my-navbar .nav-item.right-nav .fa-stack {
+        display: block; }
   .my-navbar .dropdown-menu {
     top: 98% !important; }
   .my-navbar .custom-toggler {
@@ -11535,18 +11548,25 @@ nav a:focus {
     left: 0;
     background-color: #fff; }
   nav.shrink.my-navbar .nav-item {
-    height: 70px !important; }
+    height: 50px !important; }
     nav.shrink.my-navbar .nav-item .nav-link {
-      height: 70px;
-      line-height: 70px;
+      height: 50px;
+      line-height: 50px;
       color: dimgrey !important;
       border-bottom: #f6f6f6 solid 1px; }
       nav.shrink.my-navbar .nav-item .nav-link .fa.fa-shopping-bag, nav.shrink.my-navbar .nav-item .nav-link .fa.fa-user-circle {
+        height: 70px;
+        line-height: 70px;
         color: dimgrey; }
     nav.shrink.my-navbar .nav-item.right-nav {
+      height: 70px !important;
       border: none; }
       nav.shrink.my-navbar .nav-item.right-nav .nav-link {
+        height: 70px;
+        line-height: 70px;
         border: none; }
+      nav.shrink.my-navbar .nav-item.right-nav .fa-stack[data-count]:after {
+        top: 22px !important; }
       nav.shrink.my-navbar .nav-item.right-nav.dropdown {
         border-left: 1px solid #dcdcdc; }
   nav.shrink.my-navbar .custom-toggler {
@@ -11563,6 +11583,8 @@ nav a:focus {
     right: 0;
     left: 0;
     background-color: #fff; }
+  .invisible {
+    display: none; }
   .my-carousel {
     height: 500px; }
     .my-carousel .carousel-item {

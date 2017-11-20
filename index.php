@@ -286,14 +286,14 @@
 									</div>
 
 									<div class="nav-item right-nav dropdown" id="user-account">
-										<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
 											<i class="fa fa-user-circle"></i>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<p>Howdie.</p>
 
-											<a class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Log in</a>
-											<a class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Create an account</a>
+											<div class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Log in</div>
+											<div class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Create an account</div>
 										</div>
 									</div>
 								</div>
@@ -314,12 +314,12 @@
 					</nav>
 
 					<!-- carousel -->
-					<div id="carouselExampleIndicators" class="carousel slide my-carousel" data-ride="carousel">
+					<div id="etiendahanCarouselIndicators" class="carousel slide my-carousel" data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+							<li data-target="#etiendahanCarouselIndicators" data-slide-to="0" class="active"></li>
+							<li data-target="#etiendahanCarouselIndicators" data-slide-to="1"></li>
+							<li data-target="#etiendahanCarouselIndicators" data-slide-to="2"></li>
+							<li data-target="#etiendahanCarouselIndicators" data-slide-to="3"></li>
 						</ol>
 						<div class="carousel-inner">
 							<div class="carousel-item active" draggable="false" style="background-image: url(https://cdn.shopify.com/s/files/1/0998/0122/files/ico_slide_1_b9b255c6-a8d0-49ac-add0-9e94c0039e4c.jpg?v=1490971377);" alt="First slide" ></div>
@@ -327,11 +327,11 @@
 							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1200x480);" alt="Third slide" ></div>
 							<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Fourth slide" ></div>
 						</div>
-						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
 							<i class="fa fa-angle-left" aria-hidden="true"></i>
 							<span class="sr-only">Previous</span>
 						</a>
-						<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<a class="carousel-control-next" href="#etiendahanCarouselIndicators" role="button" data-slide="next">
 							<i class="fa fa-angle-right" aria-hidden="true"></i>
 							<span class="sr-only">Next</span>
 						</a>
