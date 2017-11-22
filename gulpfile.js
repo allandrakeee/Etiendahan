@@ -34,6 +34,7 @@ gulp.task('styles', function(){
         'node_modules/bootstrap/scss/bootstrap.scss', 
         'node_modules/font-awesome/scss/font-awesome.scss',
         'node_modules/animate.css/animate.css',
+        'node_modules/owl.carousel/dist/assets/owl.carousel.css',
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -55,10 +56,11 @@ gulp.task('styles', function(){
  */
 gulp.task('styles-min', function(){
  return gulp.src([
-     'node_modules/bootstrap/scss/bootstrap.scss', 
-     'node_modules/font-awesome/scss/font-awesome.scss', 
-     'node_modules/animate.css/animate.css',
-     'assets-dev/sass/*.scss'
+        'node_modules/bootstrap/scss/bootstrap.scss', 
+        'node_modules/font-awesome/scss/font-awesome.scss', 
+        'node_modules/animate.css/animate.css',
+        'node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
     .pipe(sass())
@@ -87,6 +89,8 @@ gulp.task('scripts', function(){
         'node_modules/bootstrap/dist/js/bootstrap.js', 
         'node_modules/tether/dist/js/tether.js', 
         'node_modules/hammerjs/hammer.js', 
+        'node_modules/owl.carousel/dist/owl.carousel.js',
+        'node_modules/jquery-mousewheel/jquery.mousewheel.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
@@ -109,6 +113,9 @@ gulp.task('scripts-min', function(){
         'node_modules/popper/dist/umd/popper.js', 
         'node_modules/bootstrap/dist/js/bootstrap.js', 
         'node_modules/tether/dist/js/tether.js', 
+        'node_modules/hammerjs/hammer.js', 
+        'node_modules/owl.carousel/dist/owl.carousel.js',
+        'node_modules/jquery-mousewheel/jquery.mousewheel.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
