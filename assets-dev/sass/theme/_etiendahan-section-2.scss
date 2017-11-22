@@ -1,0 +1,124 @@
+#etiendahan-section-2 {
+	font-family: 'Montserrat', sans-serif;
+
+	&:focus {
+		outline: none;
+	}
+	
+	.col-md-2 {
+		border-right: #dcdcdc solid 1px;
+		margin-bottom: 20px;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		.my-gallery-inner:hover .zoom{
+			-webkit-transition: all 200ms ease-in;
+		    -webkit-transform: scale(1.2);
+		    -ms-transition: all 200ms ease-in;
+		    -ms-transform: scale(1.2);   
+		    -moz-transition: all 200ms ease-in;
+		    -moz-transform: scale(1.2);
+		    transition: all 200ms ease-in;
+		    transform: scale(1.2);
+		}
+
+		.my-gallery-inner {
+			text-decoration: none;
+			
+			&:focus {
+				outline: none;
+			}
+
+			.category-image {
+				padding: 25px;
+
+				.zoom {
+				width: 110px;
+				height: 110px;
+				background-repeat: no-repeat;
+				background-position: center center;
+
+
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				-ms-transition: all 0.3s ease;
+				transition: all 0.3s sease;
+				}
+				 
+				.zoom:hover {
+					-webkit-transition: all 200ms ease-in;
+				    -webkit-transform: scale(1.2);
+				    -ms-transition: all 200ms ease-in;
+				    -ms-transform: scale(1.2);   
+				    -moz-transition: all 200ms ease-in;
+				    -moz-transform: scale(1.2);
+				    transition: all 200ms ease-in;
+				    transform: scale(1.2);
+				}
+
+				.zoom.show {
+					-webkit-transition: all 200ms ease-in;
+				    -webkit-transform: scale(1.2);
+				    -ms-transition: all 200ms ease-in;
+				    -ms-transform: scale(1.2);   
+				    -moz-transition: all 200ms ease-in;
+				    -moz-transform: scale(1.2);
+				    transition: all 200ms ease-in;
+				    transform: scale(1.2);
+				}
+
+				.zoom.hide {
+				width: 110px;
+				height: 110px;
+
+
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				-ms-transition: all 0.3s ease;
+				transition: all 0.3s sease;
+				}
+			}
+
+			.category-name {
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.2em;
+				color: #333333;
+			}
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Media
+@media (max-width: 1199px) {
+	#etiendahan-section-2 {
+		.col-md-2 {
+			.my-gallery-inner {
+				.category-image {
+					padding: 12px;
+
+					.zoom {
+					    // height: 100px !important;
+					}
+				}
+			}
+		}
+	}
+}

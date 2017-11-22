@@ -104,8 +104,7 @@ if(window.innerWidth <= 1199)
 });
 
  $(window).resize(function(){
-    if(window.innerWidth <= 1199)
-    {
+    if(window.innerWidth <= 1199) {
         $("nav.my-navbar .container").addClass('container-fluid');
         $("nav.my-navbar .container").removeClass('container');
 
@@ -124,8 +123,7 @@ if(window.innerWidth <= 1199)
 		}, function() {
 			$(this).find('.dropdown-menu').removeClass('invisible');
 		});
-    }else
-    {
+    } else {
         $("nav.my-navbar .container-fluid").addClass('container');
         $("nav.my-navbar .container-fluid").removeClass('container-fluid');
 
@@ -144,3 +142,34 @@ if(window.innerWidth <= 1199)
 }); 
 
 // ============ END OF SECTION 1 ============
+
+
+
+
+
+
+
+
+
+
+// ============ SECTION 2 ============
+// $('#etiendahan-section-2 .my-gallery-inner').hover(function(e) {
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image').addClass('active');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('hide');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('show');
+// }, function() {
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('show');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('hide');
+// });
+
+
+
+
+
+
+
+
+
+
+
+// ============ END OF SECTION 2 ============
