@@ -20997,6 +20997,16 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 	}, 500);
 });
 
+// Nav shink @ SECTION 1 priority
+$(window).scroll(function(){
+	if($(document).scrollTop() > 20) {
+		$('nav').addClass('shrink');
+	}
+	else {
+		$('nav').removeClass('shrink');
+	}
+});
+
 // Smooth scrolling navigation
 $(document).ready(function(){
 	$('.navbar-nav li a').click(function() {
@@ -21017,18 +21027,8 @@ $(document).ready(function(){
 
 // ============ SECTION 1 ============
 
-// Nav shink
-$(window).scroll(function(){
-	if($(document).scrollTop() > 20) {
-		$('nav').addClass('shrink');
-	}
-	else {
-		$('nav').removeClass('shrink');
-	}
-});
-
 // Touch enabled in carousel
-var el = document.getElementById('carouselExampleIndicators');
+var el = document.getElementById('etiendahanCarouselIndicators');
 
 Hammer(el).on("swipeleft", function () {
 	$(el).carousel('next')
@@ -21088,8 +21088,7 @@ if(window.innerWidth <= 1199)
 });
 
  $(window).resize(function(){
-    if(window.innerWidth <= 1199)
-    {
+    if(window.innerWidth <= 1199) {
         $("nav.my-navbar .container").addClass('container-fluid');
         $("nav.my-navbar .container").removeClass('container');
 
@@ -21108,8 +21107,7 @@ if(window.innerWidth <= 1199)
 		}, function() {
 			$(this).find('.dropdown-menu').removeClass('invisible');
 		});
-    }else
-    {
+    } else {
         $("nav.my-navbar .container-fluid").addClass('container');
         $("nav.my-navbar .container-fluid").removeClass('container-fluid');
 
@@ -21128,3 +21126,34 @@ if(window.innerWidth <= 1199)
 }); 
 
 // ============ END OF SECTION 1 ============
+
+
+
+
+
+
+
+
+
+
+// ============ SECTION 2 ============
+// $('#etiendahan-section-2 .my-gallery-inner').hover(function(e) {
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image').addClass('active');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('hide');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('show');
+// }, function() {
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('show');
+// 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('hide');
+// });
+
+
+
+
+
+
+
+
+
+
+
+// ============ END OF SECTION 2 ============

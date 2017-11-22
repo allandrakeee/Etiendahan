@@ -359,13 +359,13 @@
 				<!-- SECTION 2 -->
 				<div id="etiendahan-section-2" class="etiendahan-section">
 					<div class="container">
-						<h1 class="my-4 text-center text-lg-left">CATEGORIES</h1>
-
+						<!-- <h1 class="my-4 text-center text-lg-left">CATEGORIES</h1> -->
+						<div class="m-4"></div>
 					 	<div class="row text-center text-lg-left">
 					        <div class="col-md-2 col-sm-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/7f49f8b96c9a8a58fcf5da969f8ef21c_tn);"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Men's Apparel
@@ -376,7 +376,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/07d9c7480a1d474f46c472a6684c65a5_tn);"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Mobiles & Gadgets

@@ -11140,7 +11140,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       padding-bottom: 0px;
       padding: 0 20px;
       color: #fff;
-      font-size: 0.750em;
+      font-size: 0.750rem;
       font-weight: 600;
       letter-spacing: 0.2em;
       font-family: 'Montserrat', sans-serif; }
@@ -11160,7 +11160,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           text-align: center;
           padding: 0 0; }
           .my-navbar .nav-item.right-nav a.nav-link.nav-link .fa.fa-user-circle {
-            font-size: 24px;
+            font-size: 1.500rem;
             vertical-align: middle;
             position: relative; }
         .my-navbar .nav-item.right-nav a.nav-link .fa-stack[data-count]:after {
@@ -11168,7 +11168,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           top: 0;
           left: 16px;
           content: attr(data-count);
-          font-size: 10px;
+          font-size: 0.625rem;
           padding-left: 9px !important;
           padding: .6em;
           border-radius: 999px;
@@ -11180,7 +11180,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           font-weight: bold; }
         .my-navbar .nav-item.right-nav a.nav-link .fa.fa-shopping-bag {
           position: relative;
-          font-size: 20px;
+          font-size: 1.250rem;
           vertical-align: middle; }
       .my-navbar .nav-item.right-nav .dropdown-menu {
         width: 400px !important;
@@ -11195,18 +11195,18 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         right: 0;
         left: auto; }
         .my-navbar .nav-item.right-nav .dropdown-menu p {
-          font-size: 14px;
+          font-size: 0.875rem;
           line-height: 24px;
           text-align: center;
           vertical-align: middle;
           padding: 10px 0 12px;
           margin: 0;
-          padding-top: 0 !important;
+          padding-top: 8px !important;
           font-style: italic;
           font-family: 'Montserrat', sans-serif; }
         .my-navbar .nav-item.right-nav .dropdown-menu .dropdown-item {
           font-family: 'Montserrat', sans-serif;
-          font-size: 12px;
+          font-size: 0.750rem;
           line-height: 25px;
           text-transform: uppercase;
           color: dimgrey; }
@@ -11250,7 +11250,7 @@ div.dropdown-menu.have-in-cart {
     margin: 12px 10px 0 0;
     float: right;
     border-radius: 0;
-    font-size: 12px;
+    font-size: 0.750rem;
     font-weight: bold;
     letter-spacing: 1px;
     color: #fff;
@@ -11297,7 +11297,7 @@ div.dropdown-menu.have-in-cart .item-left .item-info {
 div.dropdown-menu.have-in-cart .item-left .item-info {
   margin: 6px 0 0 10px; }
   div.dropdown-menu.have-in-cart .item-left .item-info .item-name {
-    font-size: 13px;
+    font-size: 0.813rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     color: dimgrey; }
@@ -11308,10 +11308,10 @@ div.dropdown-menu.have-in-cart .item-left .item-info {
       color: #fff;
       background-color: dimgrey;
       padding: 2px 5px;
-      font-size: 11px;
+      font-size: 0.688rem;
       font-weight: normal; }
   div.dropdown-menu.have-in-cart .item-left .item-info .item-price {
-    font-size: 12px;
+    font-size: 0.750rem;
     font-weight: normal;
     letter-spacing: 0.03em;
     color: #777777; }
@@ -11343,10 +11343,10 @@ div.dropdown-menu.have-in-cart .item-right i {
     color: #9aa7af !important;
     font-family: 'Montserrat', sans-serif; }
   .mega-dropdown-menu a.primary-header {
-    font-size: 13px;
+    font-size: 0.813rem;
     font-weight: 600; }
   .mega-dropdown-menu a.secondary-header {
-    font-size: 12px;
+    font-size: 0.750rem;
     letter-spacing: 0.1em; }
   .mega-dropdown-menu a.dropdown-header {
     padding: 6px 0;
@@ -11355,7 +11355,7 @@ div.dropdown-menu.have-in-cart .item-right i {
       color: dimgrey !important; }
   .mega-dropdown-menu a.dropdown-item {
     padding: 6px 0;
-    font-size: 12px;
+    font-size: 0.750rem;
     letter-spacing: 0.1em; }
     .mega-dropdown-menu a.dropdown-item:hover {
       color: dimgrey !important;
@@ -11447,7 +11447,7 @@ nav a:focus {
     transition: visibility 0s linear 0s, opacity 200ms;
     visibility: visible; }
   .my-carousel .fa.fa-angle-left, .my-carousel .fa.fa-angle-right {
-    font-size: 4.125em; }
+    font-size: 4.125rem; }
 
 .my-search {
   margin-top: -35px; }
@@ -11471,7 +11471,7 @@ nav a:focus {
     background: transparent;
     height: 55px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.125em;
+    font-size: 1.125rem;
     line-height: 56px; }
   .my-search .search-box input[type=text]:hover, .my-search .search-box input[type=text]:focus, .my-search .search-box input[type=text]:active {
     -webkit-box-shadow: none;
@@ -11482,7 +11482,7 @@ nav a:focus {
     top: 2px;
     color: dimgrey;
     border-radius: 3px;
-    font-size: 1.563em;
+    font-size: 1.563rem;
     padding: 8px 15px 8px;
     margin: 5px 0;
     border-left: #dcdcdc solid 1px; }
@@ -11620,6 +11620,7 @@ nav a:focus {
           height: 110px;
           background-repeat: no-repeat;
           background-position: center center;
+          background-size: cover;
           -webkit-transition: all 0.3s ease;
           -webkit-transition: all 0.3s sease;
           transition: all 0.3s sease; }
