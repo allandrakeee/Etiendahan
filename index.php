@@ -497,7 +497,7 @@
 					        </div>
 			      		</div>
 
-			      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	
+			      		<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	 -->
 		      		</div>
 				</div>
 				<!-- END OF SECTION 2 -->
@@ -507,20 +507,152 @@
 				<div id="etiendahan-section-3" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
-							<h3>Popular Products</h3>
+							<h3><span>Popular Products</span></h3>
 						</div>
 						<div class="owl-carousel">
-							<div class="item"><h4>1</h4></div>
-							<div class="item"><h4>2</h4></div>
-							<div class="item"><h4>3</h4></div>
-							<div class="item"><h4>4</h4></div>
-							<div class="item"><h4>5</h4></div>
-							<div class="item"><h4>6</h4></div>
-							<div class="item"><h4>7</h4></div>
-							<div class="item"><h4>8</h4></div>
-							<div class="item"><h4>9</h4></div>
-							<div class="item"><h4>10</h4></div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn);"></div>
+										<div class="card-body">
+											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn);"></div>
+										<div class="card-body">
+											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-body">
+											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="item-price">₱150.00</div>
+											<div class="item-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
 						</div>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima atque, voluptas, alias recusandae repellendus expedita at impedit enim pariatur veniam dicta velit est, optio officia similique in aut! Rerum sunt excepturi a voluptas accusamus mollitia natus nobis eius, obcaecati praesentium consectetur, dolore reiciendis aliquid cumque ipsa veritatis. Voluptatibus, laudantium consequuntur harum. Fugit unde mollitia consectetur facere magni? Perferendis nisi, excepturi sapiente suscipit magni illo. Omnis molestiae molestias tempora facilis cumque provident nulla illo laboriosam asperiores quis quia eveniet accusantium, in commodi repellendus adipisci ut magni cupiditate repudiandae error quidem esse quae suscipit nesciunt. Fugit, non similique sequi commodi asperiores atque.</p>
 					</div>
 				</div>
 				<!-- END OF SECTION 3 -->

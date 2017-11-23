@@ -23795,7 +23795,7 @@ if (typeof define === 'function' && define.amd) {
 	 */
 	Navigation.Defaults = {
 		nav: false,
-		navText: [ 'prev', 'next' ],
+		navText: [ '<span class="arrow-wrapper"><i class="fa fa-long-arrow-left"></i></span>', '<span class="arrow-wrapper"><i class="fa fa-long-arrow-right"></i></span>' ],
 		navSpeed: false,
 		navElement: 'div',
 		navContainer: false,
@@ -24654,29 +24654,29 @@ if(window.innerWidth <= 1199)
 $(document).ready(function(){
   var owl = $('.owl-carousel');
 	owl.owlCarousel({
-	    loop:true,
-	    nav:true,
+		loop:true,
 	    margin:10,
+	    nav:true,
 	    responsive:{
 	        0:{
 	            items:1
 	        },
 	        600:{
 	            items:3
-	        },            
-	        960:{
-	            items:6
+	        },
+	        1000:{
+	            items:5
 	        }
 	    }
 	});
-	owl.on('mousewheel', '.owl-stage', function (e) {
-	    if (e.deltaY>0) {
-	        owl.trigger('next.owl');
-	    } else {
-	        owl.trigger('prev.owl');
-	    }
-	    e.preventDefault();
-	});
+	// owl.on('mousewheel', '.owl-stage', function (e) {
+	//     if (e.deltaY>0) {
+	//         owl.trigger('next.owl');
+	//     } else {
+	//         owl.trigger('prev.owl');
+	//     }
+	//     e.preventDefault();
+	// });
 });
 
 

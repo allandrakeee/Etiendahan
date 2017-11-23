@@ -1,5 +1,6 @@
 #etiendahan-section-3 {
 	font-family: 'Montserrat', sans-serif;
+	margin-top: 60px;
 
 	.title-name {
 	    text-align: center;
@@ -9,17 +10,113 @@
 		margin: 0 auto 85px;
 		line-height: 50px;
 		position: relative;
+
+		span {
+		    height: 50px;
+		    line-height: 48px;
+		    text-align: center;
+		    display: inline-block;
+		    border: 1px solid #e6e6e6;
+		    background-color: #FFFFFF;
+		    z-index: 2;
+		    font-size: 22px;
+		    letter-spacing: 0.2em;
+		    font-weight: 400;
+		    padding: 0 20px;
+		    position: relative;
+		}
 	}
 
-	.title-name::before {
+	.title-name::after {
 	    display: block;
 		content: '';
 		position: absolute;
-		bottom: 15px;
+		bottom: 25px;
 		height: 1px;
 		left: 15px;
 		right: 15px;
 		background-color: #e6e6e6;
 		z-index: 1;
 	}
+
+	// owl
+	.owl-prev {
+		position: absolute;
+	    top: -136px;
+		font-size: 14px;
+	}
+
+	.owl-next {
+		position: absolute;
+		right: 0;
+	    top: -137px;
+	}
+
+	.arrow-wrapper {
+		color: #e6e6e6;
+		display: block;
+		width: 50px;
+		height: 50px;
+		border: 1px solid #e6e6e6;
+		line-height: 48px;
+		text-align: center;
+		background-color: #FFFFFF;
+		border-radius: 0;
+		opacity: 1;
+		margin: 0;
+		font-size: 20px;
+	}
+	
+	
+
+	a {
+		text-decoration: none;
+
+		.card {
+			// border:none;
+			// width: 175px;
+			// height: 280px;
+			
+			.card-image {
+				height: 200px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: cover;
+				border-bottom: 1px solid #e6e6e6;
+			}
+
+			.card-body {
+				padding: 5px 8px;
+
+				.item-name {
+				    font-size: 0.750rem;
+				    font-weight: 600;
+				    color: #333333;
+				    margin: 10px 0;
+			        height: 35px;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.item-price {
+					font-size: 0.750rem;
+					font-weight: 500;
+					color: #333333;
+				}
+
+				.item-rating {
+					font-size: 0.750rem;
+					font-weight: 500;
+					color: #333333;
+					float: right;
+					vertical-align: bottom;
+					margin: 15px 0 8px 0;
+				}
+			}
+		}
+	}
+		
 }

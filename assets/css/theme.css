@@ -11842,7 +11842,7 @@ nav a:focus {
           -webkit-transition: all 0.3s sease;
           transition: all 0.3s sease; }
       #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-name {
-        font-size: 12px;
+        font-size: 0.750rem;
         font-weight: 500;
         letter-spacing: 0.2em;
         color: #333333; }
@@ -11852,7 +11852,8 @@ nav a:focus {
     padding: 12px; } }
 
 #etiendahan-section-3 {
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 60px; }
   #etiendahan-section-3 .title-name {
     text-align: center;
     text-transform: uppercase;
@@ -11861,16 +11862,82 @@ nav a:focus {
     margin: 0 auto 85px;
     line-height: 50px;
     position: relative; }
-  #etiendahan-section-3 .title-name::before {
+    #etiendahan-section-3 .title-name span {
+      height: 50px;
+      line-height: 48px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      background-color: #FFFFFF;
+      z-index: 2;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      font-weight: 400;
+      padding: 0 20px;
+      position: relative; }
+  #etiendahan-section-3 .title-name::after {
     display: block;
     content: '';
     position: absolute;
-    bottom: 15px;
+    bottom: 25px;
     height: 1px;
     left: 15px;
     right: 15px;
     background-color: #e6e6e6;
     z-index: 1; }
+  #etiendahan-section-3 .owl-prev {
+    position: absolute;
+    top: -136px;
+    font-size: 14px; }
+  #etiendahan-section-3 .owl-next {
+    position: absolute;
+    right: 0;
+    top: -137px; }
+  #etiendahan-section-3 .arrow-wrapper {
+    color: #e6e6e6;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #e6e6e6;
+    line-height: 48px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 0;
+    opacity: 1;
+    margin: 0;
+    font-size: 20px; }
+  #etiendahan-section-3 a {
+    text-decoration: none; }
+    #etiendahan-section-3 a .card .card-image {
+      height: 200px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      border-bottom: 1px solid #e6e6e6; }
+    #etiendahan-section-3 a .card .card-body {
+      padding: 5px 8px; }
+      #etiendahan-section-3 a .card .card-body .item-name {
+        font-size: 0.750rem;
+        font-weight: 600;
+        color: #333333;
+        margin: 10px 0;
+        height: 35px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      #etiendahan-section-3 a .card .card-body .item-price {
+        font-size: 0.750rem;
+        font-weight: 500;
+        color: #333333; }
+      #etiendahan-section-3 a .card .card-body .item-rating {
+        font-size: 0.750rem;
+        font-weight: 500;
+        color: #333333;
+        float: right;
+        vertical-align: bottom;
+        margin: 15px 0 8px 0; }
 
 #return-to-top {
   position: fixed;
