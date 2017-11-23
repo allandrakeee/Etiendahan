@@ -507,17 +507,20 @@
 				<div id="etiendahan-section-3" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
-							<h3><span>Popular Products</span></h3>
+							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+							<h3><span>POPULAR PRODUCTS</span></h3>
 						</div>
+						
+
 						<div class="owl-carousel">
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn);"></div>
 										<div class="card-body">
-											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -529,9 +532,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn);"></div>
 										<div class="card-body">
-											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -543,9 +546,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -557,9 +560,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -571,9 +574,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -585,9 +588,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -599,9 +602,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -613,9 +616,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -627,9 +630,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
@@ -641,9 +644,9 @@
 									<div class="card">
 										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
 										<div class="card-body">
-											<div class="item-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="item-price">₱150.00</div>
-											<div class="item-rating">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
 										</div>
