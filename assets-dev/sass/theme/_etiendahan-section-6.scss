@@ -1,7 +1,7 @@
-// Homepage popular products
-#etiendahan-section-3 {
+// Homepage recommendations
+#etiendahan-section-6 {
 	font-family: 'Montserrat', sans-serif;
-	// margin-top: 60px;
+	margin-top: 30px;
 
 	.title-name {
 	    text-align: center;
@@ -130,6 +130,20 @@
 					vertical-align: bottom;
 					margin: 15px 0 8px 0;
 				}
+			}
+		}
+	}
+
+
+	.container-fluid {
+		padding: 0;
+
+		.recently-view {
+			padding: 20px 0;
+			background: #CCCCCC;
+
+			div {
+				text-align: center;
 			}
 		}
 	}
