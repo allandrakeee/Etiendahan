@@ -654,14 +654,25 @@
 								</a>
 							</div>
 						</div>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima atque, voluptas, alias recusandae repellendus expedita at impedit enim pariatur veniam dicta velit est, optio officia similique in aut! Rerum sunt excepturi a voluptas accusamus mollitia natus nobis eius, obcaecati praesentium consectetur, dolore reiciendis aliquid cumque ipsa veritatis. Voluptatibus, laudantium consequuntur harum. Fugit unde mollitia consectetur facere magni? Perferendis nisi, excepturi sapiente suscipit magni illo. Omnis molestiae molestias tempora facilis cumque provident nulla illo laboriosam asperiores quis quia eveniet accusantium, in commodi repellendus adipisci ut magni cupiditate repudiandae error quidem esse quae suscipit nesciunt. Fugit, non similique sequi commodi asperiores atque.</p>
 					</div>
 				</div>
 				<!-- END OF SECTION 3 -->
 
 
 
+
+				<!-- SECTION 4 -->
+				<div id="etiendahan-section-4" class="etiendahan-section">
+					<div class="container-fluid">
+						<div class="welcome-message-overlay">
+							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
+							<div class="welcome-message-title">Welcome to Etiendahan</div>
+							<div class="welcome-message-intro">Online Shopping Marketplace here in Pangasinan</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, numquam, animi. Ab eveniet rem, deserunt iure asperiores veniam officia! Eos nemo, in accusamus repellat est beatae fugiat quasi aliquid! Labore nam, illum veniam deleniti eveniet optio minus cumque, repellat reiciendis, soluta fuga adipisci nisi incidunt nobis veritatis vero error! Quam explicabo inventore repudiandae eligendi, labore asperiores at quos! Eaque accusantium, perspiciatis rerum dolores, veniam similique ipsa obcaecati natus totam tempore sint labore ipsum harum, iste voluptates ea quae hic consequatur libero laboriosam ut sed culpa optio fuga perferendis. Rem ipsum tenetur vero laborum, cupiditate, tempora corporis ratione libero autem et praesentium nisi natus optio deserunt ea quisquam quaerat, aliquam rerum quae facilis odit ab facere voluptate non. Unde quis officia porro placeat vel non numquam laudantium dolores tempore? Impedit sit doloremque beatae, nostrum explicabo minus inventore facere asperiores consectetur reprehenderit molestias voluptates voluptatem odit quos error iusto debitis porro corporis nam magnam consequatur dolorum. Saepe tempore ut voluptatum natus minima architecto pariatur, aperiam itaque tempora sunt officia expedita, ex. Assumenda, quibusdam, facere voluptate praesentium adipisci dolor! Similique tempora earum in dolore, rerum sapiente reiciendis fugiat quibusdam dicta ducimus, nobis distinctio ratione accusamus voluptatibus est repudiandae adipisci ipsum laboriosam fugit! Consequuntur et molestiae, eius? Adipisci velit quisquam nobis nam nemo, quis quo repudiandae suscipit illum ratione! Non repudiandae natus dolores quia laborum distinctio ea pariatur, tenetur ipsa, delectus rem, dolorum dolore sed doloremque voluptatum, consequuntur a accusamus! Ut doloribus culpa eius illo? Nemo ratione, non voluptatum accusantium illo doloribus! Nulla optio a deserunt illum quos fugiat asperiores, voluptatem, totam vel id incidunt fugit eligendi, quis est quam. Pariatur atque temporibus sapiente libero autem consectetur commodi blanditiis eveniet. Rerum inventore repellat, alias porro laboriosam ab aliquid magnam tenetur temporibus sint! Soluta laboriosam est dolorum consectetur molestiae distinctio delectus officiis necessitatibus consequuntur perspiciatis excepturi adipisci, fugit labore laborum repudiandae provident aspernatur, earum modi! Consequatur quo ipsa repellat quis similique minus consequuntur, non soluta esse est nobis voluptas cum eveniet minima excepturi laboriosam dolore rerum totam, quam inventore reprehenderit distinctio! Modi consequuntur dolorum, blanditiis optio quaerat odit facere ratione doloremque maiores, eos soluta itaque fugit doloribus placeat aspernatur. Maiores adipisci unde officia nisi commodi nam, repudiandae aliquid ut inventore. Illo voluptatibus fugiat velit magni eveniet beatae, inventore sint adipisci sed ullam, aliquam voluptate sit dolores corporis delectus ex consectetur cum minus, neque nihil quam recusandae, vero. Inventore labore ab error non quae iure sint facere unde. Quibusdam quae debitis vitae vero, autem quisquam laudantium! Eum vel tempore perferendis necessitatibus consequuntur iste voluptate. Accusamus aut expedita minima minus perferendis consectetur cum totam, voluptatem doloremque maiores reiciendis esse! Velit in dignissimos qui placeat tenetur provident quia, quasi eos, ea sequi ipsum iste. Odit nulla aut ducimus nemo facilis libero esse architecto doloribus fugiat non corrupti, eum veritatis cum a voluptatibus maiores, harum quisquam saepe eligendi consectetur culpa! Molestias saepe ad, impedit accusamus suscipit explicabo esse aut laboriosam, eius iusto minima quae. Vel inventore mollitia perspiciatis illo quisquam ad at, maiores aliquam nostrum voluptatem velit vero adipisci.</p>
+					</div>
+				</div>
+				<!-- END OF SECTION 4 -->
 
 
 
