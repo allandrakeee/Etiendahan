@@ -12252,6 +12252,19 @@ nav a:focus {
           #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a i {
             padding-right: 8px; }
 
+#etiendahan-section-8 {
+  font-family: 'Montserrat', sans-serif;
+  height: 100px;
+  background-color: #1b1d1c; }
+  #etiendahan-section-8 .footer-title {
+    line-height: 100px;
+    color: #acacac;
+    font-size: 12px; }
+    #etiendahan-section-8 .footer-title a {
+      font-weight: bold;
+      color: #f7931e;
+      text-decoration: none; }
+
 #return-to-top {
   position: fixed;
   bottom: 50px;

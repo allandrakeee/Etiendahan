@@ -1018,7 +1018,7 @@
 						<div class="row">
 							<div class="col-md-4 border-insert">
 								<div class="about">
-									<img src="http://via.placeholder.com/225x70/" alt="">
+									<a href="https://www.google.com"><img src="http://via.placeholder.com/225x70/" alt=""></a>
 									<div class="about-text">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, pariatur.</p>
 										<p>Nisi porttitor inceptos consectetur donec orci, dui ipsum leo class gravida.</p>
@@ -1075,6 +1075,19 @@
 
 
 
+
+
+
+
+				<!-- SECTION 8 -->
+				<div id="etiendahan-section-8" class="etiendahan-section">
+					<div class="container">
+						<div class="footer-title">
+							Copyright © 2017 by <a href="https://allandrake.wixsite.com/freelancer" target="_blank">ADPD</a>. All rights reserved.
+						</div>
+					</div>
+				</div>
+				<!-- END OF SECTION 8 -->
 
 			</div>
 		</div>
