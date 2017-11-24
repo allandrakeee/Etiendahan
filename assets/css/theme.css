@@ -11853,8 +11853,7 @@ nav a:focus {
     padding: 12px; } }
 
 #etiendahan-section-3 {
-  font-family: 'Montserrat', sans-serif;
-  margin-top: 60px; }
+  font-family: 'Montserrat', sans-serif; }
   #etiendahan-section-3 .title-name {
     text-align: center;
     font-size: 22px;
@@ -11863,8 +11862,8 @@ nav a:focus {
     line-height: 50px;
     position: relative; }
     #etiendahan-section-3 .title-name a {
-      position: absolute;
-      top: 55px;
+      position: relative;
+      top: 100px;
       right: 0;
       color: #000;
       font-size: 15px;
@@ -11990,7 +11989,7 @@ nav a:focus {
 
 #etiendahan-section-5 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 80px; }
+  margin-top: 35px; }
   #etiendahan-section-5 .title-name {
     text-align: center;
     font-size: 22px;
@@ -11999,8 +11998,8 @@ nav a:focus {
     line-height: 50px;
     position: relative; }
     #etiendahan-section-5 .title-name a {
-      position: absolute;
-      top: 55px;
+      position: relative;
+      top: 100px;
       right: 0;
       color: #000;
       font-size: 15px;
@@ -12023,8 +12022,11 @@ nav a:focus {
       position: relative; }
   #etiendahan-section-5 .item {
     position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
     width: 214px;
-    margin: 0 8px 10px 0; }
+    margin: 0 4px 10px 0; }
     #etiendahan-section-5 .item a {
       text-decoration: none; }
       #etiendahan-section-5 .item a .card {

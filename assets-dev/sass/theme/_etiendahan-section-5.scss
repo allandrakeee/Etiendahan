@@ -1,6 +1,6 @@
 #etiendahan-section-5 {
 	font-family: 'Montserrat', sans-serif;
-	margin-top: 80px;
+	margin-top: 35px;
 
 	.title-name {
 	    text-align: center;
@@ -12,8 +12,8 @@
 		position: relative;
 		
 		a {
-			position: absolute;
-		    top: 55px;
+			position: relative;
+		    top: 100px;
 		    right: 0;
 		    color: #000;
 		    font-size: 15px;
@@ -42,11 +42,12 @@
 		}
 	}
 
+
 	.item {
 		position: relative;		
-		// float: left;
+		display: inline-flex;
 		width: 214px;
-		margin: 0 8px 10px 0;
+		margin: 0 4px 10px 0;
 
 		a {
 			text-decoration: none;
