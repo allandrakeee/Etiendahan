@@ -43,6 +43,18 @@
 		}
 	}
 
+	.title-name::after {
+	    display: block;
+		content: '';
+		position: absolute;
+		bottom: 25px;
+		height: 1px;
+		left: 15px;
+		right: 15px;
+		background-color: #e6e6e6;
+		z-index: 1;
+	}
+
 
 	.item {
 		position: relative;		

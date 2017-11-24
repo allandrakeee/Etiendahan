@@ -12020,6 +12020,16 @@ nav a:focus {
       font-weight: 400;
       padding: 0 20px;
       position: relative; }
+  #etiendahan-section-5 .title-name::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    height: 1px;
+    left: 15px;
+    right: 15px;
+    background-color: #e6e6e6;
+    z-index: 1; }
   #etiendahan-section-5 .item {
     position: relative;
     display: -webkit-inline-box;
@@ -12160,12 +12170,87 @@ nav a:focus {
           vertical-align: bottom;
           margin: 15px 0 8px 0; }
   #etiendahan-section-6 .container-fluid {
-    padding: 0; }
+    padding: 0;
+    margin-top: 90px; }
     #etiendahan-section-6 .container-fluid .recently-view {
       padding: 20px 0;
       background: #CCCCCC; }
       #etiendahan-section-6 .container-fluid .recently-view div {
         text-align: center; }
+
+#etiendahan-section-7 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  height: 475px;
+  background-color: #f8f8f8;
+  color: dimgrey;
+  border-top: solid 1px #e5edf0; }
+  #etiendahan-section-7 .col-md-4.border-insert {
+    border-right: solid 1px #e5edf0;
+    padding-bottom: 35px; }
+  #etiendahan-section-7 .col-md-4 .about {
+    padding: 60px 0; }
+    #etiendahan-section-7 .col-md-4 .about img {
+      margin-bottom: 36px; }
+    #etiendahan-section-7 .col-md-4 .about .about-text {
+      margin-bottom: 57px;
+      letter-spacing: 0.01em;
+      text-align: justify; }
+      #etiendahan-section-7 .col-md-4 .about .about-text p {
+        line-height: 24px;
+        font-size: 12px;
+        letter-spacing: 0.12px; }
+    #etiendahan-section-7 .col-md-4 .about .social {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1.8px;
+      line-height: 27.9px; }
+      #etiendahan-section-7 .col-md-4 .about .social ul {
+        margin-top: 16px;
+        padding: 0;
+        list-style: none; }
+        #etiendahan-section-7 .col-md-4 .about .social ul li {
+          float: left;
+          margin-right: 8px; }
+          #etiendahan-section-7 .col-md-4 .about .social ul li a {
+            text-decoration: none;
+            color: dimgrey;
+            border: 2px solid #333333;
+            font-size: 18px;
+            height: 36px;
+            width: 36px;
+            text-align: center;
+            line-height: 36px; }
+            #etiendahan-section-7 .col-md-4 .about .social ul li a:hover {
+              color: #1e1e1e; }
+  #etiendahan-section-7 .col-md-4.ml-5 {
+    margin-left: 100px !important; }
+  #etiendahan-section-7 .col-md-4 .footer-info {
+    padding: 60px 0; }
+    #etiendahan-section-7 .col-md-4 .footer-info .footer-title h3 {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1.8px;
+      line-height: 27.9px;
+      margin-bottom: 33px; }
+    #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul {
+      padding: 0;
+      list-style: none; }
+      #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li {
+        margin-right: 8px; }
+        #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a {
+          line-height: 25px;
+          letter-spacing: 0.01em;
+          color: dimgrey;
+          text-decoration: none;
+          font-size: 12px;
+          line-height: 18.6px; }
+          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a:hover .fa.fa-square-o {
+            display: none; }
+          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a:hover .fa.fa-square {
+            display: inline-block !important; }
+          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a i {
+            padding-right: 8px; }
 
 #return-to-top {
   position: fixed;

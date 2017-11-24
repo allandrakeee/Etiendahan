@@ -1,0 +1,125 @@
+// Homepage about
+#etiendahan-section-7 {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 100px;
+	height: 475px;
+    background-color: #f8f8f8;
+    color: dimgrey;
+    border-top: solid 1px #e5edf0;
+	
+	.col-md-4 {
+
+		&.border-insert {
+			border-right: solid 1px #e5edf0;
+			padding-bottom: 35px;
+		}
+
+		.about {
+			padding: 60px 0;
+
+			img {
+			    margin-bottom: 36px;
+			}
+
+			.about-text {
+				margin-bottom: 57px;
+				letter-spacing: 0.01em;
+				text-align: justify;
+
+				p {
+					line-height: 24px;
+					font-size: 12px;
+					letter-spacing: 0.12px;
+					
+				}
+			}
+
+			.social {
+				font-size: 18px;
+				font-weight: 400;
+				letter-spacing: 1.8px;
+				line-height: 27.9px;
+
+				ul {
+					margin-top: 16px;
+					padding: 0;
+					list-style: none;
+					
+					li {
+						// display: inline-block;
+						float: left;
+						margin-right: 8px;
+
+						a {
+							text-decoration: none;
+							color: dimgrey;
+							border: 2px solid #333333;
+						    font-size: 18px;
+						    height: 36px;
+						    width: 36px;
+						    text-align: center;
+						    line-height: 36px;
+
+						    &:hover {
+						    	color: #1e1e1e;
+						    }
+						}	
+					}
+				}
+			}
+		}
+	}
+
+	.col-md-4 {
+		
+		&.ml-5 {
+			margin-left: 100px !important;
+		}
+
+		.footer-info {
+			padding: 60px 0;
+			
+			.footer-title {
+				h3 {
+					font-size: 18px;
+					font-weight: 400;
+					letter-spacing: 1.8px;
+					line-height: 27.9px;
+				    margin-bottom: 33px;
+				}
+			}
+
+			.sub-info {
+				ul {
+					padding: 0;
+					list-style: none;
+
+					li {
+						margin-right: 8px;
+
+						a {
+							line-height: 25px;
+							letter-spacing: 0.01em;
+							color: dimgrey;
+							text-decoration: none;
+							font-size: 12px;
+							line-height: 18.6px;
+
+						    &:hover .fa.fa-square-o {
+						    	display: none;
+						    }
+
+						    &:hover .fa.fa-square {
+						    	display: inline-block !important;
+						    }
+						    
+					 		i {
+					 			padding-right: 8px;
+					 		}
+						}	
+					}
+				}
+			}
+		}
+	}
+}
