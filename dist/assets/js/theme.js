@@ -24494,14 +24494,16 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 });
 
 // Nav shink @ SECTION 1 priority
-$(window).scroll(function(){
-	if($(document).scrollTop() > 20) {
-		$('nav').addClass('shrink');
-	}
-	else {
-		$('nav').removeClass('shrink');
-	}
-});
+if($("#for-index").length > 0){
+	$(window).scroll(function(){
+		if($(document).scrollTop() > 20) {
+			$('nav.index').addClass('shrink');
+		}
+		else {
+			$('nav.index').removeClass('shrink');
+		}
+	});
+}
 
 // Smooth scrolling navigation
 $(document).ready(function(){
@@ -24524,15 +24526,21 @@ $(document).ready(function(){
 // ============ SECTION 1 ============
 
 // Touch enabled in carousel
-var el = document.getElementById('etiendahanCarouselIndicators');
+if($("#etiendahanCarouselIndicators").length > 0){
+	$(document).ready(function () {
 
-Hammer(el).on("swipeleft", function () {
-	$(el).carousel('next')
-})
+			var el = document.getElementById('etiendahanCarouselIndicators');
 
-Hammer(el).on("swiperight", function () {
-	$(el).carousel('prev')
-})
+			Hammer(el).on("swipeleft", function () {
+				$(el).carousel('next')
+			})
+
+			Hammer(el).on("swiperight", function () {
+				$(el).carousel('prev')
+			})
+
+	});
+}
 
 // Hover on drop down menu
 $('ul.navbar-nav li.dropdown').hover(function() {

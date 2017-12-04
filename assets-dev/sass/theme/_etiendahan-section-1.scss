@@ -1,4 +1,4 @@
-// navbar
+// Homepage navbar and carousel
 .my-navbar {
 	background: none !important;
 	height: 90px;
@@ -182,13 +182,7 @@ nav.shrink {
 	}
 }
 
-
-
-
-
-
-
-// Cart
+// cart
 div.dropdown-menu.have-in-cart {
 	font-family: 'Montserrat', sans-serif;
 
@@ -301,11 +295,6 @@ div.dropdown-menu.have-in-cart .item-right i {
     vertical-align: middle;
 }
 
-
-
-
-
-
 // mega dropdown
 .mega-dropdown {
 	position: static !important;
@@ -358,11 +347,6 @@ div.dropdown-menu.have-in-cart .item-right i {
     	padding-left: 5px;
     }
 }
-
-
-
-
-
 
 // effects when hover navbar
 nav a.cl-effect {
@@ -432,12 +416,6 @@ nav a:focus {
 	transform: translateY(0px);
 }
 
-
-
-
-
-
-
 // carousel
 .my-carousel {
 	width: 100%;
@@ -479,11 +457,6 @@ nav a:focus {
 		font-size: 4.125rem;
 	}
 }
-
-
-
-
-
 
 // search
 .my-search {
@@ -536,17 +509,11 @@ nav a:focus {
 
 }
 
-
-
-
 // go to shop now
 #shop-now {
     position: relative;
     bottom: 115px;
 }
-
-
-
 
 // medias
 @media (min-width: 1200px) and (max-width: 1315px) {

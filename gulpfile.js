@@ -14,7 +14,8 @@ var gulp        = require('gulp'),
     livereload  = require('gulp-livereload'),
     htmlmin     = require('gulp-htmlmin'),
     beep        = require('beepbeep'),
-    del         = require('del');
+    del         = require('del'),
+    merge = require('merge-stream');
 
 function errorLog(error) {
     console.error(error.message);
@@ -145,12 +146,21 @@ gulp.task('fonts', function () {
  * before go to dist.
  */
 gulp.task('html-min', function(){
-    return gulp.src(['*.php'])
+    var php_dir = gulp.src(['*.php'])
         .pipe(htmlmin({
             collapseWhitespace: true,
             ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
         }))
     .pipe(gulp.dest('dist/'));
+
+    var php_dir_customer_account = gulp.src(['customer/account/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/customer/account'));
+
+    return merge(php_dir, php_dir_customer_account);
 });
 
 // ================================ Watch Assets ================================
@@ -165,6 +175,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch(['node_modules/animate.css/animate.css', 'assets-dev/sass/**/*.scss', 'assets/css/'], ['styles']);
     gulp.watch(['assets-dev/js/*.js', 'assets/js'], ['scripts']);
     gulp.watch('*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('customer/account/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
 });
@@ -214,6 +227,7 @@ gulp.task('dist', ['clear-dist', 'html-min'], function() {
         '!jshintignore',
         '!codesniffer.ruleset.xml',
         '!*.php',
+        '!customer/account/*.php',
         '*'
     ])
     .pipe(gulp.dest('dist/'))

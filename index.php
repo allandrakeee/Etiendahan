@@ -5,10 +5,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	
-	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	 -->
 
 	<!-- For development only | Comment or delete this line of code when its production -->
 	<link rel="stylesheet" href="assets/css/theme.css">
@@ -17,26 +13,18 @@
 	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
 </head>
 <body>
-	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
-				<!-- SECTION 1 -->
+				<!-- SECTION 1 - Homepage navbar and carousel -->
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					
 					<!-- navbar -->
-					<nav class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar">
+					<nav id="for-index" class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar index">
 					  	<a class="navbar-brand" href="#">
 							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
-						</a>
-						
-						<!-- right nav -->
-						<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarRightContent" aria-controls="navbarRightContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="fa fa-trash"></span>
-						</button> -->
-
-						
+						</a>					
 
 						<div class="collapse navbar-collapse" id="navbarCenterContent">
 							<div class="container">
@@ -207,12 +195,12 @@
 											</span>
 										</a>
 
-										<!-- No items in the cart -->
+										<!-- no items in the cart -->
 										<div class="dropdown-menu" aria-labelledby="cart">
 											<p>You have no items in your shopping cart.</p>
 										</div>
 
-										<!-- Have items in the cart -->
+										<!-- have items in the cart -->
 										<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
 											<p>Recently Added Products</p>
 
@@ -292,8 +280,8 @@
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<p>Howdie.</p>
 
-											<div class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Log in</div>
-											<div class="dropdown-item" href="#"><i class="fa fa-caret-right fa-fw"></i>Create an account</div>
+											<a href="login"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+											<a href="customer/account/register/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
 										</div>
 									</div>
 								</div>
@@ -356,7 +344,7 @@
 				</div>
 				<!-- END OF SECTION 1 -->
 				
-				<!-- SECTION 2 -->
+				<!-- SECTION 2 - Homepage categories -->
 				<div id="etiendahan-section-2" class="etiendahan-section">
 					<div class="container">
 						<!-- <h1 class="my-4 text-center text-lg-left">CATEGORIES</h1> -->
@@ -502,8 +490,7 @@
 				</div>
 				<!-- END OF SECTION 2 -->
 
-
-				<!-- SECTION 3 -->
+				<!-- SECTION 3 - Homepage popular products -->
 				<div id="etiendahan-section-3" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
@@ -658,10 +645,7 @@
 				</div>
 				<!-- END OF SECTION 3 -->
 
-
-
-
-				<!-- SECTION 4 -->
+				<!-- SECTION 4 - Homepage welcome message -->
 				<div id="etiendahan-section-4" class="etiendahan-section">
 					<div class="container-fluid">
 						<div class="welcome-message-overlay">
@@ -673,14 +657,7 @@
 				</div>
 				<!-- END OF SECTION 4 -->
 
-
-
-
-
-
-
-
-				<!-- SECTION 5 -->
+				<!-- SECTION 5 - Homepage daily discover -->
 				<div id="etiendahan-section-5" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
@@ -843,12 +820,10 @@
 				</div>
 				<!-- END OF SECTION 5 -->
 
-				
-
-				<!-- SECTION 6 -->
+				<!-- SECTION 6 - Homepage recommendations -->
 				<div id="etiendahan-section-6" class="etiendahan-section">
 					<!-- have recently view -->
-					<div class="container">
+					<!-- <div class="container">
 						<div class="title-name">
 							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
 							<h3><span>RECOMMENDATIONS FOR YOU, NAME</span></h3>
@@ -996,23 +971,19 @@
 								</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<!-- have not recently view -->
-					<!-- <div class="container-fluid">
+					<div class="container-fluid">
 						<div class="recently-view">
 							<div class="first-para">You don't have any recently viewed items.</div>
 							<div class="second-para">View items on Etiendahan and we'll track them here..</div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<!-- END OF SECTION 6 -->
-
-
-
-
-
-				<!-- SECTION 7 -->
+				
+				<!-- SECTION 7 - Homepage about -->
 				<div id="etiendahan-section-7" class="etiendahan-section">
 					<div class="container">
 						<div class="row">
@@ -1073,13 +1044,7 @@
 				</div>
 				<!-- END OF SECTION 7 -->
 
-
-
-
-
-
-
-				<!-- SECTION 8 -->
+				<!-- SECTION 8 - Homepage footer copyright -->
 				<div id="etiendahan-section-8" class="etiendahan-section">
 					<div class="container">
 						<div class="footer-title">
