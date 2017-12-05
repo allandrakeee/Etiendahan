@@ -27,7 +27,7 @@ if($("#for-index").length > 0){
 
 // Smooth scrolling navigation
 $(document).ready(function(){
-	$('.navbar-nav li a').click(function() {
+	$('.navbar li a').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
 		&& location.hostname == this.hostname) {
 			var $target = $(this.hash);
@@ -84,7 +84,7 @@ $('ul.navbar-nav li.dropdown .dropdown-menu').hover(function(e) {
 });
 
 // Change container to container-fluid
- $( function() {
+$( function() {
 if(window.innerWidth <= 1199)
     {
         $("nav.my-navbar .container").addClass('container-fluid');
@@ -189,3 +189,66 @@ $(document).ready(function(){
 	// });
 });
 // ============ END OF SECTION 3 ============
+
+// ============ REGISTER PAGE - SECTION 1 ============
+if($("#register-page").length > 0){
+	var password = document.getElementById("inputPassword")
+	  , confirm_password = document.getElementById("inputConfirmPassword");
+
+	function validatePassword() {
+		if(password.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Passwords don't match.");
+		} else {
+			confirm_password.setCustomValidity('');
+		}
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+}
+
+$(document).ready(function() {
+    $("#show-hide-confirm-password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show-hide-confirm-password input').attr("type") == "text"){
+            $('#show-hide-confirm-password input').attr('type', 'password');
+            $('#show-hide-confirm-password i').addClass( "fa-eye-slash" );
+            $('#show-hide-confirm-password i').removeClass( "fa-eye" );
+        }else if($('#show-hide-confirm-password input').attr("type") == "password"){
+            $('#show-hide-confirm-password input').attr('type', 'text');
+            $('#show-hide-confirm-password i').removeClass( "fa-eye-slash" );
+            $('#show-hide-confirm-password i').addClass( "fa-eye" );
+        }
+    });
+});
+
+$(document).ready(function() {
+    $("#show-hide-password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show-hide-password input').attr('type') == 'text'){
+            $('#show-hide-password input').attr('type', 'password');
+            $('#show-hide-password i').addClass('fa-eye-slash');
+            $('#show-hide-password i').removeClass('fa-eye');
+        }else if($('#show-hide-password input').attr('type') == 'password'){
+            $('#show-hide-password input').attr('type', 'text');
+            $('#show-hide-password i').removeClass('fa-eye-slash');
+            $('#show-hide-password i').addClass('fa-eye');
+        }
+    });
+});	
+
+$('html, body').hide();
+$(window).on('load', function() {
+    if (window.location.hash) {
+        setTimeout(function() {
+            $('html, body').scrollTop(0).show();
+            $('html, body').delay(300).animate({
+                scrollTop: $(window.location.hash).offset().top
+                }, 1000)
+        }, 0);
+    } else {
+        $('html, body').show();
+
+    }
+});
+// ============ END OF REGISTER PAGE - SECTION 1 ============

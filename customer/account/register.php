@@ -12,10 +12,10 @@
 
 	<!-- For development only | Comment or delete this line of code when its production -->
 	<!-- Development -->
-	<link rel="stylesheet" href="/etiendahan/assets/css/theme.css">
+	<!-- <link rel="stylesheet" href="/etiendahan/assets/css/theme.css"> -->
 	
 	<!-- Production -->
-	<!-- <link rel="stylesheet" href="/assets/css/theme.css"> -->
+	<link rel="stylesheet" href="/assets/css/theme.css">
 	
 	<!-- Uncomment this if the project is ready in production -->
 	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
@@ -23,7 +23,7 @@
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-	<div class="main-container">
+	<div id="register-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
 				<!-- SECTION 1 -->
@@ -187,135 +187,268 @@
 
 									<!-- ALL CATEGORIES -->
 									<li class="nav-item">
-										<a class="nav-link cl-effect" href="#shop-now">Shop Now</a>
+										<a href='https://etiendahan.000webhostapp.com/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 									</li>
 								</ul>
 							</div>
 
 							
 						</div>
-								<div class="ml-auto d-flex">
-									<!-- CART -->
-									<div class="nav-item right-nav dropdown" id="cart">
-										<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-											<span class="fa-stack has-badge" data-count="0">
-											  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-											  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-											</span>
-										</a>
+							<div class="ml-auto d-flex">
+								<!-- CART -->
+								<div class="nav-item right-nav dropdown" id="cart">
+									<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+										<span class="fa-stack has-badge" data-count="0">
+										  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+										  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+										</span>
+									</a>
 
-										<!-- No items in the cart -->
-										<div class="dropdown-menu" aria-labelledby="cart">
-											<p>You have no items in your shopping cart.</p>
-										</div>
-
-										<!-- Have items in the cart -->
-										<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-											<p>Recently Added Products</p>
-
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">?1,000.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">?500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item overlay">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-														<div class="item-price">?1,500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">?500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item overlay">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-														<div class="item-price">?1,500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<button type="button" class="btn btn-dark">View Cart</button>
-										</div> -->
+									<!-- No items in the cart -->
+									<div class="dropdown-menu" aria-labelledby="cart">
+										<p>You have no items in your shopping cart.</p>
 									</div>
 
-									<div class="nav-item right-nav dropdown" id="user-account">
-										<a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-											<i class="fa fa-user-circle"></i>
-										</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<p>Howdie.</p>
+									<!-- Have items in the cart -->
+									<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+										<p>Recently Added Products</p>
 
-											<a href="login.php"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-											<a href="register.php"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">?1,000.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
 										</div>
+
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">?500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<div class="item overlay">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+													<div class="item-price">?1,500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">?500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<div class="item overlay">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+													<div class="item-price">?1,500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark">View Cart</button>
+									</div> -->
+								</div>
+
+								<div class="nav-item right-nav dropdown" id="user-account">
+									<a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										<i class="fa fa-user-circle"></i>
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<p>Howdie.</p>
+
+										<a href="login.php"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+										<a href=""><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
 									</div>
 								</div>
-							
-								<!-- Sign Up -->
-								<!-- <div class="nav-item right-nav">
-									<a class="nav-link" href="#">Sign Up</a>
-								</div> -->
+							</div>
+						
+							<!-- Sign Up -->
+							<!-- <div class="nav-item right-nav">
+								<a class="nav-link" href="#">Sign Up</a>
+							</div> -->
 
-								<!-- Login -->
-								<!-- <div class="nav-item right-nav">
-									<a class="nav-link" href="#">Login</a>
-								</div> -->
+							<!-- Login -->
+							<!-- <div class="nav-item right-nav">
+								<a class="nav-link" href="#">Login</a>
+							</div> -->
 
-								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon"></span>
-								</button>
+							<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 					</nav>
 				</div>
 				<!-- END OF SECTION 1 -->
-				
 
+				<!-- REGISTER PAGE SECTION 1 -->
+				<div id="etiendahan-register-page-section-1">
+					<div class="container">
+						<div class="page-title text-center"><h1>Create Account</h1></div>
+						<div class="row-wrapper">
+							<div class="row">
+								<div class="col-md-8">
+									<form>
+										<!-- gender -->
+										<div class="form-group row">
+											<label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+											<div class="col-sm-10">
+												<div class="form-check form-check-inline">
+													<label class="form-check-label">
+														<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioMale" value="optionMale" required> Male
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<label class="form-check-label">
+														<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioFemale" value="optionFemale" required> Female
+													</label>
+												</div>
+											</div>
+										</div>
+		
+										<!-- email -->
+										<div class="form-group row">
+											<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+											<div class="col-sm-10">
+												<input type="email" class="form-control" id="inputEmail" required>
+											</div>
+										</div>
+										
+										<!-- fullname -->
+										<div class="form-group row">
+											<label for="inputFullname" class="col-sm-2 col-form-label">Fullname</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputFullname" required>
+											</div>
+										</div>
 
+										<!-- birtday -->
+										<div id="three-col" class="form-group row">
+											<label for="selectBirthday" class="col-md-2 col-form-label">Birthday</label>
+											<div class="row">
+												<div class="col-md-4">
+													<select class="form-control" required>
+														<option value="">Day</option>
+														<?php
+															for ($x=1; $x<=31; $x++) {
+																echo'<option value="'.$x.'">'.$x.'</option>'; 
+															} 
+														?> 
+													</select>
+													
+												</div>
+												<div class="col-md-4">
+													<select class="form-control" required>
+														<option value="">Month</option>
+														<?php 
+															for($m = 1;$m <= 12; $m++){ 
+															    $month =  date("F", mktime(0, 0, 0, $m)); 
+															    echo "<option value='$m'>$month</option>"; 
+															} 
+														?>
+													</select>
+												</div>
+												<div class="col-md-4">
+													<select class="form-control" required>
+														<option value="">Year</option>
+														<?php
+															for ($x=date("Y"); $x>=1900; $x--) {
+																echo'<option value="'.$x.'">'.$x.'</option>'; 
+															} 
+														?> 
+													</select>
+												</div>
+											</div>
+										</div>
 
+										<!-- password -->
+										<div class="form-group row">
+											<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+											<div id="show-hide-password" class="col-sm-10 input-group">
+												<input type="password" class="form-control" id="inputPassword" required>
+												<div class="input-group-addon">
+													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+												</div>
+											</div>
+										</div>
 
+										<!-- retype password -->
+										<div class="form-group row">
+											<label for="inputConfirmPassword" class="col-sm-2 col-form-label">Retype Password</label>
+											<div id="show-hide-confirm-password" class="col-sm-10 input-group">
+												<input type="password" class="form-control" id="inputConfirmPassword" required>
+												<div class="input-group-addon">
+													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+												</div>
+											</div>
+										</div>
+
+										<!-- read and understood -->
+										<div class="form-group row read-and-understood">
+											<label for="readAndUnderstood" class="col-sm-2 col-form-label"></label>
+											<div class="col-sm-10">
+												<p>*I read and understood Etiendahan <a href="#">Privacy Policy</a></p>
+											</div>
+										</div>
+										
+										<!-- create -->
+										<div class="form-group row">
+											<div class="col-sm-12 text-center">
+												<button class="btn btn-primary" type="submit">Create</button>
+											</div>
+										</div>
+									</form>
+
+									<div class="or">OR</div>
+								</div>
+
+								<div class="col-md-4 text-center">
+									<div class="social-medias">
+										<button class="btn btn-primary facebook" type="submit">
+										<i class="fa fa-facebook"></i>
+										<span>Sign up with Facebook</span></button>
+
+										<button class="btn btn-primary google" type="submit">
+										<i class="fa fa-google-plus"></i>
+										<span>Sign up with Google</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END OF REGISTER PAGE SECTION 1 -->
 
 				<!-- SECTION 7 -->
 				<div id="etiendahan-section-7" class="etiendahan-section">
@@ -392,8 +525,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- END OF SECTION 8 -->
-
+				<!-- END OF SECTION 8 -->					
 			</div>
 		</div>
 	</div>
@@ -403,10 +535,10 @@
 
 
 	<!-- Development -->
-	<script src="/etiendahan/assets/js/theme.js"></script>
+	<!-- <script src="/etiendahan/assets/js/theme.js"></script> -->
 
 	<!-- Production -->
-	<!-- <script src="/assets/js/theme.js"></script> -->
+	<script src="/assets/js/theme.js"></script>
 
  	<!-- Uncomment this if the project is ready in production -->
 	<!-- <script src="assets/js/theme.min.js"></script></body> -->

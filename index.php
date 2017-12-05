@@ -326,6 +326,7 @@
 					</div>
 					
 					<div id="shop-now"></div>
+					<div id="shop-now-link"></div>
 					<!-- search bar -->
 					<div class="container my-search">
 						<div class="row">

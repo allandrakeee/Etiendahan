@@ -92,6 +92,7 @@ gulp.task('scripts', function(){
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
+        'node_modules/jquery.cookie/jquery.cookie.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
@@ -117,6 +118,7 @@ gulp.task('scripts-min', function(){
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
+        'node_modules/jquery.cookie/jquery.cookie.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)

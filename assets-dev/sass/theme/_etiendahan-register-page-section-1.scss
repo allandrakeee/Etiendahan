@@ -1,0 +1,178 @@
+#etiendahan-register-page-section-1 {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 100px;
+	color: dimgrey;
+
+	.page-title {
+		margin-bottom: 20px;
+	}
+
+	.row-wrapper {
+		background-color: #f8f8f8;
+		padding: 25px;
+	}
+
+	.col-md-8 {
+		border-right: 1px solid #dcdcdc;
+		padding: 0 35px;
+
+		.form-group {
+
+			&.read-and-understood {
+				font-size: 12px;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			label.col-form-label {
+				font-size: 12px;
+				font-weight: 700;
+				padding-right: 0;
+			}
+
+			label {
+				font-size: 12px;
+			}
+
+			.form-control {
+				font-size: 12px;
+			    border-radius: 0;
+
+				&:focus {
+					border: 1px solid rgba(0, 0, 0, 0.15);
+				}
+			}
+
+			input.form-check-input {
+				outline: none;
+			}
+
+			.input-group-addon {
+				border-radius: 0;
+
+				i {
+					color: dimgrey;
+				}
+
+				a:focus {
+					outline: none;
+				}
+			}
+			
+			.btn-primary {
+				margin-top: 10px;
+				background-color: #333333;
+				border: 0;
+				border-radius: 0;
+				color: #fff;
+				text-transform: uppercase;
+				padding: 18px 25px;
+				cursor: pointer;
+
+				&:hover, &:focus {
+					background-color: #3f3f3f; 
+					box-shadow: none;
+				}
+			}
+		}
+
+		#three-col {
+			.row {
+				margin-left: 1px;
+				width: 83%;
+			}
+
+			.col-md-4 {
+				padding: 0px 14px;
+			}
+		}
+
+		.or {
+			position: absolute;
+		    right: -20px;
+	     	top: 46%;
+		    border-radius: 50px;
+		    background-color: #333333;
+		    color: #fff;
+		    padding: 5px;
+		}
+	}
+
+	.col-md-4 {
+		padding: 0 35px;
+
+		.social-medias {
+			position: relative;
+		    top: 40%;
+
+			button.facebook {
+				text-align: center;
+				width: 100%;
+				color: #3b5998;
+				background-color: #fff; 
+				border-radius: 0;
+				outline: none;
+				cursor: pointer;
+				border: 1px solid #3b5998;
+
+				&:hover, &:focus {
+					border-radius: 0;
+					outline: none;
+					box-shadow: none;
+				}
+			
+				i {
+				    color: #fff;
+					background-color: #3b5998;
+					text-align: left !important;
+					padding: 10px 14px;
+					position: absolute;
+					left: 1px;
+					top: 1px;
+				}
+
+				span {
+					position: relative;
+					left: 16px;
+				}
+			}
+
+			button.google {
+				margin-top: 10px;
+				text-align: center;
+				width: 100%;
+				color: #ea4335;
+				background-color: #fff; 
+				border-radius: 0;
+				outline: none;
+				cursor: pointer;
+				border: 1px solid #ea4335;
+
+				&:hover, &:focus {
+					border-radius: 0;
+					outline: none;
+					box-shadow: none;
+				}
+			
+				i {
+				    color: #fff;
+					background-color: #ea4335;
+					text-align: left !important;
+					padding: 10px 9px;
+					position: absolute;
+					left: 1px;
+					top: 49px;
+				}
+
+				span {
+					position: relative;
+					left: 16px;
+				}
+			}
+		}
+
+
+	}
+}
