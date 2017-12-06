@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create Account - Etiendahan Pangasinan</title>
+	<title>Login - Etiendahan Pangasinan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -12,10 +12,10 @@
 
 	<!-- For development only | Comment or delete this line of code when its production -->
 	<!-- Development -->
-	<!-- <link rel="stylesheet" href="/etiendahan/assets/css/theme.css"> -->
+	<link rel="stylesheet" href="/etiendahan/assets/css/theme.css">
 	
 	<!-- Production -->
-	<link rel="stylesheet" href="/assets/css/theme.css">
+	<!-- <link rel="stylesheet" href="/assets/css/theme.css"> -->
 	
 	<!-- Uncomment this if the project is ready in production -->
 	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
@@ -23,7 +23,7 @@
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-	<div id="register-page" class="main-container">
+	<div id="login-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
 				<!-- SECTION 1 -->
@@ -187,7 +187,7 @@
 
 									<!-- ALL CATEGORIES -->
 									<li class="nav-item">
-										<a href='https://etiendahan.000webhostapp.com/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
+										<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 									</li>
 								</ul>
 							</div>
@@ -289,8 +289,8 @@
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<p>Howdie.</p>
 
-										<a href="login.php"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-										<a href=""><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+										<a href=""><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+										<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
 									</div>
 								</div>
 							</div>
@@ -312,31 +312,14 @@
 				</div>
 				<!-- END OF SECTION 1 -->
 
-				<!-- REGISTER PAGE SECTION 1 -->
-				<div id="etiendahan-register-page-section-1">
+				<!-- LOGIN PAGE SECTION 1 -->
+				<div id="etiendahan-login-page-section-1">
 					<div class="container">
-						<div class="page-title text-center"><h1>Create Account</h1></div>
+						<div class="page-title text-center"><h1>Registered Customers</h1></div>
 						<div class="row-wrapper">
 							<div class="row">
 								<div class="col-md-8">
-									<form>
-										<!-- gender -->
-										<div class="form-group row">
-											<label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
-											<div class="col-sm-10">
-												<div class="form-check form-check-inline">
-													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioMale" value="optionMale" required> Male
-													</label>
-												</div>
-												<div class="form-check form-check-inline">
-													<label class="form-check-label">
-														<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioFemale" value="optionFemale" required> Female
-													</label>
-												</div>
-											</div>
-										</div>
-		
+									<form>		
 										<!-- email -->
 										<div class="form-group row">
 											<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
@@ -344,90 +327,32 @@
 												<input type="email" class="form-control" id="inputEmail" required>
 											</div>
 										</div>
-										
-										<!-- fullname -->
-										<div class="form-group row">
-											<label for="inputFullname" class="col-sm-2 col-form-label">Fullname</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputFullname" required>
-											</div>
-										</div>
-
-										<!-- birtday -->
-										<div id="three-col" class="form-group row">
-											<label for="selectBirthday" class="col-md-2 col-form-label">Birthday</label>
-											<div class="row">
-												<div class="col-md-4">
-													<select class="form-control" required>
-														<option value="">Day</option>
-														<?php
-															for ($x=1; $x<=31; $x++) {
-																echo'<option value="'.$x.'">'.$x.'</option>'; 
-															} 
-														?> 
-													</select>
-													
-												</div>
-												<div class="col-md-4">
-													<select class="form-control" required>
-														<option value="">Month</option>
-														<?php 
-															for($m = 1;$m <= 12; $m++){ 
-															    $month =  date("F", mktime(0, 0, 0, $m)); 
-															    echo "<option value='$m'>$month</option>"; 
-															} 
-														?>
-													</select>
-												</div>
-												<div class="col-md-4">
-													<select class="form-control" required>
-														<option value="">Year</option>
-														<?php
-															for ($x=date("Y"); $x>=1900; $x--) {
-																echo'<option value="'.$x.'">'.$x.'</option>'; 
-															} 
-														?> 
-													</select>
-												</div>
-											</div>
-										</div>
 
 										<!-- password -->
 										<div class="form-group row">
 											<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 											<div id="show-hide-password" class="col-sm-10 input-group">
-												<input type="password" class="form-control" id="inputPassword" required>
+												<input type="password" class="form-control" id="inputPassword" min="" required>
 												<div class="input-group-addon">
 													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 												</div>
 											</div>
 										</div>
 
-										<!-- retype password -->
-										<div class="form-group row">
-											<label for="inputConfirmPassword" class="col-sm-2 col-form-label">Retype Password</label>
-											<div id="show-hide-confirm-password" class="col-sm-10 input-group">
-												<input type="password" class="form-control" id="inputConfirmPassword" required>
-												<div class="input-group-addon">
-													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-												</div>
-											</div>
-										</div>
-
-										<!-- read and understood -->
+										<!-- forgot password -->
 										<div class="form-group row read-and-understood">
-											<label for="readAndUnderstood" class="col-sm-2 col-form-label"></label>
+											<label for="forgotPassword" class="col-sm-2 col-form-label"></label>
 											<div class="col-sm-10">
-												<p>*I read and understood Etiendahan <a href="#">Privacy Policy</a></p>
+												<a href="/etiendahan/customer/password/forgot/">Forgot your password?</a>
 											</div>
 										</div>
 										
-										<!-- create -->
+										<!-- login -->
 										<div class="form-group row">
 											<div class="col-sm-12 text-center">
-												<button class="btn btn-primary" type="submit">Create</button>
+												<button class="btn btn-primary" type="submit">Login</button>
 											</div>
-										</div>
+										</div>										
 									</form>
 
 									<div class="or">OR</div>
@@ -437,18 +362,23 @@
 									<div class="social-medias">
 										<button class="btn btn-primary facebook" type="submit">
 										<i class="fa fa-facebook"></i>
-										<span>Sign up with Facebook</span></button>
+										<span>Facebook</span></button>
 
 										<button class="btn btn-primary google" type="submit">
 										<i class="fa fa-google-plus"></i>
-										<span>Sign up with Google</span></button>
+										<span>Google</span></button>
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="new-here-title text-center">
+							<h1>New Here?</h1>
+							<p>Registration is free and easy!</p>
+							<a href="/etiendahan/customer/account/create/"><button class="btn btn-primary" type="submit">Create an account</button></a>
+						</div>
 					</div>
 				</div>
-				<!-- END OF REGISTER PAGE SECTION 1 -->
+				<!-- END OF LOGIN PAGE SECTION 1 -->
 
 				<!-- SECTION 7 -->
 				<div id="etiendahan-section-7" class="etiendahan-section">
@@ -535,10 +465,10 @@
 
 
 	<!-- Development -->
-	<!-- <script src="/etiendahan/assets/js/theme.js"></script> -->
+	<script src="/etiendahan/assets/js/theme.js"></script>
 
 	<!-- Production -->
-	<script src="/assets/js/theme.js"></script>
+	<!-- <script src="/assets/js/theme.js"></script> -->
 
  	<!-- Uncomment this if the project is ready in production -->
 	<!-- <script src="assets/js/theme.min.js"></script></body> -->

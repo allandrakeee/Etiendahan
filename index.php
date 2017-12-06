@@ -280,8 +280,8 @@
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<p>Howdie.</p>
 
-											<a href="login"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-											<a href="customer/account/register/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+											<a href="customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+											<a href="customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
 										</div>
 									</div>
 								</div>

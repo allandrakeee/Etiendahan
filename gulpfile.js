@@ -92,7 +92,7 @@ gulp.task('scripts', function(){
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
-        'node_modules/jquery.cookie/jquery.cookie.js',
+        'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
@@ -118,7 +118,7 @@ gulp.task('scripts-min', function(){
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
-        'node_modules/jquery.cookie/jquery.cookie.js',
+        'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
@@ -155,14 +155,21 @@ gulp.task('html-min', function(){
         }))
     .pipe(gulp.dest('dist/'));
 
-    var php_dir_customer_account = gulp.src(['customer/account/*.php'])
+    var php_dir_account_customer = gulp.src(['customer/account/*.php'])
         .pipe(htmlmin({
             collapseWhitespace: true,
             ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
         }))
     .pipe(gulp.dest('dist/customer/account'));
 
-    return merge(php_dir, php_dir_customer_account);
+    var php_dir_account_forgot_password = gulp.src(['customer/password/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/customer/password'));
+
+    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password);
 });
 
 // ================================ Watch Assets ================================
@@ -180,6 +187,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('customer/account/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('customer/password/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
 });

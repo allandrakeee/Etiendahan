@@ -192,8 +192,8 @@ $(document).ready(function(){
 
 // ============ REGISTER PAGE - SECTION 1 ============
 if($("#register-page").length > 0){
-	var password = document.getElementById("inputPassword")
-	  , confirm_password = document.getElementById("inputConfirmPassword");
+	var password = document.getElementById("inputPasswordSignup")
+	  , confirm_password = document.getElementById("inputConfirmPasswordSignup");
 
 	function validatePassword() {
 		if(password.value != confirm_password.value) {
@@ -203,8 +203,18 @@ if($("#register-page").length > 0){
 		}
 	}
 
+	function validateMinPassword() {
+		if(password.value.length < 10) {
+			password.setCustomValidity("Must be less than 10 characters.");
+		} else {
+			password.setCustomValidity('');
+		}
+	}
+
 	password.onchange = validatePassword;
 	confirm_password.onkeyup = validatePassword;
+	password.onchange = validateMinPassword;
+	password.onkeyup = validateMinPassword;
 }
 
 $(document).ready(function() {
@@ -252,3 +262,10 @@ $(window).on('load', function() {
     }
 });
 // ============ END OF REGISTER PAGE - SECTION 1 ============
+
+
+
+
+$('#inputPasswordSignup').pwstrength({
+    ui: { showVerdictsInsideProgressBar: true }
+});
