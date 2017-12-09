@@ -268,6 +268,10 @@ $(window).on('load', function() {
 $('#inputPasswordSignup').pwstrength({
     ui: { showVerdictsInsideProgressBar: true }
 });
+
+$('.modal').on('shown.bs.modal', function() {
+  $(this).find('[autofocus]').focus();
+});
 // ============ END CREATE ACCOUNT PAGE - SECTION 1 ============
 
 
@@ -315,3 +319,196 @@ $('#inputPasswordNew').pwstrength({
     ui: { showVerdictsInsideProgressBar: true }
 });
 // ============ END OF MY ACCOUNT PAGE - CHANGE PASSWORD - SECTION 1 ============
+
+
+// ============ MY ACCOUNT PAGE - CHANGE ADDRESS - SECTION 1 ===========
+$(function(){ 
+    $("select[name='province']").change(function() {            
+        if (this.selectedIndex == 0){
+        	// $('#city').children('option:not(:second)').remove();
+
+    		$('#city')
+		    .find('option')
+		    .remove()
+		    .end()
+		    .append('<option value="" selected>City</option>');    	
+
+			$('#barangay')
+		    .find('option')
+		    .remove()
+		    .end()
+		    .append('<option value="" selected>Barangay</option>');    
+        }
+  	});
+
+    $("select[name='city']").change(function() {            
+        if (this.selectedIndex == 0){
+			$('#barangay')
+		    .find('option')
+		    .remove()
+		    .end()
+		    .append('<option value="" selected>Barangay</option>');  
+        }
+  	});
+
+}); 
+
+var municipalityByCategory = {
+    1: ["City", "Bangued", "Boliney", "Bucay", "Bucloc", "Daguioman", "Danglas", "Dolores", "La Paz", "Lacub", "Lagangilang", "Lagayan", "Langiden", "Licuan~Baay", "Luba", "Malibcong", "Manabo", "Penarrubia", "Pidigan", "Pilar", "Sallapadan", "San Isidro", "San Juan", "San Quintin", "Tayum", "Tineg", "Villaviciosa"],
+    // Pangasinan
+    77: ["City", "Agno", "Aguilar", "Alaminos City", "Alcala", "Anda", "Asingan", "Balungao", "Bani", "Basista", "Bautista", "Bayambang", "Binalonan", "Binmaley", "Bolinao", "Bugallon", "Burgos", "Calasiao", "Dagupan City", "Dasol", "Infanta", "Laoac", "Lingayen", "Mabini", "Malasiqui", "Manaoag", "Mangaldan", "Mangatarem", "Mapandan", "Natividad", "Pozorrubio", "Rosales", "San Carlos City", "San Fabian", "San Jacinto", "San Manuel", "San Nicolas", "San Quintin", "Santa Barbara", "Santa Maria", "Santo Tomas", "Sison", "Sual", "Tayug", "Umingan", "Urbiztondo", "Urdaneta City", "Villasis"]
+}
+
+var cityInProvinceChangeByCategory = {
+	0: ["Barangay"],
+    1: ["Barangay"],
+    2: ["Barangay"],
+    3: ["Barangay"],
+    4: ["Barangay"],
+    5: ["Barangay"],
+    6: ["Barangay"],
+    7: ["Barangay"],
+    8: ["Barangay"],
+    9: ["Barangay"],
+    10: ["Barangay"],
+    11: ["Barangay"],
+    12: ["Barangay"],
+    13: ["Barangay"],
+    14: ["Barangay"],
+    15: ["Barangay"],
+    16: ["Barangay"],
+    17: ["Barangay"],
+    18: ["Barangay"],
+    19: ["Barangay"],
+    20: ["Barangay"],
+    21: ["Barangay"],
+    22: ["Barangay"],
+    23: ["Barangay"],
+    24: ["Barangay"],
+    25: ["Barangay"],
+    26: ["Barangay"],
+    27: ["Barangay"],
+    28: ["Barangay"],
+    29: ["Barangay"],
+    30: ["Barangay"],
+    31: ["Barangay"],
+    32: ["Barangay"],
+    33: ["Barangay"],
+    34: ["Barangay"],
+    35: ["Barangay"],
+    36: ["Barangay"],
+    37: ["Barangay"],
+    38: ["Barangay"],
+    39: ["Barangay"],
+    40: ["Barangay"],
+    41: ["Barangay"],
+    42: ["Barangay"],
+    43: ["Barangay"],
+    44: ["Barangay"],
+    45: ["Barangay"],
+    46: ["Barangay"],
+    47: ["Barangay"],
+    48: ["Barangay"],
+    49: ["Barangay"],
+    50: ["Barangay"],
+    51: ["Barangay"],
+    52: ["Barangay"],
+    53: ["Barangay"],
+    54: ["Barangay"],
+    55: ["Barangay"],
+    56: ["Barangay"],
+    57: ["Barangay"],
+    58: ["Barangay"],
+    59: ["Barangay"],
+    60: ["Barangay"],
+    61: ["Barangay"],
+    62: ["Barangay"],
+    63: ["Barangay"],
+    64: ["Barangay"],
+    65: ["Barangay"],
+    66: ["Barangay"],
+    67: ["Barangay"],
+    68: ["Barangay"],
+    69: ["Barangay"],
+    70: ["Barangay"],
+    71: ["Barangay"],
+    72: ["Barangay"],
+    73: ["Barangay"],
+    74: ["Barangay"],
+    75: ["Barangay"],
+    76: ["Barangay"],
+    77: ["Barangay"],
+    78: ["Barangay"],
+    79: ["Barangay"],
+    80: ["Barangay"],
+    81: ["Barangay"],
+    82: ["Barangay"],
+    83: ["Barangay"],
+    84: ["Barangay"],
+    85: ["Barangay"],
+    86: ["Barangay"],
+    87: ["Barangay"],
+    88: ["Barangay"],
+    89: ["Barangay"],
+    90: ["Barangay"],
+    91: ["Barangay"],
+    92: ["Barangay"],
+    93: ["Barangay"],
+    94: ["Barangay"],
+    95: ["Barangay"],
+    96: ["Barangay"],
+    97: ["Barangay"],
+    98: ["Barangay"]
+}
+
+function changeprovince(value) {
+    if (value.length == 0) document.getElementById("city").innerHTML = "<option></option>";
+    else {
+		var municipalityOptions = "";
+		for (municipalityId in municipalityByCategory[value]) {
+			if (municipalityByCategory[value][municipalityId] == "City") {
+				municipalityOptions = "<option value=''>City</option>";
+			} else {
+				municipalityOptions += "<option value='" + municipalityByCategory[value][municipalityId] + "'>" + municipalityByCategory[value][municipalityId] + "</option>";
+			} 
+		}
+		document.getElementById("city").innerHTML = municipalityOptions;
+    }
+
+    if (value.length == 0) document.getElementById("barangay").innerHTML = "<option></option>";
+    else {
+		var cityOptions = "";
+		for (cityId in cityInProvinceChangeByCategory[value]) {
+		cityOptions += "<option value='" + cityInProvinceChangeByCategory[value][cityId] + "'>" + cityInProvinceChangeByCategory[value][cityId] + "</option>";
+		}
+		document.getElementById("barangay").innerHTML = cityOptions;
+    }
+}
+
+var cityByCategory = {
+	"Municipality": ["Barangay"],
+	// Abra
+    "Bangued": ["Barangay", "Agtangao", "Angad", "Bagacao", "Bangbangar", "Cabuloan", "Calaba", "Cosili East (Proper)", "Cosili West (Buaya)", "Dangdangla", "Lingtan", "Lipcan", "Lubong", "Macarcarmay", "Macray", "Malita", "Maoay", "Palao", "Patucannay", "Sagap", "San Antonio", "Santa Rosa", "Sao~atan", "Sappaac", "Tablac (Calot)", "Zone 1 Pob. (Nalasin)", "Zone 2 Pob. (Consiliman)", "Zone 3 Pob. (Lalaud)", "Zone 4 Pob. (Town Proper)", "Zone 5 Pob. (Bo. Barikir)", "Zone 6 Pob. (Sinapangan)", "Zone 7 Pob. (Baliling)"],
+    // Pangasinan
+    "Agno": ["Barangay", "Allabon", "Aloleng", "Bangan~Oda", "Baruan", "Boboy", "Cayungnan", "Dangley", "Gayusan", "Macaboboni", "Magsaysay", "Namatucan", "Patar", "Poblacion East", "Poblacion West", "San Juan", "Tupa", "Viga"],
+    "Dagupan City": ["Barangay", "Bacayao Norte", "Bacayao Sur", "Barangay I (T. Bugallon)", "Barangay Ii (Nueva)", "Barangay Iv (Zamora)", "Bolosan", "Bonuan Binloc", "Bonuan Boquig", "Bonuan Gueset", "Calmay", "Carael", "Caranglaan", "Herrero", "Lasip Chico", "Lasip Grande", "Lomboy", "Lucao", "Malued", "Mamalingling", "Mangin", "Mayombo", "Pantal", "Poblacion Oeste", "Pogo Chico", "Pogo Grande", "Pugaro Suit", "Salapingao", "Salisay", "Tambac", "Tapuac", "Tebeng"]
+}
+
+function changemunicipality(value) {
+    if (value.length == 0) document.getElementById("barangay").innerHTML = "<option></option>";
+    else {
+		var cityOptions = "";
+		for (cityId in cityByCategory[value]) {
+			if (cityByCategory[value][cityId] == "Barangay") {
+				cityOptions += "<option value=''>" + cityByCategory[value][cityId] + "</option>";
+			}
+
+			if (cityByCategory[value][cityId] != "Barangay") {
+				cityOptions += "<option value='" + cityByCategory[value][cityId] + "'>" + cityByCategory[value][cityId] + "</option>";
+			} 
+
+		}
+		document.getElementById("barangay").innerHTML = cityOptions;
+    }
+}
+// ============ END OF MY ACCOUNT PAGE - CHANGE ADDRESS - SECTION 1 ============

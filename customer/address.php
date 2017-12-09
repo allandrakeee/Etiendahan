@@ -375,7 +375,7 @@
 														<!-- fullname -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="text" class="form-control" id="inputFullnameAddAddress" placeholder="Fullname" required>
+																<input type="text" class="form-control" id="inputFullnameAddAddress" placeholder="Fullname" required autofocus>
 															</div>
 														</div>
 
@@ -389,7 +389,138 @@
 														<!-- postal code -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="number" class="form-control" id="inputPhoneNumberAddAddress" placeholder="Postal Code" required>
+																<input type="number" class="form-control" id="inputPostalCodeAddAddress" placeholder="Postal Code" required>
+															</div>
+														</div>
+
+														<!-- province -->
+														<div class="form-group row">
+															<div class="col-md-12">
+																<select class="form-control" name="province" id="province" onChange="changeprovince(this.value);" required>
+																	<option value="" selected>Province</option>
+																    <option value="1">Abra</option>
+																    <option value="2">Agusan Del Norte</option>
+																    <option value="3">Agusan Del Sur</option>
+																    <option value="4">Aklan</option>
+																    <option value="5">Albay</option>
+																    <option value="6">Antique</option>
+																    <option value="7">Aurora</option>
+																    <option value="8">Basilan</option>
+																    <option value="9">Bataan</option>
+																    <option value="10">Batangas</option>
+																    <option value="11">Benguet</option>
+																    <option value="12">Biliran</option>
+																    <option value="13">Bohol</option>
+																    <option value="14">Bukidnon</option>
+																    <option value="15">Bulacan</option>
+																    <option value="16">Cagayan</option>
+																    <option value="17">Camarines Norte</option>
+																    <option value="18">Camarines Sur</option>
+																    <option value="19">Camiguin</option>
+																    <option value="20">Capiz</option>
+																    <option value="21">Catanduanes</option>
+																    <option value="22">Cavite</option>
+																    <option value="23">Cebu</option>
+																    <option value="24">Compostela Valley</option>
+																    <option value="25">Cotabato</option>
+																    <option value="26">Davao Del Norte</option>
+																    <option value="27">Davao Del Sur</option>
+																    <option value="28">Davao Oriental</option>
+																    <option value="29">Dinagat Islands</option>
+																    <option value="30">Eastern Samar</option>
+																    <option value="31">Guimaras</option>
+																    <option value="32">Ifugao</option>
+																    <option value="33">Ilocos Norte</option>
+																    <option value="34">Ilocos Sur</option>
+																    <option value="35">Iloilo</option>
+																    <option value="36">Isabela</option>
+																    <option value="37">Kalinga</option>
+																    <option value="38">La Union</option>
+																    <option value="39">Laguna</option>
+																    <option value="40">Lanao Del Norte</option>
+																    <option value="41">Lanao Del Sur</option>
+																    <option value="42">Lazada Office</option>
+																    <option value="43">Leyte</option>
+																    <option value="44">Maguindanao</option>
+																    <option value="45">Marinduque</option>
+																    <option value="46">Masbate</option>
+																    <option value="47">Metro Manila~Caloocan</option>
+																    <option value="48">Metro Manila~Las Pinas</option>
+																    <option value="49">Metro Manila~Makati</option>
+																    <option value="50">Metro Manila~Malabon</option>
+																    <option value="51">Metro Manila~Mandaluyong</option>
+																    <option value="52">Metro Manila~Manila</option>
+																    <option value="53">Metro Manila~Marikina</option>
+																    <option value="54">Metro Manila~Muntinlupa</option>
+																    <option value="55">Metro Manila~Navotas</option>
+																    <option value="56">Metro Manila~Paranaque</option>
+																    <option value="57">Metro Manila~Pasay</option>
+																    <option value="58">Metro Manila~Pasig</option>
+																    <option value="59">Metro Manila~Pateros</option>
+																    <option value="60">Metro Manila~Quezon City</option>
+																    <option value="61">Metro Manila~San Juan</option>
+																    <option value="62">Metro Manila~Taguig</option>
+																    <option value="63">Metro Manila~Valenzuela</option>
+																    <option value="64">Misamis Occidental</option>
+																    <option value="65">Misamis Oriental</option>
+																    <option value="66">Mountain Province</option>
+																    <option value="67">Negros Occidental</option>
+																    <option value="68">Negros Oriental</option>
+																    <option value="69">North Cotabato</option>
+																    <option value="70">Northern Samar</option>
+																    <option value="71">Nueva Ecija</option>
+																    <option value="72">Nueva Vizcaya</option>
+																    <option value="73">Occidental Mindoro</option>
+																    <option value="74">Oriental Mindoro</option>
+																    <option value="75">Palawan</option>
+																    <option value="76">Pampanga</option>
+																    <option value="77">Pangasinan</option>
+																    <option value="78">Quezon</option>
+																    <option value="79">Quirino</option>
+																    <option value="80">Rizal</option>
+																    <option value="81">Romblon</option>
+																    <option value="82">Sarangani</option>
+																    <option value="83">Siquijor</option>
+																    <option value="84">Sorsogon</option>
+																    <option value="85">South Cotabato</option>
+																    <option value="86">Southern Leyte</option>
+																    <option value="87">Sultan Kudarat</option>
+																    <option value="88">Sulu</option>
+																    <option value="89">Surigao Del Norte</option>
+																    <option value="90">Surigao Del Sur</option>
+																    <option value="92">Tarlac</option>
+																    <option value="93">Tawi~Tawi</option>
+																    <option value="94">Western Samar</option>
+																    <option value="95">Zambales</option>
+																    <option value="96">Zamboanga Del Norte</option>
+																    <option value="97">Zamboanga Del Sur</option>
+																    <option value="98">Zamboanga Sibugay</option>
+																</select>
+															</div>
+														</div>
+
+														<!-- municipality -->
+														<div class="form-group row">
+															<div class="col-md-12">
+																<select class="form-control" name="city" id="city" onChange="changemunicipality(this.value);" required>
+																	<option value="">City</option>
+																</select>
+															</div>
+														</div>
+
+														<!-- city -->
+														<div class="form-group row">
+															<div class="col-md-12">
+																<select class="form-control" name="barangay" id="barangay" required>
+																	<option value="">Barangay</option>
+																</select>
+															</div>
+														</div>
+
+														<!-- complete address -->
+														<div class="form-group row">
+															<div class="col-sm-12">
+																<input type="text" class="form-control" id="inputCompleteAddressAddAddress" placeholder="Complete Address (House Number, Building and Street Name)" required>
 															</div>
 														</div>
 													</form>
