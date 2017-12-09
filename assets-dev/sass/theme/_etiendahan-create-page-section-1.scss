@@ -43,6 +43,10 @@
 				&:focus {
 					border: 1px solid rgba(0, 0, 0, 0.15);
 				}
+
+				&#inputPasswordSignup {
+				    border-right-width: 0px;
+				}
 			}
 
 			input.form-check-input {

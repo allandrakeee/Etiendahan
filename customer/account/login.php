@@ -294,16 +294,6 @@
 									</div>
 								</div>
 							</div>
-						
-							<!-- Sign Up -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Sign Up</a>
-							</div> -->
-
-							<!-- Login -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Login</a>
-							</div> -->
 
 							<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
@@ -330,9 +320,9 @@
 
 										<!-- password -->
 										<div class="form-group row">
-											<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+											<label for="inputPasswordLogin" class="col-sm-2 col-form-label">Password</label>
 											<div id="show-hide-password" class="col-sm-10 input-group">
-												<input type="password" class="form-control" id="inputPassword" min="" required>
+												<input type="password" class="form-control" id="inputPasswordLogin" min="" required>
 												<div class="input-group-addon">
 													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 												</div>
@@ -371,7 +361,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="new-here-title text-center">
+						<div class="new-here-content text-center">
 							<h1>New Here?</h1>
 							<p>Registration is free and easy!</p>
 							<a href="/etiendahan/customer/account/create/"><button class="btn btn-primary" type="submit">Create an account</button></a>

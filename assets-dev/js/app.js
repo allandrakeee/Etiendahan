@@ -191,7 +191,7 @@ $(document).ready(function(){
 // ============ END OF SECTION 3 ============
 
 // ============ REGISTER PAGE - SECTION 1 ============
-if($("#register-page").length > 0){
+if($("#create-account-page").length > 0){
 	var password = document.getElementById("inputPasswordSignup")
 	  , confirm_password = document.getElementById("inputConfirmPasswordSignup");
 
@@ -264,8 +264,54 @@ $(window).on('load', function() {
 // ============ END OF REGISTER PAGE - SECTION 1 ============
 
 
-
-
+// ============ CREATE ACCOUNT PAGE - SECTION 1 ============
 $('#inputPasswordSignup').pwstrength({
     ui: { showVerdictsInsideProgressBar: true }
 });
+// ============ END CREATE ACCOUNT PAGE - SECTION 1 ============
+
+
+
+// ============ MY ACCOUNT PAGE - CHANGE PASSWORD - SECTION 1 ============
+if($("#password-page").length > 0){
+	var new_password = document.getElementById("inputPasswordNew")
+	  , new_confirm_password = document.getElementById("inputPasswordNewConfirm")
+	  , current_confirm_password = document.getElementById("inputPasswordCurrent");
+
+	function validateNewPassword() {
+		if(new_password.value != new_confirm_password.value) {
+			new_confirm_password.setCustomValidity("Passwords don't match.");
+		} else {
+			new_confirm_password.setCustomValidity('');
+		}
+	}
+
+	function validateMinPasswordNew() {
+		if(new_password.value.length < 10) {
+			new_password.setCustomValidity("Must be less than 10 characters.");
+		} else {
+			new_password.setCustomValidity('');
+		}
+	}
+
+	function validateMinPasswordCurrent() {
+		if(current_confirm_password.value.length < 10) {
+			current_confirm_password.setCustomValidity("Must be less than 10 characters.");
+		} else {
+			current_confirm_password.setCustomValidity('');
+		}
+	}
+
+	new_password.onchange = validateNewPassword;
+	new_confirm_password.onkeyup = validateNewPassword;
+	new_password.onchange = validateMinPasswordNew;
+	new_password.onkeyup = validateMinPasswordNew;
+	current_confirm_password.onchange = validateMinPasswordCurrent;
+	current_confirm_password.onkeyup = validateMinPasswordCurrent;
+	
+}
+
+$('#inputPasswordNew').pwstrength({
+    ui: { showVerdictsInsideProgressBar: true }
+});
+// ============ END OF MY ACCOUNT PAGE - CHANGE PASSWORD - SECTION 1 ============

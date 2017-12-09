@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forgot password? - Etiendahan Pangasinan</title>
+	<title>Change Password - Etiendahan Pangasinan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-	<div id="login-page" class="main-container">
+	<div id="password-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
 				<!-- SECTION 1 -->
@@ -289,21 +289,13 @@
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<p>Howdie.</p>
 
-										<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-										<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+										<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
+										<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+										<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlist</div></a>
+										<a href="/etiendahan/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>LOGOUT</div></a>
 									</div>
 								</div>
 							</div>
-						
-							<!-- Sign Up -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Sign Up</a>
-							</div> -->
-
-							<!-- Login -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Login</a>
-							</div> -->
 
 							<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
@@ -312,46 +304,109 @@
 				</div>
 				<!-- END OF SECTION 1 -->
 
-				<!-- FORGOT PASSWORD PAGE SECTION 1 -->
-				<div id="etiendahan-forgot-password-page-section-1">
+				<!-- CUSTOMER PAGE SECTION 1 -->
+				<div id="etiendahan-customer-page-section-1">
 					<div class="container">
-						<div class="page-title text-center"><h1>Reset your password</h1></div>
-						<div class="page-title-sub-title text-center">
-							<p>We will send you an email to reset your password.</p>
-						</div>
-
 						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4 wrapper">
-								<form>		
-									<!-- email -->
-									<div class="form-group row">
-										<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputEmail" required autocomplete="off">
+							<div class="col-md-3">
+								<div id="accordion" role="tablist">
+									<div class="card">
+										<div class="card-header active" role="tab" id="headingOne">
+											<h5 class="mb-0">
+												<a>
+												Personal Information
+												</a>
+											</h5>
 										</div>
-									</div>					
-									
-									<!-- submit -->
-									<div class="form-group row">
-										<div class="col-sm-12 text-center">
-											<button class="btn btn-primary" type="submit">Submit</button>
-										</div>
-									</div>	
 
-									<!-- forgot password -->
-									<div class="row cancel-forgot-password">
-										<div class="col-sm-12 text-center">
-											<a href="/etiendahan/customer/account/login/">Cancel</a>
+										<div class="collapse show">
+											<div class="card-body personal-info">
+												<ul>
+													<li><a href="/etiendahan/customer/account/profile/">Profile</a></li>
+													<li class="active"><a href="">Change Password</a></li>												
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingTwo">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/orders/">
+												Orders
+												</a>
+											</h5>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingThree">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/wishlists/">
+												Wishlists
+												</a>
+											</h5>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingFour">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/address/">
+												Address Book
+												</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-8">
+								<div class="tab-content"><h1>Change Password</h1><p>For your account's security, do not share your password with anyone else</p></div>
+							
+								<form>
+									<!-- current password -->
+									<div class="form-group row">
+										<label for="inputPasswordCurrent" class="col-sm-2 col-form-label">Current Password</label>
+										<div id="show-hide-password" class="col-sm-10 input-group">
+											<input type="password" class="form-control" id="inputPasswordCurrent" min="10" max="20" required>
+											<div class="input-group-addon">
+												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+											</div>
 										</div>
 									</div>								
+
+									<!-- current password -->
+									<div class="form-group row">
+										<label for="inputPasswordNew" class="col-sm-2 col-form-label">New Password</label>
+										<div id="show-hide-password" class="col-sm-10 input-group">
+											<input type="password" class="form-control" id="inputPasswordNew" min="10" max="20" required>
+											<div class="input-group-addon">
+												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+											</div>
+										</div>
+									</div>
+
+									<!-- retype password -->
+									<div class="form-group row">
+										<label for="inputConfirmPassword" class="col-sm-2 col-form-label">Retype Password</label>
+										<div id="show-hide-confirm-password" class="col-sm-10 input-group">
+											<input type="password" class="form-control" id="inputPasswordNewConfirm" required>
+											<div class="input-group-addon">
+												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+											</div>
+										</div>
+									</div>
+									
+									<!-- create -->
+									<div class="form-group row">
+										<div class="col-sm-12 text-center">
+											<button class="btn btn-primary" type="submit">Create</button>
+										</div>
+									</div>
 								</form>
 							</div>
-							<div class="col-md-4"></div>
 						</div>
 					</div>
 				</div>
-				<!-- END OF FORGOT PASSWORD PAGE SECTION 1 -->
+				<!-- END OF CUSTOMER PAGE SECTION 1 -->
 
 				<!-- SECTION 7 -->
 				<div id="etiendahan-section-7" class="etiendahan-section">

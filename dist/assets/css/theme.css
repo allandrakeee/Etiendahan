@@ -11319,42 +11319,44 @@ ul.navbar-nav li.dropdown .dropdown-menu {
 .text-white {
   color: #fff; }
 
-#etiendahan-register-page-section-1 {
+#etiendahan-create-page-section-1 {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;
   color: dimgrey; }
-  #etiendahan-register-page-section-1 .page-title {
+  #etiendahan-create-page-section-1 .page-title {
     margin-bottom: 20px; }
-  #etiendahan-register-page-section-1 .row-wrapper {
+  #etiendahan-create-page-section-1 .row-wrapper {
     background-color: #f8f8f8;
     padding: 25px; }
-  #etiendahan-register-page-section-1 .col-md-8 {
+  #etiendahan-create-page-section-1 .col-md-8 {
     border-right: 1px solid #dcdcdc;
-    padding: 0 35px; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group.read-and-understood {
+    padding: 0 30px 0 10px; }
+    #etiendahan-create-page-section-1 .col-md-8 .form-group.read-and-understood {
       font-size: 12px; }
-      #etiendahan-register-page-section-1 .col-md-8 .form-group.read-and-understood a {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group.read-and-understood a {
         text-decoration: none; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group label.col-form-label {
+    #etiendahan-create-page-section-1 .col-md-8 .form-group label.col-form-label {
       font-size: 12px;
       font-weight: 700;
       padding-right: 0; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group label {
+    #etiendahan-create-page-section-1 .col-md-8 .form-group label {
       font-size: 12px; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group .form-control {
+    #etiendahan-create-page-section-1 .col-md-8 .form-group .form-control {
       font-size: 12px;
       border-radius: 0; }
-      #etiendahan-register-page-section-1 .col-md-8 .form-group .form-control:focus {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group .form-control:focus {
         border: 1px solid rgba(0, 0, 0, 0.15); }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group input.form-check-input {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group .form-control#inputPasswordSignup {
+        border-right-width: 0px; }
+    #etiendahan-create-page-section-1 .col-md-8 .form-group input.form-check-input {
       outline: none; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group .input-group-addon {
+    #etiendahan-create-page-section-1 .col-md-8 .form-group .input-group-addon {
       border-radius: 0; }
-      #etiendahan-register-page-section-1 .col-md-8 .form-group .input-group-addon i {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group .input-group-addon i {
         color: dimgrey; }
-      #etiendahan-register-page-section-1 .col-md-8 .form-group .input-group-addon a:focus {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group .input-group-addon a:focus {
         outline: none; }
-    #etiendahan-register-page-section-1 .col-md-8 .form-group .btn-primary {
+    #etiendahan-create-page-section-1 .col-md-8 .form-group .btn-primary {
       margin-top: 10px;
       background-color: #333333;
       border: 0;
@@ -11363,16 +11365,16 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       text-transform: uppercase;
       padding: 18px 25px;
       cursor: pointer; }
-      #etiendahan-register-page-section-1 .col-md-8 .form-group .btn-primary:hover, #etiendahan-register-page-section-1 .col-md-8 .form-group .btn-primary:focus {
+      #etiendahan-create-page-section-1 .col-md-8 .form-group .btn-primary:hover, #etiendahan-create-page-section-1 .col-md-8 .form-group .btn-primary:focus {
         background-color: #3f3f3f;
         -webkit-box-shadow: none;
                 box-shadow: none; }
-    #etiendahan-register-page-section-1 .col-md-8 #three-col .row {
+    #etiendahan-create-page-section-1 .col-md-8 #three-col .row {
       margin-left: 1px;
       width: 83%; }
-    #etiendahan-register-page-section-1 .col-md-8 #three-col .col-md-4 {
+    #etiendahan-create-page-section-1 .col-md-8 #three-col .col-md-4 {
       padding: 0px 14px; }
-    #etiendahan-register-page-section-1 .col-md-8 .or {
+    #etiendahan-create-page-section-1 .col-md-8 .or {
       position: absolute;
       right: -20px;
       top: 46%;
@@ -11380,12 +11382,12 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       background-color: #333333;
       color: #fff;
       padding: 5px; }
-  #etiendahan-register-page-section-1 .col-md-4 {
-    padding: 0 35px; }
-    #etiendahan-register-page-section-1 .col-md-4 .social-medias {
+  #etiendahan-create-page-section-1 .col-md-4 {
+    padding: 0 10px 0 30px; }
+    #etiendahan-create-page-section-1 .col-md-4 .social-medias {
       position: relative;
       top: 40%; }
-      #etiendahan-register-page-section-1 .col-md-4 .social-medias button.facebook {
+      #etiendahan-create-page-section-1 .col-md-4 .social-medias button.facebook {
         text-align: center;
         width: 100%;
         color: #3b5998;
@@ -11394,12 +11396,12 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         outline: none;
         cursor: pointer;
         border: 1px solid #3b5998; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.facebook:hover, #etiendahan-register-page-section-1 .col-md-4 .social-medias button.facebook:focus {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.facebook:hover, #etiendahan-create-page-section-1 .col-md-4 .social-medias button.facebook:focus {
           border-radius: 0;
           outline: none;
           -webkit-box-shadow: none;
                   box-shadow: none; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.facebook i {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.facebook i {
           color: #fff;
           background-color: #3b5998;
           text-align: left !important;
@@ -11407,10 +11409,10 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           position: absolute;
           left: 1px;
           top: 1px; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.facebook span {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.facebook span {
           position: relative;
           left: 16px; }
-      #etiendahan-register-page-section-1 .col-md-4 .social-medias button.google {
+      #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google {
         margin-top: 10px;
         text-align: center;
         width: 100%;
@@ -11420,12 +11422,12 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         outline: none;
         cursor: pointer;
         border: 1px solid #ea4335; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.google:hover, #etiendahan-register-page-section-1 .col-md-4 .social-medias button.google:focus {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google:hover, #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google:focus {
           border-radius: 0;
           outline: none;
           -webkit-box-shadow: none;
                   box-shadow: none; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.google i {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google i {
           color: #fff;
           background-color: #ea4335;
           text-align: left !important;
@@ -11433,9 +11435,307 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           position: absolute;
           left: 1px;
           top: 49px; }
-        #etiendahan-register-page-section-1 .col-md-4 .social-medias button.google span {
+        #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google span {
           position: relative;
           left: 16px; }
+
+#etiendahan-customer-page-section-1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  color: dimgrey; }
+  #etiendahan-customer-page-section-1 .col-md-3 .card .card-header {
+    background-color: #f8f8f8; }
+    #etiendahan-customer-page-section-1 .col-md-3 .card .card-header.active a {
+      font-weight: 600; }
+    #etiendahan-customer-page-section-1 .col-md-3 .card .card-header a {
+      text-decoration: none;
+      color: dimgrey;
+      font-size: 13px; }
+  #etiendahan-customer-page-section-1 .col-md-3 .card .card-body.personal-info {
+    padding-top: 10px;
+    padding-bottom: 5px; }
+  #etiendahan-customer-page-section-1 .col-md-3 .card .card-body ul {
+    padding-left: 20px; }
+    #etiendahan-customer-page-section-1 .col-md-3 .card .card-body ul li {
+      list-style-type: none; }
+      #etiendahan-customer-page-section-1 .col-md-3 .card .card-body ul li.active {
+        font-weight: 600; }
+      #etiendahan-customer-page-section-1 .col-md-3 .card .card-body ul li a {
+        text-decoration: none;
+        color: dimgrey;
+        font-size: 12px; }
+  #etiendahan-customer-page-section-1 .col-md-8 {
+    height: 550px;
+    background-color: #f8f8f8; }
+    #etiendahan-customer-page-section-1 .col-md-8 .tab-content {
+      margin-top: 20px;
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #dcdcdc; }
+      #etiendahan-customer-page-section-1 .col-md-8 .tab-content h1 {
+        font-size: 20px;
+        font-weight: 600;
+        display: inline; }
+      #etiendahan-customer-page-section-1 .col-md-8 .tab-content p {
+        font-size: 12px; }
+      #etiendahan-customer-page-section-1 .col-md-8 .tab-content .btn-primary {
+        background-color: #333333;
+        border: 0;
+        border-radius: 0;
+        color: #fff;
+        text-transform: uppercase;
+        padding: 8px 25px;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 6px; }
+        #etiendahan-customer-page-section-1 .col-md-8 .tab-content .btn-primary:hover, #etiendahan-customer-page-section-1 .col-md-8 .tab-content .btn-primary:focus {
+          background-color: #3f3f3f;
+          -webkit-box-shadow: none;
+                  box-shadow: none; }
+        #etiendahan-customer-page-section-1 .col-md-8 .tab-content .btn-primary .fa {
+          font-size: 15px;
+          font-weight: 100;
+          margin-right: 10px; }
+    #etiendahan-customer-page-section-1 .col-md-8 p {
+      font-size: 12px; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group label.col-form-label {
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 0; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group label {
+      font-size: 12px; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group .form-control {
+      font-size: 12px;
+      border-radius: 0; }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .form-control:focus {
+        border: 1px solid rgba(0, 0, 0, 0.15); }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .form-control#inputPasswordNew {
+        border-right-width: 0px; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group input.form-check-input {
+      outline: none; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group .input-group-addon {
+      border-radius: 0; }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .input-group-addon i {
+        color: dimgrey; }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .input-group-addon a:focus {
+        outline: none; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group .btn-primary {
+      margin-top: 10px;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 18px 25px;
+      cursor: pointer; }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .btn-primary:hover, #etiendahan-customer-page-section-1 .col-md-8 .form-group .btn-primary:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group .email {
+      margin-top: 5px;
+      font-size: 12px; }
+      #etiendahan-customer-page-section-1 .col-md-8 .form-group .email a {
+        text-decoration: none; }
+    #etiendahan-customer-page-section-1 .col-md-8 #three-col .row {
+      margin-left: 1px;
+      width: 83%; }
+    #etiendahan-customer-page-section-1 .col-md-8 #three-col .col-md-4 {
+      padding: 0px 14px; }
+    #etiendahan-customer-page-section-1 .col-md-8 .cancel-forgot-password a {
+      text-decoration: none;
+      color: dimgrey;
+      font-size: 12px; }
+
+#etiendahan-forgot-password-page-section-1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  color: dimgrey; }
+  #etiendahan-forgot-password-page-section-1 .page-title {
+    margin-bottom: 20px; }
+  #etiendahan-forgot-password-page-section-1 .page-title-sub-title {
+    margin-bottom: 20px; }
+    #etiendahan-forgot-password-page-section-1 .page-title-sub-title p {
+      font-size: 12px; }
+  #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper {
+    background-color: #f8f8f8;
+    padding: 20px; }
+    #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group label.col-form-label {
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 0; }
+    #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group label {
+      font-size: 12px; }
+    #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .form-control {
+      font-size: 12px;
+      border-radius: 0; }
+      #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .form-control:focus {
+        border: 1px solid rgba(0, 0, 0, 0.15); }
+      #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .form-control#inputPasswordNew {
+        border-right-width: 0px; }
+    #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .btn-primary {
+      margin-top: 30px;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 18px 25px;
+      cursor: pointer; }
+      #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .btn-primary:hover, #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .form-group .btn-primary:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+    #etiendahan-forgot-password-page-section-1 .col-md-4.wrapper .cancel-forgot-password a {
+      text-decoration: none;
+      color: dimgrey;
+      font-size: 12px; }
+
+#etiendahan-login-page-section-1 {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  color: dimgrey; }
+  #etiendahan-login-page-section-1 .page-title {
+    margin-bottom: 20px; }
+  #etiendahan-login-page-section-1 .new-here-content {
+    margin: 30px 0 20px 0; }
+    #etiendahan-login-page-section-1 .new-here-content h1 {
+      font-size: 35px; }
+    #etiendahan-login-page-section-1 .new-here-content p {
+      font-size: 12px; }
+    #etiendahan-login-page-section-1 .new-here-content .btn-primary {
+      margin-top: 10px;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 18px 25px;
+      cursor: pointer; }
+      #etiendahan-login-page-section-1 .new-here-content .btn-primary:hover, #etiendahan-login-page-section-1 .new-here-content .btn-primary:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+  #etiendahan-login-page-section-1 .row-wrapper {
+    background-color: #f8f8f8;
+    padding: 25px; }
+  #etiendahan-login-page-section-1 .col-md-8 {
+    border-right: 1px solid #dcdcdc;
+    padding: 50px 30px 20px 10px; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group.read-and-understood {
+      font-size: 12px; }
+      #etiendahan-login-page-section-1 .col-md-8 .form-group.read-and-understood a {
+        text-decoration: none; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group label.col-form-label {
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 0; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group label {
+      font-size: 12px; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group .form-control {
+      font-size: 12px;
+      border-radius: 0; }
+      #etiendahan-login-page-section-1 .col-md-8 .form-group .form-control:focus {
+        border: 1px solid rgba(0, 0, 0, 0.15); }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group input.form-check-input {
+      outline: none; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group .input-group-addon {
+      border-radius: 0; }
+      #etiendahan-login-page-section-1 .col-md-8 .form-group .input-group-addon i {
+        color: dimgrey; }
+      #etiendahan-login-page-section-1 .col-md-8 .form-group .input-group-addon a:focus {
+        outline: none; }
+    #etiendahan-login-page-section-1 .col-md-8 .form-group .btn-primary {
+      margin-top: 10px;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 18px 25px;
+      cursor: pointer; }
+      #etiendahan-login-page-section-1 .col-md-8 .form-group .btn-primary:hover, #etiendahan-login-page-section-1 .col-md-8 .form-group .btn-primary:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+    #etiendahan-login-page-section-1 .col-md-8 #three-col .row {
+      margin-left: 1px;
+      width: 83%; }
+    #etiendahan-login-page-section-1 .col-md-8 #three-col .col-md-4 {
+      padding: 0px 14px; }
+    #etiendahan-login-page-section-1 .col-md-8 .or {
+      position: absolute;
+      right: -20px;
+      top: 46%;
+      border-radius: 50px;
+      background-color: #333333;
+      color: #fff;
+      padding: 5px; }
+  #etiendahan-login-page-section-1 .col-md-4 {
+    padding: 0 10px 0 30px; }
+    #etiendahan-login-page-section-1 .col-md-4 .social-medias {
+      position: relative;
+      top: 17%; }
+      #etiendahan-login-page-section-1 .col-md-4 .social-medias button.facebook {
+        text-align: center;
+        width: 100%;
+        color: #3b5998;
+        background-color: #fff;
+        border-radius: 0;
+        outline: none;
+        cursor: pointer;
+        border: 1px solid #3b5998; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.facebook:hover, #etiendahan-login-page-section-1 .col-md-4 .social-medias button.facebook:focus {
+          border-radius: 0;
+          outline: none;
+          -webkit-box-shadow: none;
+                  box-shadow: none; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.facebook i {
+          color: #fff;
+          background-color: #3b5998;
+          text-align: left !important;
+          padding: 10px 14px;
+          position: absolute;
+          left: 1px;
+          top: 1px; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.facebook span {
+          position: relative;
+          left: 16px; }
+      #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        color: #ea4335;
+        background-color: #fff;
+        border-radius: 0;
+        outline: none;
+        cursor: pointer;
+        border: 1px solid #ea4335; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google:hover, #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google:focus {
+          border-radius: 0;
+          outline: none;
+          -webkit-box-shadow: none;
+                  box-shadow: none; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google i {
+          color: #fff;
+          background-color: #ea4335;
+          text-align: left !important;
+          padding: 10px 9px;
+          position: absolute;
+          left: 1px;
+          top: 49px; }
+        #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google span {
+          position: relative;
+          left: 16px; }
+
+.progress {
+  position: absolute;
+  display: inline;
+  top: 39px;
+  left: 15px;
+  width: 95%;
+  height: 3px; }
 
 .my-navbar {
   background: none !important;

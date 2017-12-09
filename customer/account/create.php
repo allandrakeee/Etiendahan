@@ -23,7 +23,7 @@
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-	<div id="register-page" class="main-container">
+	<div id="create-account-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
 				<!-- SECTION 1 -->

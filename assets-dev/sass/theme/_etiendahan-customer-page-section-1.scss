@@ -1,0 +1,248 @@
+#etiendahan-customer-page-section-1 {
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 100px;
+	color: dimgrey;
+
+	.col-md-3 {
+		.card {
+			.card-header {
+			    background-color: #f8f8f8;
+
+				&.active {
+					a {
+						font-weight: 600;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					color: dimgrey;
+					font-size: 13px;
+				}
+			}
+
+			.card-body {
+				&.personal-info {
+					padding-top: 10px;
+					padding-bottom: 5px;
+				}
+
+				ul {
+					padding-left: 20px;
+
+					li {
+						list-style-type: none;
+						
+						&.active {
+							font-weight: 600;
+						}
+
+						a {
+							text-decoration: none;
+							color: dimgrey;
+							font-size: 12px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.col-md-8 {
+		height: 550px;
+		background-color: #f8f8f8;
+
+		.tab-content {
+			margin-top: 20px;
+			padding-bottom: 2px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid #dcdcdc;
+
+			h1 {
+				font-size: 20px;
+				font-weight: 600;
+				display: inline;
+			}
+
+			p {
+				font-size: 12px;
+			}
+
+			.btn-primary {
+				background-color: #333333;
+				border: 0;
+				border-radius: 0;
+				color: #fff;
+				text-transform: uppercase;
+				padding: 8px 25px;
+				cursor: pointer;
+				position: absolute;
+				right: 15px;
+				top: 6px;
+
+				&:hover, &:focus {
+					background-color: #3f3f3f; 
+					box-shadow: none;
+				}
+
+				.fa {
+					font-size: 15px;
+					font-weight: 100;
+				    margin-right: 10px;
+				}
+			}
+			
+		}
+
+		p {
+			font-size: 12px;
+		}
+
+		.modal {
+			.modal-content {
+				.modal-header {
+					.modal-title {
+						font-size: 20px;
+						font-weight: 600;
+					}
+				}
+				.modal-body {
+					
+				}
+				.modal-footer {
+					button {
+						&.btn-secondary {
+							color: dimgrey;
+							font-size: 12px;
+							background-color: #fff;
+							border-color: #fff;
+							box-shadow: none;
+							cursor: pointer;
+						}
+
+						&.btn-primary {
+							text-transform: uppercase;
+							background-color: #333333;
+							border: 0;
+							border-radius: 0;
+							color: #fff;
+							text-transform: uppercase;
+							padding: 8px 25px;
+							cursor: pointer;
+
+							&:hover, &:focus {
+								background-color: #3f3f3f; 
+								box-shadow: none;
+							}
+						}
+					}
+				}
+			}
+		}
+			
+		.modal-dialog {
+			min-height: calc(100vh - 250px);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			overflow: auto;
+			@media(max-width: 768px) {
+				min-height: calc(100vh - 20px);
+			}
+		}
+
+		.form-group {
+
+			label.col-form-label {
+				font-size: 12px;
+				font-weight: 700;
+				padding-right: 0;
+			}
+
+			label {
+				font-size: 12px;
+			}
+
+			.form-control {
+				font-size: 12px;
+			    border-radius: 0;
+
+				&:focus {
+					border: 1px solid rgba(0, 0, 0, 0.15);
+				}
+
+				&#inputPasswordNew {
+				    border-right-width: 0px;
+				}
+			}
+
+			input.form-check-input {
+				outline: none;
+			}
+
+			.input-group-addon {
+				border-radius: 0;
+
+				i {
+					color: dimgrey;
+				}
+
+				a:focus {
+					outline: none;
+				}
+			}
+			
+			.btn-primary {
+				margin-top: 10px;
+				background-color: #333333;
+				border: 0;
+				border-radius: 0;
+				color: #fff;
+				text-transform: uppercase;
+				padding: 18px 25px;
+				cursor: pointer;
+
+				&:hover, &:focus {
+					background-color: #3f3f3f; 
+					box-shadow: none;
+				}
+			}
+
+			.email {
+				margin-top: 5px;
+				font-size: 12px;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			input[type=number]::-webkit-inner-spin-button, 
+			input[type=number]::-webkit-outer-spin-button { 
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				margin: 0; 
+			}
+		}
+
+		#three-col {
+			.row {
+				margin-left: 1px;
+				width: 83%;
+			}
+
+			.col-md-4 {
+				padding: 0px 14px;
+			}
+		}
+
+		.cancel-forgot-password {
+			a {
+				text-decoration: none;
+				color: dimgrey;
+				font-size: 12px;
+			}
+		}
+	}
+}

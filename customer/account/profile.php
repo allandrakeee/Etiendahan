@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forgot password? - Etiendahan Pangasinan</title>
+	<title>My Profile - Etiendahan Pangasinan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -23,7 +23,7 @@
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-	<div id="login-page" class="main-container">
+	<div id="profile-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
 				<!-- SECTION 1 -->
@@ -289,21 +289,13 @@
 									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<p>Howdie.</p>
 
-										<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-										<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+										<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
+										<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+										<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlist</div></a>
+										<a href="/etiendahan/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>LOGOUT</div></a>
 									</div>
 								</div>
 							</div>
-						
-							<!-- Sign Up -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Sign Up</a>
-							</div> -->
-
-							<!-- Login -->
-							<!-- <div class="nav-item right-nav">
-								<a class="nav-link" href="#">Login</a>
-							</div> -->
 
 							<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
@@ -312,46 +304,147 @@
 				</div>
 				<!-- END OF SECTION 1 -->
 
-				<!-- FORGOT PASSWORD PAGE SECTION 1 -->
-				<div id="etiendahan-forgot-password-page-section-1">
+				<!-- CUSTOMER PAGE SECTION 1 -->
+				<div id="etiendahan-customer-page-section-1">
 					<div class="container">
-						<div class="page-title text-center"><h1>Reset your password</h1></div>
-						<div class="page-title-sub-title text-center">
-							<p>We will send you an email to reset your password.</p>
-						</div>
-
 						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4 wrapper">
-								<form>		
+							<div class="col-md-3">
+								<div id="accordion" role="tablist">
+									<div class="card">
+										<div class="card-header active" role="tab" id="headingOne">
+											<h5 class="mb-0">
+												<a>
+												Personal Information
+												</a>
+											</h5>
+										</div>
+
+										<div class="collapse show">
+											<div class="card-body personal-info">
+												<ul>
+													<li class="active"><a href="">Profile</a></li>
+													<li><a href="/etiendahan/customer/account/password/">Change Password</a></li>												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingTwo">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/orders/">
+												Orders
+												</a>
+											</h5>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingThree">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/wishlists/">
+												Wishlists
+												</a>
+											</h5>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" role="tab" id="headingFour">
+											<h5 class="mb-0">
+												<a href="/etiendahan/customer/address/">
+												Address Book
+												</a>
+											</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-8">
+								<div class="tab-content"><h1>My Profile</h1><p>Manage and protect your account</p></div>
+							
+								<form>
+									<!-- gender -->
+									<div class="form-group row">
+										<label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+										<div class="col-sm-10">
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioMale" value="optionMale" required> Male
+												</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioFemale" value="optionFemale" required> Female
+												</label>
+											</div>
+										</div>
+									</div>
+	
 									<!-- email -->
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputEmail" required autocomplete="off">
+											<div class="email">allandulay69@gmail.com <a href="/etiendahan/customer/account/email/">Change Email</a></div>
 										</div>
-									</div>					
+									</div>
 									
-									<!-- submit -->
+									<!-- fullname -->
+									<div class="form-group row">
+										<label for="inputFullname" class="col-sm-2 col-form-label">Fullname</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" id="inputFullname" required>
+										</div>
+									</div>
+
+									<!-- birtday -->
+									<div id="three-col" class="form-group row">
+										<label for="selectBirthday" class="col-md-2 col-form-label">Birthday</label>
+										<div class="row">
+											<div class="col-md-4">
+												<select class="form-control" required>
+													<option value="">Day</option>
+													<?php
+														for ($x=1; $x<=31; $x++) {
+															echo'<option value="'.$x.'">'.$x.'</option>'; 
+														} 
+													?> 
+												</select>
+												
+											</div>
+											<div class="col-md-4">
+												<select class="form-control" required>
+													<option value="">Month</option>
+													<?php 
+														for($m = 1;$m <= 12; $m++){ 
+														    $month =  date("F", mktime(0, 0, 0, $m)); 
+														    echo "<option value='$m'>$month</option>"; 
+														} 
+													?>
+												</select>
+											</div>
+											<div class="col-md-4">
+												<select class="form-control" required>
+													<option value="">Year</option>
+													<?php
+														for ($x=date("Y"); $x>=1900; $x--) {
+															echo'<option value="'.$x.'">'.$x.'</option>'; 
+														} 
+													?> 
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<!-- save -->
 									<div class="form-group row">
 										<div class="col-sm-12 text-center">
-											<button class="btn btn-primary" type="submit">Submit</button>
+											<button class="btn btn-primary" type="submit">Save</button>
 										</div>
-									</div>	
-
-									<!-- forgot password -->
-									<div class="row cancel-forgot-password">
-										<div class="col-sm-12 text-center">
-											<a href="/etiendahan/customer/account/login/">Cancel</a>
-										</div>
-									</div>								
+									</div>
 								</form>
 							</div>
-							<div class="col-md-4"></div>
 						</div>
 					</div>
 				</div>
-				<!-- END OF FORGOT PASSWORD PAGE SECTION 1 -->
+				<!-- END OF CUSTOMER PAGE SECTION 1 -->
 
 				<!-- SECTION 7 -->
 				<div id="etiendahan-section-7" class="etiendahan-section">

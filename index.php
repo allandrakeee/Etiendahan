@@ -196,12 +196,12 @@
 										</a>
 
 										<!-- no items in the cart -->
-										<div class="dropdown-menu" aria-labelledby="cart">
+										<!-- <div class="dropdown-menu" aria-labelledby="cart">
 											<p>You have no items in your shopping cart.</p>
-										</div>
+										</div> -->
 
 										<!-- have items in the cart -->
-										<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+										<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
 											<p>Recently Added Products</p>
 
 											<div class="item">
@@ -270,11 +270,11 @@
 											</div>
 
 											<button type="button" class="btn btn-dark">View Cart</button>
-										</div> -->
+										</div>
 									</div>
 
 									<div class="nav-item right-nav dropdown" id="user-account">
-										<a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										<a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
 											<i class="fa fa-user-circle"></i>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
