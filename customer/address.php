@@ -523,6 +523,13 @@
 																<input type="text" class="form-control" id="inputCompleteAddressAddAddress" placeholder="Complete Address (House Number, Building and Street Name)" required>
 															</div>
 														</div>
+
+														<!-- other note -->
+														<div class="form-group row">
+															<div class="col-sm-12">
+																<input type="text" class="form-control" id="inputOtherNotesAddAddress" placeholder="Other notes" required>
+															</div>
+														</div>
 													</form>
 												</div>
 											</div>
@@ -534,8 +541,43 @@
 										</div>
 									</div>
 								</div>
-
-								<p>You don't have addresses yet.</p>
+								
+								<!-- If address is empty -->
+								<!-- <p>You don't have addresses yet.</p> -->
+								
+								<!-- If address is not empty -->
+								<div class="row">
+									<div class="col-md-10">
+											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
+											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Pangasinan, Philippines</div>
+											<div class="address">Pangasinan - Dagupan - Pantal</div>
+											<div class="address-other-notes">Color orange gate</div>
+											<div class="address-phone-number">09950147185</div>
+											<div class="separator"></div>
+									</div>
+									<div class="col-md-2 text-right">
+										<a href=""><i class="fa fa-edit"></i></a>
+										<span>|</span>
+										<a href=""><i class="fa fa-close"></i></a>
+										<button class="btn btn-primary">Set As Default</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10">
+											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
+											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Pangasinan, Philippines</div>
+											<div class="address">Pangasinan - Dagupan - Pantal</div>
+											<div class="address-other-notes">Color orange gate</div>
+											<div class="address-phone-number">09950147185</div>
+											<div class="separator"></div>
+									</div>
+									<div class="col-md-2 text-right">
+										<a href=""><i class="fa fa-edit"></i></a>
+										<span>|</span>
+										<a href=""><i class="fa fa-close"></i></a>
+										<button class="btn btn-primary">Set As Default</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

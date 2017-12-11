@@ -50,6 +50,7 @@
 
 	.col-md-8 {
 		height: 550px;
+		overflow-y: auto;
 		background-color: #f8f8f8;
 
 		.tab-content {
@@ -141,7 +142,7 @@
 		}
 			
 		.modal-dialog {
-			min-height: calc(100vh - 250px);
+			min-height: calc(100vh - 100px);
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -182,6 +183,7 @@
 
 			.input-group-addon {
 				border-radius: 0;
+				padding: 5px 12px;
 
 				i {
 					color: dimgrey;
@@ -244,5 +246,178 @@
 				font-size: 12px;
 			}
 		}
+
+		// address
+		.row {
+			.col-md-10 {
+				font-size: 12px;
+				margin-top: 10px;
+
+				.separator {
+					border-bottom: 1px solid #dcdcdc;
+					margin: 10px 0;
+					position: relative;
+					left: 10%;
+				}
+				
+			}
+			.col-md-2 {
+				font-size: 15px;
+
+				a {
+					color: #333;
+					text-decoration: none;
+				    border-radius: 50%;
+					background: #f8f8f8;
+					display: inline-block;
+					padding: 5px;
+					height: 30px;
+					width: 33px;
+					text-align: center;
+					border: 1px solid #dcdcdc;
+
+					.fa.fa-edit {
+					    position: relative;
+						left: 1px;
+						bottom: 1px;
+					}
+
+					.fa.fa-close {
+						position: relative;
+					    bottom: 2px;
+					}
+				}
+
+				span {
+					position: relative;
+					bottom: 2px;
+				}
+
+				.btn-primary {
+					text-transform: uppercase;
+					background-color: #333333;
+					border: 0;
+					border-radius: 0;
+					color: #fff;
+					text-transform: uppercase;
+					padding: 8px 25px;
+					cursor: pointer;
+					position: relative;
+					right: 54px;
+					font-size: 12px;
+					top: 38px;
+
+					&:hover, &:focus {
+						background-color: #3f3f3f; 
+						box-shadow: none;
+					}
+				}
+			}
+		}
+
+		// wishlists
+		.row {
+			.col-md-12 {
+				font-size: 12px;
+
+				table {
+					thead {
+						text-transform: uppercase;
+						font-weight: 600;
+						border-bottom: 2px solid #e5e5e5;
+						background: #fafafa;
+
+					}
+
+					tbody {
+						tr {
+							th, td {
+								border-top: none;
+							}
+
+							th {
+								width: 23%;
+
+								.separator {
+						        	width: 425%;
+								    border-bottom: 1px solid #dcdcdc;
+									position: relative;
+									top: 15px;
+									left: 50px;
+								    margin-bottom: 3px;
+								}
+							}
+
+							td.item-name {
+							    width: 45%;
+							    margin-right: 20px;
+							}
+
+							td.item-price {
+								width: 18%;
+							}
+
+							td.action {
+								position: relative;
+								bottom: 5px;
+								padding: 12px 0;
+							}
+						}
+
+						a {
+							text-decoration: none;
+							color: dimgrey;
+						}
+
+						a#action {
+							color: #333;
+							text-decoration: none;
+						    border-radius: 50%;
+							background: #f8f8f8;
+							display: inline-block;
+							padding: 5px;
+							height: 30px;
+							width: 33px;
+							text-align: center;
+							border: 1px solid #dcdcdc;
+
+							.fa.fa-edit {
+								position: relative;
+								left: 2px;
+								top: 1px;
+							}
+						}
+
+						.my-item-inner {
+							text-decoration: none;
+							
+							&:focus {
+								outline: none;
+							}
+
+							.item-image {
+								.img-fluid {
+								width: 110px;
+								height: 110px;
+								background-repeat: no-repeat;
+								background-position: center center;
+								background-size: cover;
+								}
+							}
+						}
+					}
+				}
+				
+				// wishlists last row
+				table tbody tr:last-child th .separator {
+					display: none;
+				}
+			}
+		}
+	}
+	
+	// address last row
+	.row .col-md-8 .row:last-child .col-md-10 .separator  {
+		display: none;
 	}
 }

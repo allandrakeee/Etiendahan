@@ -359,7 +359,111 @@
 							<div class="col-md-8">
 								<div class="tab-content"><h1>Your Wishlists</h1></div>
 								
-								<p>You haven't select any item to wishlists yet.</p>
+								<!-- If wishlists is empty -->
+								<!-- <p>You haven't select any item to wishlists yet.</p> -->
+
+								<!-- If wishlists is not empty -->
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table">
+											<thead>
+												<tr>
+													<th scope="col">Product Image</th>
+													<th scope="col">Product Name</th>
+													<th class="text-center" scope="col">Price</th>
+													<th scope="col"></th>
+												</tr>
+											</thead>
+
+											<tbody>
+												<tr>
+													<th scope="row">
+														<a href="#" class="d-block my-item-inner">
+															<div class="item-image">
+																<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn);"></div>
+															</div>
+														</a>
+														<div class="separator"></div>
+													</th>
+													<td class="item-name">
+														<a href="">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, hic..</a>
+													</td>
+													<td class="item-price text-center">
+														₱200.00
+													</td>
+													<td class="action text-center">
+														<a id="action" href=""><i class="fa fa-shopping-cart"></i></a>
+														<span>|</span>
+														<a id="action" href=""><i class="fa fa-close"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<a href="#" class="d-block my-item-inner">
+															<div class="item-image">
+																<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn);"></div>
+															</div>
+														</a>
+														<div class="separator"></div>
+													</th>
+													<td class="item-name">
+														<a href="">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, hic..</a>
+													</td>
+													<td class="item-price text-center">
+														₱200.00
+													</td>
+													<td class="action text-center">
+														<a id="action" href=""><i class="fa fa-shopping-cart"></i></a>
+														<span>|</span>
+														<a id="action" href=""><i class="fa fa-close"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<a href="#" class="d-block my-item-inner">
+															<div class="item-image">
+																<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/28fbc9e80d4b24d2c67522c5243cf4ea_tn);"></div>
+															</div>
+														</a>
+														<div class="separator"></div>
+													</th>
+													<td class="item-name">
+														<a href="">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, hic..</a>
+													</td>
+													<td class="item-price text-center">
+														₱200.00
+													</td>
+													<td class="action text-center">
+														<a id="action" href=""><i class="fa fa-shopping-cart"></i></a>
+														<span>|</span>
+														<a id="action" href=""><i class="fa fa-close"></i></a>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">
+														<a href="#" class="d-block my-item-inner">
+															<div class="item-image">
+																<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/67c398a9a00aa752a2d3b3f5beefafab_tn);"></div>
+															</div>
+														</a>
+														<div class="separator"></div>
+													</th>
+													<td class="item-name">
+														<a href="">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, hic..</a>
+													</td>
+													<td class="item-price text-center">
+														₱205.00
+													</td>
+													<td class="action text-center">
+														<a id="action" href=""><i class="fa fa-shopping-cart"></i></a>
+														<span>|</span>
+														<a id="action" href=""><i class="fa fa-close"></i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

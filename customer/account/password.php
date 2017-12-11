@@ -365,8 +365,8 @@
 									<!-- current password -->
 									<div class="form-group row">
 										<label for="inputPasswordCurrent" class="col-sm-2 col-form-label">Current Password</label>
-										<div id="show-hide-password" class="col-sm-10 input-group">
-											<input type="password" class="form-control" id="inputPasswordCurrent" min="10" max="20" required>
+										<div id="show-hide-current-password" class="col-sm-10 input-group">
+											<input type="password" class="form-control" id="inputPasswordCurrent" min="10" max="20" required autofocus>
 											<div class="input-group-addon">
 												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 											</div>

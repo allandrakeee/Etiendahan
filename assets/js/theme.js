@@ -25552,21 +25552,6 @@ if($("#create-account-page").length > 0){
 }
 
 $(document).ready(function() {
-    $("#show-hide-confirm-password a").on('click', function(event) {
-        event.preventDefault();
-        if($('#show-hide-confirm-password input').attr("type") == "text"){
-            $('#show-hide-confirm-password input').attr('type', 'password');
-            $('#show-hide-confirm-password i').addClass( "fa-eye-slash" );
-            $('#show-hide-confirm-password i').removeClass( "fa-eye" );
-        }else if($('#show-hide-confirm-password input').attr("type") == "password"){
-            $('#show-hide-confirm-password input').attr('type', 'text');
-            $('#show-hide-confirm-password i').removeClass( "fa-eye-slash" );
-            $('#show-hide-confirm-password i').addClass( "fa-eye" );
-        }
-    });
-});
-
-$(document).ready(function() {
     $("#show-hide-password a").on('click', function(event) {
         event.preventDefault();
         if($('#show-hide-password input').attr('type') == 'text'){
@@ -25580,6 +25565,21 @@ $(document).ready(function() {
         }
     });
 });	
+
+$(document).ready(function() {
+    $("#show-hide-confirm-password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show-hide-confirm-password input').attr("type") == "text"){
+            $('#show-hide-confirm-password input').attr('type', 'password');
+            $('#show-hide-confirm-password i').addClass( "fa-eye-slash" );
+            $('#show-hide-confirm-password i').removeClass( "fa-eye" );
+        }else if($('#show-hide-confirm-password input').attr("type") == "password"){
+            $('#show-hide-confirm-password input').attr('type', 'text');
+            $('#show-hide-confirm-password i').removeClass( "fa-eye-slash" );
+            $('#show-hide-confirm-password i').addClass( "fa-eye" );
+        }
+    });
+});
 
 $('html, body').hide();
 $(window).on('load', function() {
@@ -25606,6 +25606,47 @@ $('#inputPasswordSignup').pwstrength({
 $('.modal').on('shown.bs.modal', function() {
   $(this).find('[autofocus]').focus();
 });
+
+if($("#password-page").length > 0){
+	var password = document.getElementById("inputPasswordNew")
+	  , confirm_password = document.getElementById("inputPasswordNewConfirm");
+
+	function validatePassword() {
+		if(password.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Passwords don't match.");
+		} else {
+			confirm_password.setCustomValidity('');
+		}
+	}
+
+	function validateMinPassword() {
+		if(password.value.length < 10) {
+			password.setCustomValidity("Must be less than 10 characters.");
+		} else {
+			password.setCustomValidity('');
+		}
+	}
+
+	password.onchange = validatePassword;
+	confirm_password.onkeyup = validatePassword;
+	password.onchange = validateMinPassword;
+	password.onkeyup = validateMinPassword;
+}
+
+$(document).ready(function() {
+    $("#show-hide-current-password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show-hide-current-password input').attr('type') == 'text'){
+            $('#show-hide-current-password input').attr('type', 'password');
+            $('#show-hide-current-password i').addClass('fa-eye-slash');
+            $('#show-hide-current-password i').removeClass('fa-eye');
+        }else if($('#show-hide-current-password input').attr('type') == 'password'){
+            $('#show-hide-current-password input').attr('type', 'text');
+            $('#show-hide-current-password i').removeClass('fa-eye-slash');
+            $('#show-hide-current-password i').addClass('fa-eye');
+        }
+    });
+});	
 // ============ END CREATE ACCOUNT PAGE - SECTION 1 ============
 
 
