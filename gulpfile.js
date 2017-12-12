@@ -169,14 +169,21 @@ gulp.task('html-min', function(){
         }))
     .pipe(gulp.dest('dist/customer/password'));
 
+    var php_dir_account_orders = gulp.src(['customer/orders/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/customer/orders'));
+
     var php_dir_account = gulp.src(['customer/*.php'])
         .pipe(htmlmin({
             collapseWhitespace: true,
             ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
         }))
-    .pipe(gulp.dest('dist/customer/*.php'));
+    .pipe(gulp.dest('dist/customer'));
 
-    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account);
+    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account_orders, php_dir_account);
 });
 
 // ================================ Watch Assets ================================
@@ -197,6 +204,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('customer/password/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('customer/orders/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
     gulp.watch('customer/*.php').on('change', function(file) {
@@ -220,7 +230,7 @@ gulp.task('clear-dist', function () {
  * Command: gulp dist
  * @description Generates a clean theme for distribution
  */
-gulp.task('dist', function() {
+gulp.task('dist', ['clear-dist', 'html-min'], function() {
     gulp.src([
         '**/*',
         '!assets-dev/',
@@ -251,6 +261,7 @@ gulp.task('dist', function() {
         '!*.php',
         '!customer/account/*.php',
         '!customer/password/*.php',
+        '!customer/orders/*.php',
         '!customer/*.php',
         '*'
     ])

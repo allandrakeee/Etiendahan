@@ -12,10 +12,10 @@
 
 	<!-- For development only | Comment or delete this line of code when its production -->
 	<!-- Development -->
-	<link rel="stylesheet" href="/etiendahan/assets/css/theme.css">
+	<!-- <link rel="stylesheet" href="/etiendahan/assets/css/theme.css"> -->
 	
 	<!-- Production -->
-	<!-- <link rel="stylesheet" href="/assets/css/theme.css"> -->
+	<link rel="stylesheet" href="/assets/css/theme.css">
 	
 	<!-- Uncomment this if the project is ready in production -->
 	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
@@ -360,7 +360,203 @@
 							<div class="col-md-8">
 								<div class="tab-content"><h1>Your Orders</h1></div>
 
-								<p>You haven't placed any orders yet.</p>
+								<!-- If orders is empty -->
+								<!-- <p>You haven't placed any orders yet.</p> -->
+
+								<!-- If wishlists is not empty -->
+
+								<!-- first row -->
+								<div id="order-header" class="row">
+									<div class="col-md-5">
+										<div class="order-number">
+											Order <a href="/etiendahan/customer/orders/view/">#123456</a>
+										</div>
+										<div class="order-place-date">
+											Placed on 28/11/2017
+										</div>
+									</div>
+									<div class="col-md-7 text-right">
+										<div class="order-manage">
+											<a href="/etiendahan/customer/orders/view/">Manage order</a>
+										</div>
+									</div>
+								</div>
+								<div id="order-content" class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/eac2fa33b6bdb1d743e4ff218aa105eb_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Processing</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/5ac1b1122075d8305d7a1349bc3d1c30_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Processing</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="separator"></div>
+								</div>
+
+								<!-- second row -->
+								<div id="order-header" class="row">
+									<div class="col-md-5">
+										<div class="order-number">
+											Order <a href="/etiendahan/customer/orders/view/">#123456</a>
+										</div>
+										<div class="order-place-date">
+											Placed on 28/11/2017
+										</div>
+									</div>
+									<div class="col-md-7 text-right">
+										<div class="order-manage">
+											<a href="/etiendahan/customer/orders/view/">Manage order</a>
+										</div>
+									</div>
+								</div>
+								<div id="order-content" class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/094a04b65c85439eeb96f8cfa54ed86b_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Processing</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="separator"></div>
+								</div>
+
+								<!-- third row -->
+								<div id="order-header" class="row">
+									<div class="col-md-5">
+										<div class="order-number">
+											Order <a href="/etiendahan/customer/orders/view/">#123456</a>
+										</div>
+										<div class="order-place-date">
+											Placed on 28/11/2017
+										</div>
+									</div>
+									<div class="col-md-7 text-right">
+										<div class="order-manage">
+											<a href="/etiendahan/customer/orders/view/">Manage order</a>
+										</div>
+									</div>
+								</div>
+								<div id="order-content" class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/74268199fec22c7a27e665d4b2d1e736_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Delivered</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/6ccef14930bf42a32f7d3580efa69a63_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Closed</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="item-product">
+													<a href="/etiendahan/customer/orders/view/" class="d-block my-item-product-inner">
+														<div class="item-image">
+															<div class="img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/0511730fd313e860523e495f0f568b4d_tn);"></div>
+														</div>
+													</a>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="item-name">
+													<a href="/etiendahan/customer/orders/view/">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, consequuntur!</a>
+												</div>
+												
+												<div class="item-status">
+													<a href="/etiendahan/customer/orders/view/">Closed</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="separator"></div>
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -452,10 +648,10 @@
 
 
 	<!-- Development -->
-	<script src="/etiendahan/assets/js/theme.js"></script>
+	<!-- <script src="/etiendahan/assets/js/theme.js"></script> -->
 
 	<!-- Production -->
-	<!-- <script src="/assets/js/theme.js"></script> -->
+	<script src="/assets/js/theme.js"></script>
 
  	<!-- Uncomment this if the project is ready in production -->
 	<!-- <script src="assets/js/theme.min.js"></script></body> -->
