@@ -37,7 +37,7 @@
 			}
 
 			select.form-control {
-				height: 33px;
+				height: 34px;
 			}
 
 			.form-control {
@@ -181,7 +181,14 @@
 				}
 			}
 		}
+	}
 
-
+	.progress {
+	    position: absolute;
+	    display: inline;
+	    top: 33px;
+	    left: 15px;
+	    width: 95%;
+	    height: 3px;
 	}
 }

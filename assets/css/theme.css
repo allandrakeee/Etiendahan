@@ -11326,7 +11326,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     #etiendahan-create-page-section-1 .col-md-8 .form-group label {
       font-size: 12px; }
     #etiendahan-create-page-section-1 .col-md-8 .form-group select.form-control {
-      height: 33px; }
+      height: 34px; }
     #etiendahan-create-page-section-1 .col-md-8 .form-group .form-control {
       font-size: 12px;
       border-radius: 0; }
@@ -11425,6 +11425,13 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         #etiendahan-create-page-section-1 .col-md-4 .social-medias button.google span {
           position: relative;
           left: 16px; }
+  #etiendahan-create-page-section-1 .progress {
+    position: absolute;
+    display: inline;
+    top: 33px;
+    left: 15px;
+    width: 95%;
+    height: 3px; }
 
 #etiendahan-customer-page-section-1 {
   font-family: 'Montserrat', sans-serif;
@@ -11453,7 +11460,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         font-size: 12px; }
   #etiendahan-customer-page-section-1 .col-md-8 {
     height: 550px;
-    overflow-y: auto;
+    overflow: auto;
     background-color: #f8f8f8; }
     #etiendahan-customer-page-section-1 .col-md-8 .tab-content {
       margin-top: 20px;
@@ -11534,7 +11541,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     #etiendahan-customer-page-section-1 .col-md-8 .form-group label {
       font-size: 12px; }
     #etiendahan-customer-page-section-1 .col-md-8 .form-group select.form-control {
-      height: 33px; }
+      height: 34px; }
     #etiendahan-customer-page-section-1 .col-md-8 .form-group .form-control {
       font-size: 12px;
       border-radius: 0; }
@@ -11575,6 +11582,13 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       -moz-appearance: none;
       appearance: none;
       margin: 0; }
+    #etiendahan-customer-page-section-1 .col-md-8 .form-group .progress {
+      position: absolute;
+      display: inline;
+      top: 33px;
+      left: 15px;
+      width: 95%;
+      height: 3px; }
     #etiendahan-customer-page-section-1 .col-md-8 #three-col .row {
       margin-left: 1px;
       width: 83%; }
@@ -11594,7 +11608,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         left: 10%; }
     #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 {
       font-size: 15px; }
-      #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a {
+      #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a.address-fa {
         color: #333;
         text-decoration: none;
         border-radius: 50%;
@@ -11605,11 +11619,11 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         width: 33px;
         text-align: center;
         border: 1px solid #dcdcdc; }
-        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a .fa.fa-edit {
+        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a.address-fa .fa.fa-edit {
           position: relative;
           left: 1px;
           bottom: 1px; }
-        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a .fa.fa-close {
+        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 a.address-fa .fa.fa-close {
           position: relative;
           bottom: 2px; }
       #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-2 span {
@@ -11746,7 +11760,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     #etiendahan-customer-page-section-1 .col-md-8 #order-header-view {
       font-weight: 600;
       font-size: 13px;
-      border: 1px solid #dcdcdc;
+      border: 1px solid #b9b9c3;
       margin: 0;
       padding: 10px 0; }
       #etiendahan-customer-page-section-1 .col-md-8 #order-header-view.row .col-md-4 .order-number a {
@@ -11784,13 +11798,90 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-shipping {
         font-size: 12px;
         margin: 0;
-        margin-top: 10px; }
+        margin-top: 10px;
+        border-bottom: 1px solid #dcdcdc;
+        padding-bottom: 8px; }
         #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-shipping.row .col-md-12 .order-delivery-shipping-date {
           font-size: 10px; }
+      #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status {
+        margin: 50px 100px 30px 100px; }
+        #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 {
+          font-size: 10px;
+          padding: 0; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress {
+            height: 8px; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .one, #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .two, #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .three {
+              position: absolute;
+              margin-top: -10px;
+              z-index: 1;
+              height: 20px;
+              width: 20px;
+              border-radius: 25px; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .one {
+              left: 0;
+              top: 3px;
+              background-color: dimgrey; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .two {
+              left: 49%;
+              top: 3px;
+              background-color: dimgrey; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .three {
+              right: 0;
+              top: 3px;
+              background-color: dimgrey; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .no-color {
+              background-color: inherit; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .progress .progress-bar {
+              background-color: dimgrey; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .processing-text {
+            position: absolute;
+            bottom: -25px;
+            left: -3%; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .shipped-text {
+            position: absolute;
+            bottom: -25px;
+            left: 47%; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-status.row .col-md-12 .delivered-text {
+            position: absolute;
+            bottom: -25px;
+            left: 94%; }
+      #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content {
+        font-size: 12px;
+        margin: 0;
+        margin-top: 65px;
+        height: 100px; }
+        #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-2 .item-product .my-item-product-inner {
+          text-decoration: none; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-2 .item-product .my-item-product-inner:focus {
+            outline: none; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-2 .item-product .my-item-product-inner .item-image .img-fluid {
+            width: 90px;
+            height: 90px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover; }
+        #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-6 {
+          height: 110px;
+          padding: 0 10px 0 0; }
+          #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-6 .item-name {
+            height: 35px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; }
+            #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-6 .item-name a {
+              text-decoration: none;
+              color: dimgrey;
+              display: block; }
+        #etiendahan-customer-page-section-1 .col-md-8 .order-wrapper-content #order-delivery-content.row .col-md-12 .row .col-md-2 {
+          font-size: 12px; }
   #etiendahan-customer-page-section-1 .row .col-md-8 .row:last-child .col-md-10 .separator {
     display: none; }
   #etiendahan-customer-page-section-1 .row .col-md-8 #order-content:last-child .separator {
     display: none; }
+  #etiendahan-customer-page-section-1 .row .col-md-8 .order-wrapper-content:last-child {
+    margin-bottom: 16px; }
 
 #etiendahan-forgot-password-page-section-1 {
   font-family: 'Montserrat', sans-serif;
@@ -11973,14 +12064,6 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google span {
           position: relative;
           left: 16px; }
-
-.progress {
-  position: absolute;
-  display: inline;
-  top: 33px;
-  left: 15px;
-  width: 95%;
-  height: 3px; }
 
 .my-navbar {
   background: none !important;
