@@ -159,7 +159,7 @@
 
 					<!-- ALL CATEGORIES -->
 					<li class="nav-item">
-						<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
+						<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect" data-id="shop-now-link">Shop Now</a>
 					</li>
 				</ul>
 			</div>
@@ -261,8 +261,15 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<p>Howdie.</p>
 
+						<!-- Development -->
 						<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
 						<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+
+						<!-- Production -->
+						<!-- <a href="/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+						<a href="/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a> -->
+
+
 					</div>
 				</div>
 			</div>

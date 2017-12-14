@@ -92,6 +92,7 @@ gulp.task('scripts', function(){
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
+        'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
@@ -112,12 +113,13 @@ gulp.task('scripts', function(){
 gulp.task('scripts-min', function(){
     return gulp.src([
         'node_modules/jquery/dist/jquery.js', 
-        'node_modules/popper/dist/umd/popper.js', 
+        'node_modules/popper.js/dist/umd/popper.js', 
         'node_modules/bootstrap/dist/js/bootstrap.js', 
         'node_modules/tether/dist/js/tether.js', 
         'node_modules/hammerjs/hammer.js', 
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
+        'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
@@ -213,6 +215,14 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
 });
+
+// ================================ Min Assets ================================
+
+/**
+ * Command: gulp min
+ * @description Minified styles and scripts.
+ */
+gulp.task('min', ['styles-min', 'scripts-min'], function(){});
 
 // ================================ Clear Distribution ================================
 

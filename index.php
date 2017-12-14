@@ -6,10 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 
-	<!-- For development only | Comment or delete this line of code when its production -->
+	<!-- Normal import of theme.css -->
 	<link rel="stylesheet" href="assets/css/theme.css">
 	
-	<!-- Uncomment this if the project is ready in production -->
+	<!-- Minified import of theme.css -->
 	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
 </head>
 <body>
@@ -285,16 +285,6 @@
 										</div>
 									</div>
 								</div>
-							
-								<!-- Sign Up -->
-								<!-- <div class="nav-item right-nav">
-									<a class="nav-link" href="#">Sign Up</a>
-								</div> -->
-
-								<!-- Login -->
-								<!-- <div class="nav-item right-nav">
-									<a class="nav-link" href="#">Login</a>
-								</div> -->
 
 								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon"></span>
@@ -326,7 +316,7 @@
 					</div>
 					
 					<div id="shop-now"></div>
-					<div id="shop-now-link"></div>
+					<!-- <div id="shop-now-link"></div> -->
 					<!-- search bar -->
 					<div class="container my-search">
 						<div class="row">
@@ -354,7 +344,7 @@
 					        <div class="col-md-2 col-sm-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/7f49f8b96c9a8a58fcf5da969f8ef21c_tn);"></div>
+										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/7f49f8b96c9a8a58fcf5da969f8ef21c_tn"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Men's Apparel
@@ -365,7 +355,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/07d9c7480a1d474f46c472a6684c65a5_tn);"></div>
+										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/07d9c7480a1d474f46c472a6684c65a5_tn"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Mobiles & Gadgets
@@ -376,7 +366,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Consumer Electronics
@@ -387,7 +377,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Home & Living
@@ -398,7 +388,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Men's Accessories
@@ -409,7 +399,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Men's Shoes
@@ -422,7 +412,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Women's Apparel
@@ -433,7 +423,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Health & Beauty
@@ -444,7 +434,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Toys, Kids & Babies
@@ -455,7 +445,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Bags
@@ -466,7 +456,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Women's Accessories
@@ -477,7 +467,7 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid" style="background-image: url(http://via.placeholder.com/110x110);"></div>
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
 										Women's Shoes
@@ -504,7 +494,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
 											<div class="product-price">₱150.00</div>
@@ -518,7 +508,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
 											<div class="product-price">₱150.00</div>
@@ -532,7 +522,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
 											<div class="product-price">₱150.00</div>
@@ -546,7 +536,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -560,7 +550,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -574,7 +564,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -588,7 +578,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -602,7 +592,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -616,7 +606,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -630,7 +620,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -670,7 +660,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/28fbc9e80d4b24d2c67522c5243cf4ea_tn);"></div>
+										<div class="card-image lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/28fbc9e80d4b24d2c67522c5243cf4ea_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit.</div>
 											<div class="product-price">₱150.00</div>
@@ -685,7 +675,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/67c398a9a00aa752a2d3b3f5beefafab_tn);"></div>
+										<div class="card-image lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/67c398a9a00aa752a2d3b3f5beefafab_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -700,7 +690,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -715,7 +705,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -730,7 +720,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -745,7 +735,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -760,7 +750,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -775,7 +765,21 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>										<div class="card-body">
+											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+											<div class="product-price">₱150.00</div>
+											<div class="product-rating">
+												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+
+							<div class="item">
+								<a href="https://www.google.com">
+									<div class="card">
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -790,22 +794,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -824,17 +813,17 @@
 				<!-- SECTION 6 - Homepage recommendations -->
 				<div id="etiendahan-section-6" class="etiendahan-section">
 					<!-- have recently view -->
-					<!-- <div class="container">
+					<div class="container">
 						<div class="title-name">
 							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-							<h3><span>RECOMMENDATIONS FOR YOU, NAME</span></h3>
+							<h3><span>RECOMMENDATIONS FOR YOU, ALLAN DRAKE</span></h3>
 						</div>
 
 						<div class="owl-carousel">
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/8959e9325127f845c6eb4f8cc9d4fa15_tn);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/8959e9325127f845c6eb4f8cc9d4fa15_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
 											<div class="product-price">₱150.00</div>
@@ -848,7 +837,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/e578ca0707bb02d30e34cd07a1858fef_tn);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/e578ca0707bb02d30e34cd07a1858fef_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
 											<div class="product-price">₱150.00</div>
@@ -862,7 +851,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
 											<div class="product-price">₱150.00</div>
@@ -876,7 +865,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -890,7 +879,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -904,7 +893,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -918,7 +907,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -932,7 +921,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -946,7 +935,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -960,7 +949,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid" style="background-image: url(http://via.placeholder.com/200x200/);"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
 											<div class="product-price">₱150.00</div>
@@ -972,15 +961,15 @@
 								</a>
 							</div>
 						</div>
-					</div> -->
+					</div>
 
 					<!-- have not recently view -->
-					<div class="container-fluid">
+					<!-- <div class="container-fluid">
 						<div class="recently-view">
 							<div class="first-para">You don't have any recently viewed items.</div>
 							<div class="second-para">View items on Etiendahan and we'll track them here..</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<!-- END OF SECTION 6 -->
 				
@@ -1059,13 +1048,10 @@
 		</div>
 	</div>
 
-
-
-
-
-
+	<!-- Normal import of theme.js -->
 	<script src="assets/js/theme.js"></script>
 
- 	<!-- Uncomment this if the project is ready in production -->
-	<!-- <script src="assets/js/theme.min.js"></script></body> -->
+ 	<!-- Minified import of theme.js -->
+	<!-- <script src="assets/js/theme.min.js"></script> -->
+</body>
 </html>

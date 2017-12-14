@@ -150,6 +150,30 @@ $(window).resize(function(){
 // ============ END OF SECTION 1 ============
 
 // ============ SECTION 2 ============
+// lazy load image
+$(function() {
+    $('.lazy').lazy({
+      effect: "fadeIn",
+      effectTime: 2000,
+      threshold: 0
+    });
+});
+
+$(function(){
+  $('#etiendahan-section-2 .my-gallery-inner').hover(function() {
+    $(this).find('.category-image .zoom').addClass('show');
+    $(this).find('.category-image .zoom').removeClass('hide');
+  }, function() {
+  	$(this).find('.category-image .zoom').addClass('hide');
+    $(this).find('.category-image .zoom').removeClass('show');
+  })
+})
+
+// $('#etiendahan-section-2 .my-gallery-inner').hover(
+//        function(){ $('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('show') },
+//        function(){ $('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('show') }
+// )
+
 // $('#etiendahan-section-2 .my-gallery-inner').hover(function(e) {
 // 	$('#etiendahan-section-2 .my-gallery-inner .category-image').addClass('active');
 // 	$('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('hide');
@@ -164,6 +188,7 @@ $(window).resize(function(){
 $(document).ready(function(){
   var owl = $('.owl-carousel');
 	owl.owlCarousel({
+    	lazyLoad:true,
 		loop:true,
 	    margin:10,
 	    nav:true,
@@ -247,20 +272,37 @@ $(document).ready(function() {
     });
 });
 
-$('html, body').hide();
-$(window).on('load', function() {
-    if (window.location.hash) {
-        setTimeout(function() {
-            $('html, body').scrollTop(0).show();
-            $('html, body').delay(300).animate({
-                scrollTop: $(window.location.hash).offset().top
-                }, 1000)
-        }, 0);
-    } else {
-        $('html, body').show();
+if (location.hash === "#shop-now") {
+    $('html, body').hide();
+	$(window).on('load', function() {
+	    if (window.location.hash) {
+	        setTimeout(function() {
+	            $('html, body').scrollTop(0).show();
+	            $('html, body').delay(500).animate({
+	                scrollTop: $(window.location.hash).offset().top
+	                }, 1000)
+	        }, 150);
+	    } else {
+	        $('html, body').show();
 
-    }
-});
+	    }
+	});
+}
+
+// $('html, body').hide();
+// $(window).on('load', function() {
+//     if (window.location.hash) {
+//         setTimeout(function() {
+//             $('html, body').scrollTop(0).show();
+//             $('html, body').delay(300).animate({
+//                 scrollTop: $(window.location.hash).offset().top
+//                 }, 1000)
+//         }, 0);
+//     } else {
+//         $('html, body').show();
+
+//     }
+// });
 // ============ END OF REGISTER PAGE - SECTION 1 ============
 
 

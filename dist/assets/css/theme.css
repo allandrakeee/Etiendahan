@@ -12544,15 +12544,6 @@ nav a:focus {
     margin-bottom: 20px; }
     #etiendahan-section-2 .col-md-2:last-child {
       border-right: none; }
-    #etiendahan-section-2 .col-md-2 .my-gallery-inner:hover .zoom {
-      -webkit-transition: all 200ms ease-in;
-      -webkit-transform: scale(1.2);
-      -ms-transition: all 200ms ease-in;
-      -ms-transform: scale(1.2);
-      -moz-transition: all 200ms ease-in;
-      -moz-transform: scale(1.2);
-      transition: all 200ms ease-in;
-      transform: scale(1.2); }
     #etiendahan-section-2 .col-md-2 .my-gallery-inner {
       text-decoration: none; }
       #etiendahan-section-2 .col-md-2 .my-gallery-inner:focus {
@@ -12564,19 +12555,7 @@ nav a:focus {
           height: 110px;
           background-repeat: no-repeat;
           background-position: center center;
-          background-size: cover;
-          -webkit-transition: all 0.3s ease;
-          -webkit-transition: all 0.3s sease;
-          transition: all 0.3s sease; }
-        #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image .zoom:hover {
-          -webkit-transition: all 200ms ease-in;
-          -webkit-transform: scale(1.2);
-          -ms-transition: all 200ms ease-in;
-          -ms-transform: scale(1.2);
-          -moz-transition: all 200ms ease-in;
-          -moz-transform: scale(1.2);
-          transition: all 200ms ease-in;
-          transform: scale(1.2); }
+          background-size: cover; }
         #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image .zoom.show {
           -webkit-transition: all 200ms ease-in;
           -webkit-transform: scale(1.2);
