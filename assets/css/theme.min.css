@@ -1528,7 +1528,9 @@ to{visibility:hidden;-webkit-transform:translate3d(0,-100%,0);transform:translat
 .owl-carousel .owl-video-play-icon:hover{-webkit-transform:scale(1.3,1.3);transform:scale(1.3,1.3)}.owl-carousel .owl-video-playing .owl-video-tn,.owl-carousel .owl-video-playing .owl-video-play-icon{display:none}
 .owl-carousel .owl-video-tn{opacity:0;height:100%;background-position:center center;background-repeat:no-repeat;background-size:contain;-webkit-transition:opacity 400ms ease;transition:opacity 400ms ease}
 .owl-carousel .owl-video-frame{position:relative;z-index:1;height:100%;width:100%}ul.navbar-nav li.dropdown .dropdown-menu{-webkit-animation-duration:.2s}
-#etiendahan-create-page-section-1{font-family:'Montserrat',sans-serif;margin-top:100px;color:dimgrey}
+#etiendahan-404-page{font-family:'Montserrat',sans-serif;margin-top:100px;margin-bottom:250px;color:dimgrey}
+#etiendahan-404-page .pnf-title h1{font-size:38px;font-weight:500}#etiendahan-404-page .pnf-sub-title{font-size:12px}
+#etiendahan-404-page .pnf-sub-title a{text-decoration:none}#etiendahan-create-page-section-1{font-family:'Montserrat',sans-serif;margin-top:100px;color:dimgrey}
 #etiendahan-create-page-section-1 .page-title{margin-bottom:20px}#etiendahan-create-page-section-1 .row-wrapper{background-color:#f8f8f8;padding:25px}
 #etiendahan-create-page-section-1 .col-md-8{border-right:1px solid #dcdcdc;padding:0 30px 0 10px}#etiendahan-create-page-section-1 .col-md-8 .form-group.read-and-understood{font-size:12px}
 #etiendahan-create-page-section-1 .col-md-8 .form-group.read-and-understood a{text-decoration:none}#etiendahan-create-page-section-1 .col-md-8 .form-group label.col-form-label{font-size:12px;font-weight:700;padding-right:0}

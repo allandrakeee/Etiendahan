@@ -11303,6 +11303,19 @@ a.text-dark:focus, a.text-dark:hover {
 ul.navbar-nav li.dropdown .dropdown-menu {
   -webkit-animation-duration: 0.2s; }
 
+#etiendahan-404-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  margin-bottom: 250px;
+  color: dimgrey; }
+  #etiendahan-404-page .pnf-title h1 {
+    font-size: 38px;
+    font-weight: 500; }
+  #etiendahan-404-page .pnf-sub-title {
+    font-size: 12px; }
+    #etiendahan-404-page .pnf-sub-title a {
+      text-decoration: none; }
+
 #etiendahan-create-page-section-1 {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;
