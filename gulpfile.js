@@ -93,6 +93,7 @@ gulp.task('scripts', function(){
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
         'node_modules/jquery-lazy/jquery.lazy.js',
+        'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
@@ -120,6 +121,7 @@ gulp.task('scripts-min', function(){
         'node_modules/owl.carousel/dist/owl.carousel.js',
         'node_modules/jquery-mousewheel/jquery.mousewheel.js',
         'node_modules/jquery-lazy/jquery.lazy.js',
+        'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
         'assets-dev/js/*.js'
     ])
@@ -231,7 +233,7 @@ gulp.task('min', ['styles-min', 'scripts-min'], function(){});
  * @description Clear distribution folder
  */
 gulp.task('clear-dist', function () {
-    return del(['dist/**/*',]);
+    return del(['dist/**/*']);
 });
 
 // ================================ Clean Development ================================

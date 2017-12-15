@@ -169,6 +169,8 @@ $(function(){
   })
 })
 
+new WOW().init();
+
 // $('#etiendahan-section-2 .my-gallery-inner').hover(
 //        function(){ $('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').addClass('show') },
 //        function(){ $('#etiendahan-section-2 .my-gallery-inner .category-image .zoom').removeClass('show') }

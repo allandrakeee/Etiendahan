@@ -1,0 +1,28 @@
+#etiendahan-information-page {
+	font-family: 'Montserrat', sans-serif;
+    margin-top: 70px;
+	color: dimgrey;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2.4px;
+
+	.breadcrumb {
+		padding-top: 24px;
+		padding-bottom: 24px;
+
+		.breadcrumb-item {
+			&.active {
+				color: dimgrey;
+			}
+
+			.fa {
+				font-size: 13px;
+				margin-right: 3px;
+			}
+
+			a {
+				color: #9d9d9d;
+			}
+		}
+	}
+}

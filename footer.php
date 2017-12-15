@@ -14,16 +14,16 @@
 										<div class="title-footer">FOLLOW US</div>
 										<ul class="social-icons">
 											<li class="facebook">
-												<a class="fa fa-facebook" href=""></a>
+												<a class="fa fa-facebook" href="https://web.facebook.com/etiendahan/" target="_blank"></a>
 											</li>
 											<li class="instagram">
-												<a class="fa fa-instagram" href=""></a>
+												<a class="fa fa-instagram" href="https://www.instagram.com/etiendahan/" target="_blank"></a>
 											</li>
 											<li class="twitter">
-												<a class="fa fa-twitter" href=""></a>
+												<a class="fa fa-twitter" href="https://twitter.com/etiendahan" target="_blank"></a>
 											</li>
 											<li class="google-plus">
-												<a class="fa fa-google-plus" href=""></a>
+												<a class="fa fa-google-plus" href="https://plus.google.com/u/2/110265818297635318631" target="_blank"></a>
 											</li>
 										</ul>
 									</div>
@@ -38,19 +38,18 @@
 									<div class="sub-info">
 										<ul class="footer-list">
 											<li>
-												<a href=""><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>About Us</a>
+												<a href="/etiendahan/about/"><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>About Etiendahan</a>
 											</li>
 											<li>
-												<a href=""><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Contact Us</a>
+												<a href="/etiendahan/terms-conditions/"><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Terms & Conditions</a>
 											</li>
 											<li>
-												<a href=""><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Terms & Conditions</a>
+												<a href="/etiendahan/privacy-policy/"><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Privacy Policy</a>
 											</li>
 											<li>
-												<a href=""><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Privacy Policy</a>
+												<a href="/etiendahan/contact/"><i class="fa fa-square-o"></i><i class="fa fa-square" style="display: none"></i>Contact Us</a>
 											</li>
 										</ul>
-									
 									</div>
 								</div>
 							</div>
@@ -63,7 +62,7 @@
 				<div id="etiendahan-section-8" class="etiendahan-section">
 					<div class="container">
 						<div class="footer-title">
-							Copyright © 2017 by <a href="https://allandrake.wixsite.com/freelancer" target="_blank">ADPD</a>. All rights reserved.
+							Copyright © <?php echo date("Y"); ?> by <a href="https://allandrake.wixsite.com/freelancer" target="_blank">ADPD</a>. All rights reserved.
 						</div>
 					</div>
 				</div>
@@ -73,7 +72,7 @@
 	</div>
 
 	<!-- Development - Normal import of theme.js -->
-	<script src="/etiendahan/assets/js/theme.js"></script>
+	<!-- <script src="/etiendahan/assets/js/theme.js"></script> -->
 	
 	<!-- Development - Minifies import of theme.js -->
 	<!-- <script src="/etiendahan/assets/js/theme.min.js"></script> -->
@@ -82,5 +81,5 @@
 	<!-- <script src="/assets/js/theme.js"></script> -->
 
 	<!-- Production - Minified import of theme.js -->
-	<!-- <script src="/assets/js/theme.min.js"></script> -->
+	<script src="/assets/js/theme.min.js"></script>
 </body>

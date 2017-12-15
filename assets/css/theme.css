@@ -11940,6 +11940,24 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       color: dimgrey;
       font-size: 12px; }
 
+#etiendahan-information-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 70px;
+  color: dimgrey;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px; }
+  #etiendahan-information-page .breadcrumb {
+    padding-top: 24px;
+    padding-bottom: 24px; }
+    #etiendahan-information-page .breadcrumb .breadcrumb-item.active {
+      color: dimgrey; }
+    #etiendahan-information-page .breadcrumb .breadcrumb-item .fa {
+      font-size: 13px;
+      margin-right: 3px; }
+    #etiendahan-information-page .breadcrumb .breadcrumb-item a {
+      color: #9d9d9d; }
+
 #etiendahan-login-page-section-1 {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;
