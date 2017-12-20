@@ -35,8 +35,35 @@
 						</ol>
 					</nav>
 
-					<div class="container">
-						
+					<div class="container contact">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="title">
+									We’d like to help you out! Send us a shout out at the following:
+								</div>
+
+								<div class="question">
+									Unable to complete your shopping or need technical help?
+								</div>
+								<div class="link">
+									<i class="fa fa-envelope-o"></i> Email: <a href="mailto:etiendahan@gmail.com" target="_blank">etiendahan@gmail.com</a>
+								</div>
+
+								<div class="question">
+									Follow up on your orders? <span>(Best if you can put your order # in the Subject Line to make it easier for us to track your order)</span>
+								</div>
+								<div class="link">
+									<i class="fa fa-envelope-o"></i> Email: <a href="mailto:etiendahan@gmail.com" target="_blank">etiendahan@gmail.com</a>
+								</div>
+
+								<div class="question">
+									Want to become a seller?
+								</div>
+								<div class="link">
+									<i class="fa fa-external-link"></i> Apply <a href="http://localhost:8080/etiendahan/sell-on-etiendahan/" target="_blank">here</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- END OF CONTACT PAGE -->

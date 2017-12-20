@@ -3,14 +3,16 @@
     margin-top: 70px;
 	color: dimgrey;
 	font-size: 12px;
-	text-transform: uppercase;
-	letter-spacing: 2.4px;
 
 	.breadcrumb {
 		padding-top: 24px;
 		padding-bottom: 24px;
+		margin-bottom: 20px;
 
 		.breadcrumb-item {
+			text-transform: uppercase;
+			letter-spacing: 2.4px;
+
 			&.active {
 				color: dimgrey;
 			}
@@ -22,6 +24,94 @@
 
 			a {
 				color: #9d9d9d;
+			}
+		}
+	}
+
+	// contact
+	.container {
+		&.contact {
+			.title {
+				font-size: 20px;
+				font-weight: 600;
+			    letter-spacing: 0.12px;
+			}
+
+			.question {
+				margin-top: 25px;
+
+				span {
+					font-size: 11px;
+					font-style: italic;
+				}
+			}
+
+			.link {
+				margin-top: 5px;
+
+				a {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	// privacy policy
+	.container {
+		&.privacy-policy {
+			h3 {
+				font-size: 20px;
+				font-weight: 600;
+			    letter-spacing: 0.12px;
+			}
+
+			h5 {
+				font-size: 15px;
+				font-weight: 600;
+			}
+
+			#ourapproachtoprivacy {
+				margin-top: 5px;
+			}
+
+			.margin-h {
+				margin-top: 35px;
+			}
+
+			.margin-p {
+				margin-top: 10px;
+			}
+		}
+	}
+
+	// about
+	.container {
+		&.about {
+			.title {
+				font-size: 20px;
+				font-weight: 600;
+			    letter-spacing: 0.12px;
+
+			    &.margin-h {
+					margin-top: 30px;
+				}
+			}
+
+			.info {
+				margin-top: 7px;
+
+				span {
+					font-size: 11px;
+					font-style: italic;
+				}
+			}
+
+			.link {
+				margin-top: 5px;
+
+				a {
+					text-decoration: none;
+				}
 			}
 		}
 	}

@@ -7,10 +7,10 @@
 	<meta name=viewport content="width=device-width, initial-scale=1">
 
 	<!-- Normal import of theme.css -->
-	<!-- <link rel="stylesheet" href="assets/css/theme.css"> -->
+	<link rel="stylesheet" href="assets/css/theme.css">
 	
 	<!-- Minified import of theme.css -->
-	<link rel="stylesheet" href="assets/css/theme.min.css">
+	<!-- <link rel="stylesheet" href="assets/css/theme.min.css"> -->
 </head>
 <body>
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -995,17 +995,17 @@
 												<a class="fa fa-instagram" href="https://www.instagram.com/etiendahan/" target="_blank"></a>
 											</li>
 											<li class="twitter">
-												<a class="fa fa-twitter" href="https://twitter.com/etiendahan" target="_blank"></a>
+												<a class="fa fa-twitter" href="https://twitter.com/etiendahan/" target="_blank"></a>
 											</li>
 											<li class="google-plus">
-												<a class="fa fa-google-plus" href="https://plus.google.com/u/2/110265818297635318631" target="_blank"></a>
+												<a class="fa fa-google-plus" href="https://plus.google.com/u/2/110265818297635318631/" target="_blank"></a>
 											</li>
 										</ul>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-md-4 ml-5">
+							<div class="col-md-2 ml-5">
 								<div class="footer-info">
 									<div class="footer-title">
 										<h3>INFORMATION</h3>
@@ -1028,6 +1028,17 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="col-md-4 ml-5">
+								<div class="footer-info">
+									<div class="footer-title">
+										<h3 class="like-page">Like our facebook page</h3>
+									</div>
+								</div>
+
+								<!-- Your like button code -->
+								<div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1048,9 +1059,9 @@
 	</div>
 
 	<!-- Normal import of theme.js -->
-	<!-- <script src="assets/js/theme.js"></script> -->
+	<script src="assets/js/theme.js"></script>
 
  	<!-- Minified import of theme.js -->
-	<script src="assets/js/theme.min.js"></script>
+	<!-- <script src="assets/js/theme.min.js"></script> -->
 </body>
 </html>

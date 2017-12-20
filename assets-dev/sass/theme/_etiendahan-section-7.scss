@@ -70,10 +70,10 @@
 		}
 	}
 
-	.col-md-4 {
+	.col-md-2 {
 		
 		&.ml-5 {
-			margin-left: 100px !important;
+			margin-left: 90px !important;
 		}
 
 		.footer-info {
@@ -86,6 +86,7 @@
 					letter-spacing: 1.8px;
 					line-height: 27.9px;
 				    margin-bottom: 33px;
+				    text-transform: uppercase;
 				}
 			}
 
@@ -118,6 +119,31 @@
 					 		}
 						}	
 					}
+				}
+			}
+		}
+	}
+
+	.col-md-4 {
+		&.ml-5 {
+			margin-left: 70px !important;
+		}
+
+	    .footer-info {
+			padding: 60px 0 0 0;
+			
+			.footer-title {
+				h3 {
+					font-size: 18px;
+					font-weight: 400;
+					letter-spacing: 1.8px;
+					line-height: 27.9px;
+				    margin-bottom: 33px;
+				    text-transform: uppercase;
+
+				    &.like-page {
+				    	margin-bottom: 36px;
+				    }
 				}
 			}
 		}

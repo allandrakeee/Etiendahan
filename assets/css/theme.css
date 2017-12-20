@@ -3804,7 +3804,7 @@ button.close {
 
 .modal-open .modal {
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: hidden; }
 
 .modal-dialog {
   position: relative;
@@ -11944,19 +11944,62 @@ ul.navbar-nav li.dropdown .dropdown-menu {
   font-family: 'Montserrat', sans-serif;
   margin-top: 70px;
   color: dimgrey;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2.4px; }
+  font-size: 12px; }
   #etiendahan-information-page .breadcrumb {
     padding-top: 24px;
-    padding-bottom: 24px; }
-    #etiendahan-information-page .breadcrumb .breadcrumb-item.active {
-      color: dimgrey; }
-    #etiendahan-information-page .breadcrumb .breadcrumb-item .fa {
-      font-size: 13px;
-      margin-right: 3px; }
-    #etiendahan-information-page .breadcrumb .breadcrumb-item a {
-      color: #9d9d9d; }
+    padding-bottom: 24px;
+    margin-bottom: 20px; }
+    #etiendahan-information-page .breadcrumb .breadcrumb-item {
+      text-transform: uppercase;
+      letter-spacing: 2.4px; }
+      #etiendahan-information-page .breadcrumb .breadcrumb-item.active {
+        color: dimgrey; }
+      #etiendahan-information-page .breadcrumb .breadcrumb-item .fa {
+        font-size: 13px;
+        margin-right: 3px; }
+      #etiendahan-information-page .breadcrumb .breadcrumb-item a {
+        color: #9d9d9d; }
+  #etiendahan-information-page .container.contact .title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.12px; }
+  #etiendahan-information-page .container.contact .question {
+    margin-top: 25px; }
+    #etiendahan-information-page .container.contact .question span {
+      font-size: 11px;
+      font-style: italic; }
+  #etiendahan-information-page .container.contact .link {
+    margin-top: 5px; }
+    #etiendahan-information-page .container.contact .link a {
+      text-decoration: none; }
+  #etiendahan-information-page .container.privacy-policy h3 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.12px; }
+  #etiendahan-information-page .container.privacy-policy h5 {
+    font-size: 15px;
+    font-weight: 600; }
+  #etiendahan-information-page .container.privacy-policy #ourapproachtoprivacy {
+    margin-top: 5px; }
+  #etiendahan-information-page .container.privacy-policy .margin-h {
+    margin-top: 35px; }
+  #etiendahan-information-page .container.privacy-policy .margin-p {
+    margin-top: 10px; }
+  #etiendahan-information-page .container.about .title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.12px; }
+    #etiendahan-information-page .container.about .title.margin-h {
+      margin-top: 30px; }
+  #etiendahan-information-page .container.about .info {
+    margin-top: 7px; }
+    #etiendahan-information-page .container.about .info span {
+      font-size: 11px;
+      font-style: italic; }
+  #etiendahan-information-page .container.about .link {
+    margin-top: 5px; }
+    #etiendahan-information-page .container.about .link a {
+      text-decoration: none; }
 
 #etiendahan-login-page-section-1 {
   font-family: 'Montserrat', sans-serif;
@@ -12091,7 +12134,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           padding: 10px 9px;
           position: absolute;
           left: 1px;
-          top: 49px; }
+          top: 48px; }
         #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google span {
           position: relative;
           left: 16px; }
@@ -12983,34 +13026,48 @@ nav a:focus {
             line-height: 36px; }
             #etiendahan-section-7 .col-md-4 .about .social ul li a:hover {
               color: #1e1e1e; }
-  #etiendahan-section-7 .col-md-4.ml-5 {
-    margin-left: 100px !important; }
-  #etiendahan-section-7 .col-md-4 .footer-info {
+  #etiendahan-section-7 .col-md-2.ml-5 {
+    margin-left: 90px !important; }
+  #etiendahan-section-7 .col-md-2 .footer-info {
     padding: 60px 0; }
-    #etiendahan-section-7 .col-md-4 .footer-info .footer-title h3 {
+    #etiendahan-section-7 .col-md-2 .footer-info .footer-title h3 {
       font-size: 18px;
       font-weight: 400;
       letter-spacing: 1.8px;
       line-height: 27.9px;
-      margin-bottom: 33px; }
-    #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul {
+      margin-bottom: 33px;
+      text-transform: uppercase; }
+    #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul {
       padding: 0;
       list-style: none; }
-      #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li {
+      #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul li {
         margin-right: 8px; }
-        #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a {
+        #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul li a {
           line-height: 25px;
           letter-spacing: 0.01em;
           color: dimgrey;
           text-decoration: none;
           font-size: 12px;
           line-height: 18.6px; }
-          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a:hover .fa.fa-square-o {
+          #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul li a:hover .fa.fa-square-o {
             display: none; }
-          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a:hover .fa.fa-square {
+          #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul li a:hover .fa.fa-square {
             display: inline-block !important; }
-          #etiendahan-section-7 .col-md-4 .footer-info .sub-info ul li a i {
+          #etiendahan-section-7 .col-md-2 .footer-info .sub-info ul li a i {
             padding-right: 8px; }
+  #etiendahan-section-7 .col-md-4.ml-5 {
+    margin-left: 70px !important; }
+  #etiendahan-section-7 .col-md-4 .footer-info {
+    padding: 60px 0 0 0; }
+    #etiendahan-section-7 .col-md-4 .footer-info .footer-title h3 {
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 1.8px;
+      line-height: 27.9px;
+      margin-bottom: 33px;
+      text-transform: uppercase; }
+      #etiendahan-section-7 .col-md-4 .footer-info .footer-title h3.like-page {
+        margin-bottom: 36px; }
 
 #etiendahan-section-8 {
   font-family: 'Montserrat', sans-serif;

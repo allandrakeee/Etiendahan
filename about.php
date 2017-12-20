@@ -35,8 +35,28 @@
 						</ol>
 					</nav>
 
-					<div class="container">
-						
+					<div class="container about">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="title">
+									What is Etiendahan?
+								</div>
+
+								<div class="info">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, cumque est repellendus culpa, ad ut beatae? Fugit, magnam, explicabo alias ut doloribus rem porro, dolor ipsum consectetur quibusdam ducimus aspernatur. Facilis perferendis, dolores pariatur laudantium cumque dolorem qui, deserunt quae officiis atque ullam suscipit obcaecati similique! At ducimus cumque aliquid.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quas sapiente architecto praesentium laborum aliquam animi voluptatum dicta quos blanditiis.</p>
+								</div>
+
+								<div class="title margin-h">
+									What are the available products in Etiendahan?
+								</div>
+
+								<div class="info">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, cumque est repellendus culpa, ad ut beatae? Fugit, magnam, explicabo alias ut doloribus rem porro, dolor ipsum consectetur quibusdam ducimus aspernatur. Facilis perferendis, dolores pariatur laudantium cumque dolorem qui, deserunt quae officiis atque ullam suscipit obcaecati similique! At ducimus cumque aliquid.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quas sapiente architecto praesentium laborum aliquam animi voluptatum dicta quos blanditiis.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- END OF ABOUT PAGE -->
