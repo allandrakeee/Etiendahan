@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Address Book - Etiendahan Pangasinan</title>
+	<title>Address Book - Etiendahan Dagupan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -269,7 +269,7 @@
 								<div class="row">
 									<div class="col-md-10">
 											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
-											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Pangasinan, Philippines</div>
+											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Dagupan, Philippines</div>
 											<div class="address">Pangasinan - Dagupan - Pantal</div>
 											<div class="address-other-notes">Color orange gate</div>
 											<div class="address-phone-number">09950147185</div>
@@ -285,7 +285,7 @@
 								<div class="row">
 									<div class="col-md-10">
 											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
-											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Pangasinan, Philippines</div>
+											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Dagupan, Philippines</div>
 											<div class="address">Pangasinan - Dagupan - Pantal</div>
 											<div class="address-other-notes">Color orange gate</div>
 											<div class="address-phone-number">09950147185</div>

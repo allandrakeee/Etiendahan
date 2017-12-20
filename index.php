@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Etiendahan Pangasinan: Online Shopping Marketplace</title>
+	<title>Etiendahan Dagupan: Online Shopping Marketplace</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -643,7 +643,7 @@
 						<div class="welcome-message-overlay">
 							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
 							<div class="welcome-message-title">Welcome to Etiendahan</div>
-							<div class="welcome-message-intro">Online Shopping Marketplace here in Pangasinan</div>
+							<div class="welcome-message-intro">Online Shopping Marketplace here in Dagupan</div>
 						</div>
 					</div>
 				</div>

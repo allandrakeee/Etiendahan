@@ -17,7 +17,12 @@
 					</li>
 
 					<!-- SPECIALTY IN CITY -->
-					<li class="nav-item dropdown mega-dropdown">
+					<li class="nav-item">
+						<a class="nav-link cl-effect" href="#">Specialty</a>
+					</li>
+
+					<!-- SPECIALTY IN CITY -->
+					<!-- <li class="nav-item dropdown mega-dropdown">
 						
 						<a class="nav-link cl-effect" href="https://google.com" id="specialtyInCity" role="button" aria-haspopup="true" aria-expanded="false">
 						Specialty
@@ -26,7 +31,6 @@
 						<div class="dropdown-menu mega-dropdown-menu" aria-labelledby="specialtyInCity">
 							<div class="container">
 								<div class="row">
-								<!-- A -->
 									<div class="col-md-3">
 										<a class="dropdown-header primary-header" href="#">A</a>
 										<div class="dropdown-divider"></div>
@@ -58,7 +62,6 @@
 											</div>
 										</div>
 									</div>
-								<!-- B -->
 									<div class="col-md-3">
 										<a class="dropdown-header primary-header" href="#">B</a>
 										<div class="dropdown-divider"></div>
@@ -111,7 +114,6 @@
 											</div>
 										</div>
 									</div>
-								<!-- C -->
 									<div class="col-md-3">
 										<a class="dropdown-header primary-header" href="#">C</a>
 										<div class="dropdown-divider"></div>
@@ -124,7 +126,6 @@
 											</div>
 										</div>
 									</div>
-								<!-- D -->
 									<div class="col-md-3">
 										<a class="dropdown-header primary-header" href="#">D</a>
 										<div class="dropdown-divider"></div>
@@ -140,7 +141,7 @@
 								</div>
 							</div>
 						</div>
-					</li>
+					</li> -->
 
 					<!-- ACCESSORIES -->
 					<li class="nav-item">
