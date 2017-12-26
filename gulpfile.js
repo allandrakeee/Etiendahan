@@ -36,6 +36,7 @@ gulp.task('styles', function(){
         'node_modules/font-awesome/scss/font-awesome.scss',
         'node_modules/animate.css/animate.css',
         'node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        'temp-folder/magnifier.css',
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -58,9 +59,10 @@ gulp.task('styles', function(){
 gulp.task('styles-min', function(){
  return gulp.src([
         'node_modules/bootstrap/scss/bootstrap.scss', 
-        'node_modules/font-awesome/scss/font-awesome.scss', 
+        'node_modules/font-awesome/scss/font-awesome.scss',
         'node_modules/animate.css/animate.css',
         'node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        'temp-folder/magnifier.css',
         'assets-dev/sass/*.scss'
     ])
     .pipe(sassGlob())
@@ -95,6 +97,8 @@ gulp.task('scripts', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
+        'temp-folder/Event.js',
+        'temp-folder/Magnifier.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)
@@ -214,6 +218,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('customer/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('category/electronics/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
 });

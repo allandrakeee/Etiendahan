@@ -1,0 +1,331 @@
+#etiendahan-category-page {
+	font-family: 'Montserrat', sans-serif;
+    margin-top: 70px;
+	color: dimgrey;
+	font-size: 12px;
+
+	.breadcrumb {
+		padding-top: 24px;
+		padding-bottom: 24px;
+		margin-bottom: 20px;
+
+		.breadcrumb-item {
+			text-transform: uppercase;
+			letter-spacing: 2.4px;
+
+			&.active {
+				color: dimgrey;
+			}
+
+			.fa {
+				font-size: 13px;
+				margin-right: 3px;
+			}
+
+			a {
+				color: #9d9d9d;
+			}
+		}
+	}
+
+	input[type=number]::-webkit-inner-spin-button, 
+	input[type=number]::-webkit-outer-spin-button { 
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		margin: 0; 
+	}
+
+	.form-control {
+		font-size: 12px;
+	    border-radius: 0;
+
+		&:focus {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+		}
+
+		&#inputPasswordNew {
+		    border-right-width: 0px;
+		}
+	}
+
+	.btn-primary {
+		background-color: #333333;
+		border: 0;
+		border-radius: 0;
+		color: #fff;
+		text-transform: uppercase;
+		padding: 8px 25px;
+		margin: 10px 0 10px 0;
+		cursor: pointer;
+		width: 84%;
+		position: relative;
+		left: 8%;
+
+
+		&:hover, &:focus {
+			background-color: #3f3f3f; 
+			box-shadow: none;
+		}
+	}
+
+	.separator-button {
+		border-bottom: #d9d9d9 solid 1px;	
+		position: relative;
+		left: 20px;
+		width: 84%;
+	}
+
+	.separator-bottom {
+		margin-bottom: 10px;
+	}
+
+	// electronics
+	.container {
+		&.electronics {
+			.sidebar-wrapper {
+				border: #d9d9d9 solid 1px;
+				margin-bottom: 30px;
+				
+				.active {
+					font-weight: 600;
+				}
+
+				.header {
+					text-transform: uppercase;
+					font-size: 18px;
+					color: #2b2c2c;
+					font-weight: 400;
+					line-height: 30px;
+					letter-spacing: 0.1em;
+					padding: 10px 0;
+					border-bottom: #f6f6f6 solid 1px;
+
+					.fa {
+						color: dimgrey;
+					}
+				}
+
+				.title {
+					font-size: 14px;
+					line-height: 30px;
+					letter-spacing: 0.1em;
+					margin: 10px 0 0 20px;
+
+					a {
+						text-decoration: none;
+						color: #2b2c2c;
+					}
+				}
+
+				.sub {
+					ul {
+						list-style-type: none;
+						padding-left: 30px;
+						margin-bottom: 12px;
+
+						li {
+							padding: 3px 0 3px 0;
+						}
+
+						a {
+							text-decoration: none;
+							color: #2b2c2c;
+						}
+					}
+				}
+
+				.search-filter-price-range {
+				    color: #2b2c2c;
+					font-size: 14px;
+					line-height: 30px;
+					letter-spacing: 0.1em;
+					margin: 10px 0 0 20px;
+				}
+
+				.price-range-filter {
+					// font-size: 12px;
+					margin: 0 20px 0 20px;
+
+					label {
+						display: block;	
+					    width: 90px;
+
+					    input {
+					    	vertical-align: middle;
+					    }
+					}
+
+					input {
+
+						&.number {
+							width: 69px;
+						}
+
+						&:focus {
+							outline: none;
+						}
+					}
+
+					.separator {
+						border-bottom: #d9d9d9 solid 1px;
+						width: 68px;
+						display: inline-block;
+						position: relative;
+					    bottom: 2px;
+					}
+				}
+			}
+
+			.item-grid-list-option {
+				width: 803px;
+				height: 45px;
+				border: #dcdcdc solid 1px;
+				margin-bottom: 20px;
+
+			    a {
+			    	color: #2f383d;
+			    	font-size: 20px;
+			    	display: inline-block;
+		    	    padding: 7px 16px;
+		    	    border-left: #e7e6e6 solid 1px;
+		    	    text-align: center;
+
+		    	    &.grid {
+		    	    	position: relative;
+		    	    	left: 5px;
+		    	    }
+
+		    	    &.active {
+		    	    	background-color: #dcdcdc;
+		    	    }
+			    }
+			}
+
+			.item {
+				&.list-group-item {
+				    float: none;
+				   	width: 803px;
+				    background-color: #fff;
+				    margin-bottom: 10px;
+				    border-radius: 0;
+
+				    .card {
+						border-radius: 0;
+						// width: 175px;
+						// height: 280px;
+						
+						.card-image {
+							width: 155px;
+							background-repeat: no-repeat;
+							background-position: center center;
+							background-size: cover;
+							border-bottom: 0;
+						}
+
+						.card-body {
+							padding: 0 10px 0 0;
+							position: absolute;
+						    right: 0;
+							left: 120%;
+							top: -6%;
+							width: 586px;
+
+							.product-name {
+								display: inline-block;
+							    font-size: 0.750rem;
+							    font-weight: 600;
+							    color: #333333;
+							    margin: 10px 0;
+								height: 20px;
+								display: -webkit-box;
+								-webkit-line-clamp: 1;
+								-webkit-box-orient: vertical;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+
+							.product-price {
+								font-size: 0.750rem;
+								font-weight: 500;
+								color: #333333;
+								position: absolute;
+								bottom: -40px;
+								padding: 10px 0 0 0;
+							}
+
+							.product-rating {
+								font-size: 0.750rem;
+								font-weight: 500;
+								color: #333333;
+								float: right;
+								vertical-align: bottom;
+								margin: 0;
+								position: absolute;
+								top: 18px;
+								padding: 12px 0;
+							}
+						}
+					}
+				}
+			}
+
+			.item {
+				position: relative;		
+				display: inline-flex;
+				width: 155px;
+				margin: 0 4px 10px 0;
+
+				a {
+					text-decoration: none;
+
+					.card {
+						border-radius: 0;
+						// width: 175px;
+						// height: 280px;
+						
+						.card-image {
+							height: 155px;
+							background-repeat: no-repeat;
+							background-position: center center;
+							background-size: cover;
+							border-bottom: 1px solid #e6e6e6;
+						}
+
+						.card-body {
+							padding: 5px 8px;
+
+							.product-name {
+							    font-size: 0.750rem;
+							    font-weight: 600;
+							    color: #333333;
+							    margin: 10px 0;
+						        height: 35px;
+								display: -webkit-box;
+								-webkit-line-clamp: 2;
+								-webkit-box-orient: vertical;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+
+							.product-price {
+								font-size: 0.750rem;
+								font-weight: 500;
+								color: #333333;
+							}
+
+							.product-rating {
+								font-size: 0.750rem;
+								font-weight: 500;
+								color: #333333;
+								float: right;
+								vertical-align: bottom;
+								margin: 15px 0 8px 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

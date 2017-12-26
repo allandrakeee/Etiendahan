@@ -219,13 +219,13 @@ $(document).ready(function(){
 
 // ============ SECTION 7 ============
 // Load Facebook SDK for JavaScript
-(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+// (function(d, s, id) {
+// 	  var js, fjs = d.getElementsByTagName(s)[0];
+// 	  if (d.getElementById(id)) return;
+// 	  js = d.createElement(s); js.id = id;
+// 	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
+// 	  fjs.parentNode.insertBefore(js, fjs);
+// 	}(document, 'script', 'facebook-jssdk'));
 // ============ END OF SECTION 7 ============
 
 // ============ REGISTER PAGE - SECTION 1 ============
@@ -618,3 +618,94 @@ function changemunicipality(value) {
     }
 }
 // ============ END OF MY ACCOUNT PAGE - CHANGE ADDRESS - SECTION 1 ============
+
+// ============ CATEGORY PAGE ============
+$(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#list').addClass('active');$('#grid').removeClass('active');
+    	$('#item-wrapper-grid-list .item').addClass('list-group-item');
+	});
+    $('#grid').click(function(event){event.preventDefault();$('#grid').addClass('active');$('#list').removeClass('active');
+    	$('#item-wrapper-grid-list .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');
+	});
+});
+// ============ END OF CATEGORY PAGE ============
+
+// ============ VIEW ITEM PAGE ============
+
+$(document).ready(function () {
+	
+
+  $('.span3').click(function () {
+  	var attr = $(this).attr("data-display");
+    $('#data-display img').attr("src", attr);
+    // $('#data-display img').css('background', 'url('+attr+')');
+  });
+});
+// ============ END OF VIEW ITEM PAGE ============
+
+// ============ END OF MAGNIFIER PAGE ============
+if($("#view-product-page").length > 0) {
+	var evt = new Event(),
+    m = new Magnifier(evt);
+	m.attach({thumb: '#thumb', mode: 'inside', zoom: 2, zoomable: true});
+}
+// ============ END OF MAGNIFIER PAGE ============
+
+// 
+$('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+            
+            if(currentVal > input.attr('min')) {
+                input.val(currentVal - 1).change();
+            } 
+            if(parseInt(input.val()) == input.attr('min')) {
+                $(this).attr('disabled', true);
+            }
+
+        } else if(type == 'plus') {
+
+            if(currentVal < input.attr('max')) {
+                input.val(currentVal + 1).change();
+            }
+            if(parseInt(input.val()) == input.attr('max')) {
+                $(this).attr('disabled', true);
+            }
+
+        }
+    } else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    if(valueCurrent >= minValue) {
+        $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the minimum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    if(valueCurrent <= maxValue) {
+        $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+    } else {
+        alert('Sorry, the maximum value was reached');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+    
+});
+// 

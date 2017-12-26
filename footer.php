@@ -4,7 +4,8 @@
 						<div class="row">
 							<div class="col-md-4 border-insert">
 								<div class="about">
-									<a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a>
+									<!-- <a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a> -->
+									<a href="http://localhost:8080/etiendahan/"><img src="/etiendahan/temp-img/etiendahan-logo.png" alt=""></a>
 									<div class="about-text">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, pariatur.</p>
 										<p>Nisi porttitor inceptos consectetur donec orci, dui ipsum leo class gravida.</p>
@@ -62,7 +63,7 @@
 								</div>
 
 								<!-- Your like button code -->
-								<div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+								<!-- <div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div> -->
 							</div>
 						</div>
 					</div>

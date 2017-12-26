@@ -4,7 +4,7 @@
 	<!-- navbar -->
 	<nav class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar index shrink">
 	  	<a class="navbar-brand" href="http://localhost:8080/etiendahan/">
-			<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
+			<img src="/etiendahan/temp-img/etiendahan-logo.png" width="178" height="58" class="d-inline-block align-top" alt="">
 		</a>					
 
 		<div class="collapse navbar-collapse" id="navbarCenterContent">
@@ -18,7 +18,7 @@
 
 					<!-- SPECIALTY IN CITY -->
 					<li class="nav-item">
-						<a class="nav-link cl-effect" href="#">Specialty</a>
+						<a class="nav-link cl-effect" href="#">Specialty in City</a>
 					</li>
 
 					<!-- SPECIALTY IN CITY -->
@@ -144,9 +144,9 @@
 					</li> -->
 
 					<!-- ACCESSORIES -->
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link cl-effect" href="#">Accessories</a>
-					</li>
+					</li> -->
 
 					<!-- MEN -->
 					<li class="nav-item">

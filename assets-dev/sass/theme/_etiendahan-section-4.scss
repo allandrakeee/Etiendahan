@@ -45,6 +45,24 @@
 				width: 100%;
 				text-align: center;
 			}
+
+			.welcome-message-hashtag {
+				position: absolute;
+			    top: 66%;
+    			font-size: 18px;
+				font-family: 'Crimson Text', serif;
+				font-style: italic;
+				line-height: 1;
+				letter-spacing: 0.025em;
+				width: 100%;
+				text-align: center;
+
+				a {
+					display: inline-block;
+					color: inherit;
+					text-decoration: underline;
+				}
+			}
 		}
 
 		

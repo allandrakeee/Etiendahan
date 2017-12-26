@@ -130,7 +130,7 @@
 										<div class="form-group row read-and-understood">
 											<label for="readAndUnderstood" class="col-sm-2 col-form-label"></label>
 											<div class="col-sm-10">
-												<p>*I read and understood Etiendahan <a href="#">Privacy Policy</a></p>
+												<p>*I read and understood Etiendahan <a href="/etiendahan/privacy-policy/">Privacy Policy</a></p>
 											</div>
 										</div>
 										

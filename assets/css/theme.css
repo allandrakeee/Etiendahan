@@ -11288,6 +11288,61 @@ a.text-dark:focus, a.text-dark:hover {
   height: 100%;
   width: 100%; }
 
+.magnifier-thumb-wrapper {
+  position: relative;
+  display: block;
+  top: 0;
+  left: 0; }
+
+.magnifier-lens {
+  position: absolute;
+  border: solid 1px #ccc;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+
+.magnifier-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: solid 1px #ccc;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  background: rgba(50, 50, 50, 0.5);
+  z-index: 1000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232)";
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F323232,endColorstr=#7F323232); }
+
+.magnifier-loader-text {
+  font: 13px Arial;
+  margin-top: 10px; }
+
+.magnifier-large {
+  position: absolute;
+  z-index: 100; }
+
+.magnifier-preview {
+  padding: 0;
+  width: 100%;
+  height: 150px;
+  position: relative;
+  overflow: hidden; }
+
+.magnifier-preview img {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.opaque {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); }
+
+.hidden {
+  display: none; }
+
 @charset "UTF-8";
 /**
  * All theme core sass files
@@ -11315,6 +11370,226 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     font-size: 12px; }
     #etiendahan-404-page .pnf-sub-title a {
       text-decoration: none; }
+
+#etiendahan-category-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 70px;
+  color: dimgrey;
+  font-size: 12px; }
+  #etiendahan-category-page .breadcrumb {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 20px; }
+    #etiendahan-category-page .breadcrumb .breadcrumb-item {
+      text-transform: uppercase;
+      letter-spacing: 2.4px; }
+      #etiendahan-category-page .breadcrumb .breadcrumb-item.active {
+        color: dimgrey; }
+      #etiendahan-category-page .breadcrumb .breadcrumb-item .fa {
+        font-size: 13px;
+        margin-right: 3px; }
+      #etiendahan-category-page .breadcrumb .breadcrumb-item a {
+        color: #9d9d9d; }
+  #etiendahan-category-page input[type=number]::-webkit-inner-spin-button,
+  #etiendahan-category-page input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; }
+  #etiendahan-category-page .form-control {
+    font-size: 12px;
+    border-radius: 0; }
+    #etiendahan-category-page .form-control:focus {
+      border: 1px solid rgba(0, 0, 0, 0.15); }
+    #etiendahan-category-page .form-control#inputPasswordNew {
+      border-right-width: 0px; }
+  #etiendahan-category-page .btn-primary {
+    background-color: #333333;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 8px 25px;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+    width: 84%;
+    position: relative;
+    left: 8%; }
+    #etiendahan-category-page .btn-primary:hover, #etiendahan-category-page .btn-primary:focus {
+      background-color: #3f3f3f;
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+  #etiendahan-category-page .separator-button {
+    border-bottom: #d9d9d9 solid 1px;
+    position: relative;
+    left: 20px;
+    width: 84%; }
+  #etiendahan-category-page .separator-bottom {
+    margin-bottom: 10px; }
+  #etiendahan-category-page .container.electronics .sidebar-wrapper {
+    border: #d9d9d9 solid 1px;
+    margin-bottom: 30px; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .active {
+      font-weight: 600; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .header {
+      text-transform: uppercase;
+      font-size: 18px;
+      color: #2b2c2c;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0.1em;
+      padding: 10px 0;
+      border-bottom: #f6f6f6 solid 1px; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .header .fa {
+        color: dimgrey; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .title {
+      font-size: 14px;
+      line-height: 30px;
+      letter-spacing: 0.1em;
+      margin: 10px 0 0 20px; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .title a {
+        text-decoration: none;
+        color: #2b2c2c; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .sub ul {
+      list-style-type: none;
+      padding-left: 30px;
+      margin-bottom: 12px; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .sub ul li {
+        padding: 3px 0 3px 0; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .sub ul a {
+        text-decoration: none;
+        color: #2b2c2c; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .search-filter-price-range {
+      color: #2b2c2c;
+      font-size: 14px;
+      line-height: 30px;
+      letter-spacing: 0.1em;
+      margin: 10px 0 0 20px; }
+    #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter {
+      margin: 0 20px 0 20px; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter label {
+        display: block;
+        width: 90px; }
+        #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter label input {
+          vertical-align: middle; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter input.number {
+        width: 69px; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter input:focus {
+        outline: none; }
+      #etiendahan-category-page .container.electronics .sidebar-wrapper .price-range-filter .separator {
+        border-bottom: #d9d9d9 solid 1px;
+        width: 68px;
+        display: inline-block;
+        position: relative;
+        bottom: 2px; }
+  #etiendahan-category-page .container.electronics .item-grid-list-option {
+    width: 803px;
+    height: 45px;
+    border: #dcdcdc solid 1px;
+    margin-bottom: 20px; }
+    #etiendahan-category-page .container.electronics .item-grid-list-option a {
+      color: #2f383d;
+      font-size: 20px;
+      display: inline-block;
+      padding: 7px 16px;
+      border-left: #e7e6e6 solid 1px;
+      text-align: center; }
+      #etiendahan-category-page .container.electronics .item-grid-list-option a.grid {
+        position: relative;
+        left: 5px; }
+      #etiendahan-category-page .container.electronics .item-grid-list-option a.active {
+        background-color: #dcdcdc; }
+  #etiendahan-category-page .container.electronics .item.list-group-item {
+    float: none;
+    width: 803px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 0; }
+    #etiendahan-category-page .container.electronics .item.list-group-item .card {
+      border-radius: 0; }
+      #etiendahan-category-page .container.electronics .item.list-group-item .card .card-image {
+        width: 155px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-bottom: 0; }
+      #etiendahan-category-page .container.electronics .item.list-group-item .card .card-body {
+        padding: 0 10px 0 0;
+        position: absolute;
+        right: 0;
+        left: 120%;
+        top: -6%;
+        width: 586px; }
+        #etiendahan-category-page .container.electronics .item.list-group-item .card .card-body .product-name {
+          display: inline-block;
+          font-size: 0.750rem;
+          font-weight: 600;
+          color: #333333;
+          margin: 10px 0;
+          height: 20px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        #etiendahan-category-page .container.electronics .item.list-group-item .card .card-body .product-price {
+          font-size: 0.750rem;
+          font-weight: 500;
+          color: #333333;
+          position: absolute;
+          bottom: -40px;
+          padding: 10px 0 0 0; }
+        #etiendahan-category-page .container.electronics .item.list-group-item .card .card-body .product-rating {
+          font-size: 0.750rem;
+          font-weight: 500;
+          color: #333333;
+          float: right;
+          vertical-align: bottom;
+          margin: 0;
+          position: absolute;
+          top: 18px;
+          padding: 12px 0; }
+  #etiendahan-category-page .container.electronics .item {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    width: 155px;
+    margin: 0 4px 10px 0; }
+    #etiendahan-category-page .container.electronics .item a {
+      text-decoration: none; }
+      #etiendahan-category-page .container.electronics .item a .card {
+        border-radius: 0; }
+        #etiendahan-category-page .container.electronics .item a .card .card-image {
+          height: 155px;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+          border-bottom: 1px solid #e6e6e6; }
+        #etiendahan-category-page .container.electronics .item a .card .card-body {
+          padding: 5px 8px; }
+          #etiendahan-category-page .container.electronics .item a .card .card-body .product-name {
+            font-size: 0.750rem;
+            font-weight: 600;
+            color: #333333;
+            margin: 10px 0;
+            height: 35px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis; }
+          #etiendahan-category-page .container.electronics .item a .card .card-body .product-price {
+            font-size: 0.750rem;
+            font-weight: 500;
+            color: #333333; }
+          #etiendahan-category-page .container.electronics .item a .card .card-body .product-rating {
+            font-size: 0.750rem;
+            font-weight: 500;
+            color: #333333;
+            float: right;
+            vertical-align: bottom;
+            margin: 15px 0 8px 0; }
 
 #etiendahan-create-page-section-1 {
   font-family: 'Montserrat', sans-serif;
@@ -11431,7 +11706,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           color: #fff;
           background-color: #ea4335;
           text-align: left !important;
-          padding: 10px 9px;
+          padding: 10px 7px 10px 9px;
           position: absolute;
           left: 1px;
           top: 49px; }
@@ -12131,10 +12406,10 @@ ul.navbar-nav li.dropdown .dropdown-menu {
           color: #fff;
           background-color: #ea4335;
           text-align: left !important;
-          padding: 10px 9px;
+          padding: 10px 7px 10px 9px;
           position: absolute;
           left: 1px;
-          top: 48px; }
+          top: 49px; }
         #etiendahan-login-page-section-1 .col-md-4 .social-medias button.google span {
           position: relative;
           left: 16px; }
@@ -12256,6 +12531,8 @@ nav.shrink {
     height: 70px; }
     nav.shrink .custom-toggler .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(69, 69, 69)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
+  nav.shrink .logo {
+    content: url(/etiendahan/temp-img/etiendahan-logo.png); }
 
 div.dropdown-menu.have-in-cart {
   font-family: 'Montserrat', sans-serif; }
@@ -12438,10 +12715,10 @@ nav a:focus {
 
 .my-carousel {
   width: 100%;
-  height: 600px; }
+  height: 610px; }
   .my-carousel .carousel-item {
-    height: 600px;
-    max-height: 600px;
+    height: 610px;
+    max-height: 610px;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat; }
@@ -12613,50 +12890,55 @@ nav a:focus {
   font-family: 'Montserrat', sans-serif; }
   #etiendahan-section-2:focus {
     outline: none; }
-  #etiendahan-section-2 .col-md-2 {
-    border-right: #dcdcdc solid 1px;
-    margin-bottom: 20px; }
-    #etiendahan-section-2 .col-md-2:last-child {
-      border-right: none; }
-    #etiendahan-section-2 .col-md-2 .my-gallery-inner {
-      text-decoration: none; }
-      #etiendahan-section-2 .col-md-2 .my-gallery-inner:focus {
-        outline: none; }
-      #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image {
-        padding: 25px; }
-        #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image .zoom {
-          width: 110px;
-          height: 110px;
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: cover; }
-        #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image .zoom.show {
-          -webkit-transition: all 200ms ease-in;
-          -webkit-transform: scale(1.2);
-          -ms-transition: all 200ms ease-in;
-          -ms-transform: scale(1.2);
-          -moz-transition: all 200ms ease-in;
-          -moz-transform: scale(1.2);
-          transition: all 200ms ease-in;
-          transform: scale(1.2); }
-        #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image .zoom.hide {
-          width: 110px;
-          height: 110px;
-          -webkit-transition: all 0.3s ease;
-          -webkit-transition: all 0.3s sease;
-          transition: all 0.3s sease; }
-      #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-name {
-        font-size: 0.750rem;
-        font-weight: 500;
-        letter-spacing: 0.2em;
-        color: #333333; }
+  #etiendahan-section-2 .row {
+    margin-bottom: 10px; }
+    #etiendahan-section-2 .row .col-md-2 {
+      border-right: #dcdcdc solid 1px;
+      margin-bottom: 20px; }
+      #etiendahan-section-2 .row .col-md-2:last-child {
+        border-right: none; }
+      #etiendahan-section-2 .row .col-md-2 .my-gallery-inner {
+        text-decoration: none; }
+        #etiendahan-section-2 .row .col-md-2 .my-gallery-inner:focus {
+          outline: none; }
+        #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-image {
+          padding: 25px; }
+          #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-image .zoom {
+            width: 110px;
+            height: 110px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover; }
+          #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-image .zoom.show {
+            -webkit-transition: all 200ms ease-in;
+            -webkit-transform: scale(1.2);
+            -ms-transition: all 200ms ease-in;
+            -ms-transform: scale(1.2);
+            -moz-transition: all 200ms ease-in;
+            -moz-transform: scale(1.2);
+            transition: all 200ms ease-in;
+            transform: scale(1.2); }
+          #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-image .zoom.hide {
+            width: 110px;
+            height: 110px;
+            -webkit-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s sease;
+            transition: all 0.3s sease; }
+        #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-name {
+          font-size: 0.750rem;
+          font-weight: 500;
+          letter-spacing: 0.2em;
+          color: #333333; }
 
 @media (max-width: 1199px) {
-  #etiendahan-section-2 .col-md-2 .my-gallery-inner .category-image {
-    padding: 12px; } }
+  #etiendahan-section-2 .row {
+    margin-bottom: 10px; }
+    #etiendahan-section-2 .row .col-md-2 .my-gallery-inner .category-image {
+      padding: 12px; } }
 
 #etiendahan-section-3 {
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 30px; }
   #etiendahan-section-3 .title-name {
     text-align: center;
     font-size: 22px;
@@ -12789,6 +13071,20 @@ nav a:focus {
         letter-spacing: 0.025em;
         width: 100%;
         text-align: center; }
+      #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-hashtag {
+        position: absolute;
+        top: 66%;
+        font-size: 18px;
+        font-family: 'Crimson Text', serif;
+        font-style: italic;
+        line-height: 1;
+        letter-spacing: 0.025em;
+        width: 100%;
+        text-align: center; }
+        #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-hashtag a {
+          display: inline-block;
+          color: inherit;
+          text-decoration: underline; }
 
 #etiendahan-section-5 {
   font-family: 'Montserrat', sans-serif;
@@ -13081,6 +13377,176 @@ nav a:focus {
       font-weight: bold;
       color: #f7931e;
       text-decoration: none; }
+
+#etiendahan-view-item-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 70px;
+  color: dimgrey;
+  font-size: 12px; }
+  #etiendahan-view-item-page .breadcrumb {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 20px; }
+    #etiendahan-view-item-page .breadcrumb .breadcrumb-item {
+      text-transform: uppercase;
+      letter-spacing: 2.4px; }
+      #etiendahan-view-item-page .breadcrumb .breadcrumb-item.active {
+        color: dimgrey; }
+      #etiendahan-view-item-page .breadcrumb .breadcrumb-item .fa {
+        font-size: 13px;
+        margin-right: 3px; }
+      #etiendahan-view-item-page .breadcrumb .breadcrumb-item a {
+        color: #9d9d9d; }
+  #etiendahan-view-item-page .container.view-item {
+    /* --------- END --------- */
+    /*.carousel-control {
+				left: 107px;
+			}
+			.carousel-control.right {
+				right: -5px;
+				top:79%!important;
+			}*/
+    /*For top Indicator*/
+    /* vertical start*/ }
+    #etiendahan-view-item-page .container.view-item .carousel-indicators .active {
+      height: 53px;
+      background: #222; }
+    #etiendahan-view-item-page .container.view-item .carousel-control {
+      color: dimgrey;
+      position: relative;
+      left: 40px;
+      font-size: 20px; }
+      #etiendahan-view-item-page .container.view-item .carousel-control .fa.fa-caret-square-o-left {
+        position: relative;
+        top: 10px; }
+    #etiendahan-view-item-page .container.view-item .carousel {
+      height: 100%;
+      margin-bottom: 0;
+      /*padding: 50px 40px 50px 0px;*/ }
+    #etiendahan-view-item-page .container.view-item .carousel-indicators-top {
+      right: 50%;
+      top: auto;
+      bottom: 0px;
+      margin-rightight: -19px; }
+    #etiendahan-view-item-page .container.view-item .carousel-indicators-top li {
+      background: #333333; }
+    #etiendahan-view-item-page .container.view-item .carousel-indicators-top .active {
+      background: #333333; }
+    #etiendahan-view-item-page .container.view-item .vertical .carousel-inner {
+      /*height: 74%;*/
+      padding-top: 0px; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .active {
+      top: 0; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .next {
+      top: 100%; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .prev {
+      top: -100%; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .next.left,
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .prev.right {
+      top: 0; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .active.left {
+      top: -100%; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .active.right {
+      top: 100%; }
+    #etiendahan-view-item-page .container.view-item .carousel.vertical .item {
+      left: 0; }
+    #etiendahan-view-item-page .container.view-item â€‹
+a {
+      display: block;
+      background-size: cover;
+      background-position: center center; }
+    #etiendahan-view-item-page .container.view-item .custom-carousel-inner {
+      overflow: hidden;
+      position: relative;
+      height: 320px;
+      margin-top: 15px; }
+    #etiendahan-view-item-page .container.view-item .single-container {
+      width: 100%;
+      height: 405px;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      border: #dcdcdc solid 1px; }
+    #etiendahan-view-item-page .container.view-item .single-container img {
+      width: 100%;
+      height: 100%; }
+    #etiendahan-view-item-page .container.view-item .span3 {
+      display: block;
+      border: #dcdcdc solid 1px;
+      margin-bottom: 5px;
+      height: 100px;
+      width: 100px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat; }
+      #etiendahan-view-item-page .container.view-item .span3:hover {
+        border: #000000 solid 1px; }
+    #etiendahan-view-item-page .container.view-item .carousel-control-prev-icon, #etiendahan-view-item-page .container.view-item .carousel-control-next-icon {
+      position: relative;
+      left: 2px; }
+    #etiendahan-view-item-page .container.view-item .product-shop-wrapper {
+      border: #dcdcdc solid 1px; }
+      #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-name-wrapper {
+        border-bottom: #dcdcdc solid 1px; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-name-wrapper .product-name {
+          margin: 30px 0 30px 20px;
+          font-size: 14px;
+          font-weight: 600;
+          color: dimgrey;
+          height: 20px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+      #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-detail {
+        margin-left: 20px; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-detail .product-price {
+          font-size: 24px;
+          padding: 20px 0;
+          color: #000; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-detail .product-rating {
+          padding-bottom: 5px; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-detail .product-share {
+          font-size: 14px;
+          padding-bottom: 20px; }
+      #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit {
+        padding: 15px 20px;
+        border-top: #dcdcdc solid 1px; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit .quantity {
+          width: 110px;
+          display: inline-block; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit button {
+          border-radius: 0;
+          background-color: #f1f1f1;
+          padding: 5px 10px; }
+          #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit button span.fa {
+            font-size: 12px; }
+          #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit button:focus {
+            -webkit-box-shadow: none;
+                    box-shadow: none; }
+          #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit button:hover {
+            background-color: #181818;
+            color: #fff; }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit input {
+          font-size: 12px;
+          padding-top: 5px;
+          padding-bottom: 5px; }
+          #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit input:focus {
+            border: 1px solid rgba(0, 0, 0, 0.15); }
+        #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit .btn-primary {
+          margin-left: 15px;
+          background-color: #333333;
+          border: 0;
+          border-radius: 0;
+          color: #fff;
+          text-transform: uppercase;
+          padding: 18px 25px;
+          cursor: pointer; }
+          #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit .btn-primary:hover, #etiendahan-view-item-page .container.view-item .product-shop-wrapper .product-submit .btn-primary:focus {
+            background-color: #3f3f3f;
+            -webkit-box-shadow: none;
+                    box-shadow: none; }
 
 #return-to-top {
   position: fixed;

@@ -22,8 +22,9 @@
 					
 					<!-- navbar -->
 					<nav id="for-index" class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar index">
-					  	<a class="navbar-brand" href="#">
-							<img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt="">
+					  	<a class="navbar-brand" href="/etiendahan/">
+							<!-- <img src="http://via.placeholder.com/178x58/000000" width="178" height="58" class="d-inline-block align-top" alt=""> -->
+							<img class="logo" src="temp-img/etiendahan-logo-shrink.png" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>					
 
 						<div class="collapse navbar-collapse" id="navbarCenterContent">
@@ -37,7 +38,7 @@
 
 									<!-- SPECIALTY IN CITY -->
 									<li class="nav-item">
-										<a class="nav-link cl-effect" href="#">Specialty</a>
+										<a class="nav-link cl-effect" href="#">Specialty in City</a>
 									</li>
 
 									<!-- SPECIALTY IN CITY -->
@@ -163,9 +164,9 @@
 									</li> -->
 
 									<!-- ACCESSORIES -->
-									<li class="nav-item">
+									<!-- <li class="nav-item">
 										<a class="nav-link cl-effect" href="#">Accessories</a>
-									</li>
+									</li> -->
 
 									<!-- MEN -->
 									<li class="nav-item">
@@ -186,110 +187,110 @@
 
 							
 						</div>
-								<div class="ml-auto d-flex">
-									<!-- CART -->
-									<div class="nav-item right-nav dropdown" id="cart">
-										<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-											<span class="fa-stack has-badge" data-count="0">
-											  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-											  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-											</span>
-										</a>
+							<div class="ml-auto d-flex">
+								<!-- CART -->
+								<div class="nav-item right-nav dropdown" id="cart">
+									<a class="nav-link" href="https://google.com" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+										<span class="fa-stack has-badge" data-count="0">
+										  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+										  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+										</span>
+									</a>
 
-										<!-- no items in the cart -->
-										<!-- <div class="dropdown-menu" aria-labelledby="cart">
-											<p>You have no items in your shopping cart.</p>
-										</div> -->
+									<!-- no items in the cart -->
+									<!-- <div class="dropdown-menu" aria-labelledby="cart">
+										<p>You have no items in your shopping cart.</p>
+									</div> -->
 
-										<!-- have items in the cart -->
-										<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-											<p>Recently Added Products</p>
+									<!-- have items in the cart -->
+									<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+										<p>Recently Added Products</p>
 
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">₱1,000.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">₱1,000.00</div>
 												</div>
 											</div>
-
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">₱500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
 											</div>
-
-											<div class="item overlay">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-														<div class="item-price">₱1,500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name">Item name</div>
-														<div class="item-price">₱500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<div class="item overlay">
-												<div class="item-left">
-													<img src="http://via.placeholder.com/50x50" alt="" />
-													<div class="item-info">
-														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-														<div class="item-price">₱1,500.00</div>
-													</div>
-												</div>
-												<div class="item-right">
-													<i class="fa fa-trash"></i>
-												</div>
-											</div>
-
-											<button type="button" class="btn btn-dark">View Cart</button>
 										</div>
-									</div>
 
-									<div class="nav-item right-nav dropdown" id="user-account">
-										<a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-											<i class="fa fa-user-circle"></i>
-										</a>
-										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<p>Howdie.</p>
-
-											<a href="customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-											<a href="customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">₱500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
 										</div>
+
+										<div class="item overlay">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+													<div class="item-price">₱1,500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<div class="item">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name">Item name</div>
+													<div class="item-price">₱500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<div class="item overlay">
+											<div class="item-left">
+												<img src="http://via.placeholder.com/50x50" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+													<div class="item-price">₱1,500.00</div>
+												</div>
+											</div>
+											<div class="item-right">
+												<i class="fa fa-trash"></i>
+											</div>
+										</div>
+
+										<button type="button" class="btn btn-dark">View Cart</button>
 									</div>
 								</div>
 
-								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon"></span>
-								</button>
+								<div class="nav-item right-nav dropdown" id="user-account">
+									<a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										<i class="fa fa-user-circle"></i>
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<p>Howdie.</p>
+
+										<a href="customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+										<a href="customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+									</div>
+								</div>
+							</div>
+
+							<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 					</nav>
 
 					<!-- carousel -->
@@ -340,15 +341,29 @@
 				<div id="etiendahan-section-2" class="etiendahan-section">
 					<div class="container">
 						<!-- <h1 class="my-4 text-center text-lg-left">CATEGORIES</h1> -->
-						<div class="m-4"></div>
+						<div class="m-3"></div>
 					 	<div class="row text-center text-lg-left">
 					        <div class="col-md-2 col-sm-2">
+					        </div>
+
+					        <div class="col-md-2">
+								<a href="/etiendahan/category/electronics/" class="d-block my-gallery-inner">
+									<div class="category-image">
+										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/ee8f7b1c45188ae30ff6b33cc6347a1a_tn"></div>
+									</div>
+									<div class="category-name text-center mb-3">
+										Electronics
+									</div>
+								</a>
+					        </div>
+
+					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
 										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/7f49f8b96c9a8a58fcf5da969f8ef21c_tn"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Men's Apparel
+										Men's Fashion
 									</div>
 								</a>
 					        </div>
@@ -356,10 +371,10 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/07d9c7480a1d474f46c472a6684c65a5_tn"></div>
+										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/794773a35068e003499306c85522012c_tn"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Mobiles & Gadgets
+										Women's Fashion
 									</div>
 								</a>
 					        </div>
@@ -367,60 +382,19 @@
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
+										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/911278c26ed4c2c70e13ac0cbd4f560b_tn"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Consumer Electronics
+										Home & Appliances
 									</div>
 								</a>
 					        </div>
 
 					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Home & Living
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Men's Accessories
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Men's Shoes
-									</div>
-								</a>
 					        </div>
 			      		</div>
 
-			      		<div class="row text-center text-lg-left">
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Women's Apparel
-									</div>
-								</a>
-					        </div>
-
+			      		<div class="row text-center text-lg-left mt-4">
 					        <div class="col-md-2">
 								<a href="#" class="d-block my-gallery-inner">
 									<div class="category-image">
@@ -449,7 +423,7 @@
 										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Bags
+										Sports & Outdoors
 									</div>
 								</a>
 					        </div>
@@ -460,7 +434,7 @@
 										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Women's Accessories
+										Travel
 									</div>
 								</a>
 					        </div>
@@ -471,7 +445,18 @@
 										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Women's Shoes
+										Groceries & Pets
+									</div>
+								</a>
+					        </div>
+
+					        <div class="col-md-2">
+								<a href="#" class="d-block my-gallery-inner">
+									<div class="category-image">
+										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
+									</div>
+									<div class="category-name text-center mb-3">
+										Real Estate
 									</div>
 								</a>
 					        </div>
@@ -489,13 +474,12 @@
 							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
 							<h3><span class="wow pulse" data-wow-delay="1000ms">POPULAR PRODUCTS</span></h3>
 						</div>
-						
 
 						<div class="owl-carousel">
 							<div class="item">
-								<a href="https://www.google.com">
+								<a href="/etiendahan/view/">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/a6bb16c296f4b5d3c837521cc164b61e_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/31a0944aada3b99fd34778ff7118f669_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
 											<div class="product-price">₱150.00</div>
@@ -509,7 +493,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/0333ba7960c7ad43b68bd4888db17481_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/2f5a3cf9b431726fd18e674e4804a050_tn"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
 											<div class="product-price">₱150.00</div>
@@ -644,6 +628,7 @@
 							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
 							<div class="welcome-message-title">Welcome to Etiendahan</div>
 							<div class="welcome-message-intro">Online Shopping Marketplace here in Dagupan</div>
+							<div class="welcome-message-hashtag">#<a href="https://web.facebook.com/etiendahan/">SHOPATETIENDAHAN</a></div>
 						</div>
 					</div>
 				</div>
@@ -980,7 +965,8 @@
 						<div class="row">
 							<div class="col-md-4 border-insert">
 								<div class="about">
-									<a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a>
+									<!-- <a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a> -->
+									<a href="http://localhost:8080/etiendahan/"><img src="temp-img/etiendahan-logo.png" alt=""></a>
 									<div class="about-text">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, pariatur.</p>
 										<p>Nisi porttitor inceptos consectetur donec orci, dui ipsum leo class gravida.</p>
@@ -1038,7 +1024,7 @@
 								</div>
 
 								<!-- Your like button code -->
-								<div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+								<!-- <div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div> -->
 							</div>
 						</div>
 					</div>
