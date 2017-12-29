@@ -33,7 +33,7 @@
 
 									<!-- SELL ON ETIENDAHAN -->
 									<li class="nav-item">
-										<a class="nav-link cl-effect" href="#">Sell On Etiendahan</a>
+										<a class="nav-link cl-effect" href="/etiendahan/seller-centre/" target="_blank">Sell On Etiendahan</a>
 									</li>
 
 									<!-- SPECIALTY IN CITY -->
@@ -271,7 +271,7 @@
 											</div>
 										</div>
 
-										<button type="button" class="btn btn-dark">View Cart</button>
+										<a href="/etiendahan/cart/"><button type="button" class="btn btn-dark">View Cart</button></a>
 									</div>
 								</div>
 

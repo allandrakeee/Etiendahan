@@ -1,0 +1,40 @@
+#etiendahan-seller-shop-page {
+	font-family: 'Montserrat', sans-serif;
+    margin-top: 100px;
+	color: dimgrey;
+	font-size: 12px;
+
+	.container {
+		.seller-shop-name-wrapper {
+			background-color: #f8f8f8;
+			display: inline-block;
+			width: 400px;
+			padding: 15px;
+
+			.seller-image {
+				height: 75px;
+				width: 75px;
+			}
+
+			.seller-shop-name {
+				margin-top: 10px;
+				font-size: 15px;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+
+			.fa {
+				font-size: 16px;
+			}
+
+			.joined {
+				.fa-check {
+					font-size: 10px;
+					top: 133px;
+					position: absolute;
+					left: 497px;
+				}
+			}
+		}
+	}
+}

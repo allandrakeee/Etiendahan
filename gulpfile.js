@@ -97,6 +97,7 @@ gulp.task('scripts', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
+        'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
         'temp-folder/Event.js',
         'temp-folder/Magnifier.js',
         'assets-dev/js/*.js'
@@ -127,6 +128,9 @@ gulp.task('scripts-min', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
+        'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
+        'temp-folder/Event.js',
+        'temp-folder/Magnifier.js',
         'assets-dev/js/*.js'
     ])
     .on('error', errorLog)

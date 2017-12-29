@@ -5,6 +5,12 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
+
+	<meta property="og:url"                content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />
+	<meta property="og:type"               content="article" />
+	<meta property="og:title"              content="When Great Minds Don’t Think Alike" />
+	<meta property="og:description"        content="How much does culture influence creative thinking?" />
+	<meta property="og:image"              content="https://cfshopeeph-a.akamaihd.net/file/31a0944aada3b99fd34778ff7118f669_tn" />
 	
 	<!-- link inner -->
 	<?php  
@@ -25,7 +31,7 @@
 				?>				
 
 				<!-- VIEW PAGE -->
-				<div id="etiendahan-view-item-page">
+				<div id="etiendahan-view-product-page">
 					<nav aria-label="breadcrumb" role="navigation">
 						<ol class="breadcrumb">
 							<div class="container">
@@ -35,7 +41,7 @@
 						</ol>
 					</nav>
 
-					<div class="container view-item">
+					<div class="container view-product">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="row">
@@ -136,7 +142,7 @@
 	 							<div class="product-shop-wrapper">
 	 								<div class="product-name-wrapper">
 		 								<div class="product-name">
-		 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, animi?
+		 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 		 								</div>
 		 							</div>
 
@@ -145,10 +151,17 @@
 	 									<div class="product-rating">
 											<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 										</div>
-	 									<div class="product-share">Share:</div>
+	 									<!-- <div class="product-share">Share:</div> -->
 	 								</div>
 
-	 								<div class="product-submit">
+	 								<div class="product-seller pull-right">
+	 									<span>John Doe</span>
+										<a href="/etiendahan/seller-shop/">
+											<button class="btn btn-primary">view shop</button>
+										</a>
+	 								</div>
+
+	 								<div class="product-button">
 	 									<div class="quantity">
 	 										<div class="input-group">
 												<span class="input-group-btn">
@@ -165,8 +178,168 @@
 									      	</div>
 	 									</div>
 	 									<button class="btn btn-primary" type="submit">Add to Cart</button>
+	 									<div class="product-add-to-wishlist"><a id="wishlist-toggle"><i class="fa fa-heart-o" title="Add to wishlists"></i></a></div>
 	 								</div>
 	 							</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<nav class="nav nav-tabs" id="myTab" role="tablist">
+									<a class="nav-item nav-link active" id="nav-information-tab" data-toggle="tab" href="#nav-information" role="tab" aria-controls="nav-information" aria-selected="true">Information</a>
+									<a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-controls="nav-reviews" aria-selected="false">Reviews</a>
+								</nav>
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
+										<div class="lang1"><meta charset="utf-8">
+											<p><span></span><span>Coupling a blended linen construction with tailored style, the River Island HR Jasper Blazer will imprint a touch of dapper charm into your after-dark wardrobe. Our model is wearing a size medium blazer, and usually takes a size medium/38L shirt. He is 6’2 1/2” (189cm) tall with a 38” (96 cm) chest and a 31” (78 cm) waist.</span></p>
+											<li>Length: 74cm</li>
+											<li>Regular fit</li>
+											<li>Notched lapels</li>
+											<li>Twin button front fastening</li>
+											<li>Front patch pockets; chest pocket</li>
+											<li>Internal pockets</li>
+											<li>Centre-back vent</li>
+											<span>Please refer to the garment for care instructions.</span>
+											<li>Length: 74cm</li>
+											<li>Material: Outer: 50% Linen &amp; 50% Polyamide; Body Lining: 100% Cotton; Lining: 100% Acetate</li>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+										<div class="rating-header">
+											<div class="head">Customer Reviews</div>
+											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i> Based on 2 reviews</div>
+											<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample">Write a review</a></div>
+											<div class="collapse" id="review">
+												<div class="card card-body">
+													<div class="write-a-review">Write a review</div>
+													<form>
+														<div class="form-group">
+															<label for="examplName">Name</label>
+															<input type="text" class="form-control" id="examplName" placeholder="Enter your name" required>
+														</div>
+
+														<div class="form-group">
+															<label for="exampleInputEmail">Email address</label>
+															<input type="email" class="form-control" id="exampleInputEmail" placeholder="john.smith@example.com" required>														
+														</div>
+
+														<div class="form-group">
+															<label for="exampleRating">Rating</label>
+													  		<!-- Rating Stars Box -->
+															<div class='rating-stars'>
+																<ul id='stars'>
+																	<li class='star' title='1 star' data-value='1'>
+																		<i class='fa fa-star'></i>
+																	</li>
+																	<li class='star' title='2 stars' data-value='2'>
+																		<i class='fa fa-star'></i>
+																	</li>
+																	<li class='star' title='3 stars' data-value='3'>
+																		<i class='fa fa-star'></i>
+																	</li>
+																	<li class='star' title='4 stars' data-value='4'>
+																		<i class='fa fa-star'></i>
+																	</li>
+																	<li class='star' title='5 stars' data-value='5'>
+																		<i class='fa fa-star'></i>
+																	</li>
+																</ul>
+															</div>
+															
+														</div>													
+
+														<div class="form-group">
+															<label for="exampleReviewTitle">Review title</label>
+															<input type="text" class="form-control" id="exampleReviewTitle" placeholder="Give your review a title">														
+														</div>
+
+														<div class="form-group">
+															<label for="exampleFormControlTextarea">Body of Review (1500)</label>
+															<textarea class="form-control" id="exampleFormControlTextarea" rows="10" maxlength="1500" placeholder="Write your comments here"></textarea>
+														</div>
+
+														<button type="submit" class="btn btn-primary pull-right">Submit Review</button>
+													</form>
+												</div>
+											</div>
+										</div>
+
+										<div class="rate">
+											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+											<div class="rate-title">Title</div>
+											<div class="rate-name-and-date"><strong>Allan Drake Paladin Dulay</strong> on <strong>Dec 06, 2017</strong></div>
+											<div class="rate-body">this is a body</div>
+										</div>
+
+										<div class="rate">
+											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+											<div class="rate-title">Title</div>
+											<div class="rate-name-and-date"><strong>Allan Drake Paladin Dulay</strong> on <strong>Dec 06, 2017</strong></div>
+											<div class="rate-body">this is a body</div>
+										</div>
+
+										<!-- no reviews yet -->
+										<!-- <div class="rating-header">
+											<div class="head">Customer Reviews</div>
+											<div class="rate-reviews">Be the first to review this item</div>
+											<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample">Write a review</a></div>
+										</div>
+
+										<div class="collapse" id="review">
+											<div class="card card-body">
+												<div class="write-a-review">Write a review</div>
+												<form>
+													<div class="form-group">
+														<label for="examplName">Name</label>
+														<input type="text" class="form-control" id="examplName" placeholder="Enter your name" required>
+													</div>
+
+													<div class="form-group">
+														<label for="exampleInputEmail">Email address</label>
+														<input type="email" class="form-control" id="exampleInputEmail" placeholder="john.smith@example.com" required>														
+													</div>
+
+													<div class="form-group">
+														<label for="exampleRating">Rating</label>
+														<div class='rating-stars'>
+															<ul id='stars'>
+																<li class='star' title='1 star' data-value='1'>
+																	<i class='fa fa-star'></i>
+																</li>
+																<li class='star' title='2 stars' data-value='2'>
+																	<i class='fa fa-star'></i>
+																</li>
+																<li class='star' title='3 stars' data-value='3'>
+																	<i class='fa fa-star'></i>
+																</li>
+																<li class='star' title='4 stars' data-value='4'>
+																	<i class='fa fa-star'></i>
+																</li>
+																<li class='star' title='5 stars' data-value='5'>
+																	<i class='fa fa-star'></i>
+																</li>
+															</ul>
+														</div>
+														
+													</div>													
+
+													<div class="form-group">
+														<label for="exampleReviewTitle">Review title</label>
+														<input type="text" class="form-control" id="exampleReviewTitle" placeholder="Give your review a title">														
+													</div>
+
+													<div class="form-group">
+														<label for="exampleFormControlTextarea">Body of Review (1500)</label>
+														<textarea class="form-control" id="exampleFormControlTextarea" rows="10" maxlength="1500" placeholder="Write your comments here"></textarea>
+													</div>
+
+													<button type="submit" class="btn btn-primary pull-right">Submit Review</button>
+												</form>
+											</div>
+										</div> -->
+									</div>
+								</div>
 							</div>
 						</div>
 

@@ -366,7 +366,15 @@
 							    margin-right: 20px;
 
 							    a {
-							    	display: block;
+							    	text-decoration: none;
+									color: dimgrey;
+									display: block;
+									height: 100%;
+									display: -webkit-box;
+									-webkit-line-clamp: 2;
+									-webkit-box-orient: vertical;
+									overflow: hidden;
+									text-overflow: ellipsis;
 							    }
 							}
 
@@ -407,6 +415,7 @@
 
 						.my-item-inner {
 							text-decoration: none;
+							width: 110px;
 							
 							&:focus {
 								outline: none;
