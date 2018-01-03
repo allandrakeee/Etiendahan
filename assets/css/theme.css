@@ -13387,6 +13387,121 @@ nav a:focus {
       color: #f7931e;
       text-decoration: none; }
 
+#seller-centre-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 100px;
+  color: dimgrey;
+  font-size: 12px; }
+  #seller-centre-page .social {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    line-height: 27.9px; }
+    #seller-centre-page .social ul {
+      margin-top: 16px;
+      padding: 0;
+      list-style: none; }
+      #seller-centre-page .social ul li {
+        float: left;
+        margin-right: 8px; }
+        #seller-centre-page .social ul li a {
+          text-decoration: none;
+          color: dimgrey;
+          border: 2px solid #333333;
+          font-size: 18px;
+          height: 36px;
+          width: 36px;
+          text-align: center;
+          line-height: 36px; }
+          #seller-centre-page .social ul li a:hover {
+            color: #1e1e1e; }
+        #seller-centre-page .social ul li.google-plus {
+          margin: 0; }
+  #seller-centre-page .my-navbar .nav-item.right-nav {
+    width: auto;
+    padding: 0 15px; }
+  #seller-centre-page .container {
+    margin-top: 150px; }
+  #seller-centre-page .info {
+    width: 80%; }
+    #seller-centre-page .info .title {
+      font-size: 32px;
+      font-weight: 600; }
+    #seller-centre-page .info .sub-title {
+      font-size: 18px; }
+    #seller-centre-page .info .image-wrapper {
+      display: inline-block;
+      position: relative;
+      left: 25%; }
+      #seller-centre-page .info .image-wrapper .image {
+        text-align: center;
+        margin-top: 30px;
+        height: 200px;
+        width: 200px;
+        background-size: cover;
+        background-position: left center;
+        background-repeat: no-repeat; }
+  #seller-centre-page .footer {
+    color: #ccc;
+    text-align: center;
+    margin-top: 50px; }
+    #seller-centre-page .footer .site-image {
+      height: 40px;
+      width: 40px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: relative;
+      left: 530px; }
+  #seller-centre-page .login-wrapper {
+    background-color: #f8f8f8;
+    -webkit-box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.09);
+            box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.09);
+    padding: 20px; }
+    #seller-centre-page .login-wrapper .title {
+      font-weight: bold;
+      font-size: 25px; }
+    #seller-centre-page .login-wrapper .form-group.read-and-understood {
+      font-size: 12px; }
+      #seller-centre-page .login-wrapper .form-group.read-and-understood a {
+        text-decoration: none; }
+    #seller-centre-page .login-wrapper .form-group label.col-form-label {
+      font-size: 12px;
+      font-weight: 700;
+      padding-right: 0; }
+    #seller-centre-page .login-wrapper .form-group label {
+      font-size: 12px; }
+    #seller-centre-page .login-wrapper .form-group .form-control {
+      font-size: 12px;
+      border-radius: 2rem; }
+      #seller-centre-page .login-wrapper .form-group .form-control:focus {
+        border: 1px solid rgba(0, 0, 0, 0.15); }
+    #seller-centre-page .login-wrapper .form-group input.form-check-input {
+      outline: none; }
+    #seller-centre-page .login-wrapper .form-group .input-group-addon {
+      border-radius: 0;
+      padding: 5px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.15) !important; }
+      #seller-centre-page .login-wrapper .form-group .input-group-addon i {
+        color: dimgrey; }
+      #seller-centre-page .login-wrapper .form-group .input-group-addon a:focus {
+        outline: none; }
+    #seller-centre-page .login-wrapper .form-group .btn-primary {
+      margin-top: 10px;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px 25px;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 2rem; }
+      #seller-centre-page .login-wrapper .form-group .btn-primary:hover, #seller-centre-page .login-wrapper .form-group .btn-primary:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;

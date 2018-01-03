@@ -97,7 +97,10 @@ gulp.task('scripts', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
-        'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
+        // 'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
+        // 'node_modules/jquery-bridget/jquery-bridget.js',
+        // 'node_modules/imagesloaded/imagesloaded.pkgd.js',
+        // 'node_modules/masonry-layout/dist/masonry.pkgd.js',
         'temp-folder/Event.js',
         'temp-folder/Magnifier.js',
         'assets-dev/js/*.js'
@@ -128,7 +131,10 @@ gulp.task('scripts-min', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
-        'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
+        // 'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
+        // 'node_modules/jquery-bridget/jquery-bridget.js',
+        // 'node_modules/imagesloaded/imagesloaded.pkgd.js',
+        // 'node_modules/masonry-layout/dist/masonry.pkgd.js',
         'temp-folder/Event.js',
         'temp-folder/Magnifier.js',
         'assets-dev/js/*.js'
@@ -195,7 +201,21 @@ gulp.task('html-min', function(){
         }))
     .pipe(gulp.dest('dist/customer'));
 
-    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account_orders, php_dir_account);
+    var php_seller_centre = gulp.src(['seller-centre/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre'));
+
+    var php_seller_centre_account = gulp.src(['seller-centre/account/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/account'));
+
+    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account_orders, php_dir_account, php_seller_centre, php_seller_centre_account);
 });
 
 // ================================ Watch Assets ================================
@@ -225,6 +245,12 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('category/electronics/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/account/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
 });
@@ -286,6 +312,8 @@ gulp.task('dist', ['clear-dist', 'html-min'], function() {
         '!customer/password/*.php',
         '!customer/orders/*.php',
         '!customer/*.php',
+        '!seller-centre/*.php',
+        '!seller-centre/account/*.php',
         '*'
     ])
     .pipe(gulp.dest('dist/'))

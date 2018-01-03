@@ -1,0 +1,181 @@
+#seller-centre-page {
+	font-family: 'Montserrat', sans-serif;
+    margin-top: 100px;
+	color: dimgrey;
+	font-size: 12px;
+
+	.social {
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: 1.8px;
+		line-height: 27.9px;
+
+		ul {
+			margin-top: 16px;
+			padding: 0;
+			list-style: none;
+			
+			li {
+				// display: inline-block;
+				float: left;
+				margin-right: 8px;
+
+				a {
+					text-decoration: none;
+					color: dimgrey;
+					border: 2px solid #333333;
+				    font-size: 18px;
+				    height: 36px;
+				    width: 36px;
+				    text-align: center;
+				    line-height: 36px;
+
+				    &:hover {
+				    	color: #1e1e1e;
+				    }
+				}	
+
+				&.google-plus {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.my-navbar {
+		.nav-item {
+			&.right-nav {
+				width: auto;
+				padding: 0 15px;
+			}
+		}
+	}
+
+	.container {
+		margin-top: 150px;
+	}
+
+	.info {
+		width: 80%;
+
+		.title {
+			font-size: 32px;
+			font-weight: 600;
+		}
+
+		.sub-title {
+		    font-size: 18px;
+		}
+		
+		.image-wrapper {
+			display: inline-block;
+			position: relative;
+			left: 25%;
+
+			.image {
+				text-align: center;
+				margin-top: 30px;
+				height: 200px;
+				width: 200px;
+				background-size: cover;
+				background-position: left center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	.footer {
+		color: #ccc;
+		text-align: center;
+		margin-top: 50px;
+
+		.site-image {
+			height: 40px;
+			width: 40px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			position: relative;
+			left: 530px;
+		}
+	}
+
+	.login-wrapper {
+		background-color: #f8f8f8;
+        box-shadow: 0.2rem 0.2rem 0.4rem rgba(0,0,0,.09);
+		padding: 20px;
+
+		.title {
+			font-weight: bold;
+			font-size: 25px;
+		}
+
+		.form-group {
+
+			&.read-and-understood {
+				font-size: 12px;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			label.col-form-label {
+				font-size: 12px;
+				font-weight: 700;
+				padding-right: 0;
+			}
+
+			label {
+				font-size: 12px;
+			}
+
+			.form-control {
+				font-size: 12px;
+			    border-radius: 2rem;
+
+				&:focus {
+					border: 1px solid rgba(0, 0, 0, 0.15);
+				}
+			}
+
+			input.form-check-input {
+				outline: none;
+			}
+
+			.input-group-addon {
+				border-radius: 0;
+				padding: 5px 12px;
+			    border: 1px solid rgba(0, 0, 0, 0.15) !important; 
+
+				i {
+					color: dimgrey;
+				}
+
+				a:focus {
+					outline: none;
+				}
+			}
+			
+			.btn-primary {
+				margin-top: 10px;
+				background-color: #333333;
+				border: 0;
+				border-radius: 0;
+				color: #fff;
+				text-transform: uppercase;
+				padding: 10px 25px;
+				cursor: pointer;
+				width: 100%;
+				border-radius: 2rem;
+
+				&:hover, &:focus {
+					background-color: #3f3f3f; 
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+}
+

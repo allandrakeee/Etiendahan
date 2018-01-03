@@ -755,3 +755,8 @@ $(document).ready(function(){
 });
 // ============ END OF VIEW PRODUCT PAGE ============
 
+// ============ SELLER SHOP PAGE ============ 
+
+
+
+// ============ END OF SELLER SHOP PAGE ============ 

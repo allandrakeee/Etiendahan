@@ -6,6 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
 
+	<!-- favicon -->
+	<link rel="shortcut icon" href="temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="temp-img/favicon.ico" type="image/x-icon">
+
 	<!-- Normal import of theme.css -->
 	<link rel="stylesheet" href="assets/css/theme.css">
 	
@@ -33,7 +37,7 @@
 
 									<!-- SELL ON ETIENDAHAN -->
 									<li class="nav-item">
-										<a class="nav-link cl-effect" href="/etiendahan/seller-centre/" target="_blank">Sell On Etiendahan</a>
+										<a class="nav-link cl-effect" href="/etiendahan/seller-centre/account/signin/" target="_blank">Sell On Etiendahan</a>
 									</li>
 
 									<!-- SPECIALTY IN CITY -->
