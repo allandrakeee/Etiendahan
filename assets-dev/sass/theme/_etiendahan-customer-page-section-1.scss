@@ -223,14 +223,6 @@
 				}
 			}
 
-			input[type=number]::-webkit-inner-spin-button, 
-			input[type=number]::-webkit-outer-spin-button { 
-				-webkit-appearance: none;
-				-moz-appearance: none;
-				appearance: none;
-				margin: 0; 
-			}
-
 			.progress {
 			    position: absolute;
 			    display: inline;
@@ -777,4 +769,12 @@
 	.row .col-md-8 .order-wrapper-content:last-child {
 		margin-bottom: 16px;
 	}
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0; 
 }

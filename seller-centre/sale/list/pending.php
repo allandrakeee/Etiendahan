@@ -12,11 +12,12 @@
 
 	<!-- link inner -->
 	<?php  
-		include '../header-link.php';
+		include '../../../header-link.php';
 	?>
 
 </head>
 <body>
+	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">
 		<div class="main-wrapper">
@@ -55,22 +56,35 @@
 							<span class="navbar-toggler-icon"></span>
 						</button>
 					</nav>
+
+					<nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/etiendahan/seller-centre/">Home</a></li>
+							<li class="breadcrumb-item active" aria-current="page">My Sales</li>
+						</ol>
+					</nav>
 				</div>
 				<!-- END OF SECTION 1 -->	
+				
+				<ul class="nav justify-content-center text-center">
+					<li class="nav-item active">
+						<a class="nav-link active" href="/etiendahan/seller-centre/sale/list/pending/">Pending</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/etiendahan/seller-centre/sale/list/ready-to-ship/">Ready to Ship</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/etiendahan/seller-centre/sale/list/shipped/">Shipped</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/etiendahan/seller-centre/sale/list/delivered/">Delivered</a>
+					</li>
+				</ul>
 
-				<div class="container home">
+				<div class="container inner">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="welcome-message text-center">Welcome to Etiendahan Seller Centre</div>
-							<div class="buttons text-center">
-								<div class="wrapper-inner">
-									<span class="seller-centre-link" data-url="/etiendahan/seller-centre/product/list/all/"><div class="fa-wrapper"><i class="fa fa-cubes"></i></div><div class="title">My Products</div>
-									</span>
-								</div>
-								<div class="wrapper-inner"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/sale/list/pending/"><div class="fa-wrapper"><i class="fa fa-money"></i></div><div class="title">My Sales</div></span></div>
-								<!-- <div class="wrapper-inner"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/settings/"><div class="fa-wrapper"><i class="fa fa-cog"></i></div><div class="title">Shop Settings</div></span></div>	 -->							
-								<div class="wrapper-inner last"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/logout/"><div class="fa-wrapper"><i class="fa fa-sign-out"></i></div><div class="title">Logout</div></span></div>
-							</div>
+							
 						</div>
 					</div>
 

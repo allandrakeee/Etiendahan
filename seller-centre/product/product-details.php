@@ -12,14 +12,15 @@
 
 	<!-- link inner -->
 	<?php  
-		include '../header-link.php';
+		include '../../header-link.php';
 	?>
 
 </head>
 <body>
+	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">
-		<div class="main-wrapper">
+		<div class="main-wrapper" id="product-details-page">
 			<div class="main">
 				
 				<!-- SECTION 1 -->
@@ -55,21 +56,78 @@
 							<span class="navbar-toggler-icon"></span>
 						</button>
 					</nav>
+
+					<nav class="breadcrumb-wrapper" aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="/etiendahan/seller-centre/">Home</a></li>
+							<li class="breadcrumb-item"><a href="/etiendahan/seller-centre/product/list/all/">My Products</a></li>
+							<li class="breadcrumb-item active" aria-current="page">Product Details</li>
+						</ol>
+					</nav>
 				</div>
 				<!-- END OF SECTION 1 -->	
 
-				<div class="container home">
+				<div class="container products-action">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="welcome-message text-center">Welcome to Etiendahan Seller Centre</div>
-							<div class="buttons text-center">
-								<div class="wrapper-inner">
-									<span class="seller-centre-link" data-url="/etiendahan/seller-centre/product/list/all/"><div class="fa-wrapper"><i class="fa fa-cubes"></i></div><div class="title">My Products</div>
-									</span>
+							<div class="add-a-new-product-wrapper p-4">
+								<div class="title mb-1">Edit Product Images</div>
+								<div class="sub-title" data-toggle="tooltip" data-placement="bottom" title="Showcase your product by taking a photo against a white background with good lighting. Upload more product images to show different angles.">Tips for better selling product images</div>
+							
+								<div class="form-wrapper mt-5">
+									<div class="title">Basic Information</div>
+
+									<form class="pl-5 pr-5">
+										<div class="form-group row">
+											<label for="inputProductName" class="col-sm-2 col-form-label">Product Name</label>
+											<div class="col-sm-10">
+												<input type="text" class="form-control" id="inputProductName">
+											</div>									
+										</div>
+
+										<div class="form-group row">
+											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
+											<div class="col-sm-10">
+												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500"></textarea>
+											</div>	
+										</div>
+
+										<div class="form-group row">
+											<label for="selectCategory" class="col-sm-2 col-form-label">Category</label>
+											<div class="col-sm-10">
+												<select class="form-control" id="selectCategory">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+												</select>											
+											</div>	
+										</div>
+									</form>
 								</div>
-								<div class="wrapper-inner"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/sale/list/pending/"><div class="fa-wrapper"><i class="fa fa-money"></i></div><div class="title">My Sales</div></span></div>
-								<!-- <div class="wrapper-inner"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/settings/"><div class="fa-wrapper"><i class="fa fa-cog"></i></div><div class="title">Shop Settings</div></span></div>	 -->							
-								<div class="wrapper-inner last"><span class="seller-centre-link" data-url="/etiendahan/seller-centre/logout/"><div class="fa-wrapper"><i class="fa fa-sign-out"></i></div><div class="title">Logout</div></span></div>
+
+								<div class="form-wrapper mt-5">
+									<div class="title">Price and Inventory</div>
+
+									<form class="add-product pl-5 pr-5">
+										<div class="form-group row">
+											<label for="inputProductPrice" class="col-sm-2 col-form-label">Price</label>
+											<div class="peso-sign">₱</div>
+											<div class="col-sm-2">
+												<input type="text" class="form-control" id="inputProductPrice" pattern="[0-9]*">
+												<!-- <input type="text" class="form-control formatter" id="inputProductPrice"> -->
+											</div>									
+										</div>
+
+										<div class="form-group row">
+											<label for="inputProductStock" class="col-sm-2 col-form-label">Stock</label>
+											<div class="col-sm-10">
+												<input type="number" class="form-control formatter" id="inputProductStock">
+											</div>	
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -83,7 +141,7 @@
 							</div>
 						</div>
 					</div>
-				</div>			
+				</div>				
 
 			</div>
 		</div>

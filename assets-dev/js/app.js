@@ -7,6 +7,13 @@ $(window).scroll(function() {
 	}
 });
 
+// pre loader
+$(window).on('load', function() {
+	setTimeout(function() {
+      $('body').addClass('loaded');
+    }, 5000);
+});
+
 $('#return-to-top').click(function() {      // When arrow is clicked
 	$('body,html').animate({
 	scrollTop : 0                       // Scroll to top of body
@@ -14,7 +21,7 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 });
 
 // Nav shink @ SECTION 1 priority
-if($("#for-index").length > 0){
+if($("#for-index").length > 0) {
 	$(window).scroll(function(){
 		if($(document).scrollTop() > 20) {
 			$('nav.index').addClass('shrink');
@@ -42,6 +49,11 @@ $(document).ready(function(){
 		}
 	});
 });
+
+// tooltips
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip()
+})
 
 // ============ SECTION 1 ============
 // Touch enabled in carousel
@@ -760,3 +772,42 @@ $(document).ready(function(){
 
 
 // ============ END OF SELLER SHOP PAGE ============ 
+
+
+
+
+// ============ SELLER CENTRE PAGE ============ 
+$('.seller-centre-link').click(function(){
+  location.href = $(this).attr('data-url');
+});
+
+
+
+if($("#product-details-page").length > 0) {
+	$('#inputProductPrice').keyup(function(event) {
+		// skip for arrow keys
+		if(event.which >= 37 && event.which <= 40) return;
+		// format number
+		$(this).val(function(index, value) {
+			return value
+			.replace(/\D/g, "")
+			.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		});
+	});
+
+	document.getElementById("inputProductPrice").onblur =function (){    
+	    this.value = parseFloat(this.value.replace(/,/g, ""))
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+	document.querySelector("#inputProductPrice").addEventListener("keypress", function (evt) {
+	    if (evt.which < 48 || evt.which > 57)
+	    {
+	        evt.preventDefault();
+	    }
+	});
+}
+// ============ END OF SELLER CENTRE PAGE ============ 
+

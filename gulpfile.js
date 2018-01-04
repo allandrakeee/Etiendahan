@@ -253,6 +253,21 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('seller-centre/account/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('seller-centre/product/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/product/list/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/sale/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/sale/list/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('seller-centre/settings/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
 });
 
 // ================================ Min Assets ================================

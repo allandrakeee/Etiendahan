@@ -18,6 +18,13 @@
 </head>
 <body>
 	
+	<!-- Preloader -->
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">
 		<div class="main-wrapper">
@@ -27,7 +34,7 @@
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					<!-- navbar -->
 					<nav class="navbar fixed-top navbar-expand-xl cl-effect fake-cl-effect my-navbar index shrink">
-					  	<a class="navbar-brand" href="http://localhost:8080/etiendahan/seller-centre/">
+					  	<a class="navbar-brand" href="http://localhost:8080/etiendahan/seller-centre/account/signin/">
 							<img src="/etiendahan/temp-img/etiendahan-logo-seller-centre.png" width="178" height="58" class="d-inline-block align-top" alt="">
 						</a>	
 
