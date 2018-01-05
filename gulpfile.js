@@ -215,7 +215,46 @@ gulp.task('html-min', function(){
         }))
     .pipe(gulp.dest('dist/seller-centre/account'));
 
-    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account_orders, php_dir_account, php_seller_centre, php_seller_centre_account);
+    // product
+    var php_seller_centre_product = gulp.src(['seller-centre/product/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/account'));
+
+    var php_seller_centre_product_list = gulp.src(['seller-centre/product/list/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/account/list'));
+
+    // sale
+    var php_seller_centre_sale = gulp.src(['seller-centre/sale/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/sale'));
+
+    var php_seller_centre_sale_list = gulp.src(['seller-centre/sale/list/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/sale/list'));
+
+    // setting
+    var php_seller_centre_setting = gulp.src(['seller-centre/setting/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+    .pipe(gulp.dest('dist/seller-centre/setting'));
+
+    return merge(php_dir, php_dir_account_customer, php_dir_account_forgot_password, php_dir_account_orders, php_dir_account, php_seller_centre, php_seller_centre_account,
+        php_seller_centre_product, php_seller_centre_product_list, php_seller_centre_sale, php_seller_centre_sale_list, php_seller_centre_setting);
 });
 
 // ================================ Watch Assets ================================
@@ -329,6 +368,10 @@ gulp.task('dist', ['clear-dist', 'html-min'], function() {
         '!customer/*.php',
         '!seller-centre/*.php',
         '!seller-centre/account/*.php',
+        '!seller-centre/product/*.php',
+        '!seller-centre/product/list/*.php',
+        '!seller-centre/sale/list/*.php',
+        '!seller-centre/setting/*.php',
         '*'
     ])
     .pipe(gulp.dest('dist/'))

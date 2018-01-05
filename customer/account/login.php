@@ -1,3 +1,9 @@
+<?php  
+	session_start();
+
+	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +11,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 	
 	<!-- link inner -->
 	<?php  
@@ -91,6 +101,24 @@
 					</div>
 				</div>
 				<!-- END OF LOGIN PAGE SECTION 1 -->
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['profile-cant-proceed-message']) ) {
+								echo $_SESSION['profile-cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['profile-cant-proceed-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 
 <!-- footer inner -->
 <?php  

@@ -27,7 +27,7 @@
 
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">
-		<div class="main-wrapper">
+		<div class="main-wrapper" id="seller-centre-page-signin">
 			<div class="main">
 				
 				<!-- SECTION 1 -->

@@ -8,11 +8,13 @@ $(window).scroll(function() {
 });
 
 // pre loader
-$(window).on('load', function() {
-	setTimeout(function() {
-      $('body').addClass('loaded');
-    }, 5000);
-});
+if($("#seller-centre-page-signin").length > 0) {
+	$(window).on('load', function() {
+		setTimeout(function() {
+	      $('body').addClass('loaded');
+	    }, 5000);
+	});
+}
 
 $('#return-to-top').click(function() {      // When arrow is clicked
 	$('body,html').animate({
@@ -54,6 +56,19 @@ $(document).ready(function(){
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip()
 })
+
+// popup notification
+// $(document).ready(function () {
+// 	function load_last_notification() {
+// 		$.ajax({
+// 			url: "fetch.php",
+// 			method: "POST",
+// 			success: function(data) {
+// 				$('.content-popup').html(data);
+// 			}
+// 		})
+// 	}
+// });
 
 // ============ SECTION 1 ============
 // Touch enabled in carousel
@@ -436,6 +451,66 @@ if($("#password-page").length > 0){
 $('#inputPasswordNew').pwstrength({
     ui: { showVerdictsInsideProgressBar: true }
 });
+
+$(document).ready(function() {
+    $('#popup-notification').delay(1000).fadeIn(400);
+});
+
+$("#popup-close").click(function() {
+	$("#popup-notification").css("margin-left", "-425px");
+});
+
+setTimeout(function() {
+    $('#popup-notification').css("margin-left", "-425px");
+}, 10000);
+
+$(document).ready(function() {
+   str = $('.popup-content').text();
+   if($.trim(str) === "") {
+     	$('#popup-notification').remove();
+   }
+});
+
+// logout
+$(document).ready(function() {
+    $('#popup-notification-logout').delay(1000).fadeIn(400);
+});
+
+$("#popup-close").click(function() {
+	$("#popup-notification-logout").css("margin-left", "-425px")
+});
+
+setTimeout(function() {
+    $('#popup-notification-logout').css("margin-left", "-425px");
+}, 10000);
+
+$(document).ready(function() {
+   str = $('.popup-content-logout').text();
+   if($.trim(str) === "") {
+     	$('#popup-notification-logout').remove();
+   }
+});
+
+// logout - redirect
+$(document).ready(function() {
+    $('#popup-notification-logout-redirect').delay(1000).fadeIn(400);
+});
+
+$("#popup-close").click(function() {
+	$("#popup-notification-logout-redirect").css("margin-left", "-425px");
+});
+
+setTimeout(function() {
+    $('#popup-notification-logout-redirect').css("margin-left", "-425px");
+}, 10000);
+
+$(document).ready(function() {
+   str = $('.popup-content-logout-redirect').text();
+   if($.trim(str) === "") {
+     	$('#popup-notification-logout-redirect').remove();
+   }
+});
+
 // ============ END OF MY ACCOUNT PAGE - CHANGE PASSWORD - SECTION 1 ============
 
 
@@ -810,4 +885,3 @@ if($("#product-details-page").length > 0) {
 	});
 }
 // ============ END OF SELLER CENTRE PAGE ============ 
-

@@ -1,3 +1,25 @@
+<?php  
+	session_start();
+
+	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+	// // Check if user is logged in using the session variable
+	// if ( $logged_in == false ) {
+	// 	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page";
+	// 	header("location: /etiendahan/customer/account/login/");    
+	// }
+	// else {
+	//     // Makes it easier to read
+	//     $fullname 	= $_SESSION['fullname'];
+	//     $gender     = $_SESSION['gender'];
+	//     $email      = $_SESSION['email'];
+	//     $active     = $_SESSION['active'];
+	//     $birthday   = $_SESSION['birthday'];
+	//     $birthmonth = $_SESSION['birthmonth'];
+	//     $birthyear  = $_SESSION['birthyear'];
+	// }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +27,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
+
 	<!-- link inner -->
 	<?php  
 		include '../../header-link.php';
