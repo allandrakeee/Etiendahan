@@ -27845,6 +27845,26 @@ $(document).ready(function() {
    }
 });
 
+// welcome
+$(document).ready(function() {
+    $('#popup-notification-welcome').delay(1000).fadeIn(400);
+});
+
+$("#popup-close").click(function() {
+	$("#popup-notification-welcome").css("margin-left", "-425px")
+});
+
+setTimeout(function() {
+    $('#popup-notification-welcome').css("margin-left", "-425px");
+}, 10000);
+
+$(document).ready(function() {
+   str = $('.popup-content-welcome').text();
+   if($.trim(str) === "") {
+     	$('#popup-notification-welcome').remove();
+   }
+});
+
 // logout
 $(document).ready(function() {
     $('#popup-notification-logout').delay(1000).fadeIn(400);
@@ -27882,6 +27902,26 @@ $(document).ready(function() {
    str = $('.popup-content-logout-redirect').text();
    if($.trim(str) === "") {
      	$('#popup-notification-logout-redirect').remove();
+   }
+});
+
+// completed
+$(document).ready(function() {
+    $('#popup-notification-completed').delay(1000).fadeIn(400);
+});
+
+$("#popup-close").click(function() {
+	$("#popup-notification-completed").css("margin-left", "-425px");
+});
+
+setTimeout(function() {
+    $('#popup-notification-completed').css("margin-left", "-425px");
+}, 10000);
+
+$(document).ready(function() {
+   str = $('.popup-content-completed').text();
+   if($.trim(str) === "") {
+     	$('#popup-notification-completed').remove();
    }
 });
 
@@ -28258,4 +28298,44 @@ if($("#product-details-page").length > 0) {
 	    }
 	});
 }
+
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout( function () { 
+		        $('.myform').submit();
+		    }, 2000);
+}
+
+function myStopFunction() {
+    clearTimeout(myVar);
+}
+
+jQuery(document).ready(function($) { 
+    //reset
+    $(".myform .activate-seller").prop("checked", false);
+    $(".myform .activate-seller").click(function () {
+
+        if ($(this).is(":checked")) {
+
+            //checked
+            $(this).addClass("checked");
+
+        } else {
+            //unchecked
+            $(this).removeClass("checked");
+			myStopFunction();
+        }
+
+    })
+
+});
+
+jQuery(document).ready(function($) { 
+	$(".activate-seller").click(function () {
+		if($(this).hasClass('checked')){
+		    myFunction();
+		}
+	});
+});
 // ============ END OF SELLER CENTRE PAGE ============ 

@@ -1,19 +1,21 @@
 <?php
-/* Displays user information and some useful messages */
-session_start();
+  /* Displays user information and some useful messages */
+  session_start();
 
-// Check if user is logged in using the session variable
-if ( $_SESSION['logged_in'] != 1 ) {
-  $_SESSION['message'] = "You must log in before viewing your profile page!";
-  header("location: error.php");    
-}
-else {
+  logged_in   = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+  // Check if user is logged in using the session variable
+  if ($_SESSION['logged_in'] != 1) {
+    $_SESSION['message'] = "You must log in before viewing your profile page!";
+    header("location: error.php");    
+  }
+  else {
     // Makes it easier to read
     $first_name = htmlentities($_SESSION['first_name']);
     $last_name  = htmlentities($_SESSION['last_name']);
     $email      = htmlentities($_SESSION['email']);
     $active     = htmlentities($_SESSION['active']);
-}
+  }
 ?>
 <!DOCTYPE html>
 <html >

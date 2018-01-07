@@ -1,4 +1,5 @@
 <?php  
+	require '/../../db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
@@ -38,6 +39,15 @@
 	?>
 
 </head>
+
+<?php  
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_save'])) { //user registering
+	    	require '/../../c8NLPYLt-functions/profile-function.php';
+	    }
+	}
+?>
+
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -672,7 +682,7 @@
 							<div id="prevent-not-to-scroll" class="col-md-8">
 								<div class="tab-content"><h1>My Profile</h1><p>Manage and protect your account</p></div>
 							
-								<form>
+								<form action="/etiendahan/customer/account/profile/" method="POST">
 									<!-- gender -->
 									<div class="form-group row">
 										<label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
@@ -714,7 +724,7 @@
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 										<div class="col-sm-10">
-											<div class="email"><?= $email ?> <a href="/etiendahan/customer/account/email/">Change Email</a>
+											<div name="email" class="email"><?= $email ?> <a href="/etiendahan/customer/account/email/">Change Email</a>
 											<?php  
 												if ( $active == 0 ){
 												echo
@@ -734,59 +744,59 @@
 									<div class="form-group row">
 										<label for="inputFullname" class="col-sm-2 col-form-label">Fullname</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="inputFullname" value="<?= $fullname ?>" required>
+											<input name="fullname" type="text" class="form-control" id="inputFullname" value="<?= $fullname ?>" required>
 										</div>
 									</div>
 
 									<!-- birtday -->
-										<div id="three-col" class="form-group row">
-											<label for="selectBirthday" class="col-md-2 col-form-label">Birthday</label>
-											<div class="row">
-												<div class="col-md-4">
-													<select name="birthday" class="form-control" required>
-														<option value="">Day</option>
-														<?php
-															for ($x=1; $x<=31; $x++) {
-														?> 
-																<option value="<?php echo $x; ?>" <?php if($birthday == $x) echo 'selected'; ?>><?php echo $x; ?></option>';
-														<?php  
-															} 
-														?>
-													</select>
-													
-												</div>
-												<div class="col-md-4">
-													<select name="birthmonth" class="form-control" required>
-														<option value="">Month</option>
-														<?php 
-															for($m = 1;$m <= 12; $m++) { 
-															    $month =  date("F", mktime(0, 0, 0, $m)); 
-														?>
-															    <option value="<?php echo $month; ?>" <?php if($birthmonth == $month) echo 'selected'; ?>><?php echo $month; ?></option>';
-														<?php  
-															}
-														?>
-													</select>
-												</div>
-												<div class="col-md-4">
-													<select name="birthyear" class="form-control" required>
-														<option value="">Year</option>
-														<?php
-															for ($x=date("Y"); $x>=1900; $x--) {
-														?>
-																<option value="<?php echo $x; ?>" <?php if($birthyear == $x) echo 'selected'; ?>><?php echo $x; ?></option>';
-														<?php
-															} 
-														?> 
-													</select>
-												</div>
+									<div id="three-col" class="form-group row">
+										<label for="selectBirthday" class="col-md-2 col-form-label">Birthday</label>
+										<div class="row">
+											<div class="col-md-4">
+												<select name="birthday" class="form-control" required>
+													<option value="">Day</option>
+													<?php
+														for ($x=1; $x<=31; $x++) {
+													?> 
+															<option value="<?php echo $x; ?>" <?php if($birthday == $x) echo 'selected'; ?>><?php echo $x; ?></option>';
+													<?php  
+														} 
+													?>
+												</select>
+												
+											</div>
+											<div class="col-md-4">
+												<select name="birthmonth" class="form-control" required>
+													<option value="">Month</option>
+													<?php 
+														for($m = 1;$m <= 12; $m++) { 
+														    $month =  date("F", mktime(0, 0, 0, $m)); 
+													?>
+														    <option value="<?php echo $month; ?>" <?php if($birthmonth == $month) echo 'selected'; ?>><?php echo $month; ?></option>';
+													<?php  
+														}
+													?>
+												</select>
+											</div>
+											<div class="col-md-4">
+												<select name="birthyear" class="form-control" required>
+													<option value="">Year</option>
+													<?php
+														for ($x=date("Y"); $x>=1900; $x--) {
+													?>
+															<option value="<?php echo $x; ?>" <?php if($birthyear == $x) echo 'selected'; ?>><?php echo $x; ?></option>';
+													<?php
+														} 
+													?> 
+												</select>
 											</div>
 										</div>
+									</div>
 									
 									<!-- save -->
 									<div class="form-group row">
 										<div class="col-sm-12 text-center">
-											<button class="btn btn-primary" type="submit">Save</button>
+											<button name="button_save" class="btn btn-primary" type="submit">Save</button>
 										</div>
 									</div>
 								</form>
@@ -795,6 +805,24 @@
 					</div>
 				</div>
 				<!-- END OF CUSTOMER PAGE SECTION 1 -->
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['modified-message']) ) {
+								echo $_SESSION['modified-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['modified-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 <!-- footer inner -->
 <?php  
 	include '../../footer.php';

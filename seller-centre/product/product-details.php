@@ -1,3 +1,38 @@
+<?php  
+	  require '/../../db.php';
+	  session_start();
+
+	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+	// Check if user is logged in using the session variable
+	if ($logged_in == false) {
+	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
+	header("location: /etiendahan/seller-centre/account/signin/");    
+	}
+  
+  	if ($logged_in == 1) {
+    	// header("location: /etiendahan/seller-centre/");    
+    	$email = $mysqli->escape_string($_SESSION['email']);
+		$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+		$user = $result->fetch_assoc();
+
+		if ($user['seller_centre'] == 0) {
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+            header("location: /etiendahan/seller-centre/account/activate/");
+        }
+  	}
+	else {
+	    // Makes it easier to read
+	    $fullname 	= $_SESSION['fullname'];
+	    $gender     = $_SESSION['gender'];
+	    $email      = $_SESSION['email'];
+	    $active     = $_SESSION['active'];
+	    $birthday   = $_SESSION['birthday'];
+	    $birthmonth = $_SESSION['birthmonth'];
+	    $birthyear  = $_SESSION['birthyear'];
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

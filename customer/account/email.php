@@ -1,22 +1,17 @@
 <?php  
+	require '/../../db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
 	// Check if user is logged in using the session variable
-	if ( $logged_in == false ) {
+	if ($logged_in == false) {
 		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page";
 		header("location: /etiendahan/customer/account/login/");    
 	}
 	else {
 	    // Makes it easier to read
-	    $fullname 	= $_SESSION['fullname'];
-	    $gender     = $_SESSION['gender'];
-	    $email      = $_SESSION['email'];
-	    $active     = $_SESSION['active'];
-	    $birthday   = $_SESSION['birthday'];
-	    $birthmonth = $_SESSION['birthmonth'];
-	    $birthyear  = $_SESSION['birthyear'];
+	    $email = $_SESSION['email'];
 	}
 ?>
 
@@ -27,6 +22,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 	
 	<!-- link inner -->
 	<?php  
@@ -34,6 +33,15 @@
 	?>
 	
 </head>
+
+<?php  
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_confirm'])) { //user registering
+	    	require '/../../c8NLPYLt-functions/email-function.php';
+	    }
+	}
+?>
+
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -102,26 +110,26 @@
 							<div id="prevent-not-to-scroll" class="col-md-8">
 								<div class="tab-content"><h1>Change Email</h1></div>
 								
-								<form>		
+								<form action="/etiendahan/customer/account/email/" method="POST">
 									<!-- email -->
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">Current Email</label>
 										<div class="col-sm-10">
-											<div class="email">allandulay69@gmail.com</div>
+											<div class="email"><?php echo $email;  ?></div>
 										</div>
 									</div>	
 
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">New Email</label>
 										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputEmail" required autocomplete="off" autofocus>
+											<input name="newEmail" type="email" class="form-control" id="inputEmail" required autocomplete="off" value="<?= isset($_POST['newEmail']) ? $_POST['newEmail'] : ''; ?>" autofocus>
 										</div>
 									</div>					
 									
 									<!-- submit -->
 									<div class="form-group row">
 										<div class="col-sm-12 text-center">
-											<button class="btn btn-primary" type="submit">Confirm</button>
+											<button name="button_confirm" class="btn btn-primary" type="submit">Confirm</button>
 										</div>
 									</div>	
 
@@ -138,6 +146,23 @@
 				</div>
 				<!-- END OF CUSTOMER PAGE SECTION 1 -->
 
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['user-exists-message']) ) {
+								echo $_SESSION['user-exists-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['user-exists-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 <!-- footer inner -->
 <?php  
 	include '../../footer.php';

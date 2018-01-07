@@ -718,6 +718,36 @@ nav a:focus {
 	z-index: 999999999999999;
 }
 
+#popup-notification-welcome {
+	display: none;
+	position: fixed;
+	width: 385px;
+	height: 98px;
+	background: #fff;
+	border: 2px solid #dcdcdc;
+	bottom: 25px;
+	left: 42px;
+	margin-left: 0;
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+	z-index: 999999999999999;
+}
+
+#popup-notification-completed {
+	display: none;
+	position: fixed;
+	width: 385px;
+	height: 98px;
+	background: #fff;
+	border: 2px solid #dcdcdc;
+	bottom: 25px;
+	left: 42px;
+	margin-left: 0;
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+	z-index: 999999999999999;
+}
+
 #popup-notification-logout {
 	display: none;
 	position: fixed;
@@ -747,7 +777,6 @@ nav a:focus {
 	transition: all 1s ease;
 	z-index: 999999999999999;
 }
-
 
 #etiendahan-notification {
 	color: dimgrey;

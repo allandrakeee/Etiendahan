@@ -1406,6 +1406,24 @@
 				</div>
 				<!-- END OF POPUP NOTIFICATION -->
 
+				<!-- POPUP NOTIFICATION - welcome -->
+				<div id="popup-notification-welcome" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Welcome back!</div>
+					<div class="popup-content-welcome text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['welcome-message']) ) {
+								echo $_SESSION['welcome-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['welcome-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
 				<!-- POPUP NOTIFICATION - logout -->
 				<div id="popup-notification-logout" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>

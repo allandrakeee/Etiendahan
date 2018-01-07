@@ -1,3 +1,26 @@
+<?php  
+	require '/../../db.php';
+	session_start();
+
+	$logged_in = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+  	// Check if user is logged in using the session variable
+  	if ($logged_in == 1) {
+    	// header("location: /etiendahan/seller-centre/");    
+    	$email = $mysqli->escape_string($_SESSION['email']);
+		$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+		$user = $result->fetch_assoc();
+
+		if ($user['seller_centre'] == 0) {
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+            header("location: /etiendahan/seller-centre/account/activate/");
+        } else {
+            header("location: /etiendahan/seller-centre/");
+        }  
+
+  	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,14 +39,23 @@
 	?>
 
 </head>
+
+<?php  
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_login'])) { //user registering
+	    	require '/../../c8NLPYLt-functions/signin-function.php';
+	    }
+	}
+?>
+
 <body>
 	
 	<!-- Preloader -->
-	<div id="loader-wrapper">
+	<!-- <div id="loader-wrapper">
 		<div id="loader"></div>
 		<div class="loader-section section-left"></div>
 		<div class="loader-section section-right"></div>
-	</div>
+	</div> -->
 
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">
@@ -85,12 +117,12 @@
 						<div class="col-md-5">
 							<div class="login-wrapper">
 								<div class="title text-center mb-3">Etiendahan Seller Centre</div>
-								<form>		
+								<form action="/etiendahan/seller-centre/account/signin/" method="POST">
 									<!-- email -->
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 										<div class="col-sm-10">
-											<input type="email" class="form-control" id="inputEmail" required autofocus>
+											<input name="email" type="email" class="form-control" id="inputEmail" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>" required autofocus>
 										</div>
 									</div>
 
@@ -98,7 +130,7 @@
 									<div class="form-group row">
 										<label for="inputPasswordLogin" class="col-sm-2 col-form-label">Password</label>
 										<div id="show-hide-password" class="col-sm-10 input-group">
-											<input type="password" class="form-control" id="inputPasswordLogin" min="" required>
+											<input name="password" type="password" class="form-control" id="inputPasswordLogin" min="" required>
 											<div class="input-group-addon">
 												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 											</div>
@@ -116,7 +148,7 @@
 									<!-- login -->
 									<div class="form-group row">
 										<div class="col-sm-12 text-center">
-											<button class="btn btn-primary" type="submit">Login</button>
+											<button name="button_login" class="btn btn-primary" type="submit">Login</button>
 										</div>
 									</div>										
 								</form>
@@ -132,8 +164,58 @@
 							</div>
 						</div>
 					</div>
-				</div>			
+				</div>	
 
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['profile-cant-proceed-message']) ) {
+								echo $_SESSION['profile-cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['profile-cant-proceed-message'] );
+							}
+
+							if ( isset($_SESSION['email-doesnt-exist-message']) ) {
+								echo $_SESSION['email-doesnt-exist-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['email-doesnt-exist-message'] );
+							}
+
+							if ( isset($_SESSION['wrong-password-message']) ) {
+								echo $_SESSION['wrong-password-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['wrong-password-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->	
+
+				<!-- POPUP NOTIFICATION - logout -->
+				<div id="popup-notification-logout" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>You have been logged out, Thanks for stopping by!</div>
+					<div class="popup-content-logout text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['logout-message']) ) {
+								echo $_SESSION['logout-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['logout-message'] );
+
+								session_unset();
+								session_destroy();
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->	
 			</div>
 		</div>
 	</div>	

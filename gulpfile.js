@@ -221,14 +221,14 @@ gulp.task('html-min', function(){
             collapseWhitespace: true,
             ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
         }))
-    .pipe(gulp.dest('dist/seller-centre/account'));
+    .pipe(gulp.dest('dist/seller-centre/product'));
 
     var php_seller_centre_product_list = gulp.src(['seller-centre/product/list/*.php'])
         .pipe(htmlmin({
             collapseWhitespace: true,
             ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
         }))
-    .pipe(gulp.dest('dist/seller-centre/account/list'));
+    .pipe(gulp.dest('dist/seller-centre/product/list'));
 
     // sale
     var php_seller_centre_sale = gulp.src(['seller-centre/sale/*.php'])

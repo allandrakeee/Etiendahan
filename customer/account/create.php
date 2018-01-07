@@ -31,7 +31,7 @@
 <?php  
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    if (isset($_POST['button_create'])) { //user registering
-	    	require '/../../create-function.php';
+	    	require '/../../c8NLPYLt-functions/create-function.php';
 	    }
 	}
 ?>
@@ -138,7 +138,7 @@
 										<div class="form-group row">
 											<label for="inputPasswordSignup" class="col-sm-2 col-form-label">Password</label>
 											<div id="show-hide-password" class="col-sm-10 input-group">
-												<input type="password" name="password" class="form-control" id="inputPasswordSignup" min="10" max="20" value="Wcfajmeojnapa1" required>
+												<input type="password" name="password" class="form-control" id="inputPasswordSignup" min="10" max="20" required>
 												<div class="input-group-addon">
 													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 												</div>
@@ -149,7 +149,7 @@
 										<div class="form-group row">
 											<label for="inputConfirmPasswordSignup" class="col-sm-2 col-form-label">Retype Password</label>
 											<div id="show-hide-confirm-password" class="col-sm-10 input-group">
-												<input type="password" name="retypePassword" class="form-control" id="inputConfirmPasswordSignup" value="Wcfajmeojnapa1" required>
+												<input type="password" name="retypePassword" class="form-control" id="inputConfirmPasswordSignup" required>
 												<div class="input-group-addon">
 													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 												</div>

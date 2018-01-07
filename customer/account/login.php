@@ -1,4 +1,5 @@
 <?php  
+	require '/../../db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
@@ -22,8 +23,16 @@
 	?>
 	
 </head>
+
+<?php  
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_login'])) { //user registering
+	    	require '/../../c8NLPYLt-functions/login-function.php';
+	    }
+	}
+?>
+
 <body>
-	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="login-page" class="main-container">
 		<div class="main-wrapper">
@@ -41,12 +50,12 @@
 						<div class="row-wrapper">
 							<div class="row">
 								<div class="col-md-8">
-									<form>		
+									<form action="/etiendahan/customer/account/login/" method="POST">		
 										<!-- email -->
 										<div class="form-group row">
 											<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 											<div class="col-sm-10">
-												<input type="email" class="form-control" id="inputEmail" required autofocus>
+												<input name="email" type="email" class="form-control" id="inputEmail" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>" required autofocus>
 											</div>
 										</div>
 
@@ -54,7 +63,7 @@
 										<div class="form-group row">
 											<label for="inputPasswordLogin" class="col-sm-2 col-form-label">Password</label>
 											<div id="show-hide-password" class="col-sm-10 input-group">
-												<input type="password" class="form-control" id="inputPasswordLogin" min="" required>
+												<input name="password" type="password" class="form-control" id="inputPasswordLogin" min="" required>
 												<div class="input-group-addon">
 													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
 												</div>
@@ -72,7 +81,7 @@
 										<!-- login -->
 										<div class="form-group row">
 											<div class="col-sm-12 text-center">
-												<button class="btn btn-primary" type="submit">Login</button>
+												<button name="button_login"  class="btn btn-primary" type="submit">Login</button>
 											</div>
 										</div>										
 									</form>
@@ -114,6 +123,18 @@
 								echo $_SESSION['profile-cant-proceed-message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['profile-cant-proceed-message'] );
+							}
+
+							if ( isset($_SESSION['email-doesnt-exist-message']) ) {
+								echo $_SESSION['email-doesnt-exist-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['email-doesnt-exist-message'] );
+							}
+
+							if ( isset($_SESSION['wrong-password-message']) ) {
+								echo $_SESSION['wrong-password-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['wrong-password-message'] );
 							}
 						?>
 					</div>

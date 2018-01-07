@@ -1,3 +1,41 @@
+<?php  
+	require '/../db.php';
+	session_start();
+
+	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+	// Check if user is logged in using the session variable
+	if ($logged_in == false) {
+		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
+		header("location: /etiendahan/seller-centre/account/signin/");    
+	}
+
+  	if ($logged_in == 1) {
+    	// header("location: /etiendahan/");    
+    	$email = $mysqli->escape_string($_SESSION['email']);
+		$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+		$user = $result->fetch_assoc();
+
+		if ($user['seller_centre'] == 0) {
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+            header("location: /etiendahan/seller-centre/account/activate/");
+        } else {
+            // header("location: /etiendahan/seller-centre/");
+        }  
+
+  	}
+	else {
+	    // Makes it easier to read
+	    $fullname 	= $_SESSION['fullname'];
+	    $gender     = $_SESSION['gender'];
+	    $email      = $_SESSION['email'];
+	    $active     = $_SESSION['active'];
+	    $birthday   = $_SESSION['birthday'];
+	    $birthmonth = $_SESSION['birthmonth'];
+	    $birthyear  = $_SESSION['birthyear'];
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,8 +121,36 @@
 							</div>
 						</div>
 					</div>
-				</div>			
+				</div>		
 
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content text-center">
+						<?php  
+							if ( isset($_SESSION['email-doesnt-exist-message']) ) {
+								echo $_SESSION['email-doesnt-exist-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['email-doesnt-exist-message'] );
+							}
+
+							if ( isset($_SESSION['wrong-password-message']) ) {
+								echo $_SESSION['wrong-password-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['wrong-password-message'] );
+							}
+
+							if ( isset($_SESSION['profile-cant-proceed-message']) ) {
+								echo $_SESSION['profile-cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['profile-cant-proceed-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->		
 			</div>
 		</div>
 	</div>	

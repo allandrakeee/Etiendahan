@@ -11371,6 +11371,52 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     #etiendahan-404-page .pnf-sub-title a {
       text-decoration: none; }
 
+#etiendahan-activate-page .toggle-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  #etiendahan-activate-page .toggle-wrapper .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    width: 500px;
+    left: -140px;
+    bottom: 130px; }
+  #etiendahan-activate-page .toggle-wrapper input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden; }
+  #etiendahan-activate-page .toggle-wrapper label {
+    text-indent: -9999px;
+    width: 200px;
+    height: 100px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative; }
+  #etiendahan-activate-page .toggle-wrapper label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    border-radius: 90px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s; }
+  #etiendahan-activate-page .toggle-wrapper input:checked + label {
+    background: #bada55; }
+  #etiendahan-activate-page .toggle-wrapper input:checked + label:after {
+    left: calc(100% - 5px);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  #etiendahan-activate-page .toggle-wrapper label:active:after {
+    width: 130px; }
+
 #etiendahan-category-page {
   font-family: 'Montserrat', sans-serif;
   margin-top: 70px;
@@ -12900,6 +12946,34 @@ nav a:focus {
   font-size: 11px; }
 
 #popup-notification {
+  display: none;
+  position: fixed;
+  width: 385px;
+  height: 98px;
+  background: #fff;
+  border: 2px solid #dcdcdc;
+  bottom: 25px;
+  left: 42px;
+  margin-left: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 999999999999999; }
+
+#popup-notification-welcome {
+  display: none;
+  position: fixed;
+  width: 385px;
+  height: 98px;
+  background: #fff;
+  border: 2px solid #dcdcdc;
+  bottom: 25px;
+  left: 42px;
+  margin-left: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 999999999999999; }
+
+#popup-notification-completed {
   display: none;
   position: fixed;
   width: 385px;
