@@ -250,10 +250,42 @@
 										color: #fff;
 									}
 						    	}
+
+						    	.banned-wrapper {
+									height: 100%;
+									width: 100%;
+								    background-color: rgba(0, 0, 0, 0.1);
+
+									.banned {
+										text-transform: uppercase;
+										position: relative;
+										top: 49px;
+										height: 60px;
+										width: 60px;
+										border-radius: 50%;
+										border: 1px solid #dcdcdc;
+										display: inline-block;
+										line-height: 60px;
+										color: #fff;
+									}
+						    	}
 						    }
 
 						    .product-name {
-						    	font-weight: bold;
+								font-size: 0.750rem;
+								font-weight: 600;
+								color: #333333;
+								margin: 10px 0;
+								height: 15px;
+								display: -webkit-box;
+								-webkit-line-clamp: 1;
+								-webkit-box-orient: vertical;
+								overflow: hidden;
+								text-overflow: ellipsis;
+						    }
+
+						    .product-stock {
+					    	    display: inline-block;
 						    }
 
 					    	.sightings {
@@ -276,7 +308,7 @@
 		&.products-action {
 			margin-top: 45px;
 
-			.add-a-new-product-wrapper {
+			.product-wrapper {
 				background-color: #f8f8f8;
 
 				.title {
@@ -287,6 +319,10 @@
 				.sub-title {
 					color: #007bff;
 					display: inline;
+				}
+
+				form.product-details {
+				    height: 680px;
 				}
 
 				.form-wrapper {
@@ -326,11 +362,52 @@
 
 					.peso-sign {
 						position: absolute;
-						left: 263px;
+						left: 232px;
 						z-index: 1;
 						font-size: 12px;
-						top: 502px;
+						top: 533px;
 					}
+				}
+
+				.btn-primary {
+					margin-top: 10px;
+					background-color: #333333;
+					border: 0;
+					border-radius: 0;
+					color: #fff;
+					text-transform: uppercase;
+					padding: 18px 25px;
+					cursor: pointer;
+
+					&:hover, &:focus {
+						background-color: #3f3f3f; 
+						box-shadow: none;
+					}
+
+					&.delete {
+					    position: relative;
+    					bottom: 82px;
+					}
+				}
+
+				
+				.cancel-forgot-password {
+					position: absolute;
+					z-index: 9999;
+					right: 155px;
+					bottom: 60px;
+
+					&.product-details {
+						position: absolute;
+						z-index: 9999;
+						right: 181px;
+						bottom: 60px;
+					}
+
+					a {
+						text-decoration: none;
+					}
+					
 				}
 			}
 		}
@@ -453,6 +530,23 @@
 				&:hover, &:focus {
 					background-color: #3f3f3f; 
 					box-shadow: none;
+				}
+			}
+		}
+
+		.tooltip-wrapper {
+		    display: inline;
+	        position: absolute;
+			right: 35px;
+			top: 170px;
+				
+			a {
+				color: inherit;
+				
+				.fa {
+					font-size: 20px;
+
+
 				}
 			}
 		}

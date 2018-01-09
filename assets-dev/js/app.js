@@ -896,33 +896,32 @@ $('.seller-centre-link').click(function(){
   location.href = $(this).attr('data-url');
 });
 
-
-
 if($("#product-details-page").length > 0) {
-	$('#inputProductPrice').keyup(function(event) {
-		// skip for arrow keys
-		if(event.which >= 37 && event.which <= 40) return;
-		// format number
-		$(this).val(function(index, value) {
-			return value
-			.replace(/\D/g, "")
-			.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		});
-	});
+	// $('#inputProductPrice').keyup(function(event) {
+	// 	// skip for arrow keys
+	// 	if(event.which >= 37 && event.which <= 40) return;
+	// 	// format number
+	// 	$(this).val(function(index, value) {
+	// 		return value
+	// 		.replace(/\D/g, "")
+	// 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	// 	});
+	// });
 
-	document.getElementById("inputProductPrice").onblur =function (){    
-	    this.value = parseFloat(this.value.replace(/,/g, ""))
-            .toFixed(2)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+	// document.getElementById("inputProductPrice").onblur =function (){   
+	// 		if(this.value = this.value) { 
+	// 		    this.value = parseFloat(this.value.replace(/,/g, ""));
+	//         } else {
+	//         	this.value = '';
+	//         }
+ //        }
 
-	document.querySelector("#inputProductPrice").addEventListener("keypress", function (evt) {
-	    if (evt.which < 48 || evt.which > 57)
-	    {
-	        evt.preventDefault();
-	    }
-	});
+	// document.querySelector("#inputProductPrice").addEventListener("keypress", function (evt) {
+	//     if (evt.which < 48 || evt.which > 57)
+	//     {
+	//         evt.preventDefault();
+	//     }
+	// });
 }
 
 var myVar;
@@ -964,4 +963,32 @@ jQuery(document).ready(function($) {
 		}
 	});
 });
+
+// getting the parent id in the other page in ajax request
+function get_child_options(selected) {
+	if(typeof selected === 'object') {
+		var selected = '';
+	}
+
+	var parent_id = jQuery('#category').val();
+	jQuery.ajax({
+		url: '/etiendahan/c8NLPYLt-functions/child-categories/',
+		type: 'POST',
+		data: {parent_id : parent_id, selected : selected},
+		success: function(data){
+			jQuery('#sub-category').html(data);
+		},
+		error: function(){alert("Something went wrong with the child options.")}
+	});
+}
+
+jQuery('select[name="category"]').change(function(){
+	get_child_options();
+});
+
+$(document).on('click', 'div.product-wrapper.list', function(){
+    var product_details_id = $(this).attr('id');
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"product_details_id": product_details_id});
+});
 // ============ END OF SELLER CENTRE PAGE ============ 
+

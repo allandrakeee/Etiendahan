@@ -34,13 +34,6 @@
 	
 </head>
 
-<?php  
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	    if (isset($_POST['button_confirm'])) { //user registering
-	    	require '/../../c8NLPYLt-functions/email-function.php';
-	    }
-	}
-?>
 
 <body>
 	
@@ -110,7 +103,7 @@
 							<div id="prevent-not-to-scroll" class="col-md-8">
 								<div class="tab-content"><h1>Change Email</h1></div>
 								
-								<form action="/etiendahan/customer/account/email/" method="POST">
+								<form action="/etiendahan/c8NLPYLt-functions/email-function/" method="POST">
 									<!-- email -->
 									<div class="form-group row">
 										<label for="inputEmail" class="col-sm-2 col-form-label">Current Email</label>
@@ -147,17 +140,35 @@
 				<!-- END OF CUSTOMER PAGE SECTION 1 -->
 
 				<!-- POPUP NOTIFICATION -->
-				<div id="popup-notification" class="wow fadeIn">
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
 					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
-					<div class="popup-content text-center">
+					<div class="popup-content-logout-redirect text-center">
 						<?php  
 							// Display message only once
 							if ( isset($_SESSION['user-exists-message']) ) {
 								echo $_SESSION['user-exists-message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['user-exists-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['modified-message']) ) {
+								echo $_SESSION['modified-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['modified-message'] );
 							}
 						?>
 					</div>

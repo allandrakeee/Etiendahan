@@ -144,6 +144,8 @@
 											<a href="/etiendahan/customer/password/forgot/">Forgot your password?</a>
 										</div>
 									</div>
+
+									<div class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="Not yet registered? Go to our create account page and go back to Sell on Etiendahan page to activate your account."><a href="/etiendahan/customer/account/create/"><i class="fa fa-info-circle"></i></a></div>
 									
 									<!-- login -->
 									<div class="form-group row">

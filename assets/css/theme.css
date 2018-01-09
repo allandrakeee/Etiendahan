@@ -13699,8 +13699,34 @@ nav a:focus {
                   display: inline-block;
                   line-height: 60px;
                   color: #fff; }
+              #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.1); }
+                #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper .banned {
+                  text-transform: uppercase;
+                  position: relative;
+                  top: 49px;
+                  height: 60px;
+                  width: 60px;
+                  border-radius: 50%;
+                  border: 1px solid #dcdcdc;
+                  display: inline-block;
+                  line-height: 60px;
+                  color: #fff; }
             #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-name {
-              font-weight: bold; }
+              font-size: 0.750rem;
+              font-weight: 600;
+              color: #333333;
+              margin: 10px 0;
+              height: 15px;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis; }
+            #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-stock {
+              display: inline-block; }
             #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .sightings {
               display: inline; }
             #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .wishlists {
@@ -13709,22 +13735,24 @@ nav a:focus {
               display: inline; }
     #seller-centre-page .container.products-action {
       margin-top: 45px; }
-      #seller-centre-page .container.products-action .add-a-new-product-wrapper {
+      #seller-centre-page .container.products-action .product-wrapper {
         background-color: #f8f8f8; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .title {
+        #seller-centre-page .container.products-action .product-wrapper .title {
           font-size: 18px;
           font-weight: bold; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .sub-title {
+        #seller-centre-page .container.products-action .product-wrapper .sub-title {
           color: #007bff;
           display: inline; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper label {
+        #seller-centre-page .container.products-action .product-wrapper form.product-details {
+          height: 680px; }
+        #seller-centre-page .container.products-action .product-wrapper .form-wrapper label {
           font-weight: 700; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .form-control {
+        #seller-centre-page .container.products-action .product-wrapper .form-wrapper .form-control {
           font-size: 12px;
           border-radius: 0; }
-          #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .form-control:focus {
+          #seller-centre-page .container.products-action .product-wrapper .form-wrapper .form-control:focus {
             border: 1px solid rgba(0, 0, 0, 0.15); }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .btn-primary {
+        #seller-centre-page .container.products-action .product-wrapper .form-wrapper .btn-primary {
           margin-top: 10px;
           background-color: #333333;
           border: 0;
@@ -13733,18 +13761,46 @@ nav a:focus {
           text-transform: uppercase;
           padding: 18px 25px;
           cursor: pointer; }
-          #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .btn-primary:hover, #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .btn-primary:focus {
+          #seller-centre-page .container.products-action .product-wrapper .form-wrapper .btn-primary:hover, #seller-centre-page .container.products-action .product-wrapper .form-wrapper .btn-primary:focus {
             background-color: #3f3f3f;
             -webkit-box-shadow: none;
                     box-shadow: none; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper #inputProductPrice {
+        #seller-centre-page .container.products-action .product-wrapper .form-wrapper #inputProductPrice {
           padding-left: 25px; }
-        #seller-centre-page .container.products-action .add-a-new-product-wrapper .form-wrapper .peso-sign {
+        #seller-centre-page .container.products-action .product-wrapper .form-wrapper .peso-sign {
           position: absolute;
-          left: 263px;
+          left: 232px;
           z-index: 1;
           font-size: 12px;
-          top: 502px; }
+          top: 533px; }
+        #seller-centre-page .container.products-action .product-wrapper .btn-primary {
+          margin-top: 10px;
+          background-color: #333333;
+          border: 0;
+          border-radius: 0;
+          color: #fff;
+          text-transform: uppercase;
+          padding: 18px 25px;
+          cursor: pointer; }
+          #seller-centre-page .container.products-action .product-wrapper .btn-primary:hover, #seller-centre-page .container.products-action .product-wrapper .btn-primary:focus {
+            background-color: #3f3f3f;
+            -webkit-box-shadow: none;
+                    box-shadow: none; }
+          #seller-centre-page .container.products-action .product-wrapper .btn-primary.delete {
+            position: relative;
+            bottom: 82px; }
+        #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password {
+          position: absolute;
+          z-index: 9999;
+          right: 155px;
+          bottom: 60px; }
+          #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password.product-details {
+            position: absolute;
+            z-index: 9999;
+            right: 181px;
+            bottom: 60px; }
+          #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password a {
+            text-decoration: none; }
   #seller-centre-page .info {
     width: 80%; }
     #seller-centre-page .info .title {
@@ -13824,6 +13880,15 @@ nav a:focus {
         background-color: #3f3f3f;
         -webkit-box-shadow: none;
                 box-shadow: none; }
+    #seller-centre-page .login-wrapper .tooltip-wrapper {
+      display: inline;
+      position: absolute;
+      right: 35px;
+      top: 170px; }
+      #seller-centre-page .login-wrapper .tooltip-wrapper a {
+        color: inherit; }
+        #seller-centre-page .login-wrapper .tooltip-wrapper a .fa {
+          font-size: 20px; }
 
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;

@@ -40,14 +40,6 @@
 
 </head>
 
-<?php  
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	    if (isset($_POST['button_save'])) { //user registering
-	    	require '/../../c8NLPYLt-functions/profile-function.php';
-	    }
-	}
-?>
-
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -682,7 +674,7 @@
 							<div id="prevent-not-to-scroll" class="col-md-8">
 								<div class="tab-content"><h1>My Profile</h1><p>Manage and protect your account</p></div>
 							
-								<form action="/etiendahan/customer/account/profile/" method="POST">
+								<form action="/etiendahan/c8NLPYLt-functions/profile-function/" method="POST">
 									<!-- gender -->
 									<div class="form-group row">
 										<label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
@@ -814,10 +806,10 @@
 					<div class="popup-content text-center">
 						<?php  
 							// Display message only once
-							if ( isset($_SESSION['modified-message']) ) {
-								echo $_SESSION['modified-message'];
+							if ( isset($_SESSION['modified-message-profile']) ) {
+								echo $_SESSION['modified-message-profile'];
 								// Don't annoy the user with more messages upon page refresh
-								unset( $_SESSION['modified-message'] );
+								unset( $_SESSION['modified-message-profile'] );
 							}
 						?>
 					</div>

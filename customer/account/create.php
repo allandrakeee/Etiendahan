@@ -7,6 +7,24 @@
 	$birthmonth = ((isset($_POST['birthmonth']) && $_POST['birthmonth'] != '')?htmlentities($_POST['birthmonth']):'');
 	$birthyear 	= ((isset($_POST['birthyear']) && $_POST['birthyear'] != '')?htmlentities($_POST['birthyear']):'');
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+
+  	// Check if user is logged in using the session variable
+  	if ($logged_in == 1) {
+    	// header("location: /etiendahan/");    
+    	$email = $mysqli->escape_string($_SESSION['email']);
+		$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+		$user = $result->fetch_assoc();
+
+		if ($user['seller_centre'] == 0) {
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+            header("location: /etiendahan/seller-centre/account/activate/");
+        } else {
+			$_SESSION['cant-proceed-message'] = "You must logout first before viewing create page";
+            header("location: /etiendahan/");
+        }  
+
+  	}
 ?>
 
 <!DOCTYPE html>

@@ -1,4 +1,7 @@
 <?php  
+    require '/../db.php';
+    session_start();
+
     // Escape all $_POST variables to protect against SQL injections
     $fullname   = $mysqli->escape_string($_POST['fullname']);
     $gender     = $mysqli->escape_string($_POST['gender']);
@@ -20,7 +23,9 @@
         $_SESSION['birthmonth'] = $_POST['birthmonth'];
         $_SESSION['birthyear']  = $_POST['birthyear'];
 
-        $_SESSION['modified-message'] = "Successfully modified";
+        $_SESSION['modified-message-profile'] = "Successfully modified";
+        header("location: /etiendahan/customer/account/profile/");
+        
     }
 
     else {

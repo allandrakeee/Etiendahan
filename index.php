@@ -1459,6 +1459,15 @@
 								unset( $_SESSION['logout-message-redirect'] );
 							}
 						?>
+
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
+							}
+						?>
 					</div>
 				</div>
 				<!-- END OF POPUP NOTIFICATION -->

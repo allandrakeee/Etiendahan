@@ -29,15 +29,6 @@
 	?>
 	
 </head>
-
-<?php  
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	    if (isset($_POST['button_confirm'])) { //user registering
-	    	require '/../../c8NLPYLt-functions/password-function.php';
-	    }
-	}
-?>
-
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -107,7 +98,7 @@
 							<div id="prevent-not-to-scroll" class="col-md-8">
 								<div class="tab-content"><h1>Change Password</h1><p>For your account's security, do not share your password with anyone else</p></div>
 							
-								<form action="/etiendahan/customer/account/password/" method="POST">
+								<form action="/etiendahan/c8NLPYLt-functions/password-function/" method="POST">
 									<!-- current password -->
 									<div class="form-group row">
 										<label for="inputPasswordCurrent" class="col-sm-2 col-form-label">Current Password</label>
@@ -172,6 +163,23 @@
 				</div>
 				<!-- END OF POPUP NOTIFICATION -->
 
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['modified-message']) ) {
+								echo $_SESSION['modified-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['modified-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 <!-- footer inner -->
 <?php  
 	include '../../footer.php';

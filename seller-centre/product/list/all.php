@@ -23,13 +23,7 @@
   	}
 	else {
 	    // Makes it easier to read
-	    $fullname 	= $_SESSION['fullname'];
-	    $gender     = $_SESSION['gender'];
-	    $email      = $_SESSION['email'];
-	    $active     = $_SESSION['active'];
-	    $birthday   = $_SESSION['birthday'];
-	    $birthmonth = $_SESSION['birthmonth'];
-	    $birthyear  = $_SESSION['birthyear'];
+	    $email = $_SESSION['email'];
 	}
 ?>
 
@@ -57,7 +51,10 @@
 	<div id="seller-centre-page" class="main-container">
 		<div class="main-wrapper">
 			<div class="main">
-				
+
+				<!-- <div id="id-goes-here"></div> -->
+				<input type="hidden" id="hidden-input" name="my-hidden-input">
+
 				<!-- SECTION 1 -->
 				<div id="etiendahan-section-1" class="etiendahan-section">
 					<!-- navbar -->
@@ -74,7 +71,7 @@
 							</div>
 
 							<div class="nav-item right-nav dropdown" id="user-account">
-								<a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<a href="/etiendahan/seller-centre/product/list/all/" class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
 									<i class="fa fa-user-circle pl-4 pr-4"></i>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -119,53 +116,66 @@
 				<div class="container inner">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="products-number">0 Products</div>
+							<div class="products-number">
+								<?php  
+									$result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE seller_email = '$email'");
+									$product_count = $result_product_count->fetch_row();
+									if($product_count[0] == 0 || $product_count[0] == 1)  {
+										echo $product_count[0].' Product';
+									} else {
+										echo $product_count[0].' Products';
+									}
+								?>
+							</div>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-md-2 product">
-							<a href="/etiendahan/seller-centre/product/upload/">
+							<a href="/etiendahan/seller-centre/product/new/">
 								<div class="add-a-new-product-wrapper">
 									<div class="add-a-new-product"><i class="fa fa-plus-circle"></i><div>Add a New Product</div></div>
 								</div>
 							</a>
 						</div>
 
-						<div class="col-md-2 product">
-							<a href="/etiendahan/seller-centre/product/product-details/">
-								<div class="product-wrapper">
-									<div class="product-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/b241675a9821fca83eb64757e69e5143_tn);"></div>
-									<div class="product-name text-left pl-3 mt-2">JBL</div>
-									<div class="product-price pull-left pl-3 mt-1">₱1,000.00</div>
-									<div class="product-stock mt-1">Stock 0</div>
-									<div class="statistics mt-4 mb-1">statistics</div>
-									<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
-									<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
-									<div class="sales">Sales 0</div>
-								</div>
-							</a>
-						</div>
-
-						<div class="col-md-2 product">
-							<a href="/etiendahan/seller-centre/product/list/all">
-								<div class="product-wrapper">
-									<div class="product-image overlay" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/b241675a9821fca83eb64757e69e5143_tn);"><div class="sold-wrapper"><div class="sold">Sold</div></div></div>
-									<div class="product-name text-left pl-3 mt-2">JBL</div>
-									<div class="product-price pull-left pl-3 mt-1">₱1,000.00</div>
-									<div class="product-stock mt-1">Stock 0</div>
-									<div class="statistics mt-4 mb-1">statistics</div>
-									<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
-									<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
-									<div class="sales">Sales 0</div>
-								</div>
-							</a>
-						</div>
+						<?php  
+							$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email='$email' GROUP BY name");
+							while($product_row = mysqli_fetch_assoc($result_product)):
+						?>
+							<div class="col-md-2 product">
+								<a <?php echo ($product_row['banned'] == 1) ? '' : 'href="/etiendahan/seller-centre/product/details/"'?>>
+									<div class="product-wrapper list" id="<?php echo $product_row['id'] ?>">
+										<div class="product-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/b241675a9821fca83eb64757e69e5143_tn);"><?php
+											if ($product_row['banned'] == 1) {
+												echo '<div class="banned-wrapper"><div class="banned">Banned</div></div>';
+											} else if ($product_row['stock'] == 0) {
+												echo '<div class="sold-wrapper"><div class="sold">Sold</div></div>';
+											}
+										?></div>
+										<div class="product-name text-left pl-3 mt-2"><?php echo $product_row['name'] ?></div>
+										<div class="product-price pull-left pl-3">₱<?php echo $product_row['price'] ?></div>
+										<?php
+											if($product_row['stock'] <= 5) {
+												echo '<div class="product-stock text-danger">Stock '.$product_row['stock'].'</div>';
+											} else {
+												echo '<div class="product-stock">Stock '.$product_row['stock'].'</div>';
+											}
+										?>
+										<div class="statistics mt-4 mb-1">statistics</div>
+										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
+										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
+										<div class="sales">Sales 0</div>
+									</div>
+								</a>
+							</div>	
+						<?php endwhile; ?>
+						
 					</div>
 
 					<div class="row">
 						<div class="col-md-12">
-							<div class="footer">
+							<div class="footer mb-3">
 								<div class="site-image" style="background-image: url(/etiendahan/temp-img/logo-seller-centre.png);"></div>
 								<div class="site-centre">Etiendahan Seller Centre</div>
 								<div class="site-version">Current Version: beta test</div>

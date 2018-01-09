@@ -74,7 +74,7 @@
 							</div>
 
 							<div class="nav-item right-nav dropdown" id="user-account">
-								<a class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<a href="/etiendahan/seller-centre/product/list/all/" class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
 									<i class="fa fa-user-circle pl-4 pr-4"></i>
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
