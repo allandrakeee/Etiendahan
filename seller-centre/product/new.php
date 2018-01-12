@@ -57,8 +57,6 @@
 	?>
 
 </head>
-
-
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -114,14 +112,15 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="product-wrapper p-4">	
-								<form action="/etiendahan/c8NLPYLt-functions/new-product-function/" method="POST">			
+								<form action="/etiendahan/c8NLPYLt-functions/new-product-function/" method="POST" enctype="multipart/form-data">
 									<div class="form-wrapper mt-1">
-										<div class="title">Edit Product Images</div>
+										<div class="title">Add Product Images</div>
 										<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Showcase your product by taking a photo against a white background with good lighting. Upload more product images to show different angles.">Tips for better selling product images</div>
 										
-										<div class="form-group row mt-2">
-											<div class="col-sm-12">
-												<input type="file" class="form-control-file" id="exampleFormControlFile1">
+										<div class="row mt-3 wrapper-image">
+											<div class="col-md-2 text-center">
+												<label for="image" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Add Image</div></div></label>
+												<input type="file" class="form-control-file" id="image" style="visibility:hidden;" id="exampleFormControlFile1" name="image[]" multiple>
 											</div>
 										</div>
 									</div>
@@ -132,14 +131,14 @@
 										<div class="form-group row">
 											<label for="inputProductName" class="col-sm-2 col-form-label">Product Name</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name" required>
+												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name">
 											</div>									
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description" required=""><?php echo $description ?></textarea>
+												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description"><?php echo $description ?></textarea>
 											</div>	
 										</div>
 
@@ -151,7 +150,7 @@
 													// $category_name;
 													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
 												?>	
-													<select class='form-control' id='category' name='category' required>"
+													<select class='form-control' id='category' name='category'>"
 														<option value=''>Parent Category</option>"
 												<?php  
 													while($category = mysqli_fetch_assoc($result)){
@@ -166,7 +165,7 @@
 																						
 											</div>	
 											<div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory' required>	
+												<select class='form-control' id='sub-category' name='subCategory'>	
 													<option value=''>Sub Category</option>
 												</select>				
 											</div>
@@ -175,20 +174,19 @@
 
 									<div class="form-wrapper mt-5">
 										<div class="title">Price and Inventory</div>
-
+											
 										<div class="form-group row">
 											<label for="inputProductPrice" class="col-sm-2 col-form-label">Price</label>
-											<div class="peso-sign">₱</div>
-											<div class="col-sm-2">
-												<input type="number" class="form-control" id="inputProductPrice" pattern="[0-9]*" value="<?php echo $price ?>" name="price" required>
-												<!-- <input type="text" class="form-control formatter" id="inputProductPrice"> -->
-											</div>									
+											<div class="peso-sign new">₱</div>
+											<div class="col-sm-2 money">
+											    <input type="text" class="form-control numberOnly" autocomplete="off" id="inputProductPrice" value="<?php echo $price ?>" name="price"><div></div>
+											</div>
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductStock" class="col-sm-2 col-form-label">Stock</label>
 											<div class="col-sm-10">
-												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock" required>
+												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock">
 											</div>	
 										</div>
 									</div>
@@ -230,6 +228,24 @@
 								echo $_SESSION['product-added-message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['product-added-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
+				<!-- POPUP NOTIFICATION - logout -redirect -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
 							}
 						?>
 					</div>

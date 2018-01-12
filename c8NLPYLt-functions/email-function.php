@@ -15,7 +15,17 @@
         header("location: /etiendahan/customer/account/email/");
     }
     else {
-        $mysqli->query("UPDATE tbl_products SET seller_email='$new_email' WHERE seller_email='$email'") or die($mysqli->error);
+        define('BASEURL', $_SERVER['DOCUMENT_ROOT'].'/etiendahan/');
+        $email_path = BASEURL."images/".$email."/";
+        $new_email_path = BASEURL."images/".$new_email."/";
+
+        if(is_dir($email_path) && !is_dir($new_email_path)) {
+            rename($email_path, $new_email_path);
+        }
+
+        $db_path = "/etiendahan/images/".$new_email."/";
+
+        $mysqli->query("UPDATE tbl_products SET seller_email = '$new_email', image = REPLACE(image, '$email', '$new_email') WHERE seller_email='$email'") or die($mysqli->error);
         $sql = "UPDATE tbl_customers SET email = '$new_email' WHERE email = '$email'";
 
         if ($mysqli->query($sql) or die($mysqli->error)) {

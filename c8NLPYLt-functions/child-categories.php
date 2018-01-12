@@ -2,8 +2,9 @@
 	require '/../db.php';
 	session_start();
 
-	$product_id = ((isset($_POST['product_details_id']) && $_POST['product_details_id'] != '')?htmlentities($_POST['product_details_id']):'');
-	$_SESSION['product_details_id'] = $product_id;
+	if($_POST['product_details_id'] != '') {
+		$_SESSION['product_details_id'] = $_POST['product_details_id'];
+	}
 
 	// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
 	$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): '');

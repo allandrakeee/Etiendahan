@@ -3,7 +3,7 @@
 	session_start();
 
 	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
-
+	$product_details_id = ((isset($_SESSION['product_details_id']) && $_SESSION['product_details_id'] != '')?htmlentities($_SESSION['product_details_id']):'');
 	// Check if user is logged in using the session variable
 	if ($logged_in == false) {
 	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
@@ -30,10 +30,9 @@
 	    $birthday   = $_SESSION['birthday'];
 	    $birthmonth = $_SESSION['birthmonth'];
 	    $birthyear  = $_SESSION['birthyear'];
-	}
 
-	$product_details_id = $_SESSION['product_details_id'];
-	// echo $product_details_id;
+	}
+	echo $product_details_id;
 ?>
 
 <!DOCTYPE html>
@@ -60,9 +59,7 @@
 	<div id="seller-centre-page" class="main-container">
 		<div class="main-wrapper" id="product-details-page">
 			<div class="main">
-
-				<!-- <div id="id-goes-here"></div> -->
-				<input type="hidden" id="hidden-input" name="my-hidden-input">
+				<input type="hidden" id="hidden-input" name="my-hidden-input" value="<?php echo $product_details_id; ?>">
 				
 				<!-- SECTION 1 -->
 				<div id="etiendahan-section-1" class="etiendahan-section">
@@ -124,14 +121,35 @@
 									$stock 				= ((isset($_POST['stock']) && $_POST['stock'] != '')?htmlentities($_POST['stock']): $product_details['stock']);
 
 								?>
-								<form class="product-details">
+
+								<form id="delete-form" class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-delete-image-function/" method="POST">	
+								</form>
+								<form class="product-details" action="/etiendahan/c8NLPYLt-functions/product-details-function/" method="POST" enctype="multipart/form-data">
 									<div class="form-wrapper mt-1">
 										<div class="title">Edit Product Images</div>
 										<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Showcase your product by taking a photo against a white background with good lighting. Upload more product images to show different angles.">Tips for better selling product images</div>
-										
-										<div class="form-group row mt-2">
-											<div class="col-sm-12">
-												<input type="file" class="form-control-file" id="exampleFormControlFile1">
+																				
+										<div class="row mt-3">
+											<?php  
+												$result_product_image = $mysqli->query("SELECT image FROM tbl_products WHERE id='$product_details_id'");
+												while($product_row_image = mysqli_fetch_assoc($result_product_image)):
+													$saved_image = $product_row_image['image'];
+													if($saved_image != ''):
+											?>
+														<div class="col-md-2 text-center">
+																<div class="saved-image" style="background: url(<?php echo $saved_image ?>);"></div>
+																<button class="text-danger d-inline-block mt-2 delete-image" type="submit" form="delete-form" name="button_delete_image">Delete Image</button>
+														</div>
+												<?php else: ?>
+														<div class="col-md-2 text-center">
+																<div class="saved-image" style="background: url('http://via.placeholder.com/155x155?text=No+Image+Preview');"></div>
+														</div>
+												<?php endif; ?>
+											<?php endwhile; ?>
+
+											<div class="col-md-2 text-center">
+												<label for="image" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Add Image</div></div></label>
+												<input type="file" class="form-control-file" id="image" style="visibility:hidden;" id="exampleFormControlFile1" name="image">
 											</div>
 										</div>
 									</div>
@@ -142,14 +160,14 @@
 										<div class="form-group row">
 											<label for="inputProductName" class="col-sm-2 col-form-label">Product Name</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>">
+												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name" required>
 											</div>									
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500"><?php echo $description ?></textarea>
+												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description" required><?php echo $description ?></textarea>
 											</div>	
 										</div>
 
@@ -168,7 +186,7 @@
 													$get_sub_category_id = $categories_row['id'];
 
 													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
-													echo "<select class='form-control' id='category' name='category'>";
+													echo "<select class='form-control' id='category' name='category' required>";
 													echo "<option value=''>Parent Category</option>";
 													while($category = mysqli_fetch_assoc($result)){
 														$category_id = $category['id'];
@@ -179,7 +197,7 @@
 													</select>							
 											</div>	
 											<div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory'>	
+												<select class='form-control' id='sub-category' name='subCategory' required>	
 													<option value="">Sub Category</option>
 													<?php 
 
@@ -200,20 +218,19 @@
 
 									<div class="form-wrapper mt-5">
 										<div class="title">Price and Inventory</div>
-
+	
 										<div class="form-group row">
 											<label for="inputProductPrice" class="col-sm-2 col-form-label">Price</label>
 											<div class="peso-sign">₱</div>
-											<div class="col-sm-2">
-												<input type="text" class="form-control" id="inputProductPrice" pattern="[0-9]*" value="<?php echo $price ?>">
-												<!-- <input type="text" class="form-control formatter" id="inputProductPrice"> -->
-											</div>									
+											<div class="col-sm-2 money">
+											    <input type="text" class="form-control numberOnly" autocomplete="off" id="inputProductPrice" value="<?php echo $price ?>" name="price" required><div></div>
+											</div>
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductStock" class="col-sm-2 col-form-label">Stock</label>
 											<div class="col-sm-10">
-												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>">
+												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock" required>
 											</div>	
 										</div>
 									</div>
@@ -226,10 +243,11 @@
 										<div class="col-sm-12 text-right">
 											<button name="button_modify" class="btn btn-primary" type="submit">Modify</button>
 										</div>
-									</div>	
+									</div>									
+								</form>
 
+								<form class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-details-delete-function/" method="POST">	
 									<button name="button_delete" class="btn btn-primary delete" type="submit">Delete</button>
-									
 								</form>
 							</div>
 						</div>
@@ -244,7 +262,61 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>	
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['product-modified-message']) ) {
+								echo $_SESSION['product-modified-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['product-modified-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->	
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['product-added-message']) ) {
+								echo $_SESSION['product-added-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['product-added-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
+				<!-- POPUP NOTIFICATION - logout -redirect -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->		
 			</div>
 		</div>
 	</div>	

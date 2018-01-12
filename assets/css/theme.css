@@ -13744,7 +13744,12 @@ nav a:focus {
           color: #007bff;
           display: inline; }
         #seller-centre-page .container.products-action .product-wrapper form.product-details {
-          height: 680px; }
+          height: 867px; }
+        #seller-centre-page .container.products-action .product-wrapper form.delete-form {
+          position: absolute;
+          height: 0;
+          width: 0;
+          bottom: 25px; }
         #seller-centre-page .container.products-action .product-wrapper .form-wrapper label {
           font-weight: 700; }
         #seller-centre-page .container.products-action .product-wrapper .form-wrapper .form-control {
@@ -13772,7 +13777,13 @@ nav a:focus {
           left: 232px;
           z-index: 1;
           font-size: 12px;
-          top: 533px; }
+          top: 731px; }
+          #seller-centre-page .container.products-action .product-wrapper .form-wrapper .peso-sign.new {
+            position: absolute;
+            left: 232px;
+            z-index: 1;
+            font-size: 12px;
+            top: 534px; }
         #seller-centre-page .container.products-action .product-wrapper .btn-primary {
           margin-top: 10px;
           background-color: #333333;
@@ -13788,7 +13799,7 @@ nav a:focus {
                     box-shadow: none; }
           #seller-centre-page .container.products-action .product-wrapper .btn-primary.delete {
             position: relative;
-            bottom: 82px; }
+            bottom: 73px; }
         #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password {
           position: absolute;
           z-index: 9999;
@@ -13798,7 +13809,7 @@ nav a:focus {
             position: absolute;
             z-index: 9999;
             right: 181px;
-            bottom: 60px; }
+            bottom: 52px; }
           #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password a {
             text-decoration: none; }
   #seller-centre-page .info {
@@ -13889,6 +13900,39 @@ nav a:focus {
         color: inherit; }
         #seller-centre-page .login-wrapper .tooltip-wrapper a .fa {
           font-size: 20px; }
+  #seller-centre-page .saved-image {
+    height: 155px;
+    width: 100%;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important; }
+  #seller-centre-page a.text-danger {
+    text-decoration: none; }
+  #seller-centre-page button.delete-image {
+    background: none !important;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit;
+    cursor: pointer; }
+    #seller-centre-page button.delete-image:focus {
+      outline: none; }
+  #seller-centre-page .label-for-upload-image {
+    font-weight: 700;
+    width: 100%;
+    height: 155px;
+    margin-bottom: 0;
+    padding: 0;
+    border: 2px dashed #dcdcdc; }
+    #seller-centre-page .label-for-upload-image:hover {
+      border: 2px dashed dimgrey; }
+    #seller-centre-page .label-for-upload-image .wrapper-inner {
+      position: relative;
+      top: 37%; }
+      #seller-centre-page .label-for-upload-image .wrapper-inner .fa {
+        font-size: 20px; }
+      #seller-centre-page .label-for-upload-image .wrapper-inner div {
+        font-weight: 400; }
 
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;

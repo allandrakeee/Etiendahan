@@ -39,7 +39,6 @@
 	?>
 
 </head>
-
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
