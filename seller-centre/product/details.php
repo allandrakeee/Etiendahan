@@ -32,7 +32,7 @@
 	    $birthyear  = $_SESSION['birthyear'];
 
 	}
-	echo $product_details_id;
+	// echo $product_details_id;
 ?>
 
 <!DOCTYPE html>
@@ -130,27 +130,33 @@
 										<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Showcase your product by taking a photo against a white background with good lighting. Upload more product images to show different angles.">Tips for better selling product images</div>
 																				
 										<div class="row mt-3">
-											<?php  
+											<div class="col-md-2 text-center">
+												<label for="file" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Upload Image</div></div></label>
+												<input type="file" class="form-control-file" id="file" style="visibility:hidden;" id="exampleFormControlFile1" name="file">
+												<span id="uploaded_image" hidden></span>
+											</div>
+
+											<?php
+												$imagei = 1;  
 												$result_product_image = $mysqli->query("SELECT image FROM tbl_products WHERE id='$product_details_id'");
 												while($product_row_image = mysqli_fetch_assoc($result_product_image)):
-													$saved_image = $product_row_image['image'];
-													if($saved_image != ''):
-											?>
-														<div class="col-md-2 text-center">
-																<div class="saved-image" style="background: url(<?php echo $saved_image ?>);"></div>
-																<button class="text-danger d-inline-block mt-2 delete-image" type="submit" form="delete-form" name="button_delete_image">Delete Image</button>
-														</div>
-												<?php else: ?>
-														<div class="col-md-2 text-center">
-																<div class="saved-image" style="background: url('http://via.placeholder.com/155x155?text=No+Image+Preview');"></div>
-														</div>
-												<?php endif; ?>
-											<?php endwhile; ?>
+													$saved_image = explode(',', $product_row_image['image']);
+													foreach ($saved_image as $saved):
 
-											<div class="col-md-2 text-center">
-												<label for="image" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Add Image</div></div></label>
-												<input type="file" class="form-control-file" id="image" style="visibility:hidden;" id="exampleFormControlFile1" name="image">
-											</div>
+														if($product_row_image['image'] != ''):
+											?>
+															<div class="col-md-2 text-center">
+																<div class="saved-image" style="background: url(<?php echo $saved ?>);"></div>
+																<button class="text-danger d-inline-block mb-1 delete-image" type="submit" form="delete-form" name="post_delete_image_id" value="<?php echo $imagei; ?>">Delete Image</button>
+															</div>
+													<?php else: ?>
+															<div class="col-md-2 text-center">
+																<div class="saved-image" style="background: url('http://via.placeholder.com/155x155?text=No+Image+Preview');"></div>
+															</div>
+													<?php endif; ?>
+													<?php $imagei++; ?>
+												<?php endforeach; ?>
+											<?php endwhile; ?>											
 										</div>
 									</div>
 

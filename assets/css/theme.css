@@ -13702,7 +13702,7 @@ nav a:focus {
               #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper {
                 height: 100%;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.1); }
+                background-color: rgba(0, 0, 0, 0.5); }
                 #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper .banned {
                   text-transform: uppercase;
                   position: relative;
@@ -13743,8 +13743,6 @@ nav a:focus {
         #seller-centre-page .container.products-action .product-wrapper .sub-title {
           color: #007bff;
           display: inline; }
-        #seller-centre-page .container.products-action .product-wrapper form.product-details {
-          height: 867px; }
         #seller-centre-page .container.products-action .product-wrapper form.delete-form {
           position: absolute;
           height: 0;
@@ -13771,19 +13769,15 @@ nav a:focus {
             -webkit-box-shadow: none;
                     box-shadow: none; }
         #seller-centre-page .container.products-action .product-wrapper .form-wrapper #inputProductPrice {
-          padding-left: 25px; }
+          padding-left: 25px;
+          position: relative;
+          left: -10px; }
         #seller-centre-page .container.products-action .product-wrapper .form-wrapper .peso-sign {
-          position: absolute;
-          left: 232px;
-          z-index: 1;
+          position: relative;
+          left: 25px;
+          z-index: 8;
           font-size: 12px;
-          top: 731px; }
-          #seller-centre-page .container.products-action .product-wrapper .form-wrapper .peso-sign.new {
-            position: absolute;
-            left: 232px;
-            z-index: 1;
-            font-size: 12px;
-            top: 534px; }
+          top: 8px; }
         #seller-centre-page .container.products-action .product-wrapper .btn-primary {
           margin-top: 10px;
           background-color: #333333;
@@ -13798,18 +13792,26 @@ nav a:focus {
             -webkit-box-shadow: none;
                     box-shadow: none; }
           #seller-centre-page .container.products-action .product-wrapper .btn-primary.delete {
-            position: relative;
-            bottom: 73px; }
+            position: absolute;
+            bottom: 15px; }
+          #seller-centre-page .container.products-action .product-wrapper .btn-primary.delete-list {
+            background: none !important;
+            color: inherit;
+            border: none;
+            padding: 0 !important;
+            font: inherit;
+            cursor: pointer; }
         #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password {
           position: absolute;
           z-index: 9999;
           right: 155px;
           bottom: 60px; }
           #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password.product-details {
-            position: absolute;
+            display: inline;
+            position: relative;
             z-index: 9999;
-            right: 181px;
-            bottom: 52px; }
+            bottom: -45px;
+            left: 880px; }
           #seller-centre-page .container.products-action .product-wrapper .cancel-forgot-password a {
             text-decoration: none; }
   #seller-centre-page .info {
@@ -13925,7 +13927,8 @@ nav a:focus {
     padding: 0;
     border: 2px dashed #dcdcdc; }
     #seller-centre-page .label-for-upload-image:hover {
-      border: 2px dashed dimgrey; }
+      border: 2px dashed dimgrey;
+      cursor: pointer; }
     #seller-centre-page .label-for-upload-image .wrapper-inner {
       position: relative;
       top: 37%; }
@@ -13933,6 +13936,20 @@ nav a:focus {
         font-size: 20px; }
       #seller-centre-page .label-for-upload-image .wrapper-inner div {
         font-weight: 400; }
+  #seller-centre-page .btn-primary.delete-list {
+    background-color: #333333;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 9px;
+    position: relative;
+    bottom: 2px;
+    padding: 6px; }
+    #seller-centre-page .btn-primary.delete-list:focus {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
 
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;

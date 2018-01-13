@@ -15,8 +15,6 @@
 
     if($photo_count > 0) {
         for($i=0;$i<$photo_count;$i++) {
-            echo $i.'<br>';
-
             $name = $_FILES['image']['name'][$i];
             $name_array = explode('.', $name);
             $file_name = $name_array[0];
@@ -49,11 +47,7 @@
     } else if($image_size >= 11864210 || ($_FILES["image"]["size"] == 0)) {
         header("location: /etiendahan/seller-centre/product/new/");
         echo '2';
-        $_SESSION['cant-proceed-message'] = 'Image too large. Each image must be less than 10 megabytes.';
-    } if($photo_count > 8){
-        header("location: /etiendahan/seller-centre/product/new/");
-        echo '3';
-        $_SESSION['cant-proceed-message'] = '8 images is the limit of uploading image';
+        $_SESSION['cant-proceed-message'] = 'Image too large. Each image must be less than 10 megabytes';
     } else {
         if($photo_count > 0) {
             for ($i=0; $i < $photo_count; $i++) { 

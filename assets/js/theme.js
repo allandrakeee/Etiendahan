@@ -28554,7 +28554,7 @@ $(function() {
                 var reader = new FileReader();
 
                 reader.onload = function(event) {
-                    $($.parseHTML('<div class="col-md-2 text-center"><div class="saved-image" style="background-image: url('+event.target.result+')"></div></div>')).appendTo(placeToInsertImagePreview);
+                    $($.parseHTML('<div class="col-md-2 mb-4 text-center"><div class="saved-image" style="background-image: url('+event.target.result+')"></div></div>')).appendTo(placeToInsertImagePreview);
                 }
 
                 reader.readAsDataURL(input.files[i]);
@@ -28568,5 +28568,52 @@ $(function() {
     });
 });
 
+
+$(document).ready(function(){
+	$(document).on('change', '#file', function(){
+		var property = document.getElementById("file").files[0];
+		var image_name = property.name;
+		var image_extension = image_name.split(".").pop().toLowerCase();
+
+		if(jQuery.inArray(image_extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+			alert("The file must be an image");
+		}
+
+		var image_size = property.size;
+
+		if(image_size > 11864210) {
+			alert("Image too large. Each image must be less than 10 megabytes.");
+		} else {
+			var form_data = new FormData();
+			form_data.append("file", property);
+			$.ajax({
+				url: '/etiendahan/c8NLPYLt-functions/upload/',
+				method: 'POST',
+				data: form_data,
+				contentType: false,
+				cached: false,
+				processData: false,
+				success:function(data){
+					$('#uploaded_image').html(data);
+					$(document).ajaxStop(function() { location.reload(true); });
+				}
+			})
+		}
+	});
+});
+
+$(document).ready(function() {
+    $('#button-save-new-product').bind("click",function() 
+    { 
+        var imgVal = $('#image').val(); 
+        if(imgVal=='') 
+        { 
+            alert("Recommended to add image in your product"); 
+            return false; 
+        } 
+
+
+    }); 
+});
 // ============ END OF SELLER CENTRE PAGE ============ 
 

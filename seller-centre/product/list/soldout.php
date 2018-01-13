@@ -139,9 +139,10 @@
 							while($product_row = mysqli_fetch_assoc($result_product)):
 						?>
 							<div class="col-md-2 product">
-								<a href="/etiendahan/seller-centre/product/details/">
+								<a <?php echo ($product_row['banned'] == 1) ? '' : 'href="/etiendahan/seller-centre/product/details/"'?>>
 									<div class="product-wrapper list" id="<?php echo $product_row['id'] ?>">
-										<div class="product-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/b241675a9821fca83eb64757e69e5143_tn);"><?php
+										<?php $saved_image = explode(',', $product_row['image']); ?>
+										<div class="product-image" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"><?php
 											if ($product_row['banned'] == 1) {
 												echo '<div class="banned-wrapper"><div class="banned">Banned</div></div>';
 											} else if ($product_row['stock'] == 0) {

@@ -146,7 +146,8 @@
 							<div class="col-md-2 product">
 								<a <?php echo ($product_row['banned'] == 1) ? '' : 'href="/etiendahan/seller-centre/product/details/"'?>>
 									<div class="product-wrapper list" id="<?php echo $product_row['id'] ?>">
-										<div class="product-image" style="background-image: url(<?php echo ($product_row['image'] != '') ? $product_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"><?php
+										<?php $saved_image = explode(',', $product_row['image']); ?>
+										<div class="product-image" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"><?php
 											if ($product_row['banned'] == 1) {
 												echo '<div class="banned-wrapper"><div class="banned">Banned</div></div>';
 											} else if ($product_row['stock'] == 0) {
@@ -166,11 +167,18 @@
 										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
 										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
 										<div class="sales">Sales 0</div>
+										
+										<?php if($product_row['banned'] == 1): ?>
+										<div class="delete-product mt-3">
+											<form class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-details-delete-function/" method="POST">	
+												<button name="button_delete" class="btn btn-primary delete-list" type="submit">Delete</button>
+											</form>
+										</div>
+										<?php endif; ?>
 									</div>
 								</a>
 							</div>	
 						<?php endwhile; ?>
-						
 					</div>
 
 					<div class="row">

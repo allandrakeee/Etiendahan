@@ -119,8 +119,8 @@
 										
 										<div class="row mt-3 wrapper-image">
 											<div class="col-md-2 text-center">
-												<label for="image" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Add Image</div></div></label>
-												<input type="file" class="form-control-file" id="image" style="visibility:hidden;" id="exampleFormControlFile1" name="image[]" multiple>
+												<label for="image" class="label-for-upload-image" required><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Select Image</div></div></label>
+												<input type="file" class="form-control-file" id="image" style="visibility:hidden;position:relative;height:23px;width:0" id="exampleFormControlFile1" name="image[]" multiple>
 											</div>
 										</div>
 									</div>
@@ -131,14 +131,14 @@
 										<div class="form-group row">
 											<label for="inputProductName" class="col-sm-2 col-form-label">Product Name</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name">
+												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name" required>
 											</div>									
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description"><?php echo $description ?></textarea>
+												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description" required><?php echo $description ?></textarea>
 											</div>	
 										</div>
 
@@ -150,7 +150,7 @@
 													// $category_name;
 													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
 												?>	
-													<select class='form-control' id='category' name='category'>"
+													<select class='form-control' id='category' name='category' required>"
 														<option value=''>Parent Category</option>"
 												<?php  
 													while($category = mysqli_fetch_assoc($result)){
@@ -165,7 +165,7 @@
 																						
 											</div>	
 											<div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory'>	
+												<select class='form-control' id='sub-category' name='subCategory' required>	
 													<option value=''>Sub Category</option>
 												</select>				
 											</div>
@@ -177,16 +177,16 @@
 											
 										<div class="form-group row">
 											<label for="inputProductPrice" class="col-sm-2 col-form-label">Price</label>
-											<div class="peso-sign new">₱</div>
+											<div class="peso-sign">₱</div>
 											<div class="col-sm-2 money">
-											    <input type="text" class="form-control numberOnly" autocomplete="off" id="inputProductPrice" value="<?php echo $price ?>" name="price"><div></div>
+											    <input type="text" class="form-control numberOnly" autocomplete="off" id="inputProductPrice" value="<?php echo $price ?>" name="price" required><div></div>
 											</div>
 										</div>
 
 										<div class="form-group row">
 											<label for="inputProductStock" class="col-sm-2 col-form-label">Stock</label>
 											<div class="col-sm-10">
-												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock">
+												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock" required>
 											</div>	
 										</div>
 									</div>
@@ -197,7 +197,7 @@
 
 									<div class="form-group row">
 										<div class="col-sm-12 text-right">
-											<button class="btn btn-primary" type="submit" name="button_save" >Save</button>
+											<button class="btn btn-primary" type="submit" name="button_save" id="button-save-new-product">Save</button>
 										</div>
 									</div>	
 								</form>

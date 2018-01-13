@@ -254,7 +254,7 @@
 						    	.banned-wrapper {
 									height: 100%;
 									width: 100%;
-								    background-color: rgba(0, 0, 0, 0.1);
+						        	background-color: rgba(0, 0, 0, 0.5);
 
 									.banned {
 										text-transform: uppercase;
@@ -321,10 +321,6 @@
 					display: inline;
 				}
 
-				form.product-details {
-			        height: 867px;
-				}
-
 				form.delete-form {
 					position: absolute;
 					height: 0;
@@ -364,23 +360,17 @@
 
 					#inputProductPrice {
 						padding-left: 25px;
+					    position: relative;
+						left: -10px;
 					}
 
 
 					.peso-sign {
-						position: absolute;
-						left: 232px;
-						z-index: 1;
+						position: relative;
+						left: 25px;
+						z-index: 8;
 						font-size: 12px;
-					    top: 731px;
-
-					    &.new {
-			    	    	position: absolute;
-							left: 232px;
-							z-index: 1;
-							font-size: 12px;
-							top: 534px;
-					    }
+						top: 8px;
 					}
 				}
 
@@ -400,8 +390,17 @@
 					}
 
 					&.delete {
-						position: relative;
-						bottom: 73px;
+						position: absolute;
+						bottom: 15px;
+					}
+
+					&.delete-list {
+						background:none!important;
+						color:inherit;
+						border:none; 
+						padding:0!important;
+						font: inherit; 
+						cursor: pointer;
 					}
 				}
 
@@ -413,10 +412,11 @@
 					bottom: 60px;
 
 					&.product-details {
-						position: absolute;
+						display: inline;
+						position: relative;
 						z-index: 9999;
-						right: 181px;
-						bottom: 52px;
+						bottom: -45px;
+						left: 880px;
 					}
 
 					a {
@@ -606,6 +606,7 @@
 
 		&:hover {
 		    border: 2px dashed dimgrey;
+		    cursor: pointer;
 		}
 
 		.wrapper-inner {
@@ -619,6 +620,23 @@
 			div {
 				font-weight: 400;
 			}
+		}
+	}
+
+	.btn-primary.delete-list {
+		background-color: #333333;
+		border: 0;
+		border-radius: 0;
+		color: #fff;
+		text-transform: uppercase;
+		cursor: pointer;
+		font-size: 9px;
+		position: relative;
+		bottom: 2px;
+		padding: 6px;
+
+		&:focus {
+			box-shadow: none;
 		}
 	}
 }

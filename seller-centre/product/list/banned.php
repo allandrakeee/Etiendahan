@@ -140,8 +140,15 @@
 						?>
 							<div class="col-md-2 product">
 								<a <?php echo ($product_row['banned'] == 1) ? '' : 'href="/etiendahan/seller-centre/product/details/"'?>>
-									<div class="product-wrapper">
-										<div class="product-image" style="background-image: url(https://cfshopeeph-a.akamaihd.net/file/b241675a9821fca83eb64757e69e5143_tn);"><?php echo ($product_row['banned'] == 1) ? '<div class="banned-wrapper"><div class="banned">Banned</div></div>' : ''?></div>
+									<div class="product-wrapper list" id="<?php echo $product_row['id'] ?>">
+										<?php $saved_image = explode(',', $product_row['image']); ?>
+										<div class="product-image" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"><?php
+											if ($product_row['banned'] == 1) {
+												echo '<div class="banned-wrapper"><div class="banned">Banned</div></div>';
+											} else if ($product_row['stock'] == 0) {
+												echo '<div class="sold-wrapper"><div class="sold">Sold</div></div>';
+											}
+										?></div>
 										<div class="product-name text-left pl-3 mt-2"><?php echo $product_row['name'] ?></div>
 										<div class="product-price pull-left pl-3">₱<?php echo $product_row['price'] ?></div>
 										<?php
@@ -155,6 +162,14 @@
 										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
 										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
 										<div class="sales">Sales 0</div>
+										
+										<?php if($product_row['banned'] == 1): ?>
+										<div class="delete-product mt-3">
+											<form class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-details-delete-function/" method="POST">	
+												<button name="button_delete" class="btn btn-primary delete-list" type="submit">Delete</button>
+											</form>
+										</div>
+										<?php endif; ?>
 									</div>
 								</a>
 							</div>	
