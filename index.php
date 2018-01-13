@@ -1,4 +1,5 @@
 <?php  
+	require '/db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
@@ -13,8 +14,8 @@
 	<meta name=viewport content="width=device-width, initial-scale=1">
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="temp-image/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="temp-img/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 
 	<!-- Normal import of theme.css -->
 	<link rel="stylesheet" href="assets/css/theme.css">
@@ -693,120 +694,48 @@
 					        <div class="col-md-2 col-sm-2">
 					        </div>
 
+					        <?php  
+								$result_category = $mysqli->query("SELECT * FROM tbl_categories LIMIT 4");
+								while($category_row = mysqli_fetch_assoc($result_category)):
+							?>
+
 					        <div class="col-md-2">
-								<a href="/etiendahan/category/electronics/" class="d-block my-gallery-inner">
+								<a href="/etiendahan/category/view/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
 									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/ee8f7b1c45188ae30ff6b33cc6347a1a_tn"></div>
+										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Electronics
+										<?php echo $category_row['name']; ?>
 									</div>
 								</a>
 					        </div>
 
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/7f49f8b96c9a8a58fcf5da969f8ef21c_tn"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Men's Fashion
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/794773a35068e003499306c85522012c_tn"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Women's Fashion
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/911278c26ed4c2c70e13ac0cbd4f560b_tn"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Home & Appliances
-									</div>
-								</a>
-					        </div>
+					    	<?php endwhile; ?>
 
 					        <div class="col-md-2">
 					        </div>
 			      		</div>
 
 			      		<div class="row text-center text-lg-left mt-4">
+					       
+					        <?php  
+								$result_category = $mysqli->query("SELECT * FROM tbl_categories LIMIT 4, 10");
+								while($category_row = mysqli_fetch_assoc($result_category)):
+							?>
+
 					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
+								<a href="/etiendahan/category/view/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
 									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
+										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
 									</div>
 									<div class="category-name text-center mb-3">
-										Health & Beauty
+										<?php echo $category_row['name']; ?>
 									</div>
 								</a>
 					        </div>
 
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Toys, Kids & Babies
-									</div>
-								</a>
-					        </div>
+					    	<?php endwhile; ?>	
 
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Sports & Outdoors
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Travel
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Groceries & Pets
-									</div>
-								</a>
-					        </div>
-
-					        <div class="col-md-2">
-								<a href="#" class="d-block my-gallery-inner">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="http://via.placeholder.com/110x110/"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										Real Estate
-									</div>
-								</a>
-					        </div>
 			      		</div>
 
 			      		<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	 -->

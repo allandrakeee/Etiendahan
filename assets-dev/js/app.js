@@ -768,13 +768,29 @@ $(document).ready(function () {
     // $('#data-display img').css('background', 'url('+attr+')');
   });
 });
+
+$(document).ready(function() {
+    $('#lightSlider').lightSlider({
+	    gallery: true,
+	    item: 1,
+	    loop:false,
+	    slideMargin: 0,
+	    thumbItem: 9,
+
+	    keyPress: false,
+        controls: true,
+        prevHtml: '<i class="fa fa-arrow-circle-o-left product-view"></i>',
+        nextHtml: '<i class="fa fa-arrow-circle-o-right product-view"></i>',
+
+	});
+});
 // ============ END OF VIEW ITEM PAGE ============
 
 // ============ END OF MAGNIFIER PAGE ============
 if($("#view-product-page").length > 0) {
-	var evt = new Event(),
-    m = new Magnifier(evt);
-	m.attach({thumb: '#thumb', mode: 'inside', zoom: 2, zoomable: true});
+	// var evt = new Event(),
+ //    m = new Magnifier(evt);
+	// m.attach({thumb: '#thumb', mode: 'inside', zoom: 2, zoomable: true});
 }
 // ============ END OF MAGNIFIER PAGE ============
 
@@ -994,6 +1010,23 @@ $(document).on('click', 'div.product-wrapper.list', function(){
 $(document).on('click', 'button.delete-image', function(){
     var product_details_id = $("input[name=my-hidden-input]").val();
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"product_details_id": product_details_id});
+});
+
+$(document).on('click', '.my-gallery-inner', function(){
+    var category_id = $(this).attr('id');
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_id": category_id});
+});
+
+$(document).on('click', 'a.go-to-sub', function(){
+    var sub_category_id = $(this).attr('id');
+    // alert(sub_category_id);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"sub_category_id": sub_category_id});
+});
+
+$(document).on('click', '.category-product-id', function(){
+    var category_product_id = $(this).attr('id');
+    alert(category_product_id);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_product_id": category_product_id});
 });
 
 // currency input

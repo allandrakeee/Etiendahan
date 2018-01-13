@@ -36,6 +36,7 @@ gulp.task('styles', function(){
         'node_modules/font-awesome/scss/font-awesome.scss',
         'node_modules/animate.css/animate.css',
         'node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        'node_modules/lightslider/dist/css/lightslider.css',
         'temp-folder/magnifier.css',
         'assets-dev/sass/*.scss'
     ])
@@ -62,6 +63,7 @@ gulp.task('styles-min', function(){
         'node_modules/font-awesome/scss/font-awesome.scss',
         'node_modules/animate.css/animate.css',
         'node_modules/owl.carousel/dist/assets/owl.carousel.css',
+        'node_modules/lightslider/dist/css/lightslider.css',
         'temp-folder/magnifier.css',
         'assets-dev/sass/*.scss'
     ])
@@ -97,6 +99,7 @@ gulp.task('scripts', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
+        'node_modules/lightslider/dist/js/lightslider.js',
         // 'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
         // 'node_modules/jquery-bridget/jquery-bridget.js',
         // 'node_modules/imagesloaded/imagesloaded.pkgd.js',
@@ -131,6 +134,7 @@ gulp.task('scripts-min', function(){
         'node_modules/jquery-lazy/jquery.lazy.js',
         'node_modules/wowjs/dist/wow.js',
         'node_modules/pwstrength-bootstrap/dist/pwstrength-bootstrap.js',
+        'node_modules/lightslider/dist/js/lightslider.js',
         // 'node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js',
         // 'node_modules/jquery-bridget/jquery-bridget.js',
         // 'node_modules/imagesloaded/imagesloaded.pkgd.js',
@@ -284,6 +288,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('category/electronics/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('category/view/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
     gulp.watch('seller-centre/*.php').on('change', function(file) {

@@ -80,9 +80,9 @@
 		margin-bottom: 10px;
 	}
 
-	// electronics
+	// category
 	.container {
-		&.electronics {
+		&.category {
 			.sidebar-wrapper {
 				border: #d9d9d9 solid 1px;
 				margin-bottom: 30px;
@@ -210,6 +210,10 @@
 				    margin-bottom: 10px;
 				    border-radius: 0;
 
+				    a {
+				    	width: auto;
+				    }
+
 				    .card {
 						border-radius: 0;
 						// width: 175px;
@@ -278,6 +282,7 @@
 
 				a {
 					text-decoration: none;
+					width: 100%;
 
 					.card {
 						border-radius: 0;
