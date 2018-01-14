@@ -11895,6 +11895,42 @@ ul.navbar-nav li.dropdown .dropdown-menu {
     border-radius: 0; }
     #etiendahan-category-page .container.category .item.list-group-item a {
       width: auto; }
+    #etiendahan-category-page .container.category .item.list-group-item .ribbon {
+      left: 124px;
+      top: 1px;
+      line-height: 0;
+      font-size: 10px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+      display: block;
+      width: 35px;
+      height: 25px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#CCCCCC));
+      background: linear-gradient(to bottom, #999999 0%, #CCCCCC 100%);
+      color: white;
+      float: left;
+      padding-top: 1rem;
+      position: relative; }
+      #etiendahan-category-page .container.category .item.list-group-item .ribbon.view {
+        position: absolute;
+        z-index: 1;
+        left: 141px;
+        top: 13px; }
+      #etiendahan-category-page .container.category .item.list-group-item .ribbon:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-right: 17px solid transparent;
+        border-left: 18px solid transparent;
+        position: absolute;
+        top: 25px;
+        left: 0; }
+      #etiendahan-category-page .container.category .item.list-group-item .ribbon.ribbon--dimgrey {
+        background: dimgrey; }
+        #etiendahan-category-page .container.category .item.list-group-item .ribbon.ribbon--dimgrey:after {
+          border-top: 10px solid dimgrey; }
     #etiendahan-category-page .container.category .item.list-group-item .card {
       border-radius: 0; }
       #etiendahan-category-page .container.category .item.list-group-item .card .card-image {
@@ -14037,7 +14073,7 @@ nav a:focus {
                 background-color: rgba(0, 0, 0, 0.1); }
                 #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .sold-wrapper .sold {
                   text-transform: uppercase;
-                  position: relative;
+                  position: absolute;
                   top: 49px;
                   height: 60px;
                   width: 60px;
@@ -14045,14 +14081,15 @@ nav a:focus {
                   border: 1px solid #dcdcdc;
                   display: inline-block;
                   line-height: 60px;
-                  color: #fff; }
+                  color: #fff;
+                  right: 34%; }
               #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper {
                 height: 100%;
                 width: 100%;
                 background-color: rgba(0, 0, 0, 0.5); }
                 #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .banned-wrapper .banned {
                   text-transform: uppercase;
-                  position: relative;
+                  position: absolute;
                   top: 49px;
                   height: 60px;
                   width: 60px;
@@ -14060,7 +14097,8 @@ nav a:focus {
                   border: 1px solid #dcdcdc;
                   display: inline-block;
                   line-height: 60px;
-                  color: #fff; }
+                  color: #fff;
+                  right: 34%; }
             #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-name {
               font-size: 0.750rem;
               font-weight: 600;
@@ -14254,7 +14292,8 @@ nav a:focus {
     width: 100%;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-size: cover !important; }
+    background-size: cover !important;
+    border: 1px solid #dcdcdc; }
   #seller-centre-page a.text-danger {
     text-decoration: none; }
   #seller-centre-page button.delete-image {
@@ -14298,6 +14337,73 @@ nav a:focus {
       -webkit-box-shadow: none;
               box-shadow: none; }
 
+.ribbon {
+  left: 124px;
+  top: 1px;
+  line-height: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+  display: block;
+  width: 35px;
+  height: 25px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#CCCCCC));
+  background: linear-gradient(to bottom, #999999 0%, #CCCCCC 100%);
+  color: white;
+  float: left;
+  padding-top: 1rem;
+  position: relative; }
+  .ribbon.view {
+    position: absolute;
+    z-index: 1;
+    left: 119px; }
+  .ribbon.view-product {
+    position: absolute;
+    z-index: 1;
+    left: 178px; }
+  .ribbon.related {
+    position: absolute;
+    z-index: 1;
+    left: 172px;
+    top: 1px; }
+  .ribbon.product-image {
+    position: absolute;
+    z-index: 1;
+    left: 499px;
+    top: 1px;
+    line-height: 1;
+    width: 55px;
+    height: 42px;
+    font-size: 15px; }
+    .ribbon.product-image:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-right: 28px solid transparent;
+      border-left: 28px solid transparent;
+      position: absolute;
+      top: 42px;
+      left: 0; }
+    .ribbon.product-image.ribbon--dimgrey {
+      background: dimgrey; }
+      .ribbon.product-image.ribbon--dimgrey:after {
+        border-top: 15px solid dimgrey; }
+  .ribbon:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-right: 17px solid transparent;
+    border-left: 18px solid transparent;
+    position: absolute;
+    top: 25px;
+    left: 0; }
+  .ribbon.ribbon--dimgrey {
+    background: dimgrey; }
+    .ribbon.ribbon--dimgrey:after {
+      border-top: 10px solid dimgrey; }
+
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;
@@ -14314,15 +14420,18 @@ nav a:focus {
     #etiendahan-seller-shop-page .container .seller-shop-name-wrapper .seller-shop-name {
       margin-top: 10px;
       font-size: 15px;
-      font-weight: bold;
-      margin-bottom: 5px; }
+      font-weight: bold; }
+    #etiendahan-seller-shop-page .container .seller-shop-name-wrapper .seller-shop-email a {
+      text-decoration: none; }
     #etiendahan-seller-shop-page .container .seller-shop-name-wrapper .fa {
       font-size: 16px; }
     #etiendahan-seller-shop-page .container .seller-shop-name-wrapper .joined .fa-check {
       font-size: 10px;
-      top: 133px;
-      position: absolute;
-      left: 497px; }
+      position: relative;
+      left: 14px; }
+    #etiendahan-seller-shop-page .container .seller-shop-name-wrapper .joined .fa-user-o {
+      position: relative;
+      right: 2px; }
 
 #etiendahan-shopping-cart-page {
   font-family: 'Montserrat', sans-serif;

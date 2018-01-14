@@ -42,7 +42,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add a new Product - Etiendahan Seller Centre</title>
+	<title>Add a new Product | Etiendahan Seller Centre</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -138,7 +138,7 @@
 										<div class="form-group row">
 											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
 											<div class="col-sm-10">
-												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description" required><?php echo $description ?></textarea>
+												<textarea class="form-control" id="inputProductDescription" rows="10" name="description" required><?php echo $description ?></textarea>
 											</div>	
 										</div>
 
@@ -148,7 +148,7 @@
 												<?php
 													// $category_id;
 													// $category_name;
-													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
+													$result = $mysqli->query("SELECT * FROM tbl_categories");
 												?>	
 													<select class='form-control' id='category' name='category' required>"
 														<option value=''>Parent Category</option>"

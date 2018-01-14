@@ -20,7 +20,6 @@
 
         // Check if user with that email already exists
         $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'") or die($mysqli->error);
-
         // We know user email exists if the rows returned are more than 0
         if ($result->num_rows > 0) {
             
@@ -30,11 +29,13 @@
         else { // Email doesn't already exist in a database, proceed...
 
             // active is 0 by DEFAULT (no need to include it here)
-            $sql = "INSERT INTO tbl_customers (id, fullname, gender, birthday, birthmonth, birthyear, email, password, hash) VALUES (null, '$fullname','$gender', '$birthday', '$birthmonth', '$birthyear', '$email', '$password', '$hash')";
+            $sql = "INSERT INTO tbl_customers (id, fullname, gender, birthday, birthmonth, birthyear, email, password, hash, joined_at) VALUES (null, '$fullname','$gender', '$birthday', '$birthmonth', '$birthyear', '$email', '$password', '$hash', NOW())";
 
             // Add user to the database
             if ($mysqli->query($sql) or die($mysqli->error)) {
-
+                $result_last_id = $mysqli->query("SELECT MAX(id) FROM tbl_customers");
+                $row_last_id = $result_last_id->fetch_assoc();
+                $_SESSION['id'] = $row_last_id['MAX(id)'];
                 $_SESSION['active']                 = 0;        // 0 until user activates their account with verify.php
                 $_SESSION['logged_in']              = true;     // So we know the user has logged in
                 $_SESSION['get-fullname-message']   = "$fullname";

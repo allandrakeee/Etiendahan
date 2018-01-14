@@ -6,7 +6,7 @@
 	$category_id = ((isset($_SESSION['category_id']) && $_SESSION['category_id'] != '')?htmlentities($_SESSION['category_id']):'');
 	
 	$sub_category_id = ((isset($_SESSION['sub_category_id']) && $_SESSION['sub_category_id'] != '')?htmlentities($_SESSION['sub_category_id']):'');
-	$result_sub_category = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$category_id'");
+	$result_sub_category = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_category_id'");
 	$row_sub_category = $result_sub_category->fetch_assoc();
 
 	$result_category = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
@@ -106,12 +106,22 @@
 								<div class="item-wrapper" id="item-wrapper-grid-list">
 									<?php  
 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id = '$sub_category_id' AND stock != 0 AND banned = 0 ORDER BY RAND()");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id = '$sub_category_id' AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):
+										$product_id = $product_row['id'];
 									?>
 
 									<div class="item">
+									<?php 
+										$email = $_SESSION['email'];
+										$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+										$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+										
+										if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+									?>
+									<div class="ribbon view ribbon--dimgrey">NEW</div>
+									<?php endif; ?>
 										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row['image']); ?>

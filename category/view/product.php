@@ -5,21 +5,26 @@
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$category_product_id = ((isset($_SESSION['category_product_id']) && $_SESSION['category_product_id'] != '')?htmlentities($_SESSION['category_product_id']):'');
 
+	if($category_product_id == '') {
+		header("location: /etiendahan/"); 
+	}
+
 	$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$category_product_id'");
 	$row_product = $result_product->fetch_assoc();
-	echo 'Sub ID'.$row_product['sub_id'].'<br>';
+	// echo 'Sub ID'.$row_product['sub_id'].'<br>';
 	$sub_id = $row_product['sub_id'];
 
 	$result_sub_id = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_id'");
 	$row_sub_id = $result_sub_id->fetch_assoc();
 	$category_id = $row_sub_id['parent_id'];
+	$category_name = $row_sub_id['name'];
 
 	$_SESSION['category_id'] = $category_id;
 	$category_id = ((isset($_SESSION['category_id']) && $_SESSION['category_id'] != '')?htmlentities($_SESSION['category_id']):'');
 
 	$result_category = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
 	$row_category = $result_category->fetch_assoc();
-	echo $row_category['name']
+	// echo $row_category['name']
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +80,15 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
+										<?php 
+											$product_id = $row_product['id'];
+											$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+											$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+											
+											if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+										?>
+										<div class="ribbon product-image ribbon--dimgrey">NEW</div>
+										<?php endif; ?>
 										<div class="product-slider">
 										    <ul id="lightSlider">
 										        <?php
@@ -119,9 +133,14 @@
 	 								</div>
 
 	 								<div class="product-seller pull-right">
-	 									<span><?php echo $row_product['seller_email']; ?></span>
+	 									<?php   $email 	= $row_product['seller_email'];
+	 											$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+												$user 	= $result->fetch_assoc();
+												
+										?>
+	 									<span><?php echo $user['fullname']; ?></span>
 										<a href="/etiendahan/seller-shop/">
-											<button class="btn btn-primary">view shop</button>
+											<button class="btn btn-primary view-shop" id="<?php echo $row_product['seller_email']; ?>">view shop</button>
 										</a>
 	 								</div>
 
@@ -155,7 +174,7 @@
 								</nav>
 								<div class="tab-content" id="nav-tabContent">
 									<div class="tab-pane fade show active" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
-										<?php echo $row_product['description'] ?>
+										<?php echo nl2br($row_product['description']); ?>
 									</div>
 									<div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
 										<div class="rating-header">
@@ -305,17 +324,27 @@
 
 								<div class="owl-carousel">
 									<?php 
-										$sub_id_result = $mysqli->query("SELECT GROUP_CONCAT(id) FROM tbl_categories_sub WHERE parent_id = '$category_id'");
+										$sub_id_result = $mysqli->query("SELECT GROUP_CONCAT(id) FROM tbl_categories_sub WHERE name = '$category_name'");
 										$sub_id_row = $sub_id_result->fetch_assoc();
 										$in_sub_id = $sub_id_row['GROUP_CONCAT(id)'];
 										// echo $in_sub_id;
-										echo $sub_id;
+										// echo $category_product_id;
 
 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND sub_id != '$sub_id' AND stock != 0 AND banned = 0 ORDER BY RAND() LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND id != '$category_product_id' AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
+										$product_id = $product_row['id'];
 									?>
 									<div class="item">
+									<?php 
+										$email = $_SESSION['email'];
+										$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+										$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+										
+										if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+									?>
+									<div class="ribbon related ribbon--dimgrey">NEW</div>
+									<?php endif; ?>
 										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row['image']); ?>

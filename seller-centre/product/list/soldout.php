@@ -137,8 +137,17 @@
 						<?php  
 							$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' and stock = 0 and banned = 0 GROUP BY name");
 							while($product_row = mysqli_fetch_assoc($result_product)):
+							$product_id = $product_row['id'];
 						?>
 							<div class="col-md-2 product">
+								<?php 
+									$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+									$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+									
+									if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+								?>
+										<div class="ribbon ribbon--dimgrey">NEW</div>
+									<?php endif; ?>
 								<a <?php echo ($product_row['banned'] == 1) ? '' : 'href="/etiendahan/seller-centre/product/details/"'?>>
 									<div class="product-wrapper list" id="<?php echo $product_row['id'] ?>">
 										<?php $saved_image = explode(',', $product_row['image']); ?>

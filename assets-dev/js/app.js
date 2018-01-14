@@ -218,7 +218,7 @@ $(document).ready(function(){
   var owl = $('.owl-carousel');
 	owl.owlCarousel({
     	lazyLoad:true,
-		loop:true,
+		loop:false,
 	    margin:10,
 	    nav:true,
 	    responsive:{
@@ -476,7 +476,7 @@ $(document).ready(function() {
     $('#popup-notification-welcome').delay(1000).fadeIn(400);
 });
 
-$("#popup-close").click(function() {
+$("#popup-close-welcome").click(function() {
 	$("#popup-notification-welcome").css("margin-left", "-425px")
 });
 
@@ -491,12 +491,13 @@ $(document).ready(function() {
    }
 });
 
+
 // logout
 $(document).ready(function() {
     $('#popup-notification-logout').delay(1000).fadeIn(400);
 });
 
-$("#popup-close").click(function() {
+$("#popup-close-logout").click(function() {
 	$("#popup-notification-logout").css("margin-left", "-425px")
 });
 
@@ -516,7 +517,7 @@ $(document).ready(function() {
     $('#popup-notification-logout-redirect').delay(1000).fadeIn(400);
 });
 
-$("#popup-close").click(function() {
+$("#popup-close-logout-redirect").click(function() {
 	$("#popup-notification-logout-redirect").css("margin-left", "-425px");
 });
 
@@ -1025,8 +1026,14 @@ $(document).on('click', 'a.go-to-sub', function(){
 
 $(document).on('click', '.category-product-id', function(){
     var category_product_id = $(this).attr('id');
-    alert(category_product_id);
+    // alert(category_product_id);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_product_id": category_product_id});
+});
+
+$(document).on('click', '.btn-primary.view-shop', function(){
+    var seller_shop_email = $(this).attr('id');
+    // alert(seller_shop_email);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"seller_shop_email": seller_shop_email});
 });
 
 // currency input

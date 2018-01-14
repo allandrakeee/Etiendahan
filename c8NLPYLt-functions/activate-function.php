@@ -1,13 +1,12 @@
 <?php  
 	if(isset($_POST['activateSeller']) && $_POST['activateSeller'] == 'yes') {
 		$id      = $mysqli->escape_string($_SESSION['id']);
-		$email      = $mysqli->escape_string($_SESSION['email']);
+		$email   = $mysqli->escape_string($_SESSION['email']);
 	    $sql = "UPDATE tbl_customers SET seller_centre = '1' WHERE email = '$email'";
 	    $_SESSION['activateSeller'] = 1;
 
-	    // Add user to the database
 	    if ($mysqli->query($sql) or die($mysqli->error)){
-	        $sql = "INSERT INTO tbl_sellers (id, seller_id, seller_email) VALUES (null,'$id', '$email')";
+	        $sql = "INSERT INTO tbl_sellers (id, seller_id, seller_email, joined_at) VALUES (null,'$id', '$email', NOW())";
 
 	        // Add user to the database
 	        if ($mysqli->query($sql) or die($mysqli->error)) {

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Etiendahan Dagupan: Online Shopping Marketplace</title>
+	<title>Etiendahan Dagupan | Online Shopping Marketplace</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -755,7 +755,7 @@
 							<div class="item">
 								<a href="/etiendahan/view/">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/31a0944aada3b99fd34778ff7118f669_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
 											<div class="product-price">₱150.00</div>
@@ -769,7 +769,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/2f5a3cf9b431726fd18e674e4804a050_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
 											<div class="product-price">₱150.00</div>
@@ -919,13 +919,29 @@
 						</div>
 						
 						<div class="item-wrapper">
+							<?php  
+								$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 15");
+								if($product_result->num_rows > 0):
+								while($product_row = mysqli_fetch_assoc($product_result)):
+							?>
+
 							<div class="item">
-								<a href="https://www.google.com">
+								<?php 
+									$product_id = $product_row['id'];
+									$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+									$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+									
+									if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+								?>
+								<div class="ribbon view-product ribbon--dimgrey">NEW</div>
+								<?php endif; ?>
+								<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 									<div class="card">
-										<div class="card-image lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/28fbc9e80d4b24d2c67522c5243cf4ea_tn"></div>
+										<?php $saved_image = explode(',', $product_row['image']); ?>
+										<div class="card-image lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
 										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit.</div>
-											<div class="product-price">₱150.00</div>
+											<div class="product-name"><?php echo $product_row['name']; ?></div>
+											<div class="product-price">₱<?php echo $product_row['price']; ?></div>
 											<div class="product-rating">
 												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
 											</div>
@@ -934,139 +950,12 @@
 								</a>
 							</div>
 
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/67c398a9a00aa752a2d3b3f5beefafab_tn"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
+							<?php endwhile; ?>
 
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
+							<?php else: ?>
+								<div class="">No Products Yet</div>
+							<?php endif; ?>
 
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -1085,7 +974,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/8959e9325127f845c6eb4f8cc9d4fa15_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
 											<div class="product-price">₱150.00</div>
@@ -1099,7 +988,7 @@
 							<div class="item">
 								<a href="https://www.google.com">
 									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="https://cfshopeeph-a.akamaihd.net/file/e578ca0707bb02d30e34cd07a1858fef_tn"></div>
+										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
 										<div class="card-body">
 											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
 											<div class="product-price">₱150.00</div>
@@ -1338,7 +1227,7 @@
 				<!-- POPUP NOTIFICATION - welcome -->
 				<div id="popup-notification-welcome" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
-					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div id="popup-close-welcome" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Welcome back!</div>
 					<div class="popup-content-welcome text-center">
 						<?php  
@@ -1356,7 +1245,7 @@
 				<!-- POPUP NOTIFICATION - logout -->
 				<div id="popup-notification-logout" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
-					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div id="popup-close-logout" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>You have been logged out, Thanks for stopping by!</div>
 					<div class="popup-content-logout text-center">
 						<?php  
@@ -1377,7 +1266,7 @@
 				<!-- POPUP NOTIFICATION - logout -redirect -->
 				<div id="popup-notification-logout-redirect" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
-					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
 					<div class="popup-content-logout-redirect text-center">
 						<?php  

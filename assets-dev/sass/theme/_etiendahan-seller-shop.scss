@@ -20,7 +20,12 @@
 				margin-top: 10px;
 				font-size: 15px;
 				font-weight: bold;
-				margin-bottom: 5px;
+			}
+
+			.seller-shop-email {
+				a {
+					text-decoration: none;
+				}
 			}
 
 			.fa {
@@ -30,9 +35,13 @@
 			.joined {
 				.fa-check {
 					font-size: 10px;
-					top: 133px;
-					position: absolute;
-					left: 497px;
+					position: relative;
+					left: 14px;
+				}
+
+				.fa-user-o {
+					position: relative;
+					right: 2px;
 				}
 			}
 		}

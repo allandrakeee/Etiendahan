@@ -18,6 +18,10 @@
 		$_SESSION['category_product_id'] = $_POST['category_product_id'];
 	}
 
+	if($_POST['seller_shop_email'] != '') {
+		$_SESSION['seller_shop_email'] = $_POST['seller_shop_email'];
+	}
+
 	// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
 	$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): '');
 	$selected = ((isset($_POST['selected']) && $_POST['selected'] != '')?htmlentities($_POST['selected']): '');

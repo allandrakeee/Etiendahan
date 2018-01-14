@@ -99,7 +99,7 @@
 				<div class="container home">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="welcome-message text-center">Welcome to Etiendahan Seller Centre</div>
+							<div class="welcome-message text-center">Welcome to Etiendahan Dagupan Seller Centre</div>
 							<div class="buttons text-center">
 								<div class="wrapper-inner">
 									<span class="seller-centre-link" data-url="/etiendahan/seller-centre/product/list/all/"><div class="fa-wrapper"><i class="fa fa-cubes"></i></div><div class="title">My Products</div>

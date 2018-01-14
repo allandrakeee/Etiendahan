@@ -4,6 +4,12 @@
 
 	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$product_details_id = ((isset($_SESSION['product_details_id']) && $_SESSION['product_details_id'] != '')?htmlentities($_SESSION['product_details_id']):'');
+	
+	if($product_details_id == '') {
+		$_SESSION['cant-proceed-message-product'] = "You must select product before viewing product details page";
+		header("location: /etiendahan/seller-centre/product/list/all/");  
+	}
+
 	// Check if user is logged in using the session variable
 	if ($logged_in == false) {
 	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
@@ -38,7 +44,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Product Details - Etiendahan Seller Centre</title>
+	<title>Product Details | Etiendahan Seller Centre</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -306,7 +312,7 @@
 				</div>
 				<!-- END OF POPUP NOTIFICATION -->
 
-				<!-- POPUP NOTIFICATION - logout -redirect -->
+				<!-- POPUP NOTIFICATION -->
 				<div id="popup-notification-logout-redirect" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
 					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>

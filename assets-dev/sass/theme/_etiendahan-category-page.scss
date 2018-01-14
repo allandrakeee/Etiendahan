@@ -214,6 +214,52 @@
 				    	width: auto;
 				    }
 
+				    .ribbon {
+						left: 124px;
+						top: 1px;
+					    line-height: 0;
+						font-size: 10px;
+						text-transform: uppercase;
+						text-align: center;
+						font-weight: bold;
+						text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+						display: block;
+						width: 35px;
+						height: 25px;
+						background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#CCCCCC));
+						background: linear-gradient(to bottom, #999999 0%, #CCCCCC 100%);
+						color: white;
+						float: left;
+						padding-top: 1rem;
+						position: relative;
+
+						&.view {
+							position: absolute;
+							z-index: 1;
+							left: 141px;
+							top: 13px;
+						}
+						
+					 	&:after {
+							content: "";
+							width: 0;
+							height: 0;
+							border-right: 17px solid transparent;
+							border-left: 18px solid transparent;
+							position: absolute;
+							top: 25px;
+							left: 0;
+						}
+
+					  	&.ribbon--dimgrey {
+						    background: dimgrey;
+
+						    &:after {
+							    border-top: 10px solid dimgrey;
+						    }
+					  	}
+					}
+
 				    .card {
 						border-radius: 0;
 						// width: 175px;

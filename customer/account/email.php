@@ -18,7 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Account - Etiendahan Dagupan</title>
+	<title>My Account | Etiendahan Dagupan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -142,7 +142,7 @@
 				<!-- POPUP NOTIFICATION -->
 				<div id="popup-notification-logout-redirect" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
-					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
 					<div class="popup-content-logout-redirect text-center">
 						<?php  
