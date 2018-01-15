@@ -5,6 +5,8 @@
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$category_product_id = ((isset($_SESSION['category_product_id']) && $_SESSION['category_product_id'] != '')?htmlentities($_SESSION['category_product_id']):'');
 
+	$mysqli->query("UPDATE tbl_products SET sightings = sightings + 1 WHERE id = '$category_product_id'") or die($mysqli->error);;	
+
 	if($category_product_id == '') {
 		header("location: /etiendahan/"); 
 	}
@@ -136,7 +138,6 @@
 	 									<?php   $email 	= $row_product['seller_email'];
 	 											$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
 												$user 	= $result->fetch_assoc();
-												
 										?>
 	 									<span><?php echo $user['fullname']; ?></span>
 										<a href="/etiendahan/seller-shop/">
@@ -160,6 +161,13 @@
 												</span>
 									      	</div>
 	 									</div>
+	 									<?php if($row_product['stock'] <= 5): ?>
+	 										<?php if($row_product['stock'] == 1): ?>
+	 										<div class="items-left text-danger"><?php echo $row_product['stock'];?> item left</div>
+	 										<?php else: ?>
+	 										<div class="items-left text-danger"><?php echo $row_product['stock'];?> items left</div>
+	 										<?php endif; ?>
+	 									<?php endif; ?>
 	 									<button class="btn btn-primary" type="submit">Add to Cart</button>
 	 									<div class="product-add-to-wishlist"><a id="wishlist-toggle"><i class="fa fa-heart-o" title="Add to wishlists"></i></a></div>
 	 								</div>
@@ -314,11 +322,54 @@
 							</div>
 						</div>
 
+						<!-- From the same shop -->
+						<div id="etiendahan-section-3" class="etiendahan-section">
+							<div class="container">
+								<div class="title-name">
+									<a href="/etiendahan/seller-shop/" class="view-shop" id="<?php echo $row_product['seller_email']; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+									<h3><span class="wow pulse" data-wow-delay="1000ms">FROM THE SAME SHOP</span></h3>
+								</div>
+
+								<div class="owl-carousel">
+									<?php 
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' AND id != '$category_product_id' AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										while($product_row = mysqli_fetch_assoc($product_result)): 
+										$product_id = $product_row['id'];
+									?>
+									<div class="item">
+									<?php
+										$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
+										$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+										
+										if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+									?>
+									<div class="ribbon related ribbon--dimgrey">NEW</div>
+									<?php endif; ?>
+										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+											<div class="card">
+												<?php $saved_image = explode(',', $product_row['image']); ?>
+												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
+												<div class="card-body">
+													<div class="product-name"><?php echo $product_row['name'] ?></div>
+													<div class="product-price">₱<?php echo $product_row['price'] ?></div>
+													<div class="product-rating">
+														<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<?php endwhile; ?>									
+								</div>
+							</div>
+						</div>
+						<!-- END OF From the same shop -->
+
 						<!-- SECTION 3 - Homepage related products -->
 						<div id="etiendahan-section-3" class="etiendahan-section">
 							<div class="container">
 								<div class="title-name">
-									<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+									<a href="/etiendahan/related-products/" class="related-products" id="<?php echo $category_name; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
 									<h3><span class="wow pulse" data-wow-delay="1000ms">RELATED PRODUCTS</span></h3>
 								</div>
 
@@ -336,8 +387,7 @@
 										$product_id = $product_row['id'];
 									?>
 									<div class="item">
-									<?php 
-										$email = $_SESSION['email'];
+									<?php
 										$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
 										$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
 										

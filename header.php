@@ -151,14 +151,22 @@
 								<a class="nav-link cl-effect" href="#">Accessories</a>
 							</li> -->
 
+							<?php  
+								$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
+								$men_row = $men_result->fetch_assoc();
+							?>
 							<!-- MEN -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Men</a>
+								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
 							</li>
-
+							
+							<?php  
+								$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
+								$women_row = $women_result->fetch_assoc();
+							?>
 							<!-- WOMEN -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Women</a>
+								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
 							</li>
 
 							<!-- ALL CATEGORIES -->
@@ -432,14 +440,22 @@
 								<a class="nav-link cl-effect" href="#">Accessories</a>
 							</li> -->
 
+							<?php  
+								$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
+								$men_row = $men_result->fetch_assoc();
+							?>
 							<!-- MEN -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Men</a>
+								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
 							</li>
-
+							
+							<?php  
+								$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
+								$women_row = $women_result->fetch_assoc();
+							?>
 							<!-- WOMEN -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Women</a>
+								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
 							</li>
 
 							<!-- ALL CATEGORIES -->

@@ -174,6 +174,17 @@ $(window).resize(function(){
 		});
 	}
 }); 
+
+$('.recent').hide();
+
+$('.hintable').focus(function() {
+   $('.recent').hide();
+   $("."+$(this).attr('hint-class')).show();
+});
+
+$('.hintable').blur(function() {
+   $('.recent').hide();
+});
 // ============ END OF SECTION 1 ============
 
 // ============ SECTION 2 ============
@@ -246,13 +257,13 @@ $(document).ready(function(){
 
 // ============ SECTION 7 ============
 // Load Facebook SDK for JavaScript
-// (function(d, s, id) {
-// 	  var js, fjs = d.getElementsByTagName(s)[0];
-// 	  if (d.getElementById(id)) return;
-// 	  js = d.createElement(s); js.id = id;
-// 	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
-// 	  fjs.parentNode.insertBefore(js, fjs);
-// 	}(document, 'script', 'facebook-jssdk'));
+(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 // ============ END OF SECTION 7 ============
 
 // ============ REGISTER PAGE - SECTION 1 ============
@@ -1030,10 +1041,22 @@ $(document).on('click', '.category-product-id', function(){
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_product_id": category_product_id});
 });
 
-$(document).on('click', '.btn-primary.view-shop', function(){
+$(document).on('click', '.view-shop', function(){
     var seller_shop_email = $(this).attr('id');
     // alert(seller_shop_email);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"seller_shop_email": seller_shop_email});
+});
+
+$(document).on('click', '.related-products', function(){
+    var sub_category_name = $(this).attr('id');
+    alert(sub_category_name);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"sub_category_name": sub_category_name});
+});
+
+$(document).on('click', '.post-page', function(){
+    var post_page = $(this).attr('id');
+    alert(post_page);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"post_page": post_page});
 });
 
 // currency input
@@ -1283,3 +1306,39 @@ $(document).ready(function() {
 });
 // ============ END OF SELLER CENTRE PAGE ============ 
 
+// ============ AUTOCOMPLETE SEARCH ============ 
+
+// $(document).ready(function($){
+// 	$('#customerAutocomplte').keyup(function(){
+// 		var query = $(this).val();
+// 		if(query != '') {
+// 			$.ajax({
+// 				url: "suggest.php",
+// 				method: "POST",
+// 				data:{query:query},
+// 				success:function(data) {
+// 					$('.inner-recent').fadeIn();
+// 					$('.inner-recent').html(data);
+// 				}
+// 			});
+// 		}
+// 	});
+// });
+
+
+$(document).ready(function($){
+	$('#customerAutocomplte').autocomplete({
+		source: "suggest.php", 
+		highlight: true,
+		minLength: 2
+	});
+});
+
+$.ui.autocomplete.prototype._renderItem = function (ul, item) {
+    item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(this.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
+    return $("<li class='li-item d-inline'></li>")
+            .data("item.autocomplete", item)
+            .append("<a href='/etiendahan/category/view/product/' class='search-item category-product-id' id='"+item.id+"'>" + item.label + "</a>")
+            .appendTo(ul);
+};
+// ============ END OF AUTOCOMPLETE SEARCH ============ 

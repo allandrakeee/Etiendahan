@@ -114,7 +114,6 @@
 
 									<div class="item">
 									<?php 
-										$email = $_SESSION['email'];
 										$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = '$product_id'");
 										$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
 										

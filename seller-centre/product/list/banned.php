@@ -168,7 +168,7 @@
 											}
 										?>
 										<div class="statistics mt-4 mb-1">statistics</div>
-										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i>0</div>
+										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i><?php echo $product_row['sightings']; ?></div>
 										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
 										<div class="sales">Sales 0</div>
 										

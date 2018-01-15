@@ -549,6 +549,13 @@
 			bottom: 2px;
 		}
 	}
+
+	.items-left {
+		position: absolute;
+		top: 240px;
+		left: 61px;
+		z-index: 999999;
+	}
 }
 
 .lSPager.lSGallery {

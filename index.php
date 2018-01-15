@@ -3,6 +3,10 @@
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+	$email 	= ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+    $result = $mysqli->query("SELECT SUBSTRING_INDEX(fullname, ' ', 1) AS first_name FROM tbl_customers WHERE email='$email'");
+	$user = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -182,15 +186,23 @@
 											<!-- <li class="nav-item">
 												<a class="nav-link cl-effect" href="#">Accessories</a>
 											</li> -->
-
+											
+											<?php  
+												$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
+												$men_row = $men_result->fetch_assoc();
+											?>
 											<!-- MEN -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Men</a>
+												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
 											</li>
-
+											
+											<?php  
+												$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
+												$women_row = $women_result->fetch_assoc();
+											?>
 											<!-- WOMEN -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Women</a>
+												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
 											</li>
 
 											<!-- ALL CATEGORIES -->
@@ -340,13 +352,18 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="search-box">
-											<form class="search-form">
-												<input class="form-control form-control-lg" placeholder="Search products" type="text">
-												<button class="btn btn-link search-btn">
+											<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
+												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplte" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+												<button class="btn btn-link search-btn" name="search_button">
 													<i class="fa fa-search"></i>
 												</button>
 											</form>
 										</div>
+										<!-- <div class="recent show-recent">
+									        <div class="inner-recent highlight">
+									        	No recent search
+									        </div>
+									    </div> -->
 									</div>
 								</div>
 							</div>
@@ -506,14 +523,22 @@
 												<a class="nav-link cl-effect" href="#">Accessories</a>
 											</li> -->
 
+											<?php  
+												$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
+												$men_row = $men_result->fetch_assoc();
+											?>
 											<!-- MEN -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Men</a>
+												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
 											</li>
-
+											
+											<?php  
+												$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
+												$women_row = $women_result->fetch_assoc();
+											?>
 											<!-- WOMEN -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Women</a>
+												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
 											</li>
 
 											<!-- ALL CATEGORIES -->
@@ -667,9 +692,9 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="search-box">
-											<form class="search-form">
-												<input class="form-control form-control-lg" placeholder="Search products" type="text">
-												<button class="btn btn-link search-btn">
+											<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
+												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplte" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+												<button class="btn btn-link search-btn" name="search_button">
 													<i class="fa fa-search"></i>
 												</button>
 											</form>
@@ -914,7 +939,7 @@
 				<div id="etiendahan-section-5" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
-							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+							<a href="/etiendahan/daily-discover/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
 							<h3><span class="wow pulse" data-wow-delay="1000ms">DAILY DISCOVER</span></h3>
 						</div>
 						
@@ -960,169 +985,171 @@
 					</div>
 				</div>
 				<!-- END OF SECTION 5 -->
+				
+				<?php if($logged_in == true): ?>
+					<!-- SECTION 6 - Homepage recommendations -->
+					<div id="etiendahan-section-6" class="etiendahan-section">
+						<!-- have recently view -->
+						<div class="container">
+							<div class="title-name">
+								<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+								<h3><span class="wow pulse" data-wow-delay="1000ms">RECOMMENDATIONS FOR YOU, <?php echo $user['first_name']; ?></span></h3>
+							</div>
 
-				<!-- SECTION 6 - Homepage recommendations -->
-				<div id="etiendahan-section-6" class="etiendahan-section">
-					<!-- have recently view -->
-					<div class="container">
-						<div class="title-name">
-							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-							<h3><span class="wow pulse" data-wow-delay="1000ms">RECOMMENDATIONS FOR YOU, ALLAN DRAKE</span></h3>
+							<div class="owl-carousel">
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="item">
+									<a href="https://www.google.com">
+										<div class="card">
+											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
+											<div class="card-body">
+												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
+												<div class="product-price">₱150.00</div>
+												<div class="product-rating">
+													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
 						</div>
 
-						<div class="owl-carousel">
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
+						<!-- have not recently view -->
+						<!-- <div class="container-fluid">
+							<div class="recently-view">
+								<div class="first-para">You don't have any recently viewed items.</div>
+								<div class="second-para">View items on Etiendahan and we'll track them here..</div>
 							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+						</div> -->
 					</div>
-
-					<!-- have not recently view -->
-					<!-- <div class="container-fluid">
-						<div class="recently-view">
-							<div class="first-para">You don't have any recently viewed items.</div>
-							<div class="second-para">View items on Etiendahan and we'll track them here..</div>
-						</div>
-					</div> -->
-				</div>
-				<!-- END OF SECTION 6 -->
+					<!-- END OF SECTION 6 -->
+				<?php endif; ?>
 				
 				<!-- SECTION 7 - Homepage about -->
 				<div id="etiendahan-section-7" class="etiendahan-section">
@@ -1189,7 +1216,7 @@
 								</div>
 
 								<!-- Your like button code -->
-								<!-- <div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div> -->
+								<div id="fboverlay" class="fb-like" data-href="https://web.facebook.com/etiendahan/" data-layout="standard" data-width="300" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 							</div>
 						</div>
 					</div>

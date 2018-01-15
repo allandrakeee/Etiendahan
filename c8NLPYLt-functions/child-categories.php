@@ -22,6 +22,14 @@
 		$_SESSION['seller_shop_email'] = $_POST['seller_shop_email'];
 	}
 
+	if($_POST['sub_category_name'] != '') {
+		$_SESSION['sub_category_name'] = $_POST['sub_category_name'];
+	}
+
+	if($_POST['post_page'] != '') {
+		$_SESSION['post_page'] = $_POST['post_page'];
+	}
+
 	// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
 	$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): '');
 	$selected = ((isset($_POST['selected']) && $_POST['selected'] != '')?htmlentities($_POST['selected']): '');
