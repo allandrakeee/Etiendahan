@@ -18,6 +18,10 @@
 		$_SESSION['category_product_id'] = $_POST['category_product_id'];
 	}
 
+	if($_POST['category_product_id_sightings'] != '') {
+		$_SESSION['category_product_id_sightings'] = $_POST['category_product_id_sightings'];
+	}
+
 	if($_POST['seller_shop_email'] != '') {
 		$_SESSION['seller_shop_email'] = $_POST['seller_shop_email'];
 	}
@@ -28,6 +32,18 @@
 
 	if($_POST['post_page'] != '') {
 		$_SESSION['post_page'] = $_POST['post_page'];
+	}
+
+	if($_POST['address_delete'] != '') {
+		$_SESSION['address_delete'] = $_POST['address_delete'];
+	}
+
+	if($_POST['address_update'] != '') {
+		$_SESSION['address_update'] = $_POST['address_update'];
+	}
+
+	if($_POST['wishlists_delete'] != '') {
+		$_SESSION['wishlists_delete'] = $_POST['wishlists_delete'];
 	}
 
 	// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST

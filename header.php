@@ -1,4 +1,5 @@
 <?php  
+	require '/db.php';
 	if ( $logged_in == true ) {
 ?>
 		<!-- SECTION 1 -->
@@ -275,7 +276,7 @@
 
 								<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
 								<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
-								<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlist</div></a>
+								<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlists</div></a>
 								<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>LOGOUT</div></a>
 							</div>
 						</div>

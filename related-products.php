@@ -59,7 +59,7 @@
 													// echo $category_product_id;
 
 
-													$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
+													$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
 													if($product_result->num_rows > 0):
 													while($product_row = mysqli_fetch_assoc($product_result)): 
 													$product_id = $product_row['id'];

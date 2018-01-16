@@ -1,4 +1,5 @@
 <?php  
+	require '../../db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
@@ -27,10 +28,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 	
 	<!-- link inner -->
 	<?php  
-		include '../header-link.php';
+		include '../../header-link.php';
 	?>
 
 </head>
@@ -43,7 +48,7 @@
 
 				<!-- header inner -->
 				<?php  
-					include '../header.php';
+					include '../../header.php';
 				?>
 
 				<!-- CUSTOMER PAGE SECTION 1 -->
@@ -113,25 +118,25 @@
 
 											<div class="modal-body">
 												<div class="container-fluid">
-													<form id="submitAddAddress">														
+													<form id="submitAddAddress" action="/etiendahan/c8NLPYLt-functions/address-function/" method="POST">												
 														<!-- fullname -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="text" class="form-control" id="inputFullnameAddAddress" placeholder="Fullname" required autofocus>
+																<input type="text" class="form-control" id="inputFullnameAddAddress" placeholder="Fullname" name="fullname" required autofocus>
 															</div>
 														</div>
 
 														<!-- phone number -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="number" class="form-control" id="inputPhoneNumberAddAddress" placeholder="Phone Number" required>
+																<input type="number" class="form-control" id="inputPhoneNumberAddAddress" name="phone_number" placeholder="Phone Number" required>
 															</div>
 														</div>
 
 														<!-- postal code -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="number" class="form-control" id="inputPostalCodeAddAddress" placeholder="Postal Code" required>
+																<input type="number" class="form-control" id="inputPostalCodeAddAddress" name="postal_code" placeholder="Postal Code" required>
 															</div>
 														</div>
 
@@ -241,7 +246,7 @@
 															</div>
 														</div>
 
-														<!-- municipality -->
+														<!-- city -->
 														<div class="form-group row">
 															<div class="col-md-12">
 																<select class="form-control" name="city" id="city" onChange="changemunicipality(this.value);" required>
@@ -250,7 +255,7 @@
 															</div>
 														</div>
 
-														<!-- city -->
+														<!-- barangay -->
 														<div class="form-group row">
 															<div class="col-md-12">
 																<select class="form-control" name="barangay" id="barangay" required>
@@ -262,16 +267,17 @@
 														<!-- complete address -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="text" class="form-control" id="inputCompleteAddressAddAddress" placeholder="Complete Address (House Number, Building and Street Name)" required>
+																<input type="text" class="form-control" id="inputCompleteAddressAddAddress" name="complete_address" placeholder="Complete Address (House Number, Building and Street Name)" required>
 															</div>
 														</div>
 
 														<!-- other note -->
 														<div class="form-group row">
 															<div class="col-sm-12">
-																<input type="text" class="form-control" id="inputOtherNotesAddAddress" placeholder="Other notes" required>
+																<input type="text" class="form-control" id="inputOtherNotesAddAddress" name="other_notes" placeholder="Other notes" required>
 															</div>
 														</div>
+														<input type="hidden" name="id" id="id">
 													</form>
 												</div>
 											</div>
@@ -285,49 +291,62 @@
 								</div>
 								
 								<!-- If address is empty -->
-								<!-- <p>You don't have addresses yet.</p> -->
-								
-								<!-- If address is not empty -->
-								<div class="row">
-									<div class="col-md-10">
-											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
-											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Dagupan, Philippines</div>
-											<div class="address">Pangasinan - Dagupan - Pantal</div>
-											<div class="address-other-notes">Color orange gate</div>
-											<div class="address-phone-number">09950147185</div>
-											<div class="separator"></div>
-									</div>
-									<div class="col-md-2 text-right">
-										<a class="address-fa" href=""><i class="fa fa-edit"></i></a>
-										<span>|</span>
-										<a class="address-fa" href=""><i class="fa fa-close"></i></a>
-										<button class="btn btn-primary">Set As Default</button>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-10">
-											<div class="address-name-customer">Allan Drake Paladin Dulay</div>
-											<div class="address-complete">#111 G. Oreta Stree Dior Village Dagupan City, Dagupan, Philippines</div>
-											<div class="address">Pangasinan - Dagupan - Pantal</div>
-											<div class="address-other-notes">Color orange gate</div>
-											<div class="address-phone-number">09950147185</div>
-											<div class="separator"></div>
-									</div>
-									<div class="col-md-2 text-right">
-										<a class="address-fa" href=""><i class="fa fa-edit"></i></a>
-										<span>|</span>
-										<a class="address-fa" href=""><i class="fa fa-close"></i></a>
-										<button class="btn btn-primary">Set As Default</button>
-									</div>
-								</div>
+								<?php $result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email'");
+									if($result->num_rows == 0):
+								?>
+									<p>You don't have addresses yet.</p>
+								<?php else: ?>
+									<!-- If address is not empty -->
+									<?php  
+										$address_result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email'");
+										while($address_row = mysqli_fetch_assoc($address_result)):
+									?>
+										<div class="row mb-1">
+											<div class="col-md-10">
+													<div class="address-name-customer"><?php echo $address_row['fullname']; ?></div>
+													<div class="address-complete"><?php echo $address_row['complete_address']; ?></div>
+													<div class="address"><?php echo $address_row['city'].' - '.$address_row['barangay']; ?></div>
+													<div class="address-other-notes"><?php echo $address_row['other_notes']; ?></div>
+													<div class="address-phone-number"><?php echo $address_row['phone_number']; ?></div>
+													<div class="separator"></div>
+											</div>
+											<div class="col-md-2 text-right">
+												<a class="address-fa address-update" data-toggle="modal" data-target="#modifyModal" id="<?php echo $address_row['id'] ?>"><i class="fa fa-edit"></i></a>
+												<span>|</span>
+												<a class="address-fa address-delete" href="/etiendahan/customer/address/delete/" id="<?php echo $address_row['id'] ?>"><i class="fa fa-close"></i></a>
+												<?php if($address_row['default_address'] == 0): ?>
+													<a class="address-delete"  href="/etiendahan/customer/address/set-as-default/" id="<?php echo $address_row['id'] ?>"><button class="btn btn-primary">Set As Default</button></a>
+												<?php endif; ?>
+											</div>
+										</div>
+									<?php endwhile; ?>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- END OF CUSTOMER PAGE SECTION 1 -->
 
+				<!-- POPUP NOTIFICATION - greetings -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['success-message']) ) {
+								echo $_SESSION['success-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['success-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
 <!-- footer inner -->
 <?php  
-	include '../footer.php';
+	include '../../footer.php';
 ?>
 </html>

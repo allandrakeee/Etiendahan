@@ -76,7 +76,7 @@
 		
 		//-------------------------------------------------------
 		
-		$access_token	= "EAACEdEose0cBAFCRbO4tQRK83iN9dk3sShokaXCCvkzvm6Xw6wwlvrE7cokVfXEZC85oYK9xcYIDq4we9R4NdLrZBft5YdqwPAa0525rCtJCHjPQtx9fdtUqsyU2Pa0ZAQIVFnWptwNypg8gcveWbzwZBdhPAoBknpxTKB2c5EHby86ECCmgqzxNyA4uAabWkkZAlkQm0rwZDZD";
+		$access_token	= "EAACEdEose0cBADP4pNTBpZBEoOZClnF979V8dLypq0jiPfqAXUYyASqoWKODf9rqa2IhbNrTEXLwNT1WlbGfZA1M2q4yUztGtMLOMvduVcZCmE2hGaCLlnZBoA44LatVZAkCho9h4fb38XtYSkesheP7XAFWU0qnmEjmoGzSNfvSNcPJOA6EqcI9GrbAjIJS7mNtCMYLtr5wZDZD";
 		$id_page 		= "1742699689126908";
 		$msg 			= "Looking seller for $post_page. Go now to our Sell on Etiendahan page and create an account to start showcase your products.";
 		$post_on 		= "PAGE";

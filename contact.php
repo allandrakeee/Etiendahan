@@ -70,7 +70,7 @@
 									Want to become a seller?
 								</div>
 								<div class="link">
-									<i class="fa fa-external-link"></i> Apply <a href="http://localhost:8080/etiendahan/sell-on-etiendahan/" target="_blank">here</a>
+									<i class="fa fa-external-link"></i> Apply <a href="/etiendahan/seller-centre/account/signin/" target="_blank">here</a>
 								</div>
 							</div>
 						</div>

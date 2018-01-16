@@ -290,6 +290,12 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('customer/orders/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('customer/address/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('customer/wishlists/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('customer/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
@@ -321,9 +327,6 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('c8NLPYLt-functions/*.php').on('change', function(file) {
-        livereload.changed(file.path);
-    });
-    gulp.watch('facebook/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
 });

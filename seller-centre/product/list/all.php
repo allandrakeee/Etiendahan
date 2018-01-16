@@ -159,7 +159,7 @@
 										<div class="product-image" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"><?php
 											if ($product_row['banned'] == 1) {
 												echo '<div class="banned-wrapper"><div class="banned">Banned</div></div>';
-											} else if ($product_row['stock'] == 0) {
+											} else if ($product_row['stock'] <= 0) {
 												echo '<div class="sold-wrapper"><div class="sold">Sold</div></div>';
 											}
 										?></div>
@@ -174,7 +174,15 @@
 										?>
 										<div class="statistics mt-4 mb-1">statistics</div>
 										<div class="sightings pr-3"><i class="fa fa-eye pr-1"></i><?php echo $product_row['sightings']; ?></div>
-										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>0</div>
+										<div class="wishlists pr-3"><i class="fa fa-heart-o pr-1"></i>
+											<?php  
+												$wishlists_id_product = $product_row['id'];
+												$wishlists_product = $mysqli->query("SELECT COUNT(product_id) FROM tbl_wishlists WHERE product_id = '$wishlists_id_product'");
+												while($wishlists_row = mysqli_fetch_assoc($wishlists_product)):
+											?>
+											<?php echo $wishlists_row['COUNT(product_id)'] ?>
+											<?php endwhile; ?>
+										</div>
 										<div class="sales">Sales 0</div>
 										
 										<?php if($product_row['banned'] == 1): ?>

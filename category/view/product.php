@@ -4,8 +4,12 @@
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$category_product_id = ((isset($_SESSION['category_product_id']) && $_SESSION['category_product_id'] != '')?htmlentities($_SESSION['category_product_id']):'');
+	$category_product_id_sightings = ((isset($_SESSION['category_product_id_sightings']) && $_SESSION['category_product_id_sightings'] != '')?htmlentities($_SESSION['category_product_id_sightings']):'');
 
-	$mysqli->query("UPDATE tbl_products SET sightings = sightings + 1 WHERE id = '$category_product_id'") or die($mysqli->error);;	
+	if($category_product_id_sightings != '') {
+		$mysqli->query("UPDATE tbl_products SET sightings = sightings + 1 WHERE id = '$category_product_id_sightings'") or die($mysqli->error);
+		unset($_SESSION['category_product_id_sightings']);
+	}
 
 	if($category_product_id == '') {
 		header("location: /etiendahan/"); 
@@ -15,6 +19,10 @@
 	$row_product = $result_product->fetch_assoc();
 	// echo 'Sub ID'.$row_product['sub_id'].'<br>';
 	$sub_id = $row_product['sub_id'];
+
+	if($row_product['stock'] <= 0) {
+		header('location: /etiendahan/category/view/');
+	} 
 
 	$result_sub_id = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_id'");
 	$row_sub_id = $result_sub_id->fetch_assoc();
@@ -53,6 +61,13 @@
 	?>
 
 </head>
+
+<?php  
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		require '/../../c8NLPYLt-functions/wishlists-function.php';  
+	}
+?>
+
 <body>
 	
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -169,7 +184,21 @@
 	 										<?php endif; ?>
 	 									<?php endif; ?>
 	 									<button class="btn btn-primary" type="submit">Add to Cart</button>
-	 									<div class="product-add-to-wishlist"><a id="wishlist-toggle"><i class="fa fa-heart-o" title="Add to wishlists"></i></a></div>
+	 									<div class="product-add-to-wishlist" >
+	 										<form class="wishlists-form" action="/etiendahan/category/view/product/" method="POST">
+	 											<?php  
+	 												$customer_email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+	 												$wishlist_result = $mysqli->query("SELECT * FROM tbl_wishlists WHERE product_id = '$category_product_id' AND email = '$customer_email'");
+													if($wishlist_result->num_rows == 0):
+	 											?>
+			 										<input id="heart" class="wishlists-input check" type="checkbox" name="wishlists" value="yes">
+													<label for="heart" class="">❤</label>
+												<?php else: ?>
+													<input id="heart1" class="wishlists-input checked" type="checkbox" name="wishlists" value="no">
+													<label for="heart1" class="dimgrey">❤</label>
+												<?php endif; ?>
+											</form>
+	 									</div>
 	 								</div>
 	 							</div>
 							</div>
@@ -332,7 +361,7 @@
 
 								<div class="owl-carousel">
 									<?php 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' AND id != '$category_product_id' AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
 										$product_id = $product_row['id'];
 									?>
@@ -382,7 +411,7 @@
 										// echo $category_product_id;
 
 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND id != '$category_product_id' AND stock != 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
 										$product_id = $product_row['id'];
 									?>
@@ -418,6 +447,23 @@
 				</div>
 				<!-- END OF VIEW PAGE -->
 
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['message']) ) {
+								echo $_SESSION['message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 <!-- footer inner -->
 <?php  
 	include '../../footer.php';

@@ -308,18 +308,98 @@
 						left: 36%;
 					    top: 4px;
 						
-						i {
-							cursor: pointer;
-
-							&.fa {
-								font-size: 25px;
-								color: dimgrey;
-
-								&.active {
-									background-color: dimgrey;
-								}
-							}
+						[id="heart"] {
+							position: absolute;
+							left: -100vw;
 						}
+
+						[for="heart"] {
+							color: #aab8c2;
+							cursor: pointer;
+							font-size: 40px;
+							position: absolute;
+							right: -32px;
+							bottom: -30px;
+							align-self: center;  
+							transition: color 0.2s ease-in-out;
+						}
+
+						[for="heart"]:hover {
+							color: grey;
+						}
+
+						[for="heart"]::selection {
+							color: none;
+							background: transparent;
+						}
+
+						[for="heart"]::moz-selection {
+							color: none;
+							background: transparent;
+						}
+
+						[id="heart"]:checked + label {
+							color: dimgrey;
+							will-change: font-size;
+							animation: heart 1s cubic-bezier(.17, 2, .32, 2);
+						}
+
+						@keyframes heart {0%, 17.5% {font-size: 0;}}
+
+						// heart1
+						[id="heart1"] {
+							position: absolute;
+							left: -100vw;
+						}
+
+						[for="heart1"] {
+							color: #aab8c2;
+							cursor: pointer;
+							font-size: 40px;
+							position: absolute;
+							right: -32px;
+							bottom: -30px;
+							align-self: center;  
+							transition: color 0.2s ease-in-out;
+						}
+
+						[for="heart1"]:hover {
+							color: grey;
+						}
+
+						[for="heart1"]::selection {
+							color: none;
+							background: transparent;
+						}
+
+						[for="heart1"]::moz-selection {
+							color: none;
+							background: transparent;
+						}
+
+						[id="heart1"]:checked + label {
+							color: #aab8c2 !important;
+						}
+
+						.dimgrey {
+							color: dimgrey;
+						}
+
+
+						
+
+						// i {
+						// 	cursor: pointer;
+
+						// 	&.fa {
+						// 		font-size: 25px;
+						// 		color: dimgrey;
+
+						// 		&.active {
+						// 			background-color: dimgrey;
+						// 		}
+						// 	}
+						// }
 					}
 				}
 			}
@@ -555,6 +635,12 @@
 		top: 240px;
 		left: 61px;
 		z-index: 999999;
+	}
+
+	.wishlists-form {
+		position: absolute;
+		left: 0;
+		top: 17px;
 	}
 }
 

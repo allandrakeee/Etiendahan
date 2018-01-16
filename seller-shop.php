@@ -9,14 +9,14 @@
 		header("location: /etiendahan/"); 
 	}
 
-	$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$seller_shop_email'");
-	$user 	= $result->fetch_assoc();
+	$result 		= $mysqli->query("SELECT * FROM tbl_customers WHERE email='$seller_shop_email'");
+	$customer_row 	= $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $user['fullname']; ?> Online Shop - Etiendahan Dagupan</title>
+	<title><?php echo $customer_row['fullname']; ?> Online Shop - Etiendahan Dagupan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -50,7 +50,7 @@
 							<div class="col-md-12 text-center">
 								<div class="seller-shop-name-wrapper">
 									<img src="/etiendahan/temp-img/fa-shop.png" alt="..." class="seller-image">
-									<div class="seller-shop-name"><?php echo $user['fullname']; ?> Shop</div>
+									<div class="seller-shop-name"><?php echo $customer_row['fullname']; ?> Shop</div>
 									<div class="seller-shop-email mb-2"><a href="mailto:<?php echo $seller_shop_email; ?>" target="_blank"><?php echo $seller_shop_email; ?></a></div>
 									<?php   $date_joined_result = $mysqli->query("SELECT TIMESTAMPDIFF(MONTH, joined_at, NOW()) FROM tbl_sellers WHERE seller_email = '$seller_shop_email'");
 											$date_joined_row = $date_joined_result->fetch_assoc();

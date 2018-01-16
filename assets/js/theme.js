@@ -48164,13 +48164,13 @@ $(document).ready(function(){
 
 // ============ SECTION 7 ============
 // Load Facebook SDK for JavaScript
-(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+// (function(d, s, id) {
+// 	  var js, fjs = d.getElementsByTagName(s)[0];
+// 	  if (d.getElementById(id)) return;
+// 	  js = d.createElement(s); js.id = id;
+// 	  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=472668573084845';
+// 	  fjs.parentNode.insertBefore(js, fjs);
+// 	}(document, 'script', 'facebook-jssdk'));
 // ============ END OF SECTION 7 ============
 
 // ============ REGISTER PAGE - SECTION 1 ============
@@ -48772,8 +48772,8 @@ $('.input-number').change(function() {
 });
 
 $(function() {
-    $('#wishlist-toggle').click(function() {
-        $(this).find('i').toggleClass('fa-heart fa-heart-o');
+    $('.check').click(function() {
+        $(this).toggleClass('check checked');
     });
 });
 
@@ -48899,6 +48899,47 @@ jQuery(document).ready(function($) {
 	});
 });
 
+// wishlists
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout( function () { 
+		        $('.wishlists-form').submit();
+		    }, 1500);
+}
+
+function myStopFunction() {
+    clearTimeout(myVar);
+}
+
+jQuery(document).ready(function($) { 
+    //reset
+    $(".wishlists-form .wishlists-input").prop("checked", false);
+    $(".wishlists-form .wishlists-input").click(function () {
+
+        if ($(this).is(":checked")) {
+
+            //checked
+            $(this).addClass("checked");
+
+        } else {
+            //unchecked
+            $(this).removeClass("checked");
+			myStopFunction();
+        }
+
+    })
+
+});
+
+jQuery(document).ready(function($) { 
+	$(".wishlists-input").click(function () {
+		if($(this).hasClass('checked')){
+		    myFunction();
+		}
+	});
+});
+
 // getting the parent id in the other page in ajax request
 function get_child_options(selected) {
 	if(typeof selected === 'object') {
@@ -48948,6 +48989,12 @@ $(document).on('click', '.category-product-id', function(){
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_product_id": category_product_id});
 });
 
+$(document).on('click', '.category-product-id', function(){
+    var category_product_id_sightings = $(this).attr('id');
+    // alert(category_product_id_sightings);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_product_id_sightings": category_product_id_sightings});
+});
+
 $(document).on('click', '.view-shop', function(){
     var seller_shop_email = $(this).attr('id');
     // alert(seller_shop_email);
@@ -48956,14 +49003,38 @@ $(document).on('click', '.view-shop', function(){
 
 $(document).on('click', '.related-products', function(){
     var sub_category_name = $(this).attr('id');
-    alert(sub_category_name);
+    // alert(sub_category_name);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"sub_category_name": sub_category_name});
 });
 
 $(document).on('click', '.post-page', function(){
     var post_page = $(this).attr('id');
-    alert(post_page);
+    // alert(post_page);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"post_page": post_page});
+});
+
+$(document).on('click', '.address-delete', function(){
+    var address_delete = $(this).attr('id');
+    // alert(address_delete);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"address_delete": address_delete});
+});
+
+$(document).on('click', '.address-update', function(){
+    var address_update = $(this).attr('id');
+    alert(address_update);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"address_update": address_update});
+});
+
+$(document).on('click', '.wishlist-toggle', function(){
+    var wishlist_product_id = $(this).attr('id');
+    alert(wishlist_product_id);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlist_product_id": wishlist_product_id});
+});
+
+$(document).on('click', '.wishlists-delete', function(){
+    var wishlists_delete = $(this).attr('id');
+    alert(wishlists_delete);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlists_delete": wishlists_delete});
 });
 
 // currency input

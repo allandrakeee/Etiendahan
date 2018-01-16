@@ -52,10 +52,10 @@
 										
 										<div class="item-wrapper">
 											<?php  
-												$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE stock != 0 AND banned = 0 and name LIKE '%$term%' ORDER BY RAND(".date("Ymd").")");
+												$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 and name LIKE '%$term%' ORDER BY RAND(".date("Ymd").")");
 												if($product_result->num_rows > 0):
 											?>
-											<div class="dont-find-product">Dont find what are you looking for? Click <a href="">here</a> to post to our facebook page to find a seller for you.</div>
+											<div class="dont-find-product">Dont find what are you looking for? Click <a href="/etiendahan/post-page/" class="post-page" id="<?php echo $term; ?>">here</a> to post to our facebook page to find a seller for you.</div>
 											<div class="search-result">Your search for "<?php echo $term; ?>" revealed the following:</div>
 											<?php 
 												  while($product_row = mysqli_fetch_assoc($product_result)): ?>

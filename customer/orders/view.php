@@ -1,4 +1,5 @@
 <?php  
+	require '/../../db.php';
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');

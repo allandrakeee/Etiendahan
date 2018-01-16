@@ -14027,7 +14027,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
       #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-12 table tbody a {
         text-decoration: none;
         color: dimgrey; }
-      #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-12 table tbody a#action {
+      #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-12 table tbody a.action {
         color: #333;
         text-decoration: none;
         border-radius: 50%;
@@ -14038,7 +14038,7 @@ ul.navbar-nav li.dropdown .dropdown-menu {
         width: 33px;
         text-align: center;
         border: 1px solid #dcdcdc; }
-        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-12 table tbody a#action .fa.fa-edit {
+        #etiendahan-customer-page-section-1 .col-md-8 .row .col-md-12 table tbody a.action .fa.fa-edit {
           position: relative;
           left: 2px;
           top: 1px; }
@@ -15747,7 +15747,7 @@ ul {
               #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .sold-wrapper {
                 height: 100%;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.1); }
+                background-color: rgba(0, 0, 0, 0.5); }
                 #seller-centre-page .container.inner .col-md-2.product a .product-wrapper .product-image .sold-wrapper .sold {
                   text-transform: uppercase;
                   position: absolute;
@@ -16420,13 +16420,73 @@ a {
           position: relative;
           left: 36%;
           top: 4px; }
-          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist i {
-            cursor: pointer; }
-            #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist i.fa {
-              font-size: 25px;
-              color: dimgrey; }
-              #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist i.fa.active {
-                background-color: dimgrey; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [id="heart"] {
+            position: absolute;
+            left: -100vw; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart"] {
+            color: #aab8c2;
+            cursor: pointer;
+            font-size: 40px;
+            position: absolute;
+            right: -32px;
+            bottom: -30px;
+            -ms-flex-item-align: center;
+                align-self: center;
+            -webkit-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart"]:hover {
+            color: grey; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart"]::-moz-selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart"]::selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart"]::moz-selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [id="heart"]:checked + label {
+            color: dimgrey;
+            will-change: font-size;
+            -webkit-animation: heart 1s cubic-bezier(0.17, 2, 0.32, 2);
+                    animation: heart 1s cubic-bezier(0.17, 2, 0.32, 2); }
+
+@-webkit-keyframes heart {
+  0%, 17.5% {
+    font-size: 0; } }
+
+@keyframes heart {
+  0%, 17.5% {
+    font-size: 0; } }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [id="heart1"] {
+            position: absolute;
+            left: -100vw; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart1"] {
+            color: #aab8c2;
+            cursor: pointer;
+            font-size: 40px;
+            position: absolute;
+            right: -32px;
+            bottom: -30px;
+            -ms-flex-item-align: center;
+                align-self: center;
+            -webkit-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart1"]:hover {
+            color: grey; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart1"]::-moz-selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart1"]::selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [for="heart1"]::moz-selection {
+            color: none;
+            background: transparent; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist [id="heart1"]:checked + label {
+            color: #aab8c2 !important; }
+          #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .product-add-to-wishlist .dimgrey {
+            color: dimgrey; }
     #etiendahan-view-product-page .container.view-product .col-md-12 {
       margin-bottom: 90px; }
       #etiendahan-view-product-page .container.view-product .col-md-12 .nav-item {
@@ -16569,6 +16629,10 @@ a {
     top: 240px;
     left: 61px;
     z-index: 999999; }
+  #etiendahan-view-product-page .wishlists-form {
+    position: absolute;
+    left: 0;
+    top: 17px; }
 
 .lSPager.lSGallery li.active {
   border-radius: 0 !important;
