@@ -2,7 +2,9 @@
 	require '../db.php';
 	session_start();
 
-	if($logged_in == true) {
+	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
+
+	if($logged_in == 1) {
 		$add_to_cart_product_id = ((isset($_SESSION['add_to_cart_product_id']) && $_SESSION['add_to_cart_product_id'] != '')?htmlentities($_SESSION['add_to_cart_product_id']):'');
 		$input_quantity 	    = ((isset($_SESSION['input_quantity']) && $_SESSION['input_quantity'] != '')?htmlentities($_SESSION['input_quantity']):'');
 		$email 				    = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');

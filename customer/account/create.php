@@ -2,6 +2,13 @@
 	require '/../../db.php';
 	session_start();
 
+	require_once "/../../google-login/config.php";
+	require_once "/../../facebook-login/config.php";
+	$loginUrlGoogle = $gClient->createAuthUrl();
+	$redirectURL = "http://localhost:8080/etiendahan/facebook-login/f-callback.php";
+	$permissions = ['email'];
+	$loginUrlFacebook = $helper->getLoginUrl($redirectURL, $permissions);
+
 	$gender 	= ((isset($_POST['gender']) && $_POST['gender'] != '')?htmlentities($_POST['gender']):'');
 	$birthday 	= ((isset($_POST['birthday']) && $_POST['birthday'] != '')?htmlentities($_POST['birthday']):'');
 	$birthmonth = ((isset($_POST['birthmonth']) && $_POST['birthmonth'] != '')?htmlentities($_POST['birthmonth']):'');
@@ -25,6 +32,8 @@
         }  
 
   	}
+
+  	unset($_SESSION['google_access_token']);
 ?>
 
 <!DOCTYPE html>
@@ -195,11 +204,11 @@
 
 								<div class="col-md-4 text-center">
 									<div class="social-medias">
-										<button class="btn btn-primary facebook" type="submit">
+										<button class="btn btn-primary facebook" type="button" onclick="window.location = '<?php echo $loginUrlFacebook; ?>'">
 										<i class="fa fa-facebook"></i>
 										<span>Sign up with Facebook</span></button>
 
-										<button class="btn btn-primary google" type="submit">
+										<button class="btn btn-primary google" type="button" onclick="window.location = '<?php echo $loginUrlGoogle ?>'">
 										<i class="fa fa-google-plus"></i>
 										<span>Sign up with Google</span></button>
 									</div>

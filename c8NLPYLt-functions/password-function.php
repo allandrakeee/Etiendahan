@@ -11,13 +11,26 @@
     $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'") or die($mysqli->error);
     $user = $result->fetch_assoc();
 
-    if ( password_verify($currentPassword, $user['password']) ) {
+    if($user['password'] == '') {
+        $password = $mysqli->escape_string( password_hash($retypePassword, PASSWORD_BCRYPT) );
+        $sql = "UPDATE tbl_customers SET password = '$password' WHERE email = '$email'";
+
+        if ( $mysqli->query($sql) or die($mysqli->error) ){
+
+            $_SESSION['modified-message'] = "Successfully Inserted.";
+            header("location: /etiendahan/customer/account/password/");
+        }
+
+        else {
+            // $_SESSION['message'] = 'Registration failed!';
+            // header("location: /etiendahan/error/");
+        }
+    } else if(password_verify($currentPassword, $user['password'])) {
 
     	$password = $mysqli->escape_string( password_hash($retypePassword, PASSWORD_BCRYPT) );
 
         $sql = "UPDATE tbl_customers SET password = '$password' WHERE email = '$email'";
 
-        // Add user to the database
         if ( $mysqli->query($sql) or die($mysqli->error) ){
 
             $_SESSION['modified-message'] = "Successfully Modified.";

@@ -11,13 +11,13 @@
 	}
 	else {
 	    // Makes it easier to read
-	    $fullname 	= $_SESSION['fullname'];
-	    $gender     = $_SESSION['gender'];
+	    $fullname 	= ((isset($_SESSION['fullname']) && $_SESSION['fullname'] != '')?htmlentities($_SESSION['fullname']):'');
+	    $gender     = ((isset($_SESSION['gender']) && $_SESSION['gender'] != '')?htmlentities($_SESSION['gender']):'');
 	    $email      = $_SESSION['email'];
 	    $active     = $_SESSION['active'];
-	    $birthday   = $_SESSION['birthday'];
-	    $birthmonth = $_SESSION['birthmonth'];
-	    $birthyear  = $_SESSION['birthyear'];
+	    $birthday   = ((isset($_SESSION['birthday']) && $_SESSION['birthday'] != '')?htmlentities($_SESSION['birthday']):'');
+	    $birthmonth = ((isset($_SESSION['birthmonth']) && $_SESSION['birthmonth'] != '')?htmlentities($_SESSION['birthmonth']):'');
+	    $birthyear  = ((isset($_SESSION['birthyear']) && $_SESSION['birthyear'] != '')?htmlentities($_SESSION['birthyear']):'');
 	}
 ?>
 
@@ -128,7 +128,7 @@
 											</div>
 
 										<?php  
-											} else {
+											} else if($gender == 'Female') {
 										?>
 											<div class="form-check form-check-inline">
 												<label class="form-check-label">
@@ -141,8 +141,21 @@
 												</label>
 											</div>
 										<?php  
+											} else {
+										?>	
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="gender" id="male" value="Male" required> Male
+												</label>
+											</div>
+											<div class="form-check form-check-inline">
+												<label class="form-check-label">
+													<input class="form-check-input" type="radio" name="gender" id="female" value="Female" required> Female
+												</label>
+											</div>
+										<?php  
 											}
-										?>											
+										?>										
 										</div>
 									</div>
 	

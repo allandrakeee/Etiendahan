@@ -1,5 +1,4 @@
 <?php  
-	/* Log out process, unsets and destroys session variables */
 	session_start();
 
 	$fullname 	= $_SESSION['fullname'];
@@ -13,6 +12,7 @@
 	else {
 		$_SESSION['logout-message'] = "$fullname";
 		$_SESSION['logged_in'] = false;
+
 		header("location: /etiendahan/");
 	}
 ?>

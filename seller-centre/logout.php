@@ -13,6 +13,7 @@
 	else {
 		$_SESSION['logout-message'] = "$fullname";
 		$_SESSION['logged_in'] = false;
+		unset($_SESSION['google_access_token']);
 		header("location: /etiendahan/seller-centre/account/signin/"); 
 	}
 ?>

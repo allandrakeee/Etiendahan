@@ -1,5 +1,7 @@
 <?php  
 	require '/db.php';
+	require_once "/facebook-login/config.php";
+
 	if ( $logged_in == true ) {
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,6 +13,15 @@
 		   	$mysqli->query($sql) or die($mysqli->error);
 	    }
 	}
+
+	$fbSession = ((isset($_SESSION['facebook_access_token']) && $_SESSION['facebook_access_token'] != '')?htmlentities($_SESSION['facebook_access_token']):'');
+	
+	if($fbSession != "") {
+		$logoutUrlFacebook = $helper->getLogoutUrl($fbSession, 'http://localhost:8080/etiendahan/logout/');
+	} else {
+		$logoutUrlFacebook = 'http://localhost:8080/etiendahan/logout/';
+	}
+
 ?>
 		<!-- SECTION 1 -->
 		<div id="etiendahan-section-1" class="etiendahan-section">
@@ -302,11 +313,11 @@
 									<i class="fa fa-caret-right fa-fw"></i>Wishlists
 									<?php else: ?>
 										<?php $row = $result->fetch_assoc(); ?>
-									<i class="fa fa-caret-right fa-fw"></i>Wishlists (<?php echo $row['total']; ?>)
+									<i class="fa fa-caret-right fa-fw"></i>Wishlists <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
 									<?php endif; ?>
 								</div>
 							</a>
-							<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout" onclick="logout()"></i>LOGOUT</div></a>
+							<button class="facebook-logout" type="button" onclick="window.location = '<?php echo $logoutUrlFacebook; ?>'" style="background:none!important;color: inherit;border: none;padding: 0!important;font: inherit;cursor: pointer;width: 100%;text-align: left;"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout"></i>LOGOUT</div></button>
 						</div>
 					</div>
 				</div>

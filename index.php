@@ -1,5 +1,6 @@
 <?php  
 	require '/db.php';
+	require_once "/facebook-login/config.php";
 	session_start();
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
@@ -7,6 +8,14 @@
 	$email 	= ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
     $result = $mysqli->query("SELECT SUBSTRING_INDEX(fullname, ' ', 1) AS first_name FROM tbl_customers WHERE email='$email'");
 	$user = $result->fetch_assoc();
+
+	$fbSession = ((isset($_SESSION['facebook_access_token']) && $_SESSION['facebook_access_token'] != '')?htmlentities($_SESSION['facebook_access_token']):'');
+	
+	if($fbSession != "") {
+		$logoutUrlFacebook = $helper->getLogoutUrl($fbSession, 'http://localhost:8080/etiendahan/logout/');
+	} else {
+		$logoutUrlFacebook = 'http://localhost:8080/etiendahan/logout/';
+	}
 ?>
 
 <!DOCTYPE html>
@@ -319,11 +328,11 @@
 													<i class="fa fa-caret-right fa-fw"></i>Wishlists
 													<?php else: ?>
 														<?php $row = $result->fetch_assoc(); ?>
-													<i class="fa fa-caret-right fa-fw"></i>Wishlists (<?php echo $row['total']; ?>)
+													<i class="fa fa-caret-right fa-fw"></i>Wishlists <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
 													<?php endif; ?>
 												</div>
 											</a>
-											<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout" onclick="logout()"></i>LOGOUT</div></a>
+											<button class="facebook-logout" type="button" onclick="window.location = '<?php echo $logoutUrlFacebook; ?>'" style="background:none!important;color: inherit;border: none;padding: 0!important;font: inherit;cursor: pointer;width: 100%;text-align: left;"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout"></i>LOGOUT</div></button>
 										</div>
 									</div>
 								</div>
@@ -1047,7 +1056,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/recently-viewed-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1000ms">YOUR RECENTLY VIEWED PRODUCTS, <?php echo $user['first_name']; ?></span></h3>
+									<h3><span class="wow pulse" data-wow-delay="1000ms">YOUR RECENTLY VIEWED PRODUCTS<?php if($user['first_name'] != ''): ?>, <?php echo $user['first_name'] ?><?php endif; ?></span></h3>
 								</div>
 
 								<div class="owl-carousel">

@@ -99,16 +99,25 @@
 								<div class="tab-content"><h1>Change Password</h1><p>For your account's security, do not share your password with anyone else</p></div>
 							
 								<form action="/etiendahan/c8NLPYLt-functions/password-function/" method="POST">
-									<!-- current password -->
-									<div class="form-group row">
-										<label for="inputPasswordCurrent" class="col-sm-2 col-form-label">Current Password</label>
-										<div id="show-hide-current-password" class="col-sm-10 input-group">
-											<input name="currentPassword" type="password" class="form-control" id="inputPasswordCurrent" value="<?= isset($_POST['currentPassword']) ? $_POST['currentPassword'] : ''; ?>" min="10" max="20" required autofocus>
-											<div class="input-group-addon">
-												<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+									<?php  
+										$email  = $mysqli->escape_string($_SESSION['email']);
+										$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'") or die($mysqli->error);
+										$user   = $result->fetch_assoc();
+										if($user['password'] == ''):
+									?>
+		
+									<?php else: ?>
+										<!-- current password -->
+										<div class="form-group row">
+											<label for="inputPasswordCurrent" class="col-sm-2 col-form-label">Current Password</label>
+											<div id="show-hide-current-password" class="col-sm-10 input-group">
+												<input name="currentPassword" type="password" class="form-control" id="inputPasswordCurrent" value="<?= isset($_POST['currentPassword']) ? $_POST['currentPassword'] : ''; ?>" min="10" max="20" required autofocus>
+												<div class="input-group-addon">
+													<a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+												</div>
 											</div>
-										</div>
-									</div>								
+										</div>		
+									<?php endif; ?>						
 
 									<!-- new password -->
 									<div class="form-group row">

@@ -14483,6 +14483,9 @@ input[type=number]::-webkit-outer-spin-button {
           position: relative;
           left: 16px; }
 
+.facebook-logout:focus {
+  outline: none; }
+
 .my-navbar {
   background: none !important;
   height: 90px;

@@ -2,23 +2,21 @@
 	require '/../../db.php';
 	session_start();
 
+	require_once "/../../google-login/config.php";
+	require_once "/../../facebook-login/config.php";
+	$loginUrlGoogle = $gClient->createAuthUrl();
+	$redirectURL = "http://localhost:8080/etiendahan/facebook-login/f-callback.php";
+	$permissions = ['email'];
+	$loginUrlFacebook = $helper->getLoginUrl($redirectURL, $permissions);
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
   	// Check if user is logged in using the session variable
   	if ($logged_in == 1) {
-    	// header("location: /etiendahan/");    
-    	$email = $mysqli->escape_string($_SESSION['email']);
-		$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
-		$user = $result->fetch_assoc();
-
-		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
-            header("location: /etiendahan/seller-centre/account/activate/");
-        } else {
-			$_SESSION['cant-proceed-message'] = "You already logged in";
-            header("location: /etiendahan/");
-        }  
+    	$_SESSION['cant-proceed-message'] = "You already logged in.";
+        header("location: /etiendahan/");
   	}
+
+  	unset($_SESSION['google_access_token']);
 ?>
 
 <!DOCTYPE html>
@@ -107,13 +105,15 @@
 
 								<div class="col-md-4 text-center">
 									<div class="social-medias">
-										<button class="btn btn-primary facebook" type="submit">
-										<i class="fa fa-facebook"></i>
-										<span>Facebook</span></button>
+										<form action="">
+											<button class="btn btn-primary facebook" type="button" onclick="window.location = '<?php echo $loginUrlFacebook; ?>'">
+											<i class="fa fa-facebook"></i>
+											<span>Facebook</span></button>
 
-										<button class="btn btn-primary google" type="submit">
-										<i class="fa fa-google-plus"></i>
-										<span>Google</span></button>
+											<button class="btn btn-primary google" type="button" onclick="window.location = '<?php echo $loginUrlGoogle; ?>'">
+												<i class="fa fa-google-plus"></i><span>Google</span>
+											</button>
+										</form>
 									</div>
 								</div>
 							</div>
