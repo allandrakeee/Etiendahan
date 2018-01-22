@@ -18,6 +18,6 @@
 	$sql2 = "UPDATE tbl_address SET default_address = 1 WHERE id = '$address_id'";
 	$mysqli->query($sql2);
 
-	$_SESSION['success-message'] = 'Default address changed';
+	$_SESSION['success-message'] = 'Default address changed.';
 	header('location: /etiendahan/customer/address/');
 ?>

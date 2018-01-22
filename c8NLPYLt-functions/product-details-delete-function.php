@@ -21,6 +21,8 @@
     }
     
     $sql = "DELETE FROM tbl_products WHERE id = '$id'";
+    $sql_delete_ratings = "DELETE FROM tbl_ratings WHERE product_id = '$id'";
+    $mysqli->query($sql_delete_ratings);
 
     if ($mysqli->query($sql) or die($mysqli->error)) {
         $email_path = BASEURL.'images/'.$_SESSION['email'].'/';
@@ -28,7 +30,7 @@
         echo (count(glob("$email_path/*")) === 0) ? rmdir($email_path) : 'Not empty';
 
 		header("location: /etiendahan/seller-centre/product/list/all/");
-    	$_SESSION['product-modified-message'] = 'Successfully Deleted';
+    	$_SESSION['product-modified-message'] = 'Successfully Deleted.';
 
         // header("location: /etiendahan/"); 
     } else {

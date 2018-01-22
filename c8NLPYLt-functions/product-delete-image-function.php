@@ -25,5 +25,5 @@
     echo $email_path;
     echo (count(glob("$email_path/*")) === 0) ? rmdir($email_path) : 'Not empty';
 	header("location: /etiendahan/seller-centre/product/details/");
-	$_SESSION['product-modified-message'] = 'Image Successfully Deleted';
+	$_SESSION['product-modified-message'] = 'Image Successfully Deleted.';
 ?>

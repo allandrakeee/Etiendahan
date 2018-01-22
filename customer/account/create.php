@@ -17,10 +17,10 @@
 		$user = $result->fetch_assoc();
 
 		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account.";
             header("location: /etiendahan/seller-centre/account/activate/");
         } else {
-			$_SESSION['cant-proceed-message'] = "You must logout first before viewing create page";
+			$_SESSION['cant-proceed-message'] = "You must logout first before viewing create page.";
             header("location: /etiendahan/");
         }  
 
@@ -227,7 +227,6 @@
 					</div>
 				</div>
 				<!-- END OF POPUP NOTIFICATION -->
-
 <!-- footer inner -->
 <?php  
 	include '../../footer.php';

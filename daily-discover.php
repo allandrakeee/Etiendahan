@@ -73,8 +73,38 @@
 																<div class="card-body">
 																	<div class="product-name"><?php echo $product_row['name']; ?></div>
 																	<div class="product-price">₱<?php echo $product_row['price']; ?></div>
-																	<div class="product-rating">
-																		<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+																	<div class="product-rating" style="height: 18px;">
+																		<?php  
+																			$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+																			$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+																			$ratings_count1 = $ratings_row_count1['total'];
+
+
+																			$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+																			$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+																			$ratings_avg1 = round($ratings_row_avg1['rating']);												
+																		?>
+																		<?php  
+																			$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+																			if($ratins_result_row1->num_rows == 0):
+																		?>
+																			No reviews yet
+																		<?php else: ?>
+																				<?php  
+																					$ii=1;
+																					for($ii;$ii<=$ratings_avg1;$ii++):
+																				?>
+																					<i class="fa fa-star" style="width: 10px;"></i>
+																				<?php endfor; ?>
+																				<?php if($ii <= 5): ?>
+																					<?php 
+																						for($ii;$ii<=5;$ii++):
+																					?>
+																						<i class="fa fa-star-o" style="width: 10px;"></i>
+																					<?php endfor; ?>
+																				<?php endif; ?>
+																			 		(<?php echo $ratings_count1; ?>)								 		 	
+																		<?php endif; ?>
 																	</div>
 																</div>
 															</div>

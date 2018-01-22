@@ -11,6 +11,7 @@
 	$sql = "DELETE FROM tbl_wishlists WHERE product_id = '$product_wishlists_id' AND email = '$customer_email'";
 
     if ($mysqli->query($sql) or die($mysqli->error)) {
+        $_SESSION['message'] = 'Successfully Deleted.';
         header("location: /etiendahan/customer/wishlists/"); 
     } else {
         // $_SESSION['message'] = 'Registration failed!';

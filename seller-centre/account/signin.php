@@ -51,11 +51,11 @@
 <body>
 	
 	<!-- Preloader -->
-	<!-- <div id="loader-wrapper">
+	<div id="loader-wrapper">
 		<div id="loader"></div>
 		<div class="loader-section section-left"></div>
 		<div class="loader-section section-right"></div>
-	</div> -->
+	</div>
 
 	<a id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 	<div id="seller-centre-page" class="main-container">

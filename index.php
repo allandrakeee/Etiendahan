@@ -214,106 +214,118 @@
 								</div>
 
 								<div class="ml-auto d-flex">
-											<!-- CART -->
-											<div class="nav-item right-nav dropdown" id="cart">
-												<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-													<span class="fa-stack has-badge" data-count="0">
-													  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-													  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-													</span>
-												</a>
+									<!-- CART -->
+									<div class="nav-item right-nav dropdown" id="cart">
+										<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+											<?php  
+												$email = $_SESSION['email'];
+												$cart_result_count = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_cart WHERE email = '$email'");
+												$cart_row_count = $cart_result_count->fetch_assoc();
+											?>
+											<span class="fa-stack has-badge" data-count="<?php echo $cart_row_count['total']; ?>">
+											  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+											  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+											</span>
+										</a>
+										
+										<!-- No items in the cart -->
+										<?php  
+											$result = $mysqli->query("SELECT * FROM tbl_cart WHERE email = '$email'");
 
-												<!-- No items in the cart -->
-												<div class="dropdown-menu" aria-labelledby="cart">
-													<p>You have no items in your shopping cart.</p>
-												</div>
-
-												<!-- Have items in the cart -->
-												<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-													<p>Recently Added Products</p>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?1,000.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item overlay">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-																<div class="item-price">?1,500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item overlay">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-																<div class="item-price">?1,500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<button type="button" class="btn btn-dark">View Cart</button>
-												</div> -->
+									        if ($result->num_rows == 0):
+										?>
+											<div class="dropdown-menu" aria-labelledby="cart">
+												<p>You have no items in your shopping cart.</p>
 											</div>
+										<?php else: ?>
 
-											<div class="nav-item right-nav dropdown" id="user-account">
-												<a class="nav-link" href="/etiendahan/customer/account/profile/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-													<i class="fa fa-user-circle"></i>
-												</a>
-												<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-													<p>Howdie.</p>
+										<!-- Have items in the cart -->
+										
+										<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+											<p>Recently Added Products</p>
+											<?php  
+												$cart_result = $mysqli->query("SELECT * FROM tbl_cart WHERE email = '$email'");
+												while($cart_row = mysqli_fetch_assoc($cart_result)):
+												$product_id_cart = $cart_row['product_id'];
 
-													<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
-													<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
-													<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlists</div></a>
-													<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>LOGOUT</div></a>
+												$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_cart'");
+												while($product_row = mysqli_fetch_assoc($product_result)):
+													if($product_row['stock'] <= 0):
+											?>	
+														<div class="item overlay">
+															<div class="item-left">
+																<?php $saved_image = explode(',', $product_row['image']); ?>
+																<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+																<div class="item-info">
+																	<div class="item-name"><span class="item-sold-out">Sold out</span><?php echo $product_row['name']; ?></div>
+																	<div class="item-price">₱<?php echo $product_row['price']; ?></div>
+																</div>
+															</div>
+															<div class="item-right">
+																<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+																	<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+																		<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+																	</button>
+																</form>
+															</div>
+														</div>
+													<?php else: ?>
+														
+															<div class="item">
+																<div class="item-left">
+																	<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+																		<?php $saved_image = explode(',', $product_row['image']); ?>
+																		<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+																	</a>
+																	<div class="item-info">
+																		<div class="item-name"><?php echo $product_row['name']; ?></div>
+																		<div class="item-price">₱<?php echo $product_row['price']; ?></div>
+																	</div>
+																</div>
+																<div class="item-right">
+																	<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+																		<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+																			<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+																		</button>
+																	</form>
+																</div>
+															</div>
+
+											<?php endif;endwhile;endwhile; ?>
+
+											
+
+											<a href="/etiendahan/cart/"><button type="button" class="btn btn-dark">View Cart</button></a>
+										</div>
+										<?php endif; ?>
+									</div>
+
+									<div class="nav-item right-nav dropdown" id="user-account">
+										<a class="nav-link" href="/etiendahan/customer/account/profile/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											<i class="fa fa-user-circle"></i>
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<p>Howdie.</p>
+
+											<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
+											<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+											<a href="/etiendahan/customer/wishlists/">
+												<div class="dropdown-item">
+													<?php  
+														$email =  $_SESSION['email'];
+													  	$result = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_wishlists WHERE email = '$email'");
+												 		if($result->num_rows == 0):
+													?>
+													<i class="fa fa-caret-right fa-fw"></i>Wishlists
+													<?php else: ?>
+														<?php $row = $result->fetch_assoc(); ?>
+													<i class="fa fa-caret-right fa-fw"></i>Wishlists (<?php echo $row['total']; ?>)
+													<?php endif; ?>
 												</div>
-											</div>
+											</a>
+											<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout" onclick="logout()"></i>LOGOUT</div></a>
+										</div>
+									</div>
 								</div>
 
 								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -353,9 +365,9 @@
 									<div class="col-md-12">
 										<div class="search-box">
 											<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
-												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplte" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplete" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
 												<button class="btn btn-link search-btn" name="search_button">
-													<i class="fa fa-search"></i>
+													<i class="fa fa-search" style="position: relative;bottom: 2px;"></i>
 												</button>
 											</form>
 										</div>
@@ -550,110 +562,110 @@
 								</div>
 
 								<div class="ml-auto d-flex">
-											<!-- CART -->
-											<div class="nav-item right-nav dropdown" id="cart">
-												<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-													<span class="fa-stack has-badge" data-count="0">
-													  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-													  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-													</span>
-												</a>
+									<!-- CART -->
+									<div class="nav-item right-nav dropdown" id="cart">
+										<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+											<span class="fa-stack has-badge" data-count="0">
+											  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+											  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+											</span>
+										</a>
 
-												<!-- No items in the cart -->
-												<div class="dropdown-menu" aria-labelledby="cart">
-													<p>You have no items in your shopping cart.</p>
+										<!-- No items in the cart -->
+										<div class="dropdown-menu" aria-labelledby="cart">
+											<p>You have no items in your shopping cart.</p>
+										</div>
+
+										<!-- Have items in the cart -->
+										<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+											<p>Recently Added Products</p>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">?1,000.00</div>
+													</div>
 												</div>
-
-												<!-- Have items in the cart -->
-												<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-													<p>Recently Added Products</p>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?1,000.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item overlay">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-																<div class="item-price">?1,500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name">Item name</div>
-																<div class="item-price">?500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<div class="item overlay">
-														<div class="item-left">
-															<img src="http://via.placeholder.com/50x50" alt="" />
-															<div class="item-info">
-																<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-																<div class="item-price">?1,500.00</div>
-															</div>
-														</div>
-														<div class="item-right">
-															<i class="fa fa-trash"></i>
-														</div>
-													</div>
-
-													<button type="button" class="btn btn-dark">View Cart</button>
-												</div> -->
-											</div>
-
-											<div class="nav-item right-nav dropdown" id="user-account">
-												<a class="nav-link" href="/etiendahan/customer/account/login/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-													<i class="fa fa-user-circle"></i>
-												</a>
-												<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-													<p>Howdie.</p>
-
-													<!-- Development -->
-													<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-													<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
-
-													<!-- Production -->
-													<!-- <a href="/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-													<a href="/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a> -->
-
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
 												</div>
 											</div>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">?500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item overlay">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+														<div class="item-price">?1,500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name">Item name</div>
+														<div class="item-price">?500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<div class="item overlay">
+												<div class="item-left">
+													<img src="http://via.placeholder.com/50x50" alt="" />
+													<div class="item-info">
+														<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+														<div class="item-price">?1,500.00</div>
+													</div>
+												</div>
+												<div class="item-right">
+													<i class="fa fa-trash"></i>
+												</div>
+											</div>
+
+											<button type="button" class="btn btn-dark">View Cart</button>
+										</div> -->
+									</div>
+
+									<div class="nav-item right-nav dropdown" id="user-account">
+										<a class="nav-link" href="/etiendahan/customer/account/login/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											<i class="fa fa-user-circle"></i>
+										</a>
+										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<p>Howdie.</p>
+
+											<!-- Development -->
+											<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+											<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+
+											<!-- Production -->
+											<!-- <a href="/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+											<a href="/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a> -->
+
+										</div>
+									</div>
 								</div>
 
 								<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -693,9 +705,9 @@
 									<div class="col-md-12">
 										<div class="search-box">
 											<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
-												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplte" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+												<input class="form-control form-control-lg hintable ui-autocomplete-input" id="customerAutocomplete" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
 												<button class="btn btn-link search-btn" name="search_button">
-													<i class="fa fa-search"></i>
+													<i class="fa fa-search" style="position: relative;bottom: 2px;"></i>
 												</button>
 											</form>
 										</div>
@@ -963,12 +975,42 @@
 								<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 									<div class="card">
 										<?php $saved_image = explode(',', $product_row['image']); ?>
-										<div class="card-image lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
+										<div class="card-image lazy" style="width: 212px;" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
 										<div class="card-body">
 											<div class="product-name"><?php echo $product_row['name']; ?></div>
 											<div class="product-price">₱<?php echo $product_row['price']; ?></div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+											<div class="product-rating" style="height: 18px;">
+												<?php  
+													$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+													$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+													$ratings_count1 = $ratings_row_count1['total'];
+
+
+													$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+													$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+													$ratings_avg1 = round($ratings_row_avg1['rating']);												
+												?>
+												<?php  
+													$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+													if($ratins_result_row1->num_rows == 0):
+												?>
+													No reviews yet
+												<?php else: ?>
+														<?php  
+															$ii=1;
+															for($ii;$ii<=$ratings_avg1;$ii++):
+														?>
+															<i class="fa fa-star" style="width: 10px;"></i>
+														<?php endfor; ?>
+														<?php if($ii <= 5): ?>
+															<?php 
+																for($ii;$ii<=5;$ii++):
+															?>
+																<i class="fa fa-star-o" style="width: 10px;"></i>
+															<?php endfor; ?>
+														<?php endif; ?>
+													 		(<?php echo $ratings_count1; ?>)								 		 	
+												<?php endif; ?>
 											</div>
 										</div>
 									</div>
@@ -987,166 +1029,94 @@
 				<!-- END OF SECTION 5 -->
 				
 				<?php if($logged_in == true): ?>
-					<!-- SECTION 6 - Homepage recommendations -->
+					<!-- SECTION 6 - Homepage recently_viewed_products -->
 					<div id="etiendahan-section-6" class="etiendahan-section">
-						<!-- have recently view -->
-						<div class="container">
-							<div class="title-name">
-								<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-								<h3><span class="wow pulse" data-wow-delay="1000ms">RECOMMENDATIONS FOR YOU, <?php echo $user['first_name']; ?></span></h3>
+						<?php  
+							$result = $mysqli->query("SELECT * FROM tbl_recently_viewed_products WHERE email = '$email'");
+							if($result->num_rows == 0):
+						?>
+							<!-- have not recently view -->
+							<div class="container-fluid">
+								<div class="recently-view">
+									<div class="first-para">You don't have any recently viewed products.</div>
+									<div class="second-para">View products on Etiendahan and we'll track them here...</div>
+								</div>
 							</div>
+						<?php else: ?>
+							<!-- have recently view -->
+							<div class="container">
+								<div class="title-name">
+									<a href="/etiendahan/recently-viewed-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+									<h3><span class="wow pulse" data-wow-delay="1000ms">YOUR RECENTLY VIEWED PRODUCTS, <?php echo $user['first_name']; ?></span></h3>
+								</div>
 
-							<div class="owl-carousel">
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="item">
-									<a href="https://www.google.com">
-										<div class="card">
-											<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-											<div class="card-body">
-												<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-												<div class="product-price">₱150.00</div>
-												<div class="product-rating">
-													<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
+								<div class="owl-carousel">
+									<?php  
+										$recently_viewed_products_result = $mysqli->query("SELECT GROUP_CONCAT(product_id) AS 'product_id_result' FROM tbl_recently_viewed_products WHERE email = '$email' GROUP BY modified_at desc");
+										while($recently_viewed_products_row = mysqli_fetch_assoc($recently_viewed_products_result)):
+										$product_id = $recently_viewed_products_row['product_id_result'];
 
-						<!-- have not recently view -->
-						<!-- <div class="container-fluid">
-							<div class="recently-view">
-								<div class="first-para">You don't have any recently viewed items.</div>
-								<div class="second-para">View items on Etiendahan and we'll track them here..</div>
+										$product_result_recently_viewed_products = $mysqli->query("SELECT * FROM tbl_products WHERE id IN($product_id) AND stock > 0 AND banned = 0");
+										while($product_row_recently_viewed_products = mysqli_fetch_assoc($product_result_recently_viewed_products)):
+									?>
+									<div class="item">
+										<?php 
+											$product_id_date = $product_row_recently_viewed_products['id'];
+											$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = $product_id_date");
+											$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+											
+											if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+										?>
+										<div class="ribbon view-product ribbon--dimgrey">NEW</div>
+										<?php endif; ?>
+										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
+											<div class="card">
+												<?php $saved_image = explode(',', $product_row_recently_viewed_products['image']); ?>
+												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
+												<div class="card-body">
+													<div class="product-name"><?php echo $product_row_recently_viewed_products['name'] ?></div>
+													<div class="product-price">₱ <?php echo $product_row_recently_viewed_products['price'] ?></div>
+													<div class="product-rating" style="height: 18px;">
+														<?php  
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+															$ratings_count1 = $ratings_row_count1['total'];
+
+
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+															$ratings_avg1 = round($ratings_row_avg1['rating']);												
+														?>
+														<?php  
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															if($ratins_result_row1->num_rows == 0):
+														?>
+															No reviews yet
+														<?php else: ?>
+																<?php  
+																	$ii=1;
+																	for($ii;$ii<=$ratings_avg1;$ii++):
+																?>
+																	<i class="fa fa-star" style="width: 10px;"></i>
+																<?php endfor; ?>
+																<?php if($ii <= 5): ?>
+																	<?php 
+																		for($ii;$ii<=5;$ii++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 10px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															 		(<?php echo $ratings_count1; ?>)								 		 	
+														<?php endif; ?>
+													</div>
+												</div>
+											</div>
+										</a>
+									</div>
+									<?php endwhile; endwhile; ?>
+								</div>
 							</div>
-						</div> -->
+						<?php endif; ?>
 					</div>
 					<!-- END OF SECTION 6 -->
 				<?php endif; ?>
@@ -1160,8 +1130,8 @@
 									<!-- <a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a> -->
 									<a href="http://localhost:8080/etiendahan/"><img src="temp-img/etiendahan-logo.png" alt=""></a>
 									<div class="about-text">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, pariatur.</p>
-										<p>Nisi porttitor inceptos consectetur donec orci, dui ipsum leo class gravida.</p>
+										<p>Join Etiendahan to find everything you need at the best prices. Shopping online at Philippines’ best marketplace cannot get any easier.</p>
+										<p>Etiendahan provides the right tools to support all our sellers on our marketplace platform. List your products in less than 30 seconds. Sell better and get more exposure for your products.</p>
 									</div>
 
 									<div class="social">

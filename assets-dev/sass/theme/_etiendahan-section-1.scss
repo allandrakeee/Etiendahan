@@ -195,12 +195,12 @@ div.dropdown-menu.have-in-cart {
 		margin: 12px 10px 0 0;
 		float: right;
 		border-radius: 0;
-		font-size: 0.750rem;
+		font-size: 16px;
 		font-weight: bold;
 		letter-spacing: 1px;
 		color: #fff;
-	    background-color: #23272b;
-	    border-color: #1d2124;
+		background-color: #23272b;
+		border-color: #1d2124;
 		
 		&:hover {
 			color: #fff;
@@ -259,10 +259,18 @@ div.dropdown-menu.have-in-cart .item-left .item-info {
     margin: 6px 0 0 10px; 
 
   	.item-name {
-  		font-size: 0.813rem;
-  		font-weight: 600;
-  		letter-spacing: 0.03em;
-  		color: dimgrey;
+		font-size: 0.813rem;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		color: dimgrey;
+		width: 290px;
+		display: inline-block;
+		height: 18px;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		text-overflow: ellipsis;
 
   		.item-sold-out {
   			margin-right: 5px;
@@ -836,7 +844,7 @@ nav a:focus {
 	// z-index: 9999;
 	width: 1078px !important;
 	background-color: #fff;
-	// margin-top: 5px !important;
+	margin-top: 5px !important;
 	// margin-left: -30px !important;
 }
 
@@ -850,21 +858,20 @@ ul {
 		
 		
 
-		&:hover {
+		&:hover, &:focus {
 			text-decoration: none;
-			color: dimgrey;
+			color: #fff;
 			// background-color: blue !important;
 			border: none;
 		}
 
 		.search-item {
-			color: dimgrey;
+			z-index: 999;
 			display: block;
 			padding: 5px 10px;
 
 			&:hover {
 				text-decoration: none;
-				// background-color: #3390FF !important;
 			}
 		}
 	}
@@ -906,4 +913,127 @@ ul {
     a {
     	text-decoration: none;
     }
+}
+
+.cart-delete {
+     background:none!important;
+     color:inherit;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+
+.sb-search {
+	font-family: 'Montserrat', sans-serif;
+	position: absolute;
+	margin-top: 10px;
+	width: 0%;
+	min-width: 60px;
+	height: 60px;
+	float: right;
+	overflow: hidden;
+	-webkit-transition: width 0.3s;
+	-moz-transition: width 0.3s;
+	transition: width 0.3s;
+	-webkit-backface-visibility: hidden;
+	right: 260px;
+    bottom: 5px;
+}
+/* The input element on the search element  */
+.sb-search-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    outline: none;
+    background: #fff;
+    width: 65%;
+    height: 70px;
+    margin: 0;
+    z-index: 10;
+    padding: 0 65px 0 20px;
+    color: #495057 !important;
+    font-size: 1.125rem;
+    line-height: 56px;
+    border: 2px solid #dcdcdc;
+    border-bottom-width: 12px;
+}
+
+
+input[type="search"].sb-search-input {
+	/* remove special webkit formatting on the search input */
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+}
+
+/* format the search button and submit to share the same size and space */
+.sb-icon-search,
+.sb-search-submit  {
+	width: 60px;
+	height: 60px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	line-height: 60px;
+	text-align: center;
+	cursor: pointer;
+}
+/* hide the submit but leave it clickable */
+.sb-search-submit {
+	background: #fff; /* IE needs this */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+    filter: alpha(opacity=0); /* IE 5-7 */
+    opacity: 0;
+	color: transparent;
+	border: none;
+	outline: none;
+	z-index: -1;
+}
+
+/* format the search icon */
+.sb-icon-search {
+    color: #fff;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    z-index: 90;
+    font-size: 22px;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* add the magnifying glass character from the icomoon font as a before pseudo element */
+.sb-icon-search:before {
+	// content: "\e000";
+}
+
+/* Open state */
+.sb-search.sb-search-open,
+.no-js .sb-search {
+	width: 100%;
+}
+
+/* add the "active" color on the search button */
+.sb-search.sb-search-open .sb-icon-search,
+.no-js .sb-search .sb-icon-search {
+	background: dimgrey;
+	color: #fff !important;
+	z-index: 11;
+
+	.fa {
+		color: #fff !important;
+	}
+}
+
+/* adjust z-index to make sure the search submit is clikacble and not below any other elements */
+.sb-search.sb-search-open .sb-search-submit,
+.no-js .sb-search .sb-search-submit {
+	z-index: 90;
 }

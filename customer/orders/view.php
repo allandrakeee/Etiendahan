@@ -6,7 +6,7 @@
 
 	// Check if user is logged in using the session variable
 	if ( $logged_in == false ) {
-		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page";
+		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page.";
 		header("location: /etiendahan/customer/account/login/");    
 	}
 	else {

@@ -5,10 +5,22 @@
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$category_product_id = ((isset($_SESSION['category_product_id']) && $_SESSION['category_product_id'] != '')?htmlentities($_SESSION['category_product_id']):'');
 	$category_product_id_sightings = ((isset($_SESSION['category_product_id_sightings']) && $_SESSION['category_product_id_sightings'] != '')?htmlentities($_SESSION['category_product_id_sightings']):'');
+	$email_go_to_recently_viewed_products = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
 
 	if($category_product_id_sightings != '') {
 		$mysqli->query("UPDATE tbl_products SET sightings = sightings + 1 WHERE id = '$category_product_id_sightings'") or die($mysqli->error);
 		unset($_SESSION['category_product_id_sightings']);
+	}
+
+	if($logged_in == true) {
+		$recently_viewed_products_result = $mysqli->query("SELECT * FROM tbl_recently_viewed_products WHERE product_id = '$category_product_id' AND email = '$email_go_to_recently_viewed_products'");
+		if ($recently_viewed_products_result->num_rows == 0) {
+	        $sql = "INSERT INTO tbl_recently_viewed_products (id, product_id, email, created_at, modified_at) VALUES (null, '$category_product_id', '$email_go_to_recently_viewed_products', NOW(), NOW())";
+			$mysqli->query($sql);
+		} else {
+			$sql = "UPDATE tbl_recently_viewed_products SET modified_at = NOW() WHERE product_id = '$category_product_id'";
+			$mysqli->query($sql);
+		}
 	}
 
 	if($category_product_id == '') {
@@ -144,15 +156,46 @@
 	 								<div class="product-detail">
 	 									<div class="product-price">₱<?php echo $row_product['price'] ?></div>
 	 									<div class="product-rating">
-											<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+	 										<?php  
+												$ratings_result_count = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$category_product_id'");
+												$ratings_row_count = $ratings_result_count->fetch_assoc();
+												$ratings_count = $ratings_row_count['total'];
+
+
+												$ratings_result_avg = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$category_product_id'");
+												$ratings_row_avg = $ratings_result_avg->fetch_assoc();
+												$ratings_avg = round($ratings_row_avg['rating']);												
+											?>
+											<?php  
+												$ratins_result_row = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$category_product_id'");
+												if($ratins_result_row->num_rows == 0):
+											?>
+													Be the first to review this product
+											<?php else: ?>
+													<?php  
+														$i=1;
+														for($i;$i<=$ratings_avg;$i++):
+													?>
+														<i class="fa fa-star" style="width: 10px;"></i>
+													<?php endfor; ?>
+													<?php if($i <= 5): ?>
+														<?php 
+															for($i;$i<=5;$i++):
+														?>
+															<i class="fa fa-star-o" style="width: 10px;"></i>
+														<?php endfor; ?>
+													<?php endif; ?>
+												 		(<?php echo $ratings_count; ?>)								 		 	
+											<?php endif; ?>
 										</div>
 	 									<!-- <div class="product-share">Share:</div> -->
 	 								</div>
 
 	 								<div class="product-seller pull-right">
-	 									<?php   $email 	= $row_product['seller_email'];
-	 											$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
-												$user 	= $result->fetch_assoc();
+	 									<?php   
+	 										$email 	= $row_product['seller_email'];
+ 											$result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+											$user 	= $result->fetch_assoc();
 										?>
 	 									<span><?php echo $user['fullname']; ?></span>
 										<a href="/etiendahan/seller-shop/">
@@ -168,7 +211,7 @@
 														<span class="fa fa-minus"></span>
 													</button>
 												</span>
-								          		<input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="<?php echo $row_product['stock'] ?>" disabled>
+								          		<input id="input-quantity" type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="<?php echo $row_product['stock'] ?>" disabled>
 												<span class="input-group-btn">
 													<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
 														<span class="fa fa-plus"></span>
@@ -183,7 +226,9 @@
 	 										<div class="items-left text-danger"><?php echo $row_product['stock'];?> items left</div>
 	 										<?php endif; ?>
 	 									<?php endif; ?>
-	 									<button class="btn btn-primary" type="submit">Add to Cart</button>
+	 									<form class="add-to-cart-form" action="/etiendahan/c8NLPYLt-functions/add-to-cart-function/" method="POST">
+	 										<button class="btn btn-primary add-to-cart" type="submit" name="add_to_cart" id="<?php echo $category_product_id ?>">Add to Cart</button>
+ 										</form>
 	 									<div class="product-add-to-wishlist" >
 	 										<form class="wishlists-form" action="/etiendahan/category/view/product/" method="POST">
 	 											<?php  
@@ -214,138 +259,176 @@
 										<?php echo nl2br($row_product['description']); ?>
 									</div>
 									<div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-										<div class="rating-header">
-											<div class="head">Customer Reviews</div>
-											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i> Based on 2 reviews</div>
-											<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample">Write a review</a></div>
+										<?php  
+											$result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$category_product_id'");
+											if($result->num_rows > 0):
+										?>
+												<div class="rating-header">
+													<div class="head">Customer Reviews</div>
+													<?php  
+														$ratings_result_count = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$category_product_id'");
+														$ratings_row_count = $ratings_result_count->fetch_assoc();
+														$ratings_count = $ratings_row_count['total'];
+
+
+														$ratings_result_avg = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$category_product_id'");
+														$ratings_row_avg = $ratings_result_avg->fetch_assoc();
+														$ratings_avg = round($ratings_row_avg['rating']);
+														// echo $ratings_avg;
+													?>
+													<div class="rate-reviews">
+														<?php  
+															$i=1;
+															for($i;$i<=$ratings_avg;$i++):
+														?>
+															<i class="fa fa-star" style="width: 15px;"></i>
+														<?php endfor; ?>
+														<?php if($i <= 5): ?>
+															<?php 
+																for($i;$i<=5;$i++):
+															?>
+																<i class="fa fa-star-o" style="width: 15px;"></i>
+															<?php endfor; ?>
+														<?php endif; ?>
+
+														<?php  
+															if($ratings_count == 1):
+														?>
+														 		<div class="d-inline-block ml-1">Based on <?php echo $ratings_count; ?> review</div>
+													 	<?php else: ?>
+												 		 		<div class="d-inline-block ml-1">Based on <?php echo $ratings_count; ?> reviews</div>
+											 		 	<?php endif; ?>
+													</div>
+													<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample">Write a review</a></div>
+													<div class="collapse" id="review">
+														<div class="card card-body">
+															<div class="write-a-review">Write a review</div>
+
+															<form action="/etiendahan/c8NLPYLt-functions/product-rating/" method="POST">
+																<div class="form-group">
+																	<label for="exampleRating">Rating</label>
+															  		<!-- Rating Stars Box -->
+																	<div class='rating-stars'>
+																		<ul id='stars'>
+																			<li class='star' title='1 star' id='1'>
+																				<i class='fa fa-star'></i>
+																			</li>
+																			<li class='star' title='2 stars' id='2'>
+																				<i class='fa fa-star'></i>
+																			</li>
+																			<li class='star' title='3 stars' id='3'>
+																				<i class='fa fa-star'></i>
+																			</li>
+																			<li class='star' title='4 stars' id='4'>
+																				<i class='fa fa-star'></i>
+																			</li>
+																			<li class='star' title='5 stars' id='5'>
+																				<i class='fa fa-star'></i>
+																			</li>
+																		</ul>
+																	</div>
+																</div>	
+
+																<div class="form-group">
+																	<label for="exampleReviewTitle">Review title</label>
+																	<input type="text" class="form-control" id="reviewTitle" placeholder="Give your review a title" name="title" required disabled>														
+																</div>
+
+																<div class="form-group">
+																	<label for="exampleFormControlTextarea">Body of Review (1500)</label>
+																	<textarea class="form-control" id="reviewBody" rows="10" maxlength="1500" placeholder="Write your comments here" name="body" required disabled></textarea>
+																</div>
+
+																<button type="submit" class="btn btn-primary pull-right submit-review" disabled>Submit Review</button>
+															</form>
+														</div>
+													</div>
+												</div>
+												
+												<?php  
+													$ratings_result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$category_product_id' GROUP BY created_at desc");
+													while($ratings_row = mysqli_fetch_assoc($ratings_result)):
+												?>
+														<div class="rate">
+															<div class="rate-reviews">
+																<?php  
+																	$i=1;
+																	for($i;$i<=$ratings_row['rating'];$i++):
+																?>
+																	<i class="fa fa-star" style="width: 15px;"></i>
+																<?php endfor; ?>
+																<?php if($i <= 5): ?>
+																	<?php 
+																		for($i;$i<=5;$i++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 15px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															</div>
+															<div class="rate-title"><?php echo $ratings_row['title']; ?></div>
+															<div class="rate-name-and-date">
+																<strong>
+																	<?php echo $ratings_row['fullname']; ?></strong> on <strong><?php
+																		$phpdate = strtotime($ratings_row['created_at']);
+																		echo $mysqldate = date('M j, Y', $phpdate);
+																	?>
+																</strong>
+														</div>
+															<div class="rate-body"><?php echo $ratings_row['body']; ?></div>
+														</div>
+												<?php endwhile; ?>
+										<?php else: ?>
+											<!-- no reviews yet -->
+											<div class="rating-header">
+												<div class="head">Customer Reviews</div>
+												<div class="rate-reviews">Be the first to review this product</div>
+												<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample" style="text-decoration: none;">Write a review</a></div>
+											</div>
+
 											<div class="collapse" id="review">
 												<div class="card card-body">
 													<div class="write-a-review">Write a review</div>
-													<form>
-														<div class="form-group">
-															<label for="examplName">Name</label>
-															<input type="text" class="form-control" id="examplName" placeholder="Enter your name" required>
-														</div>
 
-														<div class="form-group">
-															<label for="exampleInputEmail">Email address</label>
-															<input type="email" class="form-control" id="exampleInputEmail" placeholder="john.smith@example.com" required>														
-														</div>
-
+													<form action="/etiendahan/c8NLPYLt-functions/product-rating/" method="POST">
 														<div class="form-group">
 															<label for="exampleRating">Rating</label>
 													  		<!-- Rating Stars Box -->
 															<div class='rating-stars'>
 																<ul id='stars'>
-																	<li class='star' title='1 star' data-value='1'>
+																	<li class='star' title='1 star' id='1'>
 																		<i class='fa fa-star'></i>
 																	</li>
-																	<li class='star' title='2 stars' data-value='2'>
+																	<li class='star' title='2 stars' id='2'>
 																		<i class='fa fa-star'></i>
 																	</li>
-																	<li class='star' title='3 stars' data-value='3'>
+																	<li class='star' title='3 stars' id='3'>
 																		<i class='fa fa-star'></i>
 																	</li>
-																	<li class='star' title='4 stars' data-value='4'>
+																	<li class='star' title='4 stars' id='4'>
 																		<i class='fa fa-star'></i>
 																	</li>
-																	<li class='star' title='5 stars' data-value='5'>
+																	<li class='star' title='5 stars' id='5'>
 																		<i class='fa fa-star'></i>
 																	</li>
 																</ul>
 															</div>
-															
-														</div>													
+														</div>	
 
 														<div class="form-group">
 															<label for="exampleReviewTitle">Review title</label>
-															<input type="text" class="form-control" id="exampleReviewTitle" placeholder="Give your review a title">														
+															<input type="text" class="form-control" id="reviewTitle" placeholder="Give your review a title" name="title" required disabled>														
 														</div>
 
 														<div class="form-group">
 															<label for="exampleFormControlTextarea">Body of Review (1500)</label>
-															<textarea class="form-control" id="exampleFormControlTextarea" rows="10" maxlength="1500" placeholder="Write your comments here"></textarea>
+															<textarea class="form-control" id="reviewBody" rows="10" maxlength="1500" placeholder="Write your comments here" name="body" required disabled></textarea>
 														</div>
 
-														<button type="submit" class="btn btn-primary pull-right">Submit Review</button>
+														<button type="submit" class="btn btn-primary pull-right submit-review" disabled>Submit Review</button>
 													</form>
 												</div>
 											</div>
-										</div>
-
-										<div class="rate">
-											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-											<div class="rate-title">Title</div>
-											<div class="rate-name-and-date"><strong>Allan Drake Paladin Dulay</strong> on <strong>Dec 06, 2017</strong></div>
-											<div class="rate-body">this is a body</div>
-										</div>
-
-										<div class="rate">
-											<div class="rate-reviews"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
-											<div class="rate-title">Title</div>
-											<div class="rate-name-and-date"><strong>Allan Drake Paladin Dulay</strong> on <strong>Dec 06, 2017</strong></div>
-											<div class="rate-body">this is a body</div>
-										</div>
-
-										<!-- no reviews yet -->
-										<!-- <div class="rating-header">
-											<div class="head">Customer Reviews</div>
-											<div class="rate-reviews">Be the first to review this item</div>
-											<div class="write-a-review pull-right"><a data-toggle="collapse" href="#review" aria-expanded="false" aria-controls="collapseExample">Write a review</a></div>
-										</div>
-
-										<div class="collapse" id="review">
-											<div class="card card-body">
-												<div class="write-a-review">Write a review</div>
-												<form>
-													<div class="form-group">
-														<label for="examplName">Name</label>
-														<input type="text" class="form-control" id="examplName" placeholder="Enter your name" required>
-													</div>
-
-													<div class="form-group">
-														<label for="exampleInputEmail">Email address</label>
-														<input type="email" class="form-control" id="exampleInputEmail" placeholder="john.smith@example.com" required>														
-													</div>
-
-													<div class="form-group">
-														<label for="exampleRating">Rating</label>
-														<div class='rating-stars'>
-															<ul id='stars'>
-																<li class='star' title='1 star' data-value='1'>
-																	<i class='fa fa-star'></i>
-																</li>
-																<li class='star' title='2 stars' data-value='2'>
-																	<i class='fa fa-star'></i>
-																</li>
-																<li class='star' title='3 stars' data-value='3'>
-																	<i class='fa fa-star'></i>
-																</li>
-																<li class='star' title='4 stars' data-value='4'>
-																	<i class='fa fa-star'></i>
-																</li>
-																<li class='star' title='5 stars' data-value='5'>
-																	<i class='fa fa-star'></i>
-																</li>
-															</ul>
-														</div>
-														
-													</div>													
-
-													<div class="form-group">
-														<label for="exampleReviewTitle">Review title</label>
-														<input type="text" class="form-control" id="exampleReviewTitle" placeholder="Give your review a title">														
-													</div>
-
-													<div class="form-group">
-														<label for="exampleFormControlTextarea">Body of Review (1500)</label>
-														<textarea class="form-control" id="exampleFormControlTextarea" rows="10" maxlength="1500" placeholder="Write your comments here"></textarea>
-													</div>
-
-													<button type="submit" class="btn btn-primary pull-right">Submit Review</button>
-												</form>
-											</div>
-										</div> -->
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
@@ -381,8 +464,38 @@
 												<div class="card-body">
 													<div class="product-name"><?php echo $product_row['name'] ?></div>
 													<div class="product-price">₱<?php echo $product_row['price'] ?></div>
-													<div class="product-rating">
-														<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+													<div class="product-rating" style="height: 18px;">
+														<?php  
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+															$ratings_count1 = $ratings_row_count1['total'];
+
+
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+															$ratings_avg1 = round($ratings_row_avg1['rating']);												
+														?>
+														<?php  
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															if($ratins_result_row1->num_rows == 0):
+														?>
+															No reviews yet
+														<?php else: ?>
+																<?php  
+																	$ii=1;
+																	for($ii;$ii<=$ratings_avg1;$ii++):
+																?>
+																	<i class="fa fa-star" style="width: 10px;"></i>
+																<?php endfor; ?>
+																<?php if($ii <= 5): ?>
+																	<?php 
+																		for($ii;$ii<=5;$ii++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 10px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															 		(<?php echo $ratings_count1; ?>)								 		 	
+														<?php endif; ?>
 													</div>
 												</div>
 											</div>
@@ -431,8 +544,38 @@
 												<div class="card-body">
 													<div class="product-name"><?php echo $product_row['name'] ?></div>
 													<div class="product-price">₱<?php echo $product_row['price'] ?></div>
-													<div class="product-rating">
-														<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+													<div class="product-rating" style="height: 18px;">
+														<?php  
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+															$ratings_count1 = $ratings_row_count1['total'];
+
+
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+															$ratings_avg1 = round($ratings_row_avg1['rating']);												
+														?>
+														<?php  
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															if($ratins_result_row1->num_rows == 0):
+														?>
+															No reviews yet
+														<?php else: ?>
+																<?php  
+																	$ii=1;
+																	for($ii;$ii<=$ratings_avg1;$ii++):
+																?>
+																	<i class="fa fa-star" style="width: 10px;"></i>
+																<?php endfor; ?>
+																<?php if($ii <= 5): ?>
+																	<?php 
+																		for($ii;$ii<=5;$ii++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 10px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															 		(<?php echo $ratings_count1; ?>)								 		 	
+														<?php endif; ?>
 													</div>
 												</div>
 											</div>
@@ -451,7 +594,7 @@
 				<div id="popup-notification" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
 					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
-					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Completed!</div>
 					<div class="popup-content text-center">
 						<?php  
 							// Display message only once
@@ -459,6 +602,24 @@
 								echo $_SESSION['message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
 							}
 						?>
 					</div>

@@ -46,6 +46,55 @@
 		$_SESSION['wishlists_delete'] = $_POST['wishlists_delete'];
 	}
 
+	if($_POST['wishlists_cart'] != '') {
+		$_SESSION['wishlists_cart'] = $_POST['wishlists_cart'];
+	}
+
+	if($_POST['add_to_cart_product_id'] != '') {
+		$_SESSION['add_to_cart_product_id'] = $_POST['add_to_cart_product_id'];
+	}
+
+	if($_POST['input_quantity'] != '') {
+		$_SESSION['input_quantity'] = $_POST['input_quantity'];
+	}
+
+	if($_POST['rating_value'] != '') {
+		$_SESSION['rating_value'] = $_POST['rating_value'];
+	}
+
+	if($_POST['cart_product_id_delete'] != '') {
+		$_SESSION['cart_product_id_delete'] = $_POST['cart_product_id_delete'];
+	}
+
+	// modify quantity in cart
+	if($_POST['cart_id'] != '') {
+		$_SESSION['cart_id'] = $_POST['cart_id'];
+	}
+
+	if($_POST['input_quantity_cart'] != '') {
+		$_SESSION['input_quantity_cart'] = $_POST['input_quantity_cart'];
+	}
+
+	$cart_id = $_SESSION['cart_id'];
+	$input_quantity_cart = $_SESSION['input_quantity_cart'];
+
+ //    $cart_result = $mysqli->query("SELECT * FROM tbl_cart WHERE id = '$cart_id'");
+	// $cart_row = $cart_result->fetch_assoc();
+	// $product_id =  $cart_row['product_id'];
+
+ //    $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id'");
+	// $product_row = $product_result->fetch_assoc();
+	// $product_price = $product_row['price'];
+	
+    $sql = "UPDATE tbl_cart SET quantity = '$input_quantity_cart' WHERE id = '$cart_id'";
+	$mysqli->query($sql);
+	unset($_SESSION['cart_id']);
+	unset($_SESSION['input_quantity_cart']);
+
+	// end of modify quantity in cart
+
+
+
 	// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
 	$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): '');
 	$selected = ((isset($_POST['selected']) && $_POST['selected'] != '')?htmlentities($_POST['selected']): '');

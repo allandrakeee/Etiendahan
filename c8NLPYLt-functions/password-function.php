@@ -20,7 +20,7 @@
         // Add user to the database
         if ( $mysqli->query($sql) or die($mysqli->error) ){
 
-            $_SESSION['modified-message'] = "Successfully modified";
+            $_SESSION['modified-message'] = "Successfully Modified.";
             header("location: /etiendahan/customer/account/password/");
         }
 
@@ -30,7 +30,7 @@
         }
     }
     else {
-        $_SESSION['check-password-message'] = "Password didn't match to you email, try again";
+        $_SESSION['check-password-message'] = "Password didn't match to you email, try again.";
         header("location: /etiendahan/customer/account/password/");
     }
     

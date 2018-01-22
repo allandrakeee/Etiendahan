@@ -6,23 +6,23 @@
     background-color: #f8f8f8;
     color: dimgrey;
     border-top: solid 1px #e5edf0;
+    height: 500px;
 	
 	.col-md-4 {
 
 		&.border-insert {
 			border-right: solid 1px #e5edf0;
-			padding-bottom: 35px;
 		}
 
 		.about {
 			padding: 60px 0;
 
 			img {
-			    margin-bottom: 36px;
+			    margin-bottom: 26px;
 			}
 
 			.about-text {
-				margin-bottom: 57px;
+				margin-bottom: 30px;
 				letter-spacing: 0.01em;
 				text-align: justify;
 

@@ -11,7 +11,7 @@
 
     // We know user email exists if the rows returned are more than 0
     if ($result->num_rows > 0) {
-        $_SESSION['user-exists-message'] = 'User with this email already exists, try again';
+        $_SESSION['user-exists-message'] = 'User with this email already exists, try again.';
         header("location: /etiendahan/customer/account/email/");
     }
     else {
@@ -26,6 +26,11 @@
         $db_path = "/etiendahan/images/".$new_email."/";
 
         $mysqli->query("UPDATE tbl_products SET seller_email = '$new_email', image = REPLACE(image, '$email', '$new_email') WHERE seller_email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_sellers SET seller_email = '$new_email' WHERE seller_email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_address SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_cart SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_wishlists SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        
         $sql = "UPDATE tbl_customers SET email = '$new_email' WHERE email = '$email'";
 
         if ($mysqli->query($sql) or die($mysqli->error)) {
@@ -38,7 +43,7 @@
             $mysqli->query("UPDATE tbl_customers SET active='0' WHERE email='$email'") or die($mysqli->error);
             $_SESSION['active'] = 0;
 
-            $_SESSION['modified-message'] = "Successfully modified";
+            $_SESSION['modified-message'] = "Successfully Modified.";
             header("location: /etiendahan/customer/account/email/");
         } else {
             // $_SESSION['message'] = 'Registration failed!';

@@ -183,4 +183,10 @@
 			}
 		}
 	}
+
+	.cart-delete-focus {
+		&:focus {
+			outline: none;
+		}
+	}
 }

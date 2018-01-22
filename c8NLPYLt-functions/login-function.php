@@ -2,10 +2,10 @@
     if ($logged_in == 0) {
         // Escape email to protect against SQL injections
         $email = $mysqli->escape_string($_POST['email']);
-        $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
+        $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
 
         if ( $result->num_rows == 0 ){ // User doesn't exist
-            $_SESSION['email-doesnt-exist-message'] = "User with that email doesn't exist, try again";
+            $_SESSION['email-doesnt-exist-message'] = "User with that email doesn't exist, try again.";
         }
         else { // User exists
             $user = $result->fetch_assoc();
@@ -31,11 +31,11 @@
                 header("location: /etiendahan/");
             }
             else {
-                $_SESSION['wrong-password-message'] = "You have entered wrong password, try again";
+                $_SESSION['wrong-password-message'] = "You have entered wrong password, try again.";
             }
         }
     } else {
-        $_SESSION['cant-proceed-message'] = "You already logged in";
+        $_SESSION['cant-proceed-message'] = "You're already logged in.";
         header("location: /etiendahan/");
     }
 ?>

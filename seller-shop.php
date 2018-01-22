@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $customer_row['fullname']; ?> Online Shop - Etiendahan Dagupan</title>
+	<title><?php echo $customer_row['fullname']; ?> Online Shop | Etiendahan Dagupan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -91,7 +91,31 @@
 								 		Joined: <?php echo $date_joined_row['TIMESTAMPDIFF(MONTH, joined_at, NOW())']; ?> Months Ago
 								 	<?php endif; ?>
 									</div>
-									<div class="rating"><i class="fa fa-star-o"></i> Rating: 4.7 Out Of 5 (9999 Ratings)</div>
+									<?php  
+										$product_group_concat_result = $mysqli->query("SELECT GROUP_CONCAT(id), stock FROM tbl_products WHERE seller_email = '$seller_shop_email' AND stock > 0");
+										$product_group_concat_row = $product_group_concat_result->fetch_assoc();
+										$product_group_concat = $product_group_concat_row['GROUP_CONCAT(id)'];
+
+										if($product_group_concat_row['stock'] > 0) {
+											$ratings_result = $mysqli->query("SELECT COUNT(*) FROM tbl_ratings where product_id in($product_group_concat)");
+											$ratings_row = $ratings_result->fetch_assoc();
+											$ratings_count = $ratings_row['COUNT(*)'];
+
+											$ratings_result_rating = $mysqli->query("SELECT AVG(avg_) as superavg
+												FROM (
+												    SELECT AVG(rating) as avg_
+												    FROM tbl_ratings WHERE product_id in($product_group_concat)
+												) as avgs");
+											$ratings_row_rating = $ratings_result_rating->fetch_assoc();
+											$ratings_result = round($ratings_row_rating['superavg'], 1);
+										} else {
+											$ratings_result = 0;
+											$ratings_count = 0;
+										}
+
+										
+									?>
+									<div class="rating"><i class="fa fa-star-o"></i> Rating: <?php echo $ratings_result; ?> Out Of 5 (<?php if($ratings_count == 1): ?><?php echo $ratings_count; ?> Review<?php else: ?><?php echo $ratings_count; ?> Reviews<?php endif; ?>)</div>
 								</div>
 							</div>
 						</div>
@@ -107,7 +131,7 @@
 										<div class="item-wrapper">
 
 											<?php 
-												$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email='$seller_shop_email' GROUP BY name");
+												$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email='$seller_shop_email' AND stock > 0 AND banned = 0 GROUP BY name");
 												while($product_row = mysqli_fetch_assoc($result_product)):
 										 	?>
 													<div class="item">
@@ -127,8 +151,38 @@
 																<div class="card-body">
 																	<div class="product-name"><?php echo $product_row['name']; ?></div>
 																	<div class="product-price">₱<?php echo $product_row['price']; ?></div>
-																	<div class="product-rating">
-																		<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+																	<div class="product-rating" style="height: 18px;">
+																		<?php  
+																			$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+																			$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+																			$ratings_count1 = $ratings_row_count1['total'];
+
+
+																			$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+																			$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+																			$ratings_avg1 = round($ratings_row_avg1['rating']);												
+																		?>
+																		<?php  
+																			$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+																			if($ratins_result_row1->num_rows == 0):
+																		?>
+																			No reviews yet
+																		<?php else: ?>
+																				<?php  
+																					$ii=1;
+																					for($ii;$ii<=$ratings_avg1;$ii++):
+																				?>
+																					<i class="fa fa-star" style="width: 10px;"></i>
+																				<?php endfor; ?>
+																				<?php if($ii <= 5): ?>
+																					<?php 
+																						for($ii;$ii<=5;$ii++):
+																					?>
+																						<i class="fa fa-star-o" style="width: 10px;"></i>
+																					<?php endfor; ?>
+																				<?php endif; ?>
+																			 		(<?php echo $ratings_count1; ?>)								 		 	
+																		<?php endif; ?>
 																	</div>
 																</div>
 															</div>

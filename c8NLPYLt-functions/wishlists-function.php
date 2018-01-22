@@ -1,7 +1,7 @@
 <?php 
 
     if($_SESSION['logged_in'] == 0) {
-        $_SESSION['profile-cant-proceed-message'] = "You must log in before adding your wishlists";
+        $_SESSION['profile-cant-proceed-message'] = "You must log in before adding your wishlists.";
         header('location: /etiendahan/customer/account/login/');
     } else {
     	$customer_email = $_SESSION['email'];
@@ -10,7 +10,7 @@
 
             // Add user to the database
             if ($mysqli->query($sql) or die($mysqli->error)) {
-                $_SESSION['message'] = 'Successfully added to your wishlists';
+                $_SESSION['message'] = 'Successfully added to your wishlists.';
                 header("location: /etiendahan/category/view/product/"); 
             } else {
                 // $_SESSION['message'] = 'Registration failed!';
@@ -21,7 +21,7 @@
 
             // Add user to the database
             if ($mysqli->query($sql) or die($mysqli->error)) {
-                $_SESSION['message'] = 'Successfully removed to your wishlists';
+                $_SESSION['message'] = 'Successfully removed to your wishlists.';
                 header("location: /etiendahan/category/view/product/"); 
             } else {
                 // $_SESSION['message'] = 'Registration failed!';

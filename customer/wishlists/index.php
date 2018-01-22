@@ -6,7 +6,7 @@
 
 	// Check if user is logged in using the session variable
 	if ( $logged_in == false ) {
-		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page";
+		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page.";
 		header("location: /etiendahan/customer/account/login/");    
 	}
 	else {
@@ -170,9 +170,9 @@
 																</td>
 																<td class="action text-center">
 																	<?php if($product_row['stock'] <= 0): ?>
-																		<a class="action wishlists-delete"><i class="fa fa-shopping-cart"></i></a>
+																		<a class="action"><i class="fa fa-shopping-cart"></i></a>
 																	<?php else: ?>
-																		<a class="action wishlists-delete" href=""><i class="fa fa-shopping-cart"></i></a>
+																		<a class="action wishlists-cart" href="/etiendahan/customer/wishlists/cart/" id="<?php echo $product_row['id'] ?>"><i class="fa fa-shopping-cart"></i></a>
 																	<?php endif; ?>
 																	<span>|</span>
 																	<a class="action wishlists-delete" href="/etiendahan/customer/wishlists/delete/" id="<?php echo $product_row['id'] ?>"><i class="fa fa-close"></i></a>
@@ -189,6 +189,42 @@
 					</div>
 				</div>
 				<!-- END OF CUSTOMER PAGE SECTION 1 -->
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Completed!</div>
+					<div class="popup-content text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['message']) ) {
+								echo $_SESSION['message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->		
+
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->	
 
 <!-- footer inner -->
 <?php  

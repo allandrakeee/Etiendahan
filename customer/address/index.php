@@ -6,7 +6,7 @@
 
 	// Check if user is logged in using the session variable
 	if ( $logged_in == false ) {
-		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page";
+		$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your profile page.";
 		header("location: /etiendahan/customer/account/login/");    
 	}
 	else {
@@ -331,7 +331,7 @@
 				<div id="popup-notification" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
 					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
-					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Complete!</div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>Completed!</div>
 					<div class="popup-content text-center">
 						<?php  
 							// Display message only once

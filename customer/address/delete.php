@@ -10,6 +10,6 @@
 	$sql = "DELETE FROM tbl_address WHERE id = '$address_id'";
 	$mysqli->query($sql);
 
-	$_SESSION['success-message'] = 'Successfully deleted';
+	$_SESSION['success-message'] = 'Successfully Deleted.';
 	header('location: /etiendahan/customer/address/');
 ?>

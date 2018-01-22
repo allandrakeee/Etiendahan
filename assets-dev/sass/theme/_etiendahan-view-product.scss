@@ -252,7 +252,9 @@
 
 					.quantity {
 						width: 110px;
-					    display: inline-block;
+						display: inline-block;
+						position: relative;
+						top: 6px;
 					}
 					
 					button {
@@ -632,15 +634,15 @@
 
 	.items-left {
 		position: absolute;
-		top: 240px;
-		left: 61px;
-		z-index: 999999;
+		top: 233px;
+		left: 63px;
+		z-index: 1;
 	}
 
 	.wishlists-form {
 		position: absolute;
-		left: 0;
-		top: 17px;
+		left: 293px;
+		top: -15px;
 	}
 }
 
@@ -662,4 +664,53 @@
 	li:hover {
 		border-radius: 0 !important;
 	}	
+}
+
+.product-button {
+	padding: 15px 20px;
+
+	&.quantity {
+		
+		span {
+		    button {
+				border-radius: 0;
+			    background-color: #f1f1f1;
+				padding: 5px 10px;
+
+				.fa {
+	    			font-size: 12px;
+		    	}
+
+				&:focus {
+		    	box-shadow: none;
+			    }
+
+			    &:hover {
+					background-color: #181818;
+					color: #fff;
+			    }
+		    } 
+		}
+
+		input {
+			font-size: 14px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			width: 35px;
+
+			&:focus {
+				border: 1px solid rgba(0, 0, 0, 0.15);
+			}
+		}
+	}
+	
+	
+}
+
+.add-to-cart-form {
+	position: relative;
+    height: 12px;
+    width: 0;
+    bottom: 38px;
+    left: 130px;
 }

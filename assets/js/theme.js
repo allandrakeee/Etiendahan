@@ -48375,11 +48375,11 @@ $(document).ready(function() {
 });
 
 $("#popup-close").click(function() {
-	$("#popup-notification").css("margin-left", "-425px");
+	$("#popup-notification").css("margin-left", "-430px");
 });
 
 setTimeout(function() {
-    $('#popup-notification').css("margin-left", "-425px");
+    $('#popup-notification').css("margin-left", "-430px");
 }, 10000);
 
 $(document).ready(function() {
@@ -48395,11 +48395,11 @@ $(document).ready(function() {
 });
 
 $("#popup-close-welcome").click(function() {
-	$("#popup-notification-welcome").css("margin-left", "-425px")
+	$("#popup-notification-welcome").css("margin-left", "-430px")
 });
 
 setTimeout(function() {
-    $('#popup-notification-welcome').css("margin-left", "-425px");
+    $('#popup-notification-welcome').css("margin-left", "-430px");
 }, 10000);
 
 $(document).ready(function() {
@@ -48416,11 +48416,11 @@ $(document).ready(function() {
 });
 
 $("#popup-close-logout").click(function() {
-	$("#popup-notification-logout").css("margin-left", "-425px")
+	$("#popup-notification-logout").css("margin-left", "-430px")
 });
 
 setTimeout(function() {
-    $('#popup-notification-logout').css("margin-left", "-425px");
+    $('#popup-notification-logout').css("margin-left", "-430px");
 }, 10000);
 
 $(document).ready(function() {
@@ -48436,11 +48436,11 @@ $(document).ready(function() {
 });
 
 $("#popup-close-logout-redirect").click(function() {
-	$("#popup-notification-logout-redirect").css("margin-left", "-425px");
+	$("#popup-notification-logout-redirect").css("margin-left", "-430px");
 });
 
 setTimeout(function() {
-    $('#popup-notification-logout-redirect').css("margin-left", "-425px");
+    $('#popup-notification-logout-redirect').css("margin-left", "-430px");
 }, 10000);
 
 $(document).ready(function() {
@@ -48456,11 +48456,11 @@ $(document).ready(function() {
 });
 
 $("#popup-close").click(function() {
-	$("#popup-notification-completed").css("margin-left", "-425px");
+	$("#popup-notification-completed").css("margin-left", "-430px");
 });
 
 setTimeout(function() {
-    $('#popup-notification-completed').css("margin-left", "-425px");
+    $('#popup-notification-completed').css("margin-left", "-430px");
 }, 10000);
 
 $(document).ready(function() {
@@ -48766,9 +48766,7 @@ $('.input-number').change(function() {
     } else {
         alert('Sorry, the maximum value was reached');
         $(this).val($(this).data('oldValue'));
-    }
-    
-    
+    }    
 });
 
 $(function() {
@@ -48781,7 +48779,7 @@ $(document).ready(function(){
   
   /* 1. Visualizing things on Hover - See next part for action on click */
   $('#stars li').on('mouseover', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+    var onStar = parseInt($(this).data('id'), 10); // The star currently mouse on
    
     // Now highlight all the stars that's not after the current hovered star
     $(this).parent().children('li.star').each(function(e){
@@ -48802,7 +48800,7 @@ $(document).ready(function(){
   
   /* 2. Action to perform on click */
   $('#stars li').on('click', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+    var onStar = parseInt($(this).attr('id'), 10); // The star currently selected
     var stars = $(this).parent().children('li.star');
     
     for (i = 0; i < stars.length; i++) {
@@ -48811,6 +48809,12 @@ $(document).ready(function(){
     
     for (i = 0; i < onStar; i++) {
       $(stars[i]).addClass('selected');
+      $("#reviewFullname").prop('disabled', false);
+      $("#reviewEmail").prop('disabled', false);
+      $("#reviewTitle").prop('disabled', false);
+      $("#reviewBody").prop('disabled', false);
+      $(".submit-review").prop('disabled', false);
+
     }
     
   });
@@ -49035,6 +49039,36 @@ $(document).on('click', '.wishlists-delete', function(){
     var wishlists_delete = $(this).attr('id');
     alert(wishlists_delete);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlists_delete": wishlists_delete});
+});
+
+$(document).on('click', '.wishlists-cart', function(){
+    var wishlists_cart = $(this).attr('id');
+    alert(wishlists_cart);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlists_cart": wishlists_cart});
+});
+
+$(document).on('click', '.add-to-cart', function(){
+    var add_to_cart_product_id = $(this).attr('id');
+    var input_quantity = $('#input-quantity').val();
+    alert(add_to_cart_product_id);
+    alert(input_quantity);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"add_to_cart_product_id": add_to_cart_product_id, "input_quantity": input_quantity});
+});
+
+$(document).on('click', '.cart-delete', function(){
+    var cart_product_id_delete = $(this).attr('id');
+    alert(cart_product_id_delete);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"cart_product_id_delete": cart_product_id_delete});
+});
+
+$(document).on('click', '.submit-review', function(){
+	var ids = $(".star.selected[id]").map(function() {
+    return this.id;
+	}).get();
+
+	var rating_value = Math.max.apply( Math, ids );
+	alert(rating_value);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"rating_value": rating_value});
 });
 
 // currency input
@@ -49305,8 +49339,8 @@ $(document).ready(function() {
 
 
 $(document).ready(function($){
-	$('#customerAutocomplte').autocomplete({
-		source: "suggest.php", 
+	$('#customerAutocomplete').autocomplete({
+		source: "/etiendahan/suggest/", 
 		highlight: true,
 		minLength: 2
 	});
@@ -49314,7 +49348,7 @@ $(document).ready(function($){
 
 $.ui.autocomplete.prototype._renderItem = function (ul, item) {
     item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(this.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
-    return $("<li class='li-item d-inline'></li>")
+    return $("<li class='li-item d-inline' style='z-index:999999 !important'></li>")
             .data("item.autocomplete", item)
             .append("<a href='/etiendahan/category/view/product/' class='search-item category-product-id' id='"+item.id+"'>" + item.label + "</a>")
             .appendTo(ul);

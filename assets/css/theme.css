@@ -14610,7 +14610,7 @@ div.dropdown-menu.have-in-cart {
     margin: 12px 10px 0 0;
     float: right;
     border-radius: 0;
-    font-size: 0.750rem;
+    font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
     color: #fff;
@@ -14660,7 +14660,15 @@ div.dropdown-menu.have-in-cart .item-left .item-info {
     font-size: 0.813rem;
     font-weight: 600;
     letter-spacing: 0.03em;
-    color: dimgrey; }
+    color: dimgrey;
+    width: 290px;
+    display: inline-block;
+    height: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; }
     div.dropdown-menu.have-in-cart .item-left .item-info .item-name .item-sold-out {
       margin-right: 5px;
       text-transform: uppercase;
@@ -15071,18 +15079,19 @@ nav a:focus {
   border: 1px solid #ddd !important;
   right: 15% !important;
   width: 1078px !important;
-  background-color: #fff; }
+  background-color: #fff;
+  margin-top: 5px !important; }
 
 ul {
   padding: 0; }
   ul li.li-item {
     padding: 0; }
-    ul li.li-item:hover {
+    ul li.li-item:hover, ul li.li-item:focus {
       text-decoration: none;
-      color: dimgrey;
+      color: #fff;
       border: none; }
     ul li.li-item .search-item {
-      color: dimgrey;
+      z-index: 999;
       display: block;
       padding: 5px 10px; }
       ul li.li-item .search-item:hover {
@@ -15100,6 +15109,117 @@ ul {
   font-size: 11px; }
   .dont-find-product a {
     text-decoration: none; }
+
+.cart-delete {
+  background: none !important;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  cursor: pointer; }
+
+.sb-search {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  margin-top: 10px;
+  width: 0%;
+  min-width: 60px;
+  height: 60px;
+  float: right;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+  right: 260px;
+  bottom: 5px; }
+
+/* The input element on the search element  */
+.sb-search-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #fff;
+  width: 65%;
+  height: 70px;
+  margin: 0;
+  z-index: 10;
+  padding: 0 65px 0 20px;
+  color: #495057 !important;
+  font-size: 1.125rem;
+  line-height: 56px;
+  border: 2px solid #dcdcdc;
+  border-bottom-width: 12px; }
+
+input[type="search"].sb-search-input {
+  /* remove special webkit formatting on the search input */
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px; }
+
+/* format the search button and submit to share the same size and space */
+.sb-icon-search,
+.sb-search-submit {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer; }
+
+/* hide the submit but leave it clickable */
+.sb-search-submit {
+  background: #fff;
+  /* IE needs this */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 8 */
+  filter: alpha(opacity=0);
+  /* IE 5-7 */
+  opacity: 0;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1; }
+
+/* format the search icon */
+.sb-icon-search {
+  color: #fff;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  z-index: 90;
+  font-size: 22px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased; }
+
+/* add the magnifying glass character from the icomoon font as a before pseudo element */
+/* Open state */
+.sb-search.sb-search-open,
+.no-js .sb-search {
+  width: 100%; }
+
+/* add the "active" color on the search button */
+.sb-search.sb-search-open .sb-icon-search,
+.no-js .sb-search .sb-icon-search {
+  background: dimgrey;
+  color: #fff !important;
+  z-index: 11; }
+  .sb-search.sb-search-open .sb-icon-search .fa,
+  .no-js .sb-search .sb-icon-search .fa {
+    color: #fff !important; }
+
+/* adjust z-index to make sure the search submit is clikacble and not below any other elements */
+.sb-search.sb-search-open .sb-search-submit,
+.no-js .sb-search .sb-search-submit {
+  z-index: 90; }
 
 #etiendahan-section-2 {
   font-family: 'Montserrat', sans-serif; }
@@ -15498,16 +15618,16 @@ ul {
   height: 475px;
   background-color: #f8f8f8;
   color: dimgrey;
-  border-top: solid 1px #e5edf0; }
+  border-top: solid 1px #e5edf0;
+  height: 500px; }
   #etiendahan-section-7 .col-md-4.border-insert {
-    border-right: solid 1px #e5edf0;
-    padding-bottom: 35px; }
+    border-right: solid 1px #e5edf0; }
   #etiendahan-section-7 .col-md-4 .about {
     padding: 60px 0; }
     #etiendahan-section-7 .col-md-4 .about img {
-      margin-bottom: 36px; }
+      margin-bottom: 26px; }
     #etiendahan-section-7 .col-md-4 .about .about-text {
-      margin-bottom: 57px;
+      margin-bottom: 30px;
       letter-spacing: 0.01em;
       text-align: justify; }
       #etiendahan-section-7 .col-md-4 .about .about-text p {
@@ -16217,6 +16337,8 @@ ul {
           background-color: #3f3f3f;
           -webkit-box-shadow: none;
                   box-shadow: none; }
+  #etiendahan-shopping-cart-page .cart-delete-focus:focus {
+    outline: none; }
 
 #etiendahan-view-product-page {
   font-family: 'Montserrat', sans-serif;
@@ -16383,7 +16505,9 @@ a {
         border-top: #dcdcdc solid 1px; }
         #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button .quantity {
           width: 110px;
-          display: inline-block; }
+          display: inline-block;
+          position: relative;
+          top: 6px; }
         #etiendahan-view-product-page .container.view-product .product-shop-wrapper .product-button button {
           border-radius: 0;
           background-color: #f1f1f1;
@@ -16626,13 +16750,13 @@ a {
     bottom: 2px; }
   #etiendahan-view-product-page .items-left {
     position: absolute;
-    top: 240px;
-    left: 61px;
-    z-index: 999999; }
+    top: 233px;
+    left: 63px;
+    z-index: 1; }
   #etiendahan-view-product-page .wishlists-form {
     position: absolute;
-    left: 0;
-    top: 17px; }
+    left: 293px;
+    top: -15px; }
 
 .lSPager.lSGallery li.active {
   border-radius: 0 !important;
@@ -16644,6 +16768,35 @@ a {
 
 .lSPager.lSGallery li:hover {
   border-radius: 0 !important; }
+
+.product-button {
+  padding: 15px 20px; }
+  .product-button.quantity span button {
+    border-radius: 0;
+    background-color: #f1f1f1;
+    padding: 5px 10px; }
+    .product-button.quantity span button .fa {
+      font-size: 12px; }
+    .product-button.quantity span button:focus {
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+    .product-button.quantity span button:hover {
+      background-color: #181818;
+      color: #fff; }
+  .product-button.quantity input {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 35px; }
+    .product-button.quantity input:focus {
+      border: 1px solid rgba(0, 0, 0, 0.15); }
+
+.add-to-cart-form {
+  position: relative;
+  height: 12px;
+  width: 0;
+  bottom: 38px;
+  left: 130px; }
 
 #loader-wrapper {
   position: fixed;

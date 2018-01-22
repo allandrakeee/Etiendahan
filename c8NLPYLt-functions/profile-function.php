@@ -23,7 +23,7 @@
         $_SESSION['birthmonth'] = $_POST['birthmonth'];
         $_SESSION['birthyear']  = $_POST['birthyear'];
 
-        $_SESSION['modified-message-profile'] = "Successfully modified";
+        $_SESSION['modified-message-profile'] = "Successfully Modified.";
         header("location: /etiendahan/customer/account/profile/");
         
     }

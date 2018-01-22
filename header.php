@@ -1,6 +1,16 @@
 <?php  
 	require '/db.php';
 	if ( $logged_in == true ) {
+
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_delete_cart'])) {
+	    	$cart_product_id_delete = $_SESSION['cart_product_id_delete'];
+	    	$email =  $_SESSION['email'];
+
+    	    $sql = "DELETE FROM tbl_cart WHERE product_id = '$cart_product_id_delete' AND email = '$email'";
+		   	$mysqli->query($sql) or die($mysqli->error);
+	    }
+	}
 ?>
 		<!-- SECTION 1 -->
 		<div id="etiendahan-section-1" class="etiendahan-section">
@@ -176,115 +186,134 @@
 							</li>
 						</ul>
 					</div>
-
-					
 				</div>
-					<div class="ml-auto d-flex">
-						<!-- CART -->
-						<div class="nav-item right-nav dropdown" id="cart">
-							<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-								<span class="fa-stack has-badge" data-count="0">
-								  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-								  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-								</span>
-							</a>
 
-							<!-- No items in the cart -->
+				<div class="ml-auto d-flex">
+					<div id="sb-search" class="sb-search">
+						<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
+							<input class="sb-search-input hintable ui-autocomplete-input" id="customerAutocomplete" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+							<input class="sb-search-submit search-btn" type="submit" name="search_button">
+							<span class="sb-icon-search"><i class="fa fa-search" style="color: dimgrey;"></i></span>
+						</form>
+					</div>	
+
+					<!-- CART -->
+					<div class="nav-item right-nav dropdown" id="cart">
+						<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+							<?php  
+								$email = $_SESSION['email'];
+								$cart_result_count = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_cart WHERE email = '$email'");
+								$cart_row_count = $cart_result_count->fetch_assoc();
+							?>
+							<span class="fa-stack has-badge" data-count="<?php echo $cart_row_count['total']; ?>">
+							  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+							  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+							</span>
+						</a>
+						
+						<!-- No items in the cart -->
+						<?php  
+							$result = $mysqli->query("SELECT * FROM tbl_cart WHERE email = '$email'");
+
+					        if ($result->num_rows == 0):
+						?>
 							<div class="dropdown-menu" aria-labelledby="cart">
 								<p>You have no items in your shopping cart.</p>
 							</div>
+						<?php else: ?>
 
-							<!-- Have items in the cart -->
-							<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-								<p>Recently Added Products</p>
+						<!-- Have items in the cart -->
+						
+						<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+							<p>Recently Added Products</p>
+							<?php  
+								$cart_result = $mysqli->query("SELECT * FROM tbl_cart WHERE email = '$email'");
+								while($cart_row = mysqli_fetch_assoc($cart_result)):
+								$product_id_cart = $cart_row['product_id'];
 
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?1,000.00</div>
+								$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_cart'");
+								while($product_row = mysqli_fetch_assoc($product_result)):
+									if($product_row['stock'] <= 0):
+							?>	
+										<div class="item overlay">
+											<div class="item-left">
+												<?php $saved_image = explode(',', $product_row['image']); ?>
+												<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Sold out</span><?php echo $product_row['name']; ?></div>
+													<div class="item-price">₱<?php echo $product_row['price']; ?></div>
+												</div>
+											</div>
+											<div class="item-right">
+												<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+													<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+														<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+													</button>
+												</form>
+											</div>
 										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
+									<?php else: ?>
+										
+											<div class="item">
+												<div class="item-left">
+													<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+														<?php $saved_image = explode(',', $product_row['image']); ?>
+														<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+													</a>
+													<div class="item-info">
+														<div class="item-name"><?php echo $product_row['name']; ?></div>
+														<div class="item-price">₱<?php echo $product_row['price']; ?></div>
+													</div>
+												</div>
+												<div class="item-right">
+													<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+														<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+															<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+														</button>
+													</form>
+												</div>
+											</div>
 
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
+							<?php endif;endwhile;endwhile; ?>
 
-								<div class="item overlay">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-											<div class="item-price">?1,500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
+							
 
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<div class="item overlay">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-											<div class="item-price">?1,500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<button type="button" class="btn btn-dark">View Cart</button>
-							</div> -->
+							<a href="/etiendahan/cart/"><button type="button" class="btn btn-dark">View Cart</button></a>
 						</div>
-
-						<div class="nav-item right-nav dropdown" id="user-account">
-							<a class="nav-link" href="/etiendahan/customer/account/profile/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-user-circle"></i>
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<p>Howdie.</p>
-
-								<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
-								<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
-								<a href="/etiendahan/customer/wishlists/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Wishlists</div></a>
-								<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>LOGOUT</div></a>
-							</div>
-						</div>
+						<?php endif; ?>
 					</div>
 
-					<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+					<div class="nav-item right-nav dropdown" id="user-account">
+						<a class="nav-link" href="/etiendahan/customer/account/profile/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-user-circle"></i>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<p>Howdie.</p>
+
+							<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
+							<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+							<a href="/etiendahan/customer/wishlists/">
+								<div class="dropdown-item">
+									<?php  
+										$email =  $_SESSION['email'];
+									  	$result = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_wishlists WHERE email = '$email'");
+								 		if($result->num_rows == 0):
+									?>
+									<i class="fa fa-caret-right fa-fw"></i>Wishlists
+									<?php else: ?>
+										<?php $row = $result->fetch_assoc(); ?>
+									<i class="fa fa-caret-right fa-fw"></i>Wishlists (<?php echo $row['total']; ?>)
+									<?php endif; ?>
+								</div>
+							</a>
+							<a href="/etiendahan/logout/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw" id="logout" onclick="logout()"></i>LOGOUT</div></a>
+						</div>
+					</div>
+				</div>
+
+				<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 			</nav>
 		</div>
 		<!-- END OF SECTION 1 -->
@@ -468,117 +497,120 @@
 
 					
 				</div>
-					<div class="ml-auto d-flex">
-						<!-- CART -->
-						<div class="nav-item right-nav dropdown" id="cart">
-							<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
-								<span class="fa-stack has-badge" data-count="0">
-								  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
-								  <i class="fa fa-shopping-bag fa-stack-1x"></i>
-								</span>
-							</a>
 
-							<!-- No items in the cart -->
-							<div class="dropdown-menu" aria-labelledby="cart">
-								<p>You have no items in your shopping cart.</p>
-							</div>
-
-							<!-- Have items in the cart -->
-							<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
-								<p>Recently Added Products</p>
-
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?1,000.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<div class="item overlay">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-											<div class="item-price">?1,500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<div class="item">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name">Item name</div>
-											<div class="item-price">?500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<div class="item overlay">
-									<div class="item-left">
-										<img src="http://via.placeholder.com/50x50" alt="" />
-										<div class="item-info">
-											<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
-											<div class="item-price">?1,500.00</div>
-										</div>
-									</div>
-									<div class="item-right">
-										<i class="fa fa-trash"></i>
-									</div>
-								</div>
-
-								<button type="button" class="btn btn-dark">View Cart</button>
-							</div> -->
-						</div>
-
-						<div class="nav-item right-nav dropdown" id="user-account">
-							<a class="nav-link" href="/etiendahan/customer/account/login/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-user-circle"></i>
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<p>Howdie.</p>
-
-								<!-- Development -->
-								<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-								<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
-
-								<!-- Production -->
-								<!-- <a href="/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
-								<a href="/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a> -->
-
-
-							</div>
-						</div>
+				<div class="ml-auto d-flex">
+					<div id="sb-search" class="sb-search">
+						<form class="search-form" action="/etiendahan/c8NLPYLt-functions/search-function/" method="POST">
+							<input class="sb-search-input hintable ui-autocomplete-input" id="customerAutocomplete" hint-class="show-recent" placeholder="Search products" type="text" name="search" autocomplete="off">
+							<input class="sb-search-submit search-btn" type="submit" name="search_button">
+							<span class="sb-icon-search"><i class="fa fa-search" style="color: dimgrey;"></i></span>
+						</form>
 					</div>
 
-					<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+					<!-- CART -->
+					<div class="nav-item right-nav dropdown" id="cart">
+						<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
+							<span class="fa-stack has-badge" data-count="0">
+							  <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
+							  <i class="fa fa-shopping-bag fa-stack-1x"></i>
+							</span>
+						</a>
+
+						<!-- No items in the cart -->
+						<div class="dropdown-menu" aria-labelledby="cart">
+							<p>You have no items in your shopping cart.</p>
+						</div>
+
+						<!-- Have items in the cart -->
+						<!-- <div class="dropdown-menu have-in-cart" aria-labelledby="cart">
+							<p>Recently Added Products</p>
+							<div class="item">
+								<div class="item-left">
+									<img src="http://via.placeholder.com/50x50" alt="" />
+									<div class="item-info">
+										<div class="item-name">Item name</div>
+										<div class="item-price">?1,000.00</div>
+									</div>
+								</div>
+								<div class="item-right">
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+							<div class="item">
+								<div class="item-left">
+									<img src="http://via.placeholder.com/50x50" alt="" />
+									<div class="item-info">
+										<div class="item-name">Item name</div>
+										<div class="item-price">?500.00</div>
+									</div>
+								</div>
+								<div class="item-right">
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+							<div class="item overlay">
+								<div class="item-left">
+									<img src="http://via.placeholder.com/50x50" alt="" />
+									<div class="item-info">
+										<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+										<div class="item-price">?1,500.00</div>
+									</div>
+								</div>
+								<div class="item-right">
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+							<div class="item">
+								<div class="item-left">
+									<img src="http://via.placeholder.com/50x50" alt="" />
+									<div class="item-info">
+										<div class="item-name">Item name</div>
+										<div class="item-price">?500.00</div>
+									</div>
+								</div>
+								<div class="item-right">
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+							<div class="item overlay">
+								<div class="item-left">
+									<img src="http://via.placeholder.com/50x50" alt="" />
+									<div class="item-info">
+										<div class="item-name"><span class="item-sold-out">Sold out</span>Item name</div>
+										<div class="item-price">?1,500.00</div>
+									</div>
+								</div>
+								<div class="item-right">
+									<i class="fa fa-trash"></i>
+								</div>
+							</div>
+							<button type="button" class="btn btn-dark">View Cart</button>
+						</div> -->
+					</div>
+
+					<div class="nav-item right-nav dropdown" id="user-account">
+						<a class="nav-link" href="/etiendahan/customer/account/login/" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-user-circle"></i>
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<p>Howdie.</p>
+
+							<!-- Development -->
+							<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+							<a href="/etiendahan/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a>
+
+							<!-- Production -->
+							<!-- <a href="/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>
+							<a href="/customer/account/create/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Create an account</div></a> -->
+
+
+						</div>
+					</div>
+				</div>
+
+				<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCenterContent" aria-controls="navbarCenterContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 			</nav>
 		</div>
 		<!-- END OF SECTION 1 -->

@@ -326,6 +326,12 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('seller-centre/settings/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('cart/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('recently-viewed-products/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('c8NLPYLt-functions/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });

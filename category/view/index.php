@@ -76,23 +76,28 @@
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-filter fa-fw"></i>SEARCH FILTER</div>
 									<div class="search-filter-price-range">Price Range</div>
-									<div class="price-range-filter">
-										<label>
-											<input type="radio" name="inlineRadioOptions" id="inlineRadioLowToHigh" value="optionLowToHigh" required> Low to High
-										</label>
+									<?php $product_sort = ((isset($_POST['sort']) && $_POST['sort'] != '')?htmlentities($_POST['sort']):''); ?>
+									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+										<div class="price-range-filter">
+											<label>
+												<input type="radio" id="inlineRadioLowToHigh" value="replace(replace(price, ',', ''), '.', '')+0 asc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 asc") echo "checked";?> required> Low to High
+											</label>
 
-										<label>
-											<input type="radio" name="inlineRadioOptions" id="inlineRadioHighToLow" value="optionHighToLow" required> High to Low
-										</label>
+											<label>
+												<input type="radio" id="inlineRadioHighToLow" value="replace(replace(price, ',', ''), '.', '')+0 desc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 desc") echo "checked";?> required> High to Low
+											</label>
 
 
-										<input class="number" type="number" placeholder="₱ MIN">
-										<div class="separator"></div>
-										<input class="number" type="number" placeholder="₱ MAX">
-									</div>
-									<button class="btn btn-primary">Apply</button>
+											<input class="number" type="number" placeholder="₱ MIN">
+											<div class="separator"></div>
+											<input class="number" type="number" placeholder="₱ MAX">
+										</div>
+										<button type="submit" class="btn btn-primary">Apply</button>
+									</form>
 									<div class="separator-button"></div>
-									<button class="btn btn-primary">Clear All</button>
+									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+										<button class="btn btn-primary" value="" name="sort">Clear All</button>
+									</form>
 									<div class="separator-bottom"></div>
 								</div>
 							</div>
@@ -110,8 +115,11 @@
 										$in_sub_id = $sub_id_row['GROUP_CONCAT(id)'];
 										// echo $in_sub_id;
 
-
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
+										// $_REQUEST['sort'] = "replace(replace(price, ',', ''), '.', '')+0 desc";
+										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
+										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
+										$sql = "SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND stock > 0 AND banned = 0 ORDER BY ".$product_order;
+										$product_result = $mysqli->query($sql);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):
 										$product_id = $product_row['id'];
@@ -133,8 +141,38 @@
 												<div class="card-body">
 													<div class="product-name"><?php echo $product_row['name']; ?></div>
 													<div class="product-price">₱<?php echo $product_row['price']; ?></div>
-													<div class="product-rating">
-														<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+													<div class="product-rating" style="height: 18px;">
+														<?php  
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+															$ratings_count1 = $ratings_row_count1['total'];
+
+
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+															$ratings_avg1 = round($ratings_row_avg1['rating']);												
+														?>
+														<?php  
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															if($ratins_result_row1->num_rows == 0):
+														?>
+															No reviews yet
+														<?php else: ?>
+																<?php  
+																	$ii=1;
+																	for($ii;$ii<=$ratings_avg1;$ii++):
+																?>
+																	<i class="fa fa-star" style="width: 10px;"></i>
+																<?php endfor; ?>
+																<?php if($ii <= 5): ?>
+																	<?php 
+																		for($ii;$ii<=5;$ii++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 10px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															 		(<?php echo $ratings_count1; ?>)								 		 	
+														<?php endif; ?>
 													</div>
 												</div>
 											</div>
