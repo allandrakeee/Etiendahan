@@ -112,169 +112,107 @@
 				<!-- END OF SECTION 1 -->	
 
 				<ul class="nav justify-content-center text-center">
-					<li class="nav-item active">
-						<a class="nav-link active" href="/etiendahan/seller-centre/product/details/">Edit Product</a>
-					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="/etiendahan/seller-centre/product/details/">Edit Product</a>
+					</li>
+					<li class="nav-item active">
 						<?php  
 							$ratings_result_count = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_details_id'");
 							$ratings_row_count = $ratings_result_count->fetch_assoc();
 							$ratings_count = $ratings_row_count['total'];
 						?>
-						<a class="nav-link" href="/etiendahan/seller-centre/product/reviews/">Reviews (<?php echo $ratings_count; ?>)</a>
+						<a class="nav-link active" href="/etiendahan/seller-centre/product/reviews/">Reviews (<?php echo $ratings_count; ?>)</a>
 					</li>
 				</ul>
 
 				<div class="container products-action">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="product-wrapper p-4">
+							<div class="product-wrapper p-4" style="height: 1062px; overflow: auto;">
+								<div class="form-wrapper mt-1">
+									<div class="title">Product Reviews</div>
+									<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Report products that Inappropriate. Wait for the confimation of the admin, if the review is inappropriate or legit.">Tips for handling review of products</div>
+								</div>	
+
 								<?php  
-									$result_product_details = $mysqli->query("SELECT * FROM tbl_products WHERE id='$product_details_id'");
-									$product_details = $result_product_details->fetch_assoc();
-
-				                	$id 				= ((isset($_POST['id']) && $_POST['id'] != '')?htmlentities($_POST['id']): $product_details['id']);
-									$name 		        = ((isset($_POST['name']) && $_POST['name'] != '')?htmlentities($_POST['name']): $product_details['name']);
-									$description 		= ((isset($_POST['description']) && $_POST['description'] != '')?htmlentities($_POST['description']): $product_details['description']);
-									$sub_id 	        = ((isset($_POST['sub_id']) && $_POST['sub_id'] != '')?htmlentities($_POST['sub_id']): $product_details['sub_id']);
-									$price 				= ((isset($_POST['price']) && $_POST['price'] != '')?htmlentities($_POST['price']): $product_details['price']);
-									$stock 				= ((isset($_POST['stock']) && $_POST['stock'] != '')?htmlentities($_POST['stock']): $product_details['stock']);
-
+									$result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_details_id'");
+									if($result->num_rows > 0):
 								?>
-
-								<form id="delete-form" class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-delete-image-function/" method="POST">	
-								</form>
-								<form class="product-details" action="/etiendahan/c8NLPYLt-functions/product-details-function/" method="POST" enctype="multipart/form-data">
-									<div class="form-wrapper mt-1">
-										<div class="title">Edit Product Images</div>
-										<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Showcase your product by taking a photo against a white background with good lighting. Upload more product images to show different angles.">Tips for better selling product images</div>
-																				
-										<div class="row mt-3">
-											<div class="col-md-2 text-center">
-												<label for="file" class="label-for-upload-image"><div class="wrapper-inner"><i class="fa fa-plus"></i><div>Upload Image</div></div></label>
-												<input type="file" class="form-control-file" id="file" style="visibility:hidden;" id="exampleFormControlFile1" name="file">
-												<span id="uploaded_image" hidden></span>
-											</div>
-
-											<?php
-												$imagei = 1;  
-												$result_product_image = $mysqli->query("SELECT image FROM tbl_products WHERE id='$product_details_id'");
-												while($product_row_image = mysqli_fetch_assoc($result_product_image)):
-													$saved_image = explode(',', $product_row_image['image']);
-													foreach ($saved_image as $saved):
-
-														if($product_row_image['image'] != ''):
+										<div class="rating-header mt-3">
+											<div class="head mb-0">Customer Reviews</div>
+											<?php  
+												$ratings_result_avg = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_details_id'");
+												$ratings_row_avg = $ratings_result_avg->fetch_assoc();
+												$ratings_avg = round($ratings_row_avg['rating']);
+												// echo $ratings_avg;
 											?>
-															<div class="col-md-2 text-center">
-																<div class="saved-image" style="background: url(<?php echo $saved ?>);"></div>
-																<button class="text-danger d-inline-block mb-1 delete-image" type="submit" form="delete-form" name="post_delete_image_id" value="<?php echo $imagei; ?>">Delete Image</button>
-															</div>
-													<?php else: ?>
-															<div class="col-md-2 text-center">
-																<div class="saved-image" style="background: url('http://via.placeholder.com/155x155?text=No+Image+Preview');"></div>
-															</div>
-													<?php endif; ?>
-													<?php $imagei++; ?>
-												<?php endforeach; ?>
-											<?php endwhile; ?>											
-										</div>
-									</div>
-
-									<div class="form-wrapper mt-5">
-										<div class="title">Basic Information</div>
-
-										<div class="form-group row">
-											<label for="inputProductName" class="col-sm-2 col-form-label">Product Name</label>
-											<div class="col-sm-10">
-												<input type="text" class="form-control" id="inputProductName" value="<?php echo $name ?>" name="name" required>
-											</div>									
-										</div>
-
-										<div class="form-group row">
-											<label for="inputProductDescription" class="col-sm-2 col-form-label">Product Description</label>
-											<div class="col-sm-10">
-												<textarea class="form-control" id="inputProductDescription" rows="10" maxlength="1500" name="description" required><?php echo $description ?></textarea>
-											</div>	
-										</div>
-
-										<div class="form-group row">
-											<label for="selectCategory" class="col-sm-2 col-form-label">Category</label>
-											<div class="col-sm-5">
-												<?php
-													$result_categories_sub = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_id'");
-													$categories_sub_row = $result_categories_sub->fetch_assoc();
-													$selected_id_sub = $categories_sub_row['id'];
-													$get_category_id = $categories_sub_row['parent_id'];
-
-													$result_categories = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$get_category_id'");
-													$categories_row = $result_categories->fetch_assoc();
-
-													$get_sub_category_id = $categories_row['id'];
-
-													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
-													echo "<select class='form-control' id='category' name='category' required>";
-													echo "<option value=''>Parent Category</option>";
-													while($category = mysqli_fetch_assoc($result)){
-														$category_id = $category['id'];
-														$category_name = $category['name'];
-												?>	
-														<option value='<?php echo $category_id ?>' <?php if($get_sub_category_id == $category_id) echo 'selected'; ?>><?php echo $category_name ?></option>
-												<?php } ?>
-													</select>							
-											</div>	
-											<div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory' required>	
-													<option value="">Sub Category</option>
+											<div class="rate-reviews">
+												<?php  
+													$i=1;
+													for($i;$i<=$ratings_avg;$i++):
+												?>
+													<i class="fa fa-star" style="width: 15px;"></i>
+												<?php endfor; ?>
+												<?php if($i <= 5): ?>
 													<?php 
-
-														// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
-														$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): $get_sub_category_id);
-														$selected = ((isset($_POST['selected']) && $_POST['selected'] != '')?htmlentities($_POST['selected']): $selected_id_sub);
-														$result = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$parent_id'");
-														$subCategory_post = ((isset($_POST['subCategory']) && $_POST['subCategory'] != '')?htmlentities($_POST['subCategory']):'');
-																	
+														for($i;$i<=5;$i++):
 													?>
-														<?php while($sub = mysqli_fetch_assoc($result)) : ?>
-															<option value='<?php echo $sub['id'] ?>' <?php if($selected == $sub['id']) echo 'selected'; ?>><?php echo $sub['name'] ?></option>
-														<?php endwhile; ?>
-												</select>				
+														<i class="fa fa-star-o" style="width: 15px;"></i>
+													<?php endfor; ?>
+												<?php endif; ?>
+
+												<?php  
+													if($ratings_count == 1):
+												?>
+												 		<div class="d-inline-block ml-1">Based on <?php echo $ratings_count; ?> review</div>
+											 	<?php else: ?>
+										 		 		<div class="d-inline-block ml-1">Based on <?php echo $ratings_count; ?> reviews</div>
+									 		 	<?php endif; ?>
 											</div>
 										</div>
+										
+										<?php  
+											$ratings_result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_details_id' GROUP BY created_at desc");
+											while($ratings_row = mysqli_fetch_assoc($ratings_result)):
+										?>
+												<div class="rate">
+													<div class="rate-reviews">
+														<?php  
+															$i=1;
+															for($i;$i<=$ratings_row['rating'];$i++):
+														?>
+															<i class="fa fa-star" style="width: 15px;"></i>
+														<?php endfor; ?>
+														<?php if($i <= 5): ?>
+															<?php 
+																for($i;$i<=5;$i++):
+															?>
+																<i class="fa fa-star-o" style="width: 15px;"></i>
+															<?php endfor; ?>
+														<?php endif; ?>
+													</div>
+													<div class="rate-title"><?php echo $ratings_row['title']; ?></div>
+													<div class="rate-name-and-date">
+														<strong>
+															<?php echo $ratings_row['fullname']; ?></strong> on <strong><?php
+																$phpdate = strtotime($ratings_row['created_at']);
+																echo $mysqldate = date('M j, Y', $phpdate);
+															?>
+														</strong>
+													</div>
+													<div class="rate-body"><?php echo $ratings_row['body']; ?></div>
+													<div class="report-as-inappropriate pull-right mb-2" style="position: relative;bottom: 48px;"><a href="" style="text-decoration: none;">Report as Inappropriate</a></div>
+												</div>
+										<?php endwhile; ?>
+								<?php else: ?>
+									<!-- no reviews yet -->
+									<div class="rating-header mt-3">
+										<div class="head mb-0">Customer Reviews</div>
+										<div class="no-reviews-yet">No reviews yet</div>
 									</div>
 
-									<div class="form-wrapper mt-5">
-										<div class="title">Price and Inventory</div>
-	
-										<div class="form-group row">
-											<label for="inputProductPrice" class="col-sm-2 col-form-label">Price</label>
-											<div class="peso-sign">₱</div>
-											<div class="col-sm-2 money">
-											    <input type="text" class="form-control numberOnly" autocomplete="off" id="inputProductPrice" value="<?php echo $price ?>" name="price" required><div></div>
-											</div>
-										</div>
-
-										<div class="form-group row">
-											<label for="inputProductStock" class="col-sm-2 col-form-label">Stock</label>
-											<div class="col-sm-10">
-												<input type="number" class="form-control formatter" id="inputProductStock" value="<?php echo $stock ?>" name="stock" required>
-											</div>	
-										</div>
-									</div>
 									
-									<div class="cancel-forgot-password product-details">
-										<a href="/etiendahan/seller-centre/product/list/all/">Cancel</a>
-									</div>	
-
-									<div class="form-group row">
-										<div class="col-sm-12 text-right">
-											<button name="button_modify" class="btn btn-primary" type="submit">Modify</button>
-										</div>
-									</div>									
-								</form>
-
-								<form class="delete-form" action="/etiendahan/c8NLPYLt-functions/product-details-delete-function/" method="POST">	
-									<button name="button_delete" class="btn btn-primary delete" type="submit">Delete</button>
-								</form>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
@@ -350,11 +288,6 @@
 <!-- footer inner -->
 <!-- Development - Normal import of theme.js -->
 <script src="/etiendahan/assets/js/theme.js"></script>
-<script>
-	jQuery('document').ready(function(){
-		get_child_options('<?php echo $sub_id ?>');
-	});
-</script>
 
 <!-- Development - Minifies import of theme.js -->
 <!-- <script src="/etiendahan/assets/js/theme.min.js"></script> -->

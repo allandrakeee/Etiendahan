@@ -729,5 +729,75 @@
 	    &:after {
 		    border-top: 10px solid dimgrey;
 	    }
-  	}
+  	}	
+}
+
+.rating-header {
+	border-bottom: 1px solid #ECECEC;
+	padding-bottom: 15px;
+
+	.head {
+		font-size: 24px;
+		margin: 0 0 12px 0;
+	}
+
+	.rate-reviews {
+		display: inline-block;
+
+		i {
+			&.fa.fa-star {
+				font-size: 140%;
+				position: relative;
+				top: 1px;
+				width: 18px;
+				height: 1.3em;
+			}
+
+			&.fa.fa-star-o {
+				font-size: 140%;
+				position: relative;
+				top: 1px;
+				width: 18px;
+				height: 1.3em;
+			}
+		}
+	}
+}
+
+.rate {
+	margin-top: 20px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ECECEC;
+
+	.rate-reviews {
+		display: inline-block;
+
+		i {
+			&.fa.fa-star {
+				font-size: 140%;
+				position: relative;
+				top: 1px;
+				width: 18px;
+				height: 1.3em;
+			}
+
+			&.fa.fa-star-o {
+				font-size: 140%;
+				position: relative;
+				top: 1px;
+				width: 18px;
+				height: 1.3em;
+			}
+		}
+	}
+
+	.rate-name-and-date {
+		strong {
+			font-style: italic;
+		}
+	}
+
+	.rate-body {
+		margin-top: 5px;
+	}
 }

@@ -335,6 +335,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('c8NLPYLt-functions/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('ed-admin/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
 });
 
 // ================================ Min Assets ================================

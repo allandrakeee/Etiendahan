@@ -13389,6 +13389,72 @@ ul.navbar-nav li.dropdown .dropdown-menu {
   #etiendahan-activate-page .toggle-wrapper label:active:after {
     width: 130px; }
 
+* {
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html.admin-page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  html.admin-page body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: #092756;
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 ); }
+  html.admin-page .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width: 300px;
+    height: 300px; }
+    html.admin-page .login button {
+      color: ghostwhite;
+      cursor: pointer;
+      background-color: black;
+      border-radius: 2rem; }
+      html.admin-page .login button:focus {
+        border-color: dimgrey !important;
+        outline: none;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
+      html.admin-page .login button:hover {
+        border-color: dimgrey !important; }
+      html.admin-page .login button.btn-primary {
+        border-color: black; }
+  html.admin-page .login h1 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    text-align: center; }
+  html.admin-page input {
+    border-radius: 2rem;
+    width: 100%;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -webkit-transition: -webkit-box-shadow .5s ease;
+    transition: -webkit-box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease, -webkit-box-shadow .5s ease; }
+  html.admin-page input:focus {
+    -webkit-box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2); }
+
 #etiendahan-category-page {
   font-family: 'Montserrat', sans-serif;
   margin-top: 70px;
@@ -16203,6 +16269,50 @@ input[type="search"].sb-search-input {
     background: dimgrey; }
     .ribbon.ribbon--dimgrey:after {
       border-top: 10px solid dimgrey; }
+
+.rating-header {
+  border-bottom: 1px solid #ECECEC;
+  padding-bottom: 15px; }
+  .rating-header .head {
+    font-size: 24px;
+    margin: 0 0 12px 0; }
+  .rating-header .rate-reviews {
+    display: inline-block; }
+    .rating-header .rate-reviews i.fa.fa-star {
+      font-size: 140%;
+      position: relative;
+      top: 1px;
+      width: 18px;
+      height: 1.3em; }
+    .rating-header .rate-reviews i.fa.fa-star-o {
+      font-size: 140%;
+      position: relative;
+      top: 1px;
+      width: 18px;
+      height: 1.3em; }
+
+.rate {
+  margin-top: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ECECEC; }
+  .rate .rate-reviews {
+    display: inline-block; }
+    .rate .rate-reviews i.fa.fa-star {
+      font-size: 140%;
+      position: relative;
+      top: 1px;
+      width: 18px;
+      height: 1.3em; }
+    .rate .rate-reviews i.fa.fa-star-o {
+      font-size: 140%;
+      position: relative;
+      top: 1px;
+      width: 18px;
+      height: 1.3em; }
+  .rate .rate-name-and-date strong {
+    font-style: italic; }
+  .rate .rate-body {
+    margin-top: 5px; }
 
 #etiendahan-seller-shop-page {
   font-family: 'Montserrat', sans-serif;
