@@ -349,25 +349,32 @@
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="1"></li>
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="2"></li>
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="3"></li>
+									<li data-target="#etiendahanCarouselIndicators" data-slide-to="4"></li>
 								</ol>
 								<div class="carousel-inner wrapper">
 									<div class="carousel-item active" draggable="false" style="background-image: url(temp-img/promotional1.jpg);" alt="First slide" >
 										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Fresh bangus, specialty here in dagupan</div>
+										<div class="text-inner">Fresh bangus, specialty here in dagupan.</div>
 										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
 									</div>
 									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329439_1672503496122029_174009182_o.jpg);" alt="First slide" >
 										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Buy now, different kinds of fishes</div>
+										<div class="text-inner">Buy now, different kinds of fishes.</div>
 										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
 									</div>
 									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/IMG_6143.jpg);" alt="First slide" >
 										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Made from the heart deboning</div>
+										<div class="text-inner">Made from the heart deboning.</div>
 										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div><div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329422_1672557026116676_235243399_o.jpg);" alt="First slide" >
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/promotional3.jpg);" alt="First slide" >
 										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Native products</div>
+										<div class="text-inner">Be part of the fresh sources of bangus.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329422_1672557026116676_235243399_o.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Native products.</div>
 										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
 									</div>
 								</div>
@@ -704,12 +711,34 @@
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="1"></li>
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="2"></li>
 									<li data-target="#etiendahanCarouselIndicators" data-slide-to="3"></li>
+									<li data-target="#etiendahanCarouselIndicators" data-slide-to="4"></li>
 								</ol>
-								<div class="carousel-inner">
-									<div class="carousel-item active" draggable="false" style="background-image: url(https://cdn.shopify.com/s/files/1/0998/0122/files/ico_slide_1_b9b255c6-a8d0-49ac-add0-9e94c0039e4c.jpg?v=1490971377);" alt="First slide" ></div>
-									<div class="carousel-item" draggable="false" style="background-image: url(https://cdn.shopify.com/s/files/1/0998/0122/files/ico_slide_2.jpg);" alt="Second slide" ></div>
-									<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1200x480);" alt="Third slide" ></div>
-									<div class="carousel-item" draggable="false" style="background-image: url(http://via.placeholder.com/1600x600);" alt="Fourth slide" ></div>
+								<div class="carousel-inner wrapper">
+									<div class="carousel-item active" draggable="false" style="background-image: url(temp-img/promotional1.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Fresh bangus, specialty here in dagupan.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329439_1672503496122029_174009182_o.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Buy now, different kinds of fishes.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/IMG_6143.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Made from the heart deboning.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/promotional3.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Be part of the fresh sources of bangus.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
+									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329422_1672557026116676_235243399_o.jpg);" alt="First slide" >
+										<div class="carousel-inner-overlay"></div>
+										<div class="text-inner">Native products.</div>
+										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
+									</div>
 								</div>
 								<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
 									<i class="fa fa-angle-left" aria-hidden="true"></i>
