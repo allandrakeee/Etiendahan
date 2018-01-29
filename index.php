@@ -350,13 +350,14 @@
 								?>
 									<ol class="carousel-indicators">
 										<?php  
+										$count_indicator = 0;
 											$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
 											$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
 											$slides_result_id = $mysqli->query("SELECT * FROM tbl_slides");
 											while($slides_row_id = mysqli_fetch_assoc($slides_result_id)):
 										?>
-											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $slides_row_id['id'] ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
-										<?php endwhile; ?>
+											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $count_indicator; ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
+										<?php $count_indicator++; endwhile; ?>
 									</ol>
 								<?php endif; ?>
 
@@ -722,13 +723,14 @@
 								?>
 									<ol class="carousel-indicators">
 										<?php  
+										$count_indicator = 0;
 											$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
 											$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
 											$slides_result_id = $mysqli->query("SELECT * FROM tbl_slides");
 											while($slides_row_id = mysqli_fetch_assoc($slides_result_id)):
 										?>
-											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $slides_row_id['id'] ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
-										<?php endwhile; ?>
+											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $count_indicator; ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
+										<?php $count_indicator++; endwhile; ?>
 									</ol>
 								<?php endif; ?>
 

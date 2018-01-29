@@ -1,6 +1,12 @@
 <?php  
 	require '/../db.php';
 	session_start();
+
+	$logged_in_admin  = ((isset($_SESSION['logged_in_admin']) && $_SESSION['logged_in_admin'] != '')?htmlentities($_SESSION['logged_in_admin']):'');
+    if($logged_in_admin == true) {
+        $_SESSION['cant-proceed-message-logged-in'] = 'You already logged in.';
+        header('location: /etiendahan/ed-admin/restricted/');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +53,24 @@
 				</div>
 
 				<!-- POPUP NOTIFICATION -->
+			    <div id="popup-notification-welcome" class="wow fadeIn">
+			        <div id="etiendahan-notification">Etiendahan Notification</div>
+			        <div id="popup-close-welcome" class="popup-close"><i class="fa fa-times"></i></div>
+			        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-info-circle" style="margin-right: 2px; color: #004085; border-color: #b8daff; font-size: 18px;"></i>Completed!</div>
+			        <div class="popup-content-welcome text-center" style="font-size: 14px;">
+			            <?php  
+			                // Display message only once
+			                if ( isset($_SESSION['logout-message']) ) {
+			                    echo $_SESSION['logout-message'];
+			                    // Don't annoy the user with more messages upon page refresh
+			                    unset($_SESSION['logout-message']);
+			                }
+			            ?>
+			        </div>
+			    </div>
+			    <!-- END OF POPUP NOTIFICATION -->
+
+				<!-- POPUP NOTIFICATION -->
 				<div id="popup-notification" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
 					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
@@ -63,6 +87,12 @@
 								echo $_SESSION['wrong-password-message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['wrong-password-message'] );
+							}
+
+							if ( isset($_SESSION['cant-proceed-message']) ) {
+								echo $_SESSION['cant-proceed-message'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message'] );
 							}
 						?>
 					</div>

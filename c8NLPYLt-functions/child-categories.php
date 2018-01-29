@@ -78,6 +78,10 @@
 		$_SESSION['delete_sub_category'] = $_POST['delete_sub_category'];
 	}
 
+	if($_POST['banned_customer_id'] != '') {
+		$_SESSION['banned_customer_id'] = $_POST['banned_customer_id'];
+	}
+
 	// modify quantity in cart
 	if($_POST['cart_id'] != '') {
 		$_SESSION['cart_id'] = $_POST['cart_id'];

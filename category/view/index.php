@@ -88,9 +88,9 @@
 											</label>
 
 
-											<input class="number" type="number" placeholder="₱ MIN">
+											<!-- <input class="number" type="number" placeholder="₱ MIN">
 											<div class="separator"></div>
-											<input class="number" type="number" placeholder="₱ MAX">
+											<input class="number" type="number" placeholder="₱ MAX"> -->
 										</div>
 										<button type="submit" class="btn btn-primary">Apply</button>
 									</form>

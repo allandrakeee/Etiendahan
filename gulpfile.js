@@ -347,6 +347,30 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('ed-admin/restricted/categories/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('ed-admin/restricted/customers/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/sellers/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/products/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/sales/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/visits/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/banned-customers/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/banned-sellers/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/banned-products/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
 });
 
 // ================================ Min Assets ================================

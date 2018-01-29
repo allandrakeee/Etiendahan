@@ -76,23 +76,28 @@
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-filter fa-fw"></i>SEARCH FILTER</div>
 									<div class="search-filter-price-range">Price Range</div>
-									<div class="price-range-filter">
-										<label>
-											<input type="radio" name="inlineRadioOptions" id="inlineRadioLowToHigh" value="optionLowToHigh" required> Low to High
-										</label>
+									<?php $product_sort = ((isset($_POST['sort']) && $_POST['sort'] != '')?htmlentities($_POST['sort']):''); ?>
+									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+										<div class="price-range-filter">
+											<label>
+												<input type="radio" id="inlineRadioLowToHigh" value="replace(replace(price, ',', ''), '.', '')+0 asc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 asc") echo "checked";?> required> Low to High
+											</label>
 
-										<label>
-											<input type="radio" name="inlineRadioOptions" id="inlineRadioHighToLow" value="optionHighToLow" required> High to Low
-										</label>
+											<label>
+												<input type="radio" id="inlineRadioHighToLow" value="replace(replace(price, ',', ''), '.', '')+0 desc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 desc") echo "checked";?> required> High to Low
+											</label>
 
 
-										<input class="number" type="number" placeholder="₱ MIN">
-										<div class="separator"></div>
-										<input class="number" type="number" placeholder="₱ MAX">
-									</div>
-									<button class="btn btn-primary">Apply</button>
+											<!-- <input class="number" type="number" placeholder="₱ MIN">
+											<div class="separator"></div>
+											<input class="number" type="number" placeholder="₱ MAX"> -->
+										</div>
+										<button type="submit" class="btn btn-primary">Apply</button>
+									</form>
 									<div class="separator-button"></div>
-									<button class="btn btn-primary">Clear All</button>
+									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+										<button class="btn btn-primary" value="" name="sort">Clear All</button>
+									</form>
 									<div class="separator-bottom"></div>
 								</div>
 							</div>
@@ -105,8 +110,9 @@
 
 								<div class="item-wrapper" id="item-wrapper-grid-list">
 									<?php  
-
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id = '$sub_category_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
+										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
+										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id = '$sub_category_id' AND stock > 0 AND banned = 0 ORDER BY ".$product_order);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):
 										$product_id = $product_row['id'];

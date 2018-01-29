@@ -13,9 +13,9 @@
         $user = $result->fetch_assoc();
 
         if ($password == $user['password']) {
-            $_SESSION['id']         	 = $user['id'];  
-            $_SESSION['fullname']   	 = $user['username'];
-            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id']         	 = $user['id'];  
+            $_SESSION['admin_fullname']   	 = $user['username'];
+            $_SESSION['logged_in_admin']     = true;
             header("location: /etiendahan/ed-admin/restricted/");
         }
         else {

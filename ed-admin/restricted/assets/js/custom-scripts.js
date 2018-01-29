@@ -247,6 +247,12 @@ $(document).on('click', '.delete-sub-category', function(){
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"delete_sub_category": delete_sub_category});
 });
 
+$(document).on('click', '.action-banned-customer', function(){
+    var banned_customer_id = $(this).attr('id');
+    // alert(banned_customer_id);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"banned_customer_id": banned_customer_id});
+});
+
 $(document).ready(function() {
     $('#popup-notification').delay(1000).fadeIn(400);
 });
