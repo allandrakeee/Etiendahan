@@ -66,7 +66,7 @@
 
         if ($mysqli->query($sql) or die($mysqli->error)) {
             header("location: /etiendahan/seller-centre/product/new/");
-            $_SESSION['product-added-message'] = 'Successfully Added';
+            $_SESSION['product-added-message'] = 'Successfully Added.';
         } else {
         // $_SESSION['message'] = 'Registration failed!';
         // header("location: /etiendahan/error/");

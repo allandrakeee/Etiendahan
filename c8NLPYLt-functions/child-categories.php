@@ -66,6 +66,18 @@
 		$_SESSION['cart_product_id_delete'] = $_POST['cart_product_id_delete'];
 	}
 
+	if($_POST['slide_id'] != '') {
+		$_SESSION['slide_id'] = $_POST['slide_id'];
+	}
+
+	if($_POST['parent_category_id'] != '') {
+		$_SESSION['parent_category_id'] = $_POST['parent_category_id'];
+	}
+
+	if($_POST['delete_sub_category'] != '') {
+		$_SESSION['delete_sub_category'] = $_POST['delete_sub_category'];
+	}
+
 	// modify quantity in cart
 	if($_POST['cart_id'] != '') {
 		$_SESSION['cart_id'] = $_POST['cart_id'];

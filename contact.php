@@ -67,6 +67,13 @@
 								</div>
 
 								<div class="question">
+									Feedback or Suggestion?
+								</div>
+								<div class="link">
+									<i class="fa fa-envelope-o"></i> Email: <a href="mailto:etiendahan@gmail.com" target="_blank">etiendahan@gmail.com</a>
+								</div>
+
+								<div class="question">
 									Want to become a seller?
 								</div>
 								<div class="link">

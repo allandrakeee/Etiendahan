@@ -382,9 +382,9 @@
 }
 
 .ribbon-promotional {
-	z-index: 3;
-    left: 80%;
-    top: 8%;
+    z-index: 3;
+    left: 76%;
+    top: 94px;
     line-height: 3;
     font-size: 14px;
     text-transform: uppercase;
@@ -397,9 +397,8 @@
 	background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#CCCCCC));
 	background: linear-gradient(to bottom, #999999 0%, #CCCCCC 100%);
 	color: white;
-	float: left;
 	padding-top: 1rem;
-	position: relative;
+	position: absolute;
 
 	&.view {
 		position: absolute;

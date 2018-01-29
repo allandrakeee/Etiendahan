@@ -13730,8 +13730,8 @@ html.admin-page {
 
 .ribbon-promotional {
   z-index: 3;
-  left: 80%;
-  top: 8%;
+  left: 76%;
+  top: 94px;
   line-height: 3;
   font-size: 14px;
   text-transform: uppercase;
@@ -13744,9 +13744,8 @@ html.admin-page {
   background: -webkit-gradient(linear, left top, left bottom, from(#999999), to(#CCCCCC));
   background: linear-gradient(to bottom, #999999 0%, #CCCCCC 100%);
   color: white;
-  float: left;
   padding-top: 1rem;
-  position: relative; }
+  position: absolute; }
   .ribbon-promotional.view {
     position: absolute;
     z-index: 1;
@@ -14922,7 +14921,7 @@ nav a:focus {
     background-repeat: no-repeat; }
     .my-carousel .carousel-item .carousel-inner-overlay {
       position: absolute;
-      width: 100%;
+      width: 105%;
       height: 100%;
       z-index: 2;
       background-color: dimgrey;
@@ -14947,19 +14946,32 @@ nav a:focus {
   .my-carousel .text-inner {
     text-align: center;
     color: white;
-    position: relative;
-    top: 40%;
+    width: 100%;
     font-size: 50px;
     font-weight: 400;
     z-index: 3;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    display: inline-table;
+    padding: 0 5%; }
   .my-carousel .promotional-banner {
     position: absolute;
     bottom: 0;
     color: white;
     z-index: 3;
     right: 0; }
+
+.link-slider {
+  font-family: 'Crimson Text', serif;
+  color: white;
+  z-index: 3;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 26px;
+  font-weight: 100; }
+  .link-slider a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid white; }
 
 .my-search {
   margin-top: -35px; }

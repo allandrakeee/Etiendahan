@@ -18,7 +18,7 @@
         $sql = "INSERT INTO tbl_address (id, email, fullname, phone_number, postal_code, province, city, barangay, complete_address, other_notes, default_address) VALUES (null, '$email','$fullname', '$phone_number', '$postal_code', '$province', '$city', '$barangay', '$complete_address', '$other_notes', 1)";
 
 	    if ($mysqli->query($sql) or die($mysqli->error)) {
-	    	$_SESSION['success-message'] = 'Successfully added';
+	    	$_SESSION['success-message'] = 'Successfully Added.';
 	        header("location: /etiendahan/customer/address/"); 
 	    } else {
 	        // $_SESSION['message'] = 'Registration failed!';
@@ -28,7 +28,7 @@
     	$sql = "INSERT INTO tbl_address (id, email, fullname, phone_number, postal_code, province, city, barangay, complete_address, other_notes, default_address) VALUES (null, '$email','$fullname', '$phone_number', '$postal_code', '$province', '$city', '$barangay', '$complete_address', '$other_notes', 0)";
 
 	    if ($mysqli->query($sql) or die($mysqli->error)) {
-	    	$_SESSION['success-message'] = 'Successfully Added';
+	    	$_SESSION['success-message'] = 'Successfully Added.';
 	        header("location: /etiendahan/customer/address/"); 
 	    } else {
 	        // $_SESSION['message'] = 'Registration failed!';

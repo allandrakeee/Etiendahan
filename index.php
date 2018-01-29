@@ -344,48 +344,58 @@
 
 							<!-- carousel -->
 							<div id="etiendahanCarouselIndicators" class="carousel slide my-carousel" data-ride="carousel">
-								<ol class="carousel-indicators">
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="0" class="active"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="1"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="2"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="3"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="4"></li>
-								</ol>
+								<?php  
+									$slides_result_one_result = $mysqli->query("SELECT * FROM tbl_slides");
+									if($slides_result_one_result->num_rows > 1):
+								?>
+									<ol class="carousel-indicators">
+										<?php  
+											$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
+											$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
+											$slides_result_id = $mysqli->query("SELECT * FROM tbl_slides");
+											while($slides_row_id = mysqli_fetch_assoc($slides_result_id)):
+										?>
+											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $slides_row_id['id'] ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
+										<?php endwhile; ?>
+									</ol>
+								<?php endif; ?>
+
 								<div class="carousel-inner wrapper">
-									<div class="carousel-item active" draggable="false" style="background-image: url(temp-img/promotional1.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Fresh bangus, specialty here in dagupan.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329439_1672503496122029_174009182_o.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Buy now, different kinds of fishes.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/IMG_6143.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Made from the heart deboning.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/promotional3.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Be part of the fresh sources of bangus.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329422_1672557026116676_235243399_o.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Native products.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
+									<?php  
+										$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
+										$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
+										$slides_result = $mysqli->query("SELECT * FROM tbl_slides");
+										while($slides_row = mysqli_fetch_assoc($slides_result)):
+									?>
+										<div class="carousel-item <?php echo ($slides_row_min_id['min_id'] == $slides_row['id']) ? 'active' : '' ?>" draggable="false" style="background-image: url(<?php echo $slides_row['image'] ?>);" alt="First slide" >
+											<div class="row h-100 d-flex">
+												<div class="carousel-inner-overlay"></div>
+												<?php  
+													if($slides_row['promotional'] == 1):
+												?>
+													<div class="ribbon-promotional ribbon--dimgrey wow rollIn" data-wow-delay="400ms" style="visibility: hidden">Promotional</div>
+												<?php endif; ?>
+												<div class="col-md-12 text-center my-auto" style="z-index: 3">
+													<div class="text-inner wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden"><?php echo $slides_row['title']; ?></div>
+													<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+												</div>
+											</div>
+										</div>
+									<?php endwhile; ?>
 								</div>
-								<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
-									<i class="fa fa-angle-left" aria-hidden="true"></i>
-									<span class="sr-only">Previous</span>
-								</a>
-								<a class="carousel-control-next" href="#etiendahanCarouselIndicators" role="button" data-slide="next">
-									<i class="fa fa-angle-right" aria-hidden="true"></i>
-									<span class="sr-only">Next</span>
-								</a>
+								<?php  
+									$slides_result_one_result = $mysqli->query("SELECT * FROM tbl_slides");
+									if($slides_result_one_result->num_rows > 1):
+								?>
+									<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
+										<i class="fa fa-angle-left" aria-hidden="true"></i>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" href="#etiendahanCarouselIndicators" role="button" data-slide="next">
+										<i class="fa fa-angle-right" aria-hidden="true"></i>
+										<span class="sr-only">Next</span>
+									</a>
+								<?php endif; ?>
 							</div>
 							
 							<div id="shop-now"></div>
@@ -706,48 +716,58 @@
 
 							<!-- carousel -->
 							<div id="etiendahanCarouselIndicators" class="carousel slide my-carousel" data-ride="carousel">
-								<ol class="carousel-indicators">
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="0" class="active"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="1"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="2"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="3"></li>
-									<li data-target="#etiendahanCarouselIndicators" data-slide-to="4"></li>
-								</ol>
+								<?php  
+									$slides_result_one_result = $mysqli->query("SELECT * FROM tbl_slides");
+									if($slides_result_one_result->num_rows > 1):
+								?>
+									<ol class="carousel-indicators">
+										<?php  
+											$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
+											$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
+											$slides_result_id = $mysqli->query("SELECT * FROM tbl_slides");
+											while($slides_row_id = mysqli_fetch_assoc($slides_result_id)):
+										?>
+											<li data-target="#etiendahanCarouselIndicators" data-slide-to="<?php echo $slides_row_id['id'] ?>" <?php echo ($slides_row_min_id['min_id'] == $slides_row_id['id']) ? 'class="active"' : '' ?>></li>
+										<?php endwhile; ?>
+									</ol>
+								<?php endif; ?>
+
 								<div class="carousel-inner wrapper">
-									<div class="carousel-item active" draggable="false" style="background-image: url(temp-img/promotional1.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Fresh bangus, specialty here in dagupan.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329439_1672503496122029_174009182_o.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Buy now, different kinds of fishes.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/IMG_6143.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Made from the heart deboning.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/promotional3.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Be part of the fresh sources of bangus.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
-									<div class="carousel-item" draggable="false" style="background-image: url(temp-img/27329422_1672557026116676_235243399_o.jpg);" alt="First slide" >
-										<div class="carousel-inner-overlay"></div>
-										<div class="text-inner">Native products.</div>
-										<div class="ribbon-promotional ribbon--dimgrey">Promotional</div>
-									</div>
+									<?php  
+										$slides_result_min_id = $mysqli->query("SELECT MIN(id) as min_id FROM tbl_slides");
+										$slides_row_min_id = mysqli_fetch_assoc($slides_result_min_id);
+										$slides_result = $mysqli->query("SELECT * FROM tbl_slides");
+										while($slides_row = mysqli_fetch_assoc($slides_result)):
+									?>
+										<div class="carousel-item <?php echo ($slides_row_min_id['min_id'] == $slides_row['id']) ? 'active' : '' ?>" draggable="false" style="background-image: url(<?php echo $slides_row['image'] ?>);" alt="First slide" >
+											<div class="row h-100 d-flex">
+												<div class="carousel-inner-overlay"></div>
+												<?php  
+													if($slides_row['promotional'] == 1):
+												?>
+													<div class="ribbon-promotional ribbon--dimgrey wow rollIn" data-wow-delay="400ms" style="visibility: hidden">Promotional</div>
+												<?php endif; ?>
+												<div class="col-md-12 text-center my-auto" style="z-index: 3">
+													<div class="text-inner wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden"><?php echo $slides_row['title']; ?></div>
+													<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+												</div>
+											</div>
+										</div>
+									<?php endwhile; ?>
 								</div>
-								<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
-									<i class="fa fa-angle-left" aria-hidden="true"></i>
-									<span class="sr-only">Previous</span>
-								</a>
-								<a class="carousel-control-next" href="#etiendahanCarouselIndicators" role="button" data-slide="next">
-									<i class="fa fa-angle-right" aria-hidden="true"></i>
-									<span class="sr-only">Next</span>
-								</a>
+								<?php  
+									$slides_result_one_result = $mysqli->query("SELECT * FROM tbl_slides");
+									if($slides_result_one_result->num_rows > 1):
+								?>
+									<a class="carousel-control-prev" href="#etiendahanCarouselIndicators" role="button" data-slide="prev">
+										<i class="fa fa-angle-left" aria-hidden="true"></i>
+										<span class="sr-only">Previous</span>
+									</a>
+									<a class="carousel-control-next" href="#etiendahanCarouselIndicators" role="button" data-slide="next">
+										<i class="fa fa-angle-right" aria-hidden="true"></i>
+										<span class="sr-only">Next</span>
+									</a>
+								<?php endif; ?>
 							</div>
 							
 							<div id="shop-now"></div>
@@ -992,9 +1012,9 @@
 					<div class="container-fluid">
 						<div class="welcome-message-overlay">
 							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
-							<div class="welcome-message-title">Welcome to Etiendahan</div>
-							<div class="welcome-message-intro">Online Shopping Marketplace here in Dagupan</div>
-							<div class="welcome-message-hashtag">#<a href="https://web.facebook.com/etiendahan/">SHOPATETIENDAHAN</a></div>
+							<div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
+							<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Marketplace here in Dagupan</div>
+							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#<a href="https://web.facebook.com/etiendahan/">SHOPATETIENDAHAN</a></div>
 						</div>
 					</div>
 				</div>

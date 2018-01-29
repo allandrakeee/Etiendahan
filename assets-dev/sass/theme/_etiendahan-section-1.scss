@@ -442,7 +442,7 @@ nav a:focus {
 
 		.carousel-inner-overlay {
 			position: absolute;
-			width: 100%;
+			width: 105%;
 			height: 100%;
 			z-index: 2;
 			background-color: dimgrey;
@@ -481,13 +481,16 @@ nav a:focus {
 	.text-inner {
 		text-align: center;
 		color: white;
-		position: relative;
-		top: 40%;
+		width: 100%;
+		// position: relative;
+		// top: 40%;
 		font-size: 50px;
 		font-weight: 400;
 		z-index: 3;
-	    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+	    // text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 	    text-transform: uppercase;
+	    display: inline-table;
+	    padding: 0 5%;
 	}
 
 	.promotional-banner {
@@ -497,6 +500,22 @@ nav a:focus {
 		z-index: 3;
 		right: 0;
 	}
+}
+
+.link-slider {
+    font-family: 'Crimson Text', serif;
+    color: white;
+    z-index: 3;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 26px;
+    font-weight: 100;
+
+    a {
+    	color: #fff;
+    	text-decoration: none;
+    	border-bottom: 2px solid white;
+    }
 }
 
 // search

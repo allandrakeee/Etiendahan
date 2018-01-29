@@ -338,6 +338,15 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('ed-admin/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('ed-admin/restricted/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/slides/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/categories/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
 });
 
 // ================================ Min Assets ================================
