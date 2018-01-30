@@ -219,11 +219,22 @@
 
                     <!-- products -->
                     <?php  
-                        $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE banned = 0");
-                        $product_count = $result_product_count->fetch_row();
+                        $count = 1;
+                        $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE banned = 0");
+                        while($product_row = mysqli_fetch_assoc($product_result)):
+                            $product_seller_email = $product_row['seller_email'];
+                            $seller_result = $mysqli->query("SELECT * FROM tbl_sellers WHERE banned = 0 AND seller_email LIKE '$product_seller_email' ");
+                            while($seller_row = mysqli_fetch_assoc($seller_result)):
+
+                                if($seller_row['seller_email'] == $product_row['seller_email']):
+                                    // echo $count;
+                                    $count++;
+                                endif;
+                            endwhile;
+                        endwhile;
                     ?>
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/products/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">shopping_cart</i> Products (<?php if($product_count[0] == 0): ?>0<?php else: ?><?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?>)</a>
+                        <a href="/etiendahan/ed-admin/restricted/products/" class="add-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">shopping_cart</i> Products (<?php echo $count-1; ?>)</a>
                     </li>
                     <?php  
                         $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE banned = 1");

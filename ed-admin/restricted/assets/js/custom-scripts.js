@@ -367,3 +367,10 @@ $(function () {
 function GetDynamicTextBox(value) {
     return '<td><input name = "sub_category[]" type="text" value = "" class="form-control" style="width: 475px;"></td>' + '<td><button type="button" class="btn btn-danger remove" style="position: relative;bottom: 8px;left: 5px;"><i class="fa fa-times"></i></button></td>'
 }
+
+$('table#incidents').each(function() {
+    if($(this).find('tr').children("td").length < 1) {
+        $(this).hide();
+        $('<p>No Products Yet</p>').appendTo('#page-inner');
+    }
+});
