@@ -15123,6 +15123,7 @@ nav a:focus {
   font-size: 11px; }
 
 #popup-notification {
+  font-family: 'Montserrat', sans-serif;
   display: none;
   position: fixed;
   width: 385px;
@@ -15137,6 +15138,7 @@ nav a:focus {
   z-index: 999999999999999; }
 
 #popup-notification-welcome {
+  font-family: 'Montserrat', sans-serif;
   display: none;
   position: fixed;
   width: 385px;
@@ -15151,6 +15153,7 @@ nav a:focus {
   z-index: 999999999999999; }
 
 #popup-notification-completed {
+  font-family: 'Montserrat', sans-serif;
   display: none;
   position: fixed;
   width: 385px;
@@ -15165,6 +15168,7 @@ nav a:focus {
   z-index: 999999999999999; }
 
 #popup-notification-logout {
+  font-family: 'Montserrat', sans-serif;
   display: none;
   position: fixed;
   width: 385px;
@@ -15179,6 +15183,7 @@ nav a:focus {
   z-index: 999999999999999; }
 
 #popup-notification-logout-redirect {
+  font-family: 'Montserrat', sans-serif;
   display: none;
   position: fixed;
   width: 385px;
@@ -15217,6 +15222,22 @@ nav a:focus {
       background-color: transparent; }
     .popup-title .fa.alert-primary {
       background-color: transparent; }
+
+.popup-content {
+  font-size: 14px;
+  font-weight: 500; }
+
+.popup-content-welcome {
+  font-size: 14px;
+  font-weight: 500; }
+
+.popup-content-logout {
+  font-size: 14px;
+  font-weight: 500; }
+
+.popup-content-logout-redirect {
+  font-size: 14px;
+  font-weight: 500; }
 
 .inner-recent {
   border: 1px solid #ddd;

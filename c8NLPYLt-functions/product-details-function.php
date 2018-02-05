@@ -25,7 +25,6 @@
         }
     }
 
-
     $sql = "UPDATE tbl_products SET name = '$name', description = '$description', sub_id = '$sub_id', price = '$price', stock = '$stock' WHERE id = '$id'";
     if ($mysqli->query($sql) or die($mysqli->error)) {
         header("location: /etiendahan/seller-centre/product/details/");

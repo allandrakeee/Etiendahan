@@ -6,7 +6,7 @@
 
 	// Check if user is logged in using the session variable
 	if ($logged_in == false) {
-	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
+	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page.";
 	header("location: /etiendahan/seller-centre/account/signin/");    
 	}
   
@@ -17,7 +17,7 @@
 		$user = $result->fetch_assoc();
 
 		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account.";
             header("location: /etiendahan/seller-centre/account/activate/");
         }
   	}

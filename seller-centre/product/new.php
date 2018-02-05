@@ -1,6 +1,17 @@
 <?php  
 	require '/../../db.php';
 	session_start();
+
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE seller_email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your seller account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/seller-centre/account/signin/');
+	    exit;
+	}
 	
 	$name 				= ((isset($_POST['name']) && $_POST['name'] != '')?htmlentities($_POST['name']):'');
 	$description 		= ((isset($_POST['description']) && $_POST['description'] != '')?htmlentities($_POST['description']):'');
@@ -12,7 +23,7 @@
 
 	// Check if user is logged in using the session variable
 	if ($logged_in == false) {
-	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
+	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page.";
 	header("location: /etiendahan/seller-centre/account/signin/");    
 	}
   
@@ -23,7 +34,7 @@
 		$user = $result->fetch_assoc();
 
 		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account.";
             header("location: /etiendahan/seller-centre/account/activate/");
         }
   	}

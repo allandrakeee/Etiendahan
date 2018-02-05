@@ -1,5 +1,6 @@
 // pop up
 #popup-notification {
+	font-family: 'Montserrat', sans-serif;
 	display: none;
 	position: fixed;
 	width: 385px;
@@ -15,6 +16,7 @@
 }
 
 #popup-notification-welcome {
+	font-family: 'Montserrat', sans-serif;
 	display: none;
 	position: fixed;
 	width: 385px;
@@ -30,6 +32,7 @@
 }
 
 #popup-notification-completed {
+	font-family: 'Montserrat', sans-serif;
 	display: none;
 	position: fixed;
 	width: 385px;
@@ -45,6 +48,7 @@
 }
 
 #popup-notification-logout {
+	font-family: 'Montserrat', sans-serif;
 	display: none;
 	position: fixed;
 	width: 385px;
@@ -60,6 +64,7 @@
 }
 
 #popup-notification-logout-redirect {
+	font-family: 'Montserrat', sans-serif;
 	display: none;
 	position: fixed;
 	width: 385px;
@@ -107,4 +112,33 @@
 			background-color: transparent;
 		}
 	}
+}
+
+.fa-stack {
+	line-height: 0;
+	height: 0;
+    bottom: 1px;
+}
+
+.fa-stack[data-count]:after{
+	position: absolute;
+    top: -13px;
+    left: 18px;
+    content: attr(data-count);
+    font-size: 8px;
+    padding-left: 4px !important;
+    padding: .6em;
+    border-radius: 999px;
+    line-height: .75em;
+    color: white;
+    background: #1f2837;
+    text-align: center;
+    min-width: 2em;
+    font-weight: bold;
+}
+
+.fa.fa-shopping-bag {
+	position: relative;
+	font-size: 1.250rem;
+	vertical-align: middle;
 }

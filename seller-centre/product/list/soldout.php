@@ -2,6 +2,17 @@
 	require '/../../../db.php';
 	session_start();
 
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE seller_email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your seller account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/seller-centre/account/signin/');
+	    exit;
+	}
+
 	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
 	// Check if user is logged in using the session variable

@@ -1,6 +1,18 @@
 <?php  
 	require '/db.php';
 	session_start();
+  	
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['email'] = false;
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your customer account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/customer/account/login/');
+	    exit;
+	}
 
 	$logged_in = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$sub_category_name = ((isset($_SESSION['sub_category_name']) && $_SESSION['sub_category_name'] != '')?htmlentities($_SESSION['sub_category_name']):'');

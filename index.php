@@ -3,6 +3,41 @@
 	require_once "/facebook-login/config.php";
 	session_start();
 
+	if(!isset($_SESSION['unique_hash_visitors'])) {
+		$uhv = md5( rand(0,1000) );
+		$_SESSION['unique_hash_visitors'] = $uhv;
+	} else {
+		$_SESSION['unique_hash_visitors'];
+	}
+
+	$unique_hash_visitors = $_SESSION['unique_hash_visitors'];
+
+	$result = $mysqli->query("SELECT * FROM tbl_visits");
+	$row = $result->fetch_assoc();
+	if($result->num_rows == 0) {
+		$mysqli->query("INSERT INTO tbl_visits(created_at, hash, registered_customer, email) VALUES(NOW(), '$unique_hash_visitors', 0, 0)") or die($mysqli->error);
+	} else {
+		$result1 = $mysqli->query("SELECT * FROM tbl_visits WHERE id = (SELECT MAX(id) FROM tbl_visits)");
+		$row1 = $result1->fetch_assoc();
+		// echo $row1['hash'].'=='.$unique_hash_visitors;
+		if($row1['hash'] != $unique_hash_visitors) {
+			$mysqli->query("INSERT INTO tbl_visits(created_at, hash, email, registered_customer) VALUES(NOW(), '$unique_hash_visitors', 0, 0)") or die($mysqli->error);
+		}
+	}
+	
+  	
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['email'] = false;
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your customer account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/customer/account/login/');
+	    exit;
+	}
+	
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
 	$email 	= ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');

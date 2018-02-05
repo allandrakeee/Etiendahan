@@ -1,6 +1,18 @@
 <?php  
 	require '../db.php';
 	session_start();
+  	
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['email'] = false;
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your customer account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/customer/account/login/');
+	    exit;
+	}
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
@@ -117,54 +129,128 @@
 
 												$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_result'");
 												while($product_row = mysqli_fetch_assoc($product_result)):
+													// echo $product_row['banned'];
 											?>
-											<tr>
-												<td class="image" scope="row">
-														<a href="/etiendahan/category/view/product/" class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
-															<div class="item-image">
-																<?php $saved_image = explode(',', $product_row['image']); ?>
-																<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+											<?php if($product_row['banned'] == 1): ?>
+												<tr>
+													<td class="image" scope="row">
+															<a class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
+																<div class="item-image">
+																	<?php $saved_image = explode(',', $product_row['image']); ?>
+																	<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+																</div>
+															</a>
+														</td>
+													<td class="description-button">
+															<a class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
+															<div class="cart-action">
+																<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+																	<button class="cart-delete cart-delete-focus" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+																		Remove
+																	</button>
+																</form>
 															</div>
-														</a>
 													</td>
-												<td class="description-button">
-														<a href="/etiendahan/category/view/product/" class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
-														<div class="cart-action">
-															<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
-																<button class="cart-delete cart-delete-focus" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
-																	Remove
-																</button>
-															</form>
-														</div>
-												</td>
-												<td class="price text-center"><?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); 
-													
-													if($cart_row['quantity'] == 0):
-												?>
-													<div class="text-danger" style="font-size: 10px;">Not Available</div>
+													<td class="price text-center"><?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?>
+														<div class="text-danger" style="font-size: 10px;">Banned</div>
 														
-													<?php else: ?>
-													₱<?php echo $result_total_product = number_format((float)$total, 2, '.', ',');  ?>
-												<?php endif; ?>
-												
-													
-												</td>
-												<td class="product-button quantity text-center">
-													<div class="input-group input-group<?php echo $quant; ?>" id="<?php echo $cart_row['id'] ?>">
-														<span class="input-group-btn">
-															<button class="btn btn-default btn-number" data-type="minus" data-field="quant[<?php echo $quant; ?>]">
-																<i class="fa fa-minus"></i>
-															</button>
-														</span>
-														<input type="text" name="quant[<?php echo $quant; ?>]" class="form-control input-number quantity-change<?php echo $quant; ?>" value="<?php echo $cart_row['quantity'] ?>" min="1" max="<?php echo $product_row['stock'] ?>" style="width: 55px;" disabled>
-														<span class="input-group-btn">
-															<button class="btn btn-default btn-number" data-type="plus" data-field="quant[<?php echo $quant; ?>]">
-																<i class="fa fa-plus"></i>
-															</button>
-														</span>
-											      	</div>
-												</td>
-											</tr>	
+													</td>
+													<td class="product-button quantity text-center">
+														<div class="input-group input-group<?php echo $quant; ?>" id="<?php echo $cart_row['id'] ?>">
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="minus" data-field="quant[<?php echo $quant; ?>]" disabled>
+																	<i class="fa fa-minus"></i>
+																</button>
+															</span>
+															<input type="text" name="quant[<?php echo $quant; ?>]" class="form-control input-number quantity-change<?php echo $quant; ?>" value="<?php echo $cart_row['quantity'] ?>" min="1" max="<?php echo $product_row['stock'] ?>" style="width: 55px;" disabled>
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="plus" data-field="quant[<?php echo $quant; ?>]" disabled>
+																	<i class="fa fa-plus"></i>
+																</button>
+															</span>
+												      	</div>
+													</td>
+												</tr>
+											<?php elseif($cart_row['quantity'] <= 0): ?>
+												<tr>
+													<td class="image" scope="row">
+															<a class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
+																<div class="item-image">
+																	<?php $saved_image = explode(',', $product_row['image']); ?>
+																	<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+																</div>
+															</a>
+														</td>
+													<td class="description-button">
+															<a class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
+															<div class="cart-action">
+																<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+																	<button class="cart-delete cart-delete-focus" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+																		Remove
+																	</button>
+																</form>
+															</div>
+													</td>
+													<td class="price text-center"><?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?>
+														<div class="text-danger" style="font-size: 10px;">Sold out</div>
+														
+													</td>
+													<td class="product-button quantity text-center">
+														<div class="input-group input-group<?php echo $quant; ?>" id="<?php echo $cart_row['id'] ?>">
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="minus" data-field="quant[<?php echo $quant; ?>]">
+																	<i class="fa fa-minus"></i>
+																</button>
+															</span>
+															<input type="text" name="quant[<?php echo $quant; ?>]" class="form-control input-number quantity-change<?php echo $quant; ?>" value="<?php echo $cart_row['quantity'] ?>" min="1" max="<?php echo $product_row['stock'] ?>" style="width: 55px;" disabled>
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="plus" data-field="quant[<?php echo $quant; ?>]">
+																	<i class="fa fa-plus"></i>
+																</button>
+															</span>
+												      	</div>
+													</td>
+												</tr>
+											<?php else: ?>
+												<tr>
+													<td class="image" scope="row">
+															<a href="/etiendahan/category/view/product/" class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
+																<div class="item-image">
+																	<?php $saved_image = explode(',', $product_row['image']); ?>
+																	<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+																</div>
+															</a>
+														</td>
+													<td class="description-button">
+															<a href="/etiendahan/category/view/product/" class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
+															<div class="cart-action">
+																<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+																	<button class="cart-delete cart-delete-focus" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+																		Remove
+																	</button>
+																</form>
+															</div>
+													</td>
+													<td class="price text-center"><?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?>
+														₱<?php echo $result_total_product = number_format((float)$total, 2, '.', ',');  ?>
+													</td>
+													<td class="product-button quantity text-center">
+														<div class="input-group input-group<?php echo $quant; ?>" id="<?php echo $cart_row['id'] ?>">
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="minus" data-field="quant[<?php echo $quant; ?>]">
+																	<i class="fa fa-minus"></i>
+																</button>
+															</span>
+															<input type="text" name="quant[<?php echo $quant; ?>]" class="form-control input-number quantity-change<?php echo $quant; ?>" value="<?php echo $cart_row['quantity'] ?>" min="1" max="<?php echo $product_row['stock'] ?>" style="width: 55px;" disabled>
+															<span class="input-group-btn">
+																<button class="btn btn-default btn-number" data-type="plus" data-field="quant[<?php echo $quant; ?>]">
+																	<i class="fa fa-plus"></i>
+																</button>
+															</span>
+												      	</div>
+													</td>
+												</tr>	
+											<?php endif; ?>
 											<?php $quant++; $formatted_total += $formatted;endwhile;endwhile;?>	
 											
 										</tbody>

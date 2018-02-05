@@ -212,6 +212,14 @@
 					<div class="nav-item right-nav dropdown" id="cart">
 						<a class="nav-link" href="/etiendahan/cart/" id="cart" role="button" aria-haspopup="true" aria-expanded="false">
 							<?php  
+								$product_available_banned_result = $mysqli->query("SELECT GROUP_CONCAT(id) as total_id FROM tbl_products WHERE banned = 0");
+								$product_available_banned_row = $product_available_banned_result->fetch_assoc();
+								$total_id_available = $product_available_banned_row['total_id'];
+
+								if($total_id_available == null) {
+									$total_id_available = 0;
+								}
+
 								$email = $_SESSION['email'];
 								$cart_result_count = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_cart WHERE email = '$email'");
 								$cart_row_count = $cart_result_count->fetch_assoc();
@@ -237,15 +245,48 @@
 						
 						<div class="dropdown-menu have-in-cart" aria-labelledby="cart">
 							<p>Recently Added Products</p>
-							<?php  
+							<?php    
+								$product_available_banned_result = $mysqli->query("SELECT GROUP_CONCAT(id) as total_id FROM tbl_products WHERE banned = 0");
+								$product_available_banned_row = $product_available_banned_result->fetch_assoc();
+								$total_id_available = $product_available_banned_row['total_id'];
+
+								if($total_id_available == null) {
+									$total_id_available = 0;
+								}
+
 								$cart_result = $mysqli->query("SELECT * FROM tbl_cart WHERE email = '$email'");
 								while($cart_row = mysqli_fetch_assoc($cart_result)):
 								$product_id_cart = $cart_row['product_id'];
 
 								$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_cart'");
 								while($product_row = mysqli_fetch_assoc($product_result)):
-									if($product_row['stock'] <= 0):
+									if($product_row['banned'] == 1):
+									
 							?>	
+										<div class="item overlay">
+											<div class="item-left">
+												<?php $saved_image = explode(',', $product_row['image']); ?>
+												<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+												<div class="item-info">
+													<div class="item-name"><span class="item-sold-out">Banned</span><?php echo $product_row['name']; ?></div>
+													<?php if($cart_row['quantity'] == 1): ?>
+														<div class="item-price">₱<?php $cart_quantity = $cart_row['quantity']; echo $product_row['price']; ?></div>													
+													<?php else: ?>
+														<?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?>
+														<?php $result_total_product = number_format((float)$total, 2, '.', ',');  ?>
+														<div class="item-price">₱<?php $cart_quantity = $cart_row['quantity']; echo $product_row['price']."<span style='font-size: 11px;'> x$cart_quantity = </span><div class='d-inline-block'>₱$result_total_product</div>"; ?></div>
+													<?php endif; ?>
+												</div>
+											</div>
+											<div class="item-right">
+												<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+													<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+														<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+													</button>
+												</form>
+											</div>
+										</div>
+									<?php elseif($product_row['stock'] <= 0): ?>
 										<div class="item overlay">
 											<div class="item-left">
 												<?php $saved_image = explode(',', $product_row['image']); ?>
@@ -264,26 +305,31 @@
 											</div>
 										</div>
 									<?php else: ?>
-										
-											<div class="item">
-												<div class="item-left">
-													<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
-														<?php $saved_image = explode(',', $product_row['image']); ?>
-														<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
-													</a>
-													<div class="item-info">
-														<div class="item-name"><?php echo $product_row['name']; ?></div>
-														<div class="item-price">₱<?php echo $product_row['price']; ?></div>
-													</div>
-												</div>
-												<div class="item-right">
-													<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
-														<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
-															<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
-														</button>
-													</form>
+										<div class="item">
+											<div class="item-left">
+												<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+													<?php $saved_image = explode(',', $product_row['image']); ?>
+													<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
+												</a>
+												<div class="item-info">
+													<div class="item-name"><?php echo $product_row['name']; ?></div>
+													<?php if($cart_row['quantity'] <= 1): ?>
+														<div class="item-price">₱<?php $cart_quantity = $cart_row['quantity']; echo $product_row['price']; ?></div>													
+													<?php else: ?>
+														<?php $total = str_replace(',', '', $product_row['price']) * $cart_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?>
+														<?php $result_total_product = number_format((float)$total, 2, '.', ',');  ?>
+														<div class="item-price">₱<?php $cart_quantity = $cart_row['quantity']; echo $product_row['price']."<span style='font-size: 11px;'> x$cart_quantity = </span><div class='d-inline-block'>₱$result_total_product</div>"; ?></div>
+													<?php endif; ?>
 												</div>
 											</div>
+											<div class="item-right">
+												<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+													<button class="cart-delete" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">
+														<i class="fa fa-trash" style="color: dimgrey; z-index: 9999; position: relative; left: 10px;bottom: 9px;"></i>
+													</button>
+												</form>
+											</div>
+										</div>
 
 							<?php endif;endwhile;endwhile; ?>
 

@@ -624,7 +624,7 @@ font-size: 19px;
 }
 .dropdown-content{
     min-width: 165px !important;
-    left: -38px !important;
+    /*left: -38px !important;*/
     top: 60px !important;
 }
 .w250{

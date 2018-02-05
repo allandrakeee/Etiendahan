@@ -1,6 +1,7 @@
 <?php  
     require '../../../db.php';
     session_start();
+	// echo $review_go_to_message_id = $_SESSION['review_go_to_message'];
 
     $logged_in_admin  = ((isset($_SESSION['logged_in_admin']) && $_SESSION['logged_in_admin'] != '')?htmlentities($_SESSION['logged_in_admin']):'');
     if($logged_in_admin == false) {
@@ -297,7 +298,7 @@
                         endwhile;
                     ?>
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/products/" class="active-menu waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">shopping_cart</i> Products (<?php echo $count-1; ?>)</a>
+                        <a href="/etiendahan/ed-admin/restricted/products/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">shopping_cart</i> Products (<?php echo $count-1; ?>)</a>
                     </li>
                     <?php  
                         $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE banned = 1");
@@ -313,7 +314,7 @@
                         $read_row = $read_result->fetch_row();
                     ?>
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/" class="waves-effect waves-dark"><i class="fa fa-flag" style="display: inline-block;font-size: 15px;"></i> Report as Inappropriate (<?php if($read_row[0] == 0): ?>0<?php else: ?><?php echo number_format((int)$read_row[0], 0, '', ','); endif; ?>)</a>
+                        <a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/" class="active-menu waves-effect waves-dark"><i class="fa fa-flag" style="display: inline-block;font-size: 15px;"></i> Report as Inappropriate (<?php if($read_row[0] == 0): ?>0<?php else: ?><?php echo number_format((int)$read_row[0], 0, '', ','); endif; ?>)</a>
                     </li>
                     
                     <!-- visits -->
@@ -332,59 +333,62 @@
         <div id="page-wrapper">
           <div class="header"> 
             <h1 class="page-header">
-                Products
+                Report as Inappropriate
                 <!-- <a href="/etiendahan/ed-admin/restricted/slides/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
             </h1>           
         </div>
         
             <div id="page-inner" class="table-responsive">
-                <?php $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE banned = 0"); ?>
-                <?php if($product_result->num_rows == 0): ?>
-                    No Products Yet
+                <?php $customers_result = $mysqli->query("SELECT * FROM tbl_ratings_reports WHERE read_status = 0"); ?>
+                <?php if ($customers_result->num_rows == 0): ?>
+                    No Reports Yet
                 <?php else: ?>
-                    <table id="incidents" class="table">
+                    <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col">Name</th>
-                          <th scope="col">Description</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Stock</th>
-                          <th scope="col">Sightings</th>
-                          <th scope="col" style="width: 85px;">Created at</th>
-                          <th scope="col">Seller Email</th>
-                          <th scope="col">Banned</th>
+                          <th scope="col">Product name</th>
+                          <th scope="col">Rate</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Body</th>
+                          <th scope="col">Submitted by</th>
+                          <th scope="col">Seller reported by</th>
+                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php  
-                            
-                            $count = 1;
-                            $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE banned = 0");
-                            while($product_row = mysqli_fetch_assoc($product_result)):
-                                $product_seller_email = $product_row['seller_email'];
-                                $seller_result = $mysqli->query("SELECT * FROM tbl_sellers WHERE banned = 0 AND seller_email LIKE '$product_seller_email' ");
-                                while($seller_row = mysqli_fetch_assoc($seller_result)):
+                            $ratings_result1 = $mysqli->query("SELECT * FROM tbl_ratings_reports GROUP BY id desc");
+                            while($ratings_row1 = mysqli_fetch_assoc($ratings_result1)):
+                            $rating_id1 = $ratings_row1['rating_id'];
 
-                                    if($seller_row['seller_email'] == $product_row['seller_email']):
-                                        // echo $count;
-                                        // echo $product_row['seller_email'];
+                            $ratings_result = $mysqli->query("SELECT * FROM tbl_ratings WHERE id = '$rating_id1'");
+                            while($ratings_row = mysqli_fetch_assoc($ratings_result)):
                         ?>
-                                <tr>
-                                  <td style=""><?php echo $product_row['name'] ?></td>
-                                  <td style=""><?php echo $product_row['description'] ?></td>
-                                  <td style=""><?php echo $product_row['price'] ?></td>
-                                  <td style=""><?php $product_stock = $product_row['stock']; echo ($product_stock <= 5)?"<span style='color:red;'>$product_stock</span>": $product_stock?></td>
-                                  <td style=""><?php echo $product_row['sightings'] ?></td>
-                                  <td style="">
-                                    <?php  
-                                        $phpdate = strtotime($product_row['created_at']);
-                                        echo $mysqldate = date('M j, Y', $phpdate);
-                                    ?>
-                                  </td>
-                                  <td><?php $customer_email = $product_row['seller_email']; echo ($product_row['seller_email'] != '')?"<a href='mailto:$customer_email' target='_blank' style='text-decoration:none;'>$customer_email</a>":'-' ?></td>
-                                  <td><a href="/etiendahan/ed-admin/restricted/products/banned/" class="action-banned-customer" id="<?php echo $product_row['id'] ?>" style="color: dimgrey;"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">pan_tool</i></a></td>
-                                </tr>
-                        <?php $count++; endif; endwhile; endwhile; ?>
+                            <tr>
+                              <td style="">
+                                <?php 
+                                    $product_id = $ratings_row['product_id'];
+                                    $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id'");
+                                    while($product_row = mysqli_fetch_assoc($product_result)):
+                                        echo $product_row['name'];
+                                    endwhile;
+                                ?>   
+                              </td>
+                              <td style=""><?php echo $ratings_row['rating'] ?></td>
+                              <td style=""><?php echo $ratings_row['title'] ?></td>
+                              <td style=""><?php echo $ratings_row['body'] ?></td>
+                              <td style=""><?php $ratings_row11 = $ratings_row['email']; echo ($ratings_row['email'] != '')?"<a href='mailto:$ratings_row11' target='_blank' style='text-decoration:none;'>$ratings_row11</a>":'-' ?></td>
+                              <td style=""><?php $ratings_row111 = $ratings_row1['email']; echo ($ratings_row1['email'] != '')?"<a href='mailto:$ratings_row111' target='_blank' style='text-decoration:none;'>$ratings_row111</a>":'-' ?></td>
+                              <td><a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/ignore/" class="action-report-review" id="<?php echo $ratings_row1['rating_id'] ?>" style="color: dimgrey;"><i class="fa fa-times" style="display: inline-block;font-size: 15px;"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/accept/" class="action-report-review" id="<?php echo $ratings_row1['rating_id'] ?>" style="color: dimgrey;"><i class="fa fa-check" style="display: inline-block;font-size: 15px;"></i></a></td>
+                              <td><?php 
+                                    $sql_created_at = $ratings_row1['created_at'];
+                                    $datetime1 = $sql_created_at;
+                                    $datetime2 = date("Y-m-d H:i:s", strtotime('-9 hours'));                        
+                                    echo dateDifference($datetime1, $datetime2);
+                                    ?>  
+                              </td>
+                            </tr>
+                        <?php endwhile; endwhile; ?>
                       </tbody>
                     </table>
                 <?php endif; ?>
@@ -403,28 +407,10 @@
         <div class="popup-content-welcome text-center" style="font-size: 14px;">
             <?php  
                 // Display message only once
-                if ( isset($_SESSION['delete-slide']) ) {
-                    echo $_SESSION['delete-slide'];
+                if ( isset($_SESSION['success-message']) ) {
+                    echo $_SESSION['success-message'];
                     // Don't annoy the user with more messages upon page refresh
-                    unset($_SESSION['delete-slide']);
-                }
-            ?>
-        </div>
-    </div>
-    <!-- END OF POPUP NOTIFICATION -->
-    
-    <!-- POPUP NOTIFICATION -->
-    <div id="popup-notification-logout-redirect" class="wow fadeIn">
-        <div id="etiendahan-notification">Etiendahan Notification</div>
-        <div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
-        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-times-circle" style="margin-right: 2px; color: #721c24; border-color: #f5c6cb; font-size: 18px;"></i>Can't proceed!</div>
-        <div class="popup-content-logout-redirect text-center">
-           <?php  
-                // Display message only once
-                if ( isset($_SESSION['cant-proceed-delete-slide']) ) {
-                    echo $_SESSION['cant-proceed-delete-slide'];
-                    // Don't annoy the user with more messages upon page refresh
-                    unset($_SESSION['cant-proceed-delete-slide']);
+                    unset($_SESSION['success-message']);
                 }
             ?>
         </div>

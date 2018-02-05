@@ -1,6 +1,18 @@
 <?php  
 	require '../../db.php';
 	session_start();
+  	
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['email'] = false;
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your customer account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/customer/account/login/');
+	    exit;
+	}
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
@@ -134,7 +146,31 @@
 														$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id IN($group_concat)");
 														while($product_row = mysqli_fetch_assoc($product_result)):
 													?>
-															<tr>
+															<?php if($product_row['banned'] == 1): ?>
+																<tr>
+																	<th scope="row">
+																		<a class="d-block my-item-inner category-product-id" id="<?php echo $product_row['id']; ?>">
+																			<div class="item-image">
+																				<?php $saved_image = explode(',', $product_row['image']); ?>
+																				<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+																			</div>
+																		</a>
+																		<div class="separator"></div>
+																	</th>
+																	<td class="item-name">
+																		<a class="category-product-id" id="<?php echo $product_row['id']; ?>"><?php echo $product_row['name']; ?></a>
+																	</td>
+																	<td class="item-price text-center">
+																		<span class="text-danger">Banned</span>
+																	</td>
+																	<td class="action text-center">
+																		<a class="action"><i class="fa fa-shopping-cart"></i></a>
+																		<span>|</span>
+																		<a class="action wishlists-delete" href="/etiendahan/customer/wishlists/delete/" id="<?php echo $product_row['id'] ?>"><i class="fa fa-close"></i></a>
+																	</td>
+																</tr>
+															<?php else: ?>
+																<tr>
 																<th scope="row">
 																	<?php if($product_row['stock'] <= 0): ?>
 																		<a class="d-block my-item-inner category-product-id" id="<?php echo $product_row['id']; ?>">
@@ -163,7 +199,7 @@
 																</td>
 																<td class="item-price text-center">
 																	<?php if($product_row['stock'] <= 0): ?>
-																		<span class="text-danger">Not Available</span>
+																		<span class="text-danger">Sold out</span>
 																	<?php else: ?>
 																		₱<?php echo $product_row['price'] ?>
 																	<?php endif; ?>
@@ -178,6 +214,7 @@
 																	<a class="action wishlists-delete" href="/etiendahan/customer/wishlists/delete/" id="<?php echo $product_row['id'] ?>"><i class="fa fa-close"></i></a>
 																</td>
 															</tr>
+															<?php endif; ?>
 													<?php endwhile; ?>
 												</tbody>
 											</table>

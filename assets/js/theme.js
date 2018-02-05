@@ -49025,40 +49025,46 @@ $(document).on('click', '.address-delete', function(){
 
 $(document).on('click', '.address-update', function(){
     var address_update = $(this).attr('id');
-    alert(address_update);
+    // alert(address_update);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"address_update": address_update});
 });
 
 $(document).on('click', '.wishlist-toggle', function(){
     var wishlist_product_id = $(this).attr('id');
-    alert(wishlist_product_id);
+    // alert(wishlist_product_id);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlist_product_id": wishlist_product_id});
 });
 
 $(document).on('click', '.wishlists-delete', function(){
     var wishlists_delete = $(this).attr('id');
-    alert(wishlists_delete);
+    // alert(wishlists_delete);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlists_delete": wishlists_delete});
 });
 
 $(document).on('click', '.wishlists-cart', function(){
     var wishlists_cart = $(this).attr('id');
-    alert(wishlists_cart);
+    // alert(wishlists_cart);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"wishlists_cart": wishlists_cart});
 });
 
 $(document).on('click', '.add-to-cart', function(){
     var add_to_cart_product_id = $(this).attr('id');
     var input_quantity = $('#input-quantity').val();
-    alert(add_to_cart_product_id);
-    alert(input_quantity);
+    // alert(add_to_cart_product_id);
+    // alert(input_quantity);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"add_to_cart_product_id": add_to_cart_product_id, "input_quantity": input_quantity});
 });
 
 $(document).on('click', '.cart-delete', function(){
     var cart_product_id_delete = $(this).attr('id');
-    alert(cart_product_id_delete);
+    // alert(cart_product_id_delete);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"cart_product_id_delete": cart_product_id_delete});
+});
+
+$(document).on('click', '.report-review', function(){
+    var report_rating = $(this).attr('id');
+    // alert(report_rating);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"report_rating": report_rating});
 });
 
 $(document).on('click', '.submit-review', function(){
@@ -49067,7 +49073,7 @@ $(document).on('click', '.submit-review', function(){
 	}).get();
 
 	var rating_value = Math.max.apply( Math, ids );
-	alert(rating_value);
+	// alert(rating_value);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"rating_value": rating_value});
 });
 

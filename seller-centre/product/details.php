@@ -2,6 +2,33 @@
 	require '/../../db.php';
 	session_start();
 
+    $cart_result = $mysqli->query("SELECT * FROM tbl_cart");
+    while($cart_row = mysqli_fetch_assoc($cart_result)):
+        $product_result = $cart_row['product_id'];
+        $product_result = $mysqli->query("SELECT * FROM tbl_products");
+        while($product_row = mysqli_fetch_assoc($product_result)):
+            // echo $product_row['banned'];
+            $product_id_to_cart = $product_row['id'];
+            // echo $product_id_to_cart;
+            if($cart_row['quantity'] <= 0 && $product_row['stock'] >= 1):
+                // echo 'asdtest';
+                $sql1 = "UPDATE tbl_cart SET quantity = 1 WHERE product_id = '$product_id_to_cart'";
+                $mysqli->query($sql1);
+            endif;
+        endwhile;
+    endwhile;
+
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE seller_email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your seller account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/seller-centre/account/signin/');
+	    exit;
+	}
+
 	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$product_details_id = ((isset($_SESSION['product_details_id']) && $_SESSION['product_details_id'] != '')?htmlentities($_SESSION['product_details_id']):'');
 	

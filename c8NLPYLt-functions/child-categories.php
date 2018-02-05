@@ -82,6 +82,14 @@
 		$_SESSION['banned_customer_id'] = $_POST['banned_customer_id'];
 	}
 
+	if($_POST['report_rating'] != '') {
+		$_SESSION['report_rating'] = $_POST['report_rating'];
+	}
+
+	if($_POST['review_go_to_message'] != '') {
+		$_SESSION['review_go_to_message'] = $_POST['review_go_to_message'];
+	}
+
 	// modify quantity in cart
 	if($_POST['cart_id'] != '') {
 		$_SESSION['cart_id'] = $_POST['cart_id'];

@@ -1,6 +1,17 @@
 <?php  
-	require '/../../db.php';
+	require '/../../../db.php';
 	session_start();
+
+  	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
+
+	$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE seller_email = '$email'");
+	$row_banned = $result_banned->fetch_assoc();
+	if($row_banned['banned'] == 1) {
+		$_SESSION['logged_in'] = false;
+	    $_SESSION['cant-proceed-message-banned'] = "Your seller account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+	    header('location: /etiendahan/seller-centre/account/signin/');
+	    exit;
+	}
 
 	$logged_in  = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$product_details_id = ((isset($_SESSION['product_details_id']) && $_SESSION['product_details_id'] != '')?htmlentities($_SESSION['product_details_id']):'');
@@ -12,7 +23,7 @@
 
 	// Check if user is logged in using the session variable
 	if ($logged_in == false) {
-	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page";
+	$_SESSION['profile-cant-proceed-message'] = "You must log in before viewing your seller centre page.";
 	header("location: /etiendahan/seller-centre/account/signin/");    
 	}
   
@@ -23,7 +34,7 @@
 		$user = $result->fetch_assoc();
 
 		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account.";
             header("location: /etiendahan/seller-centre/account/activate/");
         }
   	}
@@ -55,7 +66,7 @@
 
 	<!-- link inner -->
 	<?php  
-		include '../../header-link.php';
+		include '../../../header-link.php';
 	?>
 
 </head>
@@ -131,7 +142,7 @@
 							<div class="product-wrapper p-4" style="height: 1062px; overflow: auto;">
 								<div class="form-wrapper mt-1">
 									<div class="title">Product Reviews</div>
-									<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Report products that Inappropriate. Wait for the confimation of the admin, if the review is inappropriate or legit.">Tips for handling review of products</div>
+									<div class="sub-title mb" data-toggle="tooltip" data-placement="right" title="Report products that Inappropriate. Wait for the confimation of the admin, if the review is inappropriate or legit. (If pending become Report as Inappropriate again it means review is Legit, and if the pending is gone it means its Inappropriate.)">Tips for handling review of products</div>
 								</div>	
 
 								<?php  
@@ -172,7 +183,7 @@
 										</div>
 										
 										<?php  
-											$ratings_result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_details_id' GROUP BY created_at desc");
+											$ratings_result = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_details_id' GROUP BY id desc");
 											while($ratings_row = mysqli_fetch_assoc($ratings_result)):
 										?>
 												<div class="rate">
@@ -201,7 +212,13 @@
 														</strong>
 													</div>
 													<div class="rate-body"><?php echo $ratings_row['body']; ?></div>
-													<div class="report-as-inappropriate pull-right mb-2" style="position: relative;bottom: 48px;"><a href="" style="text-decoration: none;">Report as Inappropriate</a></div>
+													<div class="report-as-inappropriate pull-right mb-2" style="position: relative;bottom: 48px;">
+														<?php if($ratings_row['report_as_inappropriate'] == 1): ?>
+															pending
+														<?php else: ?>
+															<a href="/etiendahan/seller-centre/product/reviews/report-as-inappropriate/" class="report-review" id="<?php echo $ratings_row['id']; ?>" style="text-decoration: none;">Report as Inappropriate</a>
+														<?php endif; ?>
+													</div>
 												</div>
 										<?php endwhile; ?>
 								<?php else: ?>

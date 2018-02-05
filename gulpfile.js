@@ -317,6 +317,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('seller-centre/product/list/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('seller-centre/product/reviews/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('seller-centre/sale/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
@@ -360,6 +363,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('ed-admin/restricted/visits/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/report-as-inappropriate/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
     gulp.watch('ed-admin/restricted/banned-customers/*.php').on('change', function(file) {

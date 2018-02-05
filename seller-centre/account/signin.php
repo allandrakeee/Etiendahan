@@ -193,6 +193,12 @@
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['wrong-password-message'] );
 							}
+
+							if ( isset($_SESSION['cant-proceed-message-banned']) ) {
+								echo $_SESSION['cant-proceed-message-banned'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message-banned'] );
+							}
 						?>
 					</div>
 				</div>

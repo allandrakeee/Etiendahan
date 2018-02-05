@@ -23,6 +23,12 @@
     $sql = "DELETE FROM tbl_products WHERE id = '$id'";
     $sql_delete_ratings = "DELETE FROM tbl_ratings WHERE product_id = '$id'";
     $mysqli->query($sql_delete_ratings);
+    $sql_delete_cart = "DELETE FROM tbl_cart WHERE product_id = '$id'";
+    $mysqli->query($sql_delete_cart);
+    $sql_delete_recently_viewed_products = "DELETE FROM tbl_recently_viewed_products WHERE product_id = '$id'";
+    $mysqli->query($sql_delete_recently_viewed_products);
+    $sql_delete_wishlists = "DELETE FROM tbl_wishlists WHERE product_id = '$id'";
+    $mysqli->query($sql_delete_wishlists);
 
     if ($mysqli->query($sql) or die($mysqli->error)) {
         $email_path = BASEURL.'images/'.$_SESSION['email'].'/';

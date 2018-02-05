@@ -7,7 +7,7 @@
 
 	// Check if user is logged in using the session variable
 	if ( $logged_in == false ) {
-		$_SESSION['logout-message-redirect'] = "You must log in before you log out";
+		$_SESSION['logout-message-redirect'] = "You must log in before you log out.";
 		header("location: /etiendahan/seller-centre/account/signin/");  
 	}
 	else {

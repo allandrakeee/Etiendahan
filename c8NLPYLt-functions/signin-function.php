@@ -3,6 +3,14 @@
 $email = $mysqli->escape_string($_POST['email']);
 $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email='$email'");
 
+$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE seller_email = '$email'");
+$row_banned = $result_banned->fetch_assoc();
+if($row_banned['banned'] == 1) {
+    $_SESSION['cant-proceed-message-banned'] = "Your seller account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+    header('location: /etiendahan/seller-centre/account/signin/');
+    exit;
+}
+
 if ($result->num_rows == 0) { // User doesn't exist
     $_SESSION['email-doesnt-exist-message'] = "User with that email doesn't exist, try again.";
 }

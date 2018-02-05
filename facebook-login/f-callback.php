@@ -40,6 +40,14 @@
                 $email = $userNode['email'];
                 $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
 
+                $result_banned = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$email'");
+                $row_banned = $result_banned->fetch_assoc();
+                if($row_banned['banned'] == 1) {
+                    $_SESSION['cant-proceed-message-banned'] = "Your customer account is banned! <a href='mailto:etiendahan@gmail.com' style='text-decoration: none' target='_blank'>Email</a> us for info.";
+                    header("location: /etiendahan/customer/account/login/");
+                    exit;
+                }
+
                 if ($result->num_rows == 0){
 
                     echo "<pre>";
@@ -54,7 +62,7 @@
                     $hash       = $mysqli->escape_string( md5( rand(0,1000) ) );
 
                     // active is 0 by DEFAULT (no need to include it here)
-                    $sql = "INSERT INTO tbl_customers (id, fullname, email, hash, joined_at) VALUES (null, '$fullname', '$email', '$hash', NOW())";
+                    $sql = "INSERT INTO tbl_customers (id, fullname, email, hash, joined_at, banned) VALUES (null, '$fullname', '$email', '$hash', NOW(), 0)";
 
                     // Add user to the database
                     if ($mysqli->query($sql) or die($mysqli->error)) {

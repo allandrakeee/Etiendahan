@@ -1,6 +1,28 @@
 <?php  
 	require '/../../db.php';
 	session_start();
+	
+	if(!isset($_SESSION['unique_hash_visitors'])) {
+		$uhv = md5( rand(0,1000) );
+		$_SESSION['unique_hash_visitors'] = $uhv;
+	} else {
+		$_SESSION['unique_hash_visitors'];
+	}
+
+	$unique_hash_visitors = $_SESSION['unique_hash_visitors'];
+
+	$result = $mysqli->query("SELECT * FROM tbl_visits");
+	$row = $result->fetch_assoc();
+	if($result->num_rows == 0) {
+		$mysqli->query("INSERT INTO tbl_visits(created_at, hash, registered_customer, email) VALUES(NOW(), '$unique_hash_visitors', 0, 0)") or die($mysqli->error);
+	} else {
+		$result1 = $mysqli->query("SELECT * FROM tbl_visits WHERE id = (SELECT MAX(id) FROM tbl_visits)");
+		$row1 = $result1->fetch_assoc();
+		// echo $row1['hash'].'=='.$unique_hash_visitors;
+		if($row1['hash'] != $unique_hash_visitors) {
+			$mysqli->query("INSERT INTO tbl_visits(created_at, hash, email, registered_customer) VALUES(NOW(), '$unique_hash_visitors', 0, 0)") or die($mysqli->error);
+		}
+	}
 
 	require_once "/../../google-login/config.php";
 	require_once "/../../facebook-login/config.php";
@@ -151,6 +173,12 @@
 								echo $_SESSION['wrong-password-message'];
 								// Don't annoy the user with more messages upon page refresh
 								unset( $_SESSION['wrong-password-message'] );
+							}
+
+							if ( isset($_SESSION['cant-proceed-message-banned']) ) {
+								echo $_SESSION['cant-proceed-message-banned'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['cant-proceed-message-banned'] );
 							}
 						?>
 					</div>
