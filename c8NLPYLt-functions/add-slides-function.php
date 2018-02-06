@@ -5,6 +5,7 @@
 
 	$title          = ((isset($_POST['title']) && $_POST['title'] != '')?htmlentities($_POST['title']):'');
     $promotional    = ((isset($_POST['promotional']) && $_POST['promotional'] != '')?htmlentities($_POST['promotional']):'0');
+    $link_to    = ((isset($_POST['sic_owner']) && $_POST['sic_owner'] != '')?htmlentities($_POST['sic_owner']):'0'); 
     $link_status    = ((isset($_POST['link_status']) && $_POST['link_status'] != '')?htmlentities($_POST['link_status']):'0');
 
     echo '<pre>';
@@ -24,7 +25,7 @@
 
         $db_path = '/etiendahan/images/administrator/'.$name;
     	
-    	$sql = "INSERT INTO tbl_slides(title, link_status, promotional, image) VALUES('$title', $link_status, $promotional, '$db_path')";
+    	$sql = "INSERT INTO tbl_slides(title, link_to, link_status, promotional, image) VALUES('$title', '$link_to', $link_status, $promotional, '$db_path')";
     	$mysqli->query($sql);
         $_SESSION['add-slide'] = "Successfully Added.";
     	header('location: /etiendahan/ed-admin/restricted/slides/new/');

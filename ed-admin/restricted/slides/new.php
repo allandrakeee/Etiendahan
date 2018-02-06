@@ -355,14 +355,29 @@
                         </div>
                     </div>
 
-                    <div class="fixed" style="margin-bottom: 8px;">
-                        <input type="checkbox" id="myCheckbox" name="promotional" value="1">
-                        <label for="myCheckbox"><strong>Promotional</strong></label>
+                    <?php  
+                        $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
+                    ?>
+                    <div class="form-group" style="width: 25%">
+                        <label><strong>Link to:</strong></label>
+                        <select class="browser-default" name="sic_owner" required>
+                            <option value = "" selected>Select</option>
+                            <?php
+                            while($sic_owner_row = mysqli_fetch_assoc($sic_owner_result)):
+                            ?>
+                                <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['name'];?></option>
+                            <?php endwhile; ?>
+                        </select>             
                     </div>
 
                     <div class="fixed" style="margin-bottom: 8px;">
                         <input type="checkbox" id="myCheckboxlink" name="link_status" value="1">
                         <label for="myCheckboxlink"><strong>Link</strong></label>
+                    </div>
+
+                    <div class="fixed" style="margin-bottom: 8px;">
+                        <input type="checkbox" id="myCheckbox" name="promotional" value="1">
+                        <label for="myCheckbox"><strong>Promotional</strong></label>
                     </div>
 
                     <div class="form-group" style="width: 25%">

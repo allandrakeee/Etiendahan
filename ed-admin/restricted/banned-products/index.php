@@ -368,7 +368,7 @@
                             <tr>
                               <td style=""><?php echo $product_row['name'] ?></td>
                               <td style=""><?php echo $product_row['description'] ?></td>
-                              <td style=""><?php echo $product_row['price'] ?></td>
+                              <td style="width: 10%"><?php echo '₱'.$product_row['price'] ?></td>
                               <td style=""><?php echo $product_row['stock'] ?></td>
                               <td style=""><?php echo $product_row['sightings'] ?></td>
                               <td style="">

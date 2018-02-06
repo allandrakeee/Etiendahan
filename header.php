@@ -43,7 +43,7 @@
 
 							<!-- SPECIALTY IN CITY -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Specialty in City</a>
+								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
 							</li>
 
 							<!-- SPECIALTY IN CITY -->
@@ -397,7 +397,7 @@
 
 							<!-- SPECIALTY IN CITY -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="#">Specialty in City</a>
+								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
 							</li>
 
 							<!-- SPECIALTY IN CITY -->

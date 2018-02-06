@@ -16,6 +16,14 @@ if($("#seller-centre-page-signin").length > 0) {
 	});
 }
 
+if($("#specialty-in-city-page").length > 0) {
+	$(window).on('load', function() {
+		setTimeout(function() {
+	      $('body').addClass('loaded');
+	    }, 100);
+	});
+}
+
 $('#return-to-top').click(function() {      // When arrow is clicked
 	$('body,html').animate({
 	scrollTop : 0                       // Scroll to top of body
@@ -339,6 +347,20 @@ if (location.hash === "#shop-now") {
 	    }
 	});
 }
+
+$(window).on('load', function() {
+    if (window.location.hash) {
+        setTimeout(function() {
+            $('html, body').scrollTop(0).show();
+            $('html, body').delay(1000).animate({
+                scrollTop: $(window.location.hash).offset().top
+                }, 1000)
+        }, 150);
+    } else {
+        $('html, body').show();
+
+    }
+});
 
 // $('html, body').hide();
 // $(window).on('load', function() {

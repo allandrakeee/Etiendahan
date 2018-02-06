@@ -352,6 +352,7 @@
                         <tr>
                           <th scope="col">Title</th>
                           <th scope="col">Image</th>
+                          <th scope="col">Link to</th>
                           <th scope="col">Link status</th>
                           <th scope="col">Promotional</th>
                           <th scope="col">Action</th>
@@ -363,8 +364,16 @@
                             while($slides_row = mysqli_fetch_assoc($slides_result)):
                         ?>
                             <tr>
-                              <td style="width: 50%;"><?php echo $slides_row['title'] ?></td>
+                              <td style="width: 30%;"><?php echo $slides_row['title'] ?></td>
                               <td style="width: 20%;"><img src="<?php echo ($slides_row['image'] != '') ? $slides_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 100px;" alt=""></td>
+                              <td style="width: 20%;">
+                                  <?php  
+                                    $sic_owner_id = $slides_row['link_to'];
+                                    $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner WHERE id = '$sic_owner_id'");
+                                    $sic_owner_row = $sic_owner_result->fetch_assoc();
+                                    echo $sic_owner_row['name'];
+                                  ?>
+                              </td>
                               <td style="width: 20%;"><?php echo ($slides_row['link_status'] == 1) ? 'Yes' : 'No' ?></td>
                               <td style="width: 20%;"><?php echo ($slides_row['promotional'] == 1) ? 'Yes' : 'No' ?></td>
                               <td><a href="/etiendahan/ed-admin/restricted/slides/modify/" class="action-slides" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/slides/delete/" class="action-slides" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-times"></i></a></td>

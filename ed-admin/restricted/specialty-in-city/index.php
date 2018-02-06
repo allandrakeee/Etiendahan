@@ -394,7 +394,7 @@
                                                     <tr>
                                                         <td style="width: 30%"><?php echo $sic_row['name'] ?></td>
                                                         <td style="width: 30%"><?php echo $sic_row['description'] ?></td>
-                                                        <td style="width: 20%"><?php echo $sic_row['price'] ?></td>
+                                                        <td style="width: 20%"><?php echo '₱'.$sic_row['price'] ?></td>
                                                         <td style="width: 20%"><img src="<?php echo $sic_row['image'] ?>" style="height: 80px;margin-top: 6px;" alt=""></td>
                                                         <td style="width: 10%"><a href="/etiendahan/ed-admin/restricted/specialty-in-city/modify-product/" class="action-sic" id="<?php echo $sic_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/specialty-in-city/delete-product/" class="action-sic" id="<?php echo $sic_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-times"></i></a></td>
                                                     </tr>

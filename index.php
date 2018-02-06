@@ -416,7 +416,7 @@
 													<?php  
 														if($slides_row['link_status'] == 1):
 													?>
-														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="/etiendahan/specialty-in-city/#sic-<?php echo $slides_row['link_to']; ?>">View Shop</a></div>
 													<?php endif; ?>
 												</div>
 											</div>
@@ -790,7 +790,11 @@
 												<?php endif; ?>
 												<div class="col-md-12 text-center my-auto" style="z-index: 3">
 													<div class="text-inner wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden"><?php echo $slides_row['title']; ?></div>
-													<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+													<?php  
+														if($slides_row['link_status'] == 1):
+													?>
+														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="/etiendahan/specialty-in-city/#sic-<?php echo $slides_row['link_to']; ?>">View Shop</a></div>
+													<?php endif; ?>
 												</div>
 											</div>
 										</div>
@@ -1166,7 +1170,7 @@
 
 								<div class="owl-carousel">
 									<?php  
-										$recently_viewed_products_result = $mysqli->query("SELECT GROUP_CONCAT(product_id) AS 'product_id_result' FROM tbl_recently_viewed_products WHERE email = '$email' GROUP BY modified_at desc");
+										$recently_viewed_products_result = $mysqli->query("SELECT GROUP_CONCAT(product_id) AS 'product_id_result' FROM tbl_recently_viewed_products WHERE email = '$email' GROUP BY modified_at desc LIMIT 10");
 										while($recently_viewed_products_row = mysqli_fetch_assoc($recently_viewed_products_result)):
 										$product_id = $recently_viewed_products_row['product_id_result'];
 

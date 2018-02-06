@@ -359,16 +359,35 @@
                             <input type="text" class="validate" style="margin-bottom: 8px;" id="title" maxlength="115" name="title" value="<?php echo $slides_row['title'] ?>" required>
                             <label for="title"><strong>Title:</strong></label>
                         </div>
-                    </div>
+                    </div>                    
 
-                    <div class="fixed" style="margin-bottom: 8px;">
-                        <input type="checkbox" id="myCheckbox" name="promotional" value="1" <?php echo ($slides_row['promotional'] == 1) ? 'checked' : '' ?>>
-                        <label for="myCheckbox"><strong>Promotional</strong></label>
+                    <?php  
+                        $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
+                    ?>
+                    <div class="form-group" style="width: 25%">
+                        <label><strong>Link to:</strong></label>
+                        <select class="browser-default" name="sic_owner" required>
+                            <option value = "" selected>Select</option>
+                            <?php
+                            while($sic_owner_row = mysqli_fetch_assoc($sic_owner_result)):
+                            ?>
+                                <?php if($sic_owner_row['id'] == $slides_row['link_to']): ?>
+                                    <option value="<?php echo $sic_owner_row['id'];?>" selected><?php echo $sic_owner_row['name'];?></option>
+                                <?php else: ?>
+                                    <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['name'];?></option>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        </select>               
                     </div>
 
                     <div class="fixed" style="margin-bottom: 8px;">
                         <input type="checkbox" id="myCheckboxlink" name="link_status" value="1" <?php echo ($slides_row['link_status'] == 1) ? 'checked' : '' ?>>
                         <label for="myCheckboxlink"><strong>Link</strong></label>
+                    </div>
+
+                    <div class="fixed" style="margin-bottom: 8px;">
+                        <input type="checkbox" id="myCheckbox" name="promotional" value="1" <?php echo ($slides_row['promotional'] == 1) ? 'checked' : '' ?>>
+                        <label for="myCheckbox"><strong>Promotional</strong></label>
                     </div>
 
                     <div class="form-group" style="width: 25%">
