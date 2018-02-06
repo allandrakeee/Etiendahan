@@ -90,6 +90,10 @@
 		$_SESSION['review_go_to_message'] = $_POST['review_go_to_message'];
 	}
 
+	if($_POST['action_sic'] != '') {
+		$_SESSION['action_sic'] = $_POST['action_sic'];
+	}
+
 	// modify quantity in cart
 	if($_POST['cart_id'] != '') {
 		$_SESSION['cart_id'] = $_POST['cart_id'];

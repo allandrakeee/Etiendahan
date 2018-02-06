@@ -7,6 +7,7 @@
 
 	$title          = ((isset($_POST['title']) && $_POST['title'] != '')?htmlentities($_POST['title']):'');
     $promotional    = ((isset($_POST['promotional']) && $_POST['promotional'] != '')?htmlentities($_POST['promotional']):'0');
+    $link_status    = ((isset($_POST['link_status']) && $_POST['link_status'] != '')?htmlentities($_POST['link_status']):'0');
 
 	if($_FILES['file']['name'] != '') {
         $slides_result = $mysqli->query("SELECT * FROM tbl_slides WHERE id = '$id'");
@@ -32,12 +33,12 @@
 
         $db_path = '/etiendahan/images/administrator/'.$name;
     	
-    	$sql = "UPDATE tbl_slides SET title = '$title', promotional = '$promotional', image = '$db_path' WHERE id = '$id'";
+    	$sql = "UPDATE tbl_slides SET title = '$title', link_status = '$link_status', promotional = '$promotional', image = '$db_path' WHERE id = '$id'";
     	$mysqli->query($sql);
         $_SESSION['modify-slide'] = "Successfully Modified.";
     	header('location: /etiendahan/ed-admin/restricted/slides/modify/');
 	} else {
-        $sql = "UPDATE tbl_slides SET title = '$title', promotional = '$promotional' WHERE id = '$id'";
+        $sql = "UPDATE tbl_slides SET title = '$title', link_status = '$link_status', promotional = '$promotional' WHERE id = '$id'";
         $mysqli->query($sql);
         $_SESSION['modify-slide'] = "Successfully Modified.";
         header('location: /etiendahan/ed-admin/restricted/slides/modify/');

@@ -1,4 +1,4 @@
-﻿<?php  
+<?php  
     require '../../../db.php';
     session_start();
 
@@ -21,19 +21,19 @@
     <link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="../../assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../../assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
     <!-- <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" /> -->
     <!-- Custom Styles-->
-    <link href="../assets/css/custom-styles.css" rel="stylesheet" />
-    <link href="../assets/css/custom-scss.scss" rel="stylesheet" />
+    <link href="../../assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="../../assets/css/custom-scss.scss" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="../../assets/js/Lightweight-Chart/cssCharts.css"> 
 </head>
 
 <body>
@@ -181,7 +181,7 @@
         <li style="cursor: default;">No Reports Yet</li>
     <?php endif; ?>
     
-</ul> 
+</ul>  
 <ul id="dropdown4" class="dropdown-content dropdown-tasks w250 taskList">
   <li>
                                 <div>
@@ -235,7 +235,7 @@
 
                     <!-- specialty in city -->
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="active-menu waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->
@@ -245,7 +245,7 @@
 
                     <!-- categories -->
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/categories/" class="active-menu waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
+                        <a href="/etiendahan/ed-admin/restricted/categories/" class="waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
                     </li>
                     
                     <!-- sales -->
@@ -337,81 +337,133 @@
         <div id="page-wrapper">
           <div class="header"> 
             <h1 class="page-header">
-                Categories
-                <!-- <a href="/etiendahan/ed-admin/restricted/categories/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
-            </h1>                     
+                Specialty in City
+                <ol class="breadcrumb" style="margin-left: 0; padding-left: 0;">
+                  <li><a href="/etiendahan/ed-admin/restricted/specialty-in-city/"><i class="fa fa-building-o" style="position: relative;top: 6px;"></i></a></li>
+                  <li class="active">New Owner Shop</li>
+                </ol> 
+            </h1>           
         </div>
+        
             <div id="page-inner">
-                <?php $slides_result = $mysqli->query("SELECT * FROM tbl_slides"); ?>
-                <?php if ($slides_result->num_rows == 0): ?>
-                    No Categories Yet
-                <?php else: ?>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Parent Categories</th>
-                          <th scope="col">Image</th>
-                          <th scope="col">Sub Categories</th>
-                          <th scope="col">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php  
-                            $count = 1;
-                            $parent_categories_result = $mysqli->query("SELECT * FROM tbl_categories");
-                            while($parent_categories_row = mysqli_fetch_assoc($parent_categories_result)):
-                        ?>
-                            <tr>
-                              <td style="width: 30%;"><?php echo $count.'. '.$parent_categories_row['name'] ?></td>
-                              <td style="width: 30%"><img src="<?php echo ($parent_categories_row['image'] != '') ? $parent_categories_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 150px;" alt=""></td>
-                              <td style="width: 30%;">
-                                <ul>
-                                <?php 
-                                    $parent_id = $parent_categories_row['id'];
-                                    $sub_categories_result = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$parent_id'");
-                                    while($sub_categories_row = mysqli_fetch_assoc($sub_categories_result)):
-                                ?>
-                                    
-                                        <li style="list-style-type: square;"><?php echo $sub_categories_row['name']; ?></li>
-                                    
-                                <?php endwhile; ?>
-                                </ul>
-                              </td>
-                              <td style="width: 10%"><a href="/etiendahan/ed-admin/restricted/categories/modify/" class="action-categories" id="<?php echo $parent_categories_row['id']; ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a></td>
-                            </tr>
-                        <?php $count++; endwhile; ?>
-                      </tbody>
-                    </table>
-                <?php endif; ?>
-            
+                
+                <form action="/etiendahan/c8NLPYLt-functions/add-new-owner-function/" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <input type="text" class="validate" style="margin-bottom: 8px;" id="owner_name" maxlength="115" name="owner_name" required>
+                            <label for="owner_name"><strong>Owner shop:</strong></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-field">
+                            <input type="text" class="validate" style="margin-bottom: 8px;" id="cellphone_number" maxlength="115" name="cellphone_number">
+                            <label for="cellphone_number"><strong>Cellphone number:</strong></label>
+                        </div>
+                    </div>   
+
+                    <div class="form-group">
+                        <div class="input-field">
+                            <input type="email" class="validate" style="margin-bottom: 8px;" id="owner_email" maxlength="115" name="owner_email">
+                            <label for="owner_email"><strong>Email:</strong></label>
+                        </div>
+                    </div>        
+
+                    <div class="form-group">
+                        <div class="input-field">
+                            <input type="text" class="validate" style="margin-bottom: 8px;" id="store_address" maxlength="115" name="store_address" required>
+                            <label for="store_address"><strong>Store address:</strong></label>
+                        </div>
+                    </div>     
+
+                    <div class="form-group">
+                        <label for=""><strong>Map:</strong> (drag the marker and select your place)</label>
+                        <div id="map"></div>
+                        <input type="hidden" name="lat" id="lat" value="16.0433">
+                        <input type="hidden" name="lng" id="lng" value="120.3333">
+                    </div>                     
+
+                    <div class="form-group" style="width: 25%">
+                        <label for="file"><strong>Image:</strong></label>
+                        <input type="file" class="form-control image-admin" id="file" name="file" required>
+                    </div>
+
+                    <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="pull-right" style="text-decoration: none; position: absolute;right: 135px;margin-top: 9px">Cancel</a><button type="submit" class="btn btn-default  clearfix pull-right" name="submit_slides">Submit</button>
+                </form>
             <!-- /. PAGE INNER  -->
             </div>
         <!-- /. PAGE WRAPPER  -->
+        
     </div>
     <!-- /. WRAPPER  -->
+    
+    <!-- POPUP NOTIFICATION -->
+    <div id="popup-notification-welcome" class="wow fadeIn">
+        <div id="etiendahan-notification">Etiendahan Notification</div>
+        <div id="popup-close-welcome" class="popup-close"><i class="fa fa-times"></i></div>
+        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-info-circle alert-primary" style="margin-right: 2px; color: #004085; border-color: #b8daff; font-size: 18px;"></i>Completed!</div>
+        <div class="popup-content-welcome text-center" style="font-size: 14px;">
+            <?php  
+                // Display message only once
+                if ( isset($_SESSION['add-owner']) ) {
+                    echo $_SESSION['add-owner'];
+                    // Don't annoy the user with more messages upon page refresh
+                    unset($_SESSION['add-owner']);
+                }
+            ?>
+        </div>
+    </div>
+    <!-- END OF POPUP NOTIFICATION -->
+
+
+    <script>
+      function initMap() {
+        var uluru = {lat: 16.0433, lng: 120.3333};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          draggable: true
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function() {
+            var lat = marker.getPosition().lat();
+            var lng = marker.getPosition().lng();
+
+            $('#lat').val(lat);
+            $('#lng').val(lng);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7hfVchB6GQRHcmTwK8aLEAG2QwtYP6_A&callback=initMap">
+    </script>
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="../assets/js/jquery-1.10.2.js"></script>
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
     
     <!-- Bootstrap Js -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
     
-    <script src="../assets/materialize/js/materialize.min.js"></script>
+    <script src="../../assets/materialize/js/materialize.min.js"></script>
     
     <!-- Metis Menu Js -->
-    <script src="../assets/js/jquery.metisMenu.js"></script>
+    <script src="../../assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <!-- <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script> -->
     
     
-    <script src="../assets/js/easypiechart.js"></script>
-    <script src="../assets/js/easypiechart-data.js"></script>
+    <script src="../../assets/js/easypiechart.js"></script>
+    <script src="../../assets/js/easypiechart-data.js"></script>
     
-     <script src="../assets/js/Lightweight-Chart/jquery.chart.js"></script>
+     <script src="../../assets/js/Lightweight-Chart/jquery.chart.js"></script>
     
     <!-- Custom Js -->
-    <script src="../assets/js/custom-scripts.js"></script> 
+    <script src="../../assets/js/custom-scripts.js"></script> 
  
 
 </body>

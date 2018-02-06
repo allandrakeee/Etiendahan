@@ -225,12 +225,17 @@
                         </li>
 </ul>  
        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation" style="height: 570px;overflow: hidden;overflow-y: scroll;">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <!-- dashboard -->
                     <li>
                         <a class="active-menu waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+
+                    <!-- specialty in city -->
+                    <li>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->
@@ -580,6 +585,25 @@
         </div>
     </div>
     <!-- END OF POPUP NOTIFICATION -->
+    
+        <!-- <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7hfVchB6GQRHcmTwK8aLEAG2QwtYP6_A&callback=initMap">
+    </script> -->
 
     <!-- JS Scripts-->
     <!-- jQuery Js -->

@@ -1,4 +1,4 @@
-﻿<?php  
+<?php  
     require '../../../db.php';
     session_start();
 
@@ -235,7 +235,7 @@
 
                     <!-- specialty in city -->
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="active-menu waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->
@@ -245,7 +245,7 @@
 
                     <!-- categories -->
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/categories/" class="active-menu waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
+                        <a href="/etiendahan/ed-admin/restricted/categories/" class="waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
                     </li>
                     
                     <!-- sales -->
@@ -337,51 +337,80 @@
         <div id="page-wrapper">
           <div class="header"> 
             <h1 class="page-header">
-                Categories
-                <!-- <a href="/etiendahan/ed-admin/restricted/categories/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
-            </h1>                     
+                Specialty in City
+                <a href="/etiendahan/ed-admin/restricted/specialty-in-city/new-owner-shop/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New Owner Shop</div></a> 
+                <a href="/etiendahan/ed-admin/restricted/specialty-in-city/new-product/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New Product</div></a> 
+            </h1>           
         </div>
-            <div id="page-inner">
-                <?php $slides_result = $mysqli->query("SELECT * FROM tbl_slides"); ?>
+        
+            <div id="page-inner" class="table-responsive">
+                <?php $slides_result = $mysqli->query("SELECT * FROM tbl_sic_owner"); ?>
                 <?php if ($slides_result->num_rows == 0): ?>
-                    No Categories Yet
+                    No Owner Yet
                 <?php else: ?>
                     <table class="table">
                       <thead>
-                        <tr>
-                          <th scope="col">Parent Categories</th>
-                          <th scope="col">Image</th>
-                          <th scope="col">Sub Categories</th>
-                          <th scope="col">Action</th>
+                        <tr style="font-size: 18px;">
+                          <th scope="col" style="text-transform: uppercase;">Owner Shop</th>
+                          <th scope="col" style="text-transform: uppercase;">Owner Image</th>
+                          <th scope="col" style="text-transform: uppercase;">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php  
                             $count = 1;
-                            $parent_categories_result = $mysqli->query("SELECT * FROM tbl_categories");
-                            while($parent_categories_row = mysqli_fetch_assoc($parent_categories_result)):
+                            $slides_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
+                            while($slides_row = mysqli_fetch_assoc($slides_result)):
                         ?>
                             <tr>
-                              <td style="width: 30%;"><?php echo $count.'. '.$parent_categories_row['name'] ?></td>
-                              <td style="width: 30%"><img src="<?php echo ($parent_categories_row['image'] != '') ? $parent_categories_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 150px;" alt=""></td>
-                              <td style="width: 30%;">
-                                <ul>
-                                <?php 
-                                    $parent_id = $parent_categories_row['id'];
-                                    $sub_categories_result = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$parent_id'");
-                                    while($sub_categories_row = mysqli_fetch_assoc($sub_categories_result)):
-                                ?>
-                                    
-                                        <li style="list-style-type: square;"><?php echo $sub_categories_row['name']; ?></li>
-                                    
-                                <?php endwhile; ?>
-                                </ul>
-                              </td>
-                              <td style="width: 10%"><a href="/etiendahan/ed-admin/restricted/categories/modify/" class="action-categories" id="<?php echo $parent_categories_row['id']; ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a></td>
+                              <td style="width: 90%;"><?php echo "<span style='font-weight: bold;'>$count</span>".'. '.$slides_row['name'] ?></td>
+                              <td style="width: 10%;"><img src="<?php echo ($slides_row['image'] != '') ? $slides_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 100px;" alt=""></td>
+                              <td><a href="/etiendahan/ed-admin/restricted/specialty-in-city/modify-owner-shop/" class="action-sic" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/specialty-in-city/delete-owner-shop/" class="action-sic" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-times"></i></a></td>
+                            </tr>    
+                            <tr>
+                                <td style="position: relative; left: 6%; border-top: 0;">
+                                    <table style="margin-bottom: 30px;">
+                                        <?php $owner_id = $slides_row['id'] ?>
+                                        <?php  
+                                            $result = $mysqli->query("SELECT * FROM tbl_sic_product WHERE owner_id = '$owner_id'");
+                                            if($result->num_rows == 0):
+                                        ?>
+                                            No Product Yet
+                                        <?php else: ?>
+                                            <thead>
+                                                <tr>
+                                                    <th>Product name</th>
+                                                    <th>Product description</th>
+                                                    <th>Product price</th>
+                                                    <th>Product image</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php  
+                                                    $sic_result = $mysqli->query("SELECT * FROM tbl_sic_product WHERE owner_id = '$owner_id'");
+                                                    while($sic_row = mysqli_fetch_assoc($sic_result)):
+                                                ?>
+                                                    <tr>
+                                                        <td style="width: 30%"><?php echo $sic_row['name'] ?></td>
+                                                        <td style="width: 30%"><?php echo $sic_row['description'] ?></td>
+                                                        <td style="width: 20%"><?php echo $sic_row['price'] ?></td>
+                                                        <td style="width: 20%"><img src="<?php echo $sic_row['image'] ?>" style="height: 80px;margin-top: 6px;" alt=""></td>
+                                                        <td style="width: 10%"><a href="/etiendahan/ed-admin/restricted/specialty-in-city/modify-product/" class="action-sic" id="<?php echo $sic_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/specialty-in-city/delete-product/" class="action-sic" id="<?php echo $sic_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-times"></i></a></td>
+                                                    </tr>
+                                                <?php  
+                                                    endwhile;
+                                                ?>
+                                            </tbody>
+                                    <?php endif; ?>
+                                    </table>
+                                </td>
                             </tr>
                         <?php $count++; endwhile; ?>
                       </tbody>
+
                     </table>
+                    
                 <?php endif; ?>
             
             <!-- /. PAGE INNER  -->
@@ -389,6 +418,49 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
+
+    <!-- POPUP NOTIFICATION -->
+    <div id="popup-notification-welcome" class="wow fadeIn">
+        <div id="etiendahan-notification">Etiendahan Notification</div>
+        <div id="popup-close-welcome" class="popup-close"><i class="fa fa-times"></i></div>
+        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-info-circle" style="margin-right: 2px; color: #004085; border-color: #b8daff; font-size: 18px;"></i>Completed!</div>
+        <div class="popup-content-welcome text-center" style="font-size: 14px;">
+            <?php  
+                // Display message only once
+                if ( isset($_SESSION['delete-slide']) ) {
+                    echo $_SESSION['delete-slide'];
+                    // Don't annoy the user with more messages upon page refresh
+                    unset($_SESSION['delete-slide']);
+                }
+                // Display message only once
+                if ( isset($_SESSION['delete-product']) ) {
+                    echo $_SESSION['delete-product'];
+                    // Don't annoy the user with more messages upon page refresh
+                    unset($_SESSION['delete-product']);
+                }
+            ?>
+        </div>
+    </div>
+    <!-- END OF POPUP NOTIFICATION -->
+    
+    <!-- POPUP NOTIFICATION -->
+    <div id="popup-notification-logout-redirect" class="wow fadeIn">
+        <div id="etiendahan-notification">Etiendahan Notification</div>
+        <div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
+        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-times-circle" style="margin-right: 2px; color: #721c24; border-color: #f5c6cb; font-size: 18px;"></i>Can't proceed!</div>
+        <div class="popup-content-logout-redirect text-center">
+           <?php  
+                // Display message only once
+                if ( isset($_SESSION['cant-proceed-delete-slide']) ) {
+                    echo $_SESSION['cant-proceed-delete-slide'];
+                    // Don't annoy the user with more messages upon page refresh
+                    unset($_SESSION['cant-proceed-delete-slide']);
+                }
+            ?>
+        </div>
+    </div>
+    <!-- END OF POPUP NOTIFICATION -->
+
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="../assets/js/jquery-1.10.2.js"></script>

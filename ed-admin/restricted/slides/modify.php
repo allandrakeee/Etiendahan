@@ -231,12 +231,17 @@
                         </li>
 </ul>  
        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation" style="height: 570px;overflow: hidden;overflow-y: scroll;">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <!-- dashboard -->
                     <li>
                         <a class="waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+
+                    <!-- specialty in city -->
+                    <li>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->
@@ -359,6 +364,11 @@
                     <div class="fixed" style="margin-bottom: 8px;">
                         <input type="checkbox" id="myCheckbox" name="promotional" value="1" <?php echo ($slides_row['promotional'] == 1) ? 'checked' : '' ?>>
                         <label for="myCheckbox"><strong>Promotional</strong></label>
+                    </div>
+
+                    <div class="fixed" style="margin-bottom: 8px;">
+                        <input type="checkbox" id="myCheckboxlink" name="link_status" value="1" <?php echo ($slides_row['link_status'] == 1) ? 'checked' : '' ?>>
+                        <label for="myCheckboxlink"><strong>Link</strong></label>
                     </div>
 
                     <div class="form-group" style="width: 25%">

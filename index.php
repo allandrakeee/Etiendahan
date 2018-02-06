@@ -101,7 +101,7 @@
 
 											<!-- SPECIALTY IN CITY -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Specialty in City</a>
+												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
 											</li>
 
 											<!-- SPECIALTY IN CITY -->
@@ -413,7 +413,11 @@
 												<?php endif; ?>
 												<div class="col-md-12 text-center my-auto" style="z-index: 3">
 													<div class="text-inner wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden"><?php echo $slides_row['title']; ?></div>
-													<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+													<?php  
+														if($slides_row['link_status'] == 1):
+													?>
+														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="<?php echo $slides_row['link'] ?>">View Location</a></div>
+													<?php endif; ?>
 												</div>
 											</div>
 										</div>
@@ -482,7 +486,7 @@
 
 											<!-- SPECIALTY IN CITY -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="#">Specialty in City</a>
+												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
 											</li>
 
 											<!-- SPECIALTY IN CITY -->

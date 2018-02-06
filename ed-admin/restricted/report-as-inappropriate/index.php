@@ -226,12 +226,17 @@
                         </li>
 </ul>  
        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation" style="height: 570px;overflow: hidden;overflow-y: scroll;">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <!-- dashboard -->
                     <li>
                         <a class="waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+
+                    <!-- specialty in city -->
+                    <li>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->

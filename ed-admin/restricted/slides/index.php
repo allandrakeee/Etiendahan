@@ -225,12 +225,17 @@
                         </li>
 </ul>  
        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation" style="height: 570px;overflow: hidden;overflow-y: scroll;">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <!-- dashboard -->
                     <li>
                         <a class="waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+
+                    <!-- specialty in city -->
+                    <li>
+                        <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
                     </li>
 
                     <!-- slides -->
@@ -347,6 +352,7 @@
                         <tr>
                           <th scope="col">Title</th>
                           <th scope="col">Image</th>
+                          <th scope="col">Link status</th>
                           <th scope="col">Promotional</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -359,6 +365,7 @@
                             <tr>
                               <td style="width: 50%;"><?php echo $slides_row['title'] ?></td>
                               <td style="width: 20%;"><img src="<?php echo ($slides_row['image'] != '') ? $slides_row['image'] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 100px;" alt=""></td>
+                              <td style="width: 20%;"><?php echo ($slides_row['link_status'] == 1) ? 'Yes' : 'No' ?></td>
                               <td style="width: 20%;"><?php echo ($slides_row['promotional'] == 1) ? 'Yes' : 'No' ?></td>
                               <td><a href="/etiendahan/ed-admin/restricted/slides/modify/" class="action-slides" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-edit"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/slides/delete/" class="action-slides" id="<?php echo $slides_row['id'] ?>" style="color: dimgrey;"><i class="fa fa-times"></i></a></td>
                             </tr>

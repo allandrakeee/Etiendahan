@@ -281,6 +281,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('specialty-in-city/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('customer/account/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
@@ -342,6 +345,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
         livereload.changed(file.path);
     });
     gulp.watch('ed-admin/restricted/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
+    gulp.watch('ed-admin/restricted/specialty-in-city/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
     gulp.watch('ed-admin/restricted/slides/*.php').on('change', function(file) {
