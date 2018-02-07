@@ -44,8 +44,8 @@
 					<div class="login">
 						<div class="text-center mb-4"><img src="/etiendahan/temp-img/etiendahan-logo-shrink.png" alt=""></div>
 					    <form action="/etiendahan/ed-admin/" method="POST">
-					    	<input type="text" name="u" placeholder="Username" required="required" autofocus autocomplete="off" value="allandrakeee">
-					        <input type="password" name="p" placeholder="Password" required="required" value="asd">
+					    	<input type="text" name="u" placeholder="Username" required="required" autofocus autocomplete="off">
+					        <input type="password" name="p" placeholder="Password" required="required">
 					        <button type="submit" class="btn btn-primary btn-block btn-large" name="l">Let me in.</button>
 					    </form>
 					    <div class="mt-2"><a href="/etiendahan/" style="text-decoration: none; font-size: 11px;color:white;"><i class="fa fa-long-arrow-left"></i> Back to Etiendahan Dagupan</a></div>

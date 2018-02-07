@@ -176,15 +176,7 @@
 										<label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 										<div class="col-sm-10">
 											<div name="email" class="email"><?= $email ?> <a href="/etiendahan/customer/account/email/">Change Email</a>
-											<?php  
-												if ( $active == 0 ){
-												echo
-													'<div class="message-info font-italic">
-													Account is unverified, please confirm your email by clicking
-													<a href="">here</a>!
-													</div>';
-												}
-											?>
+											
 
 
 											</div>

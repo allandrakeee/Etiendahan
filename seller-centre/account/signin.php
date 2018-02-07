@@ -141,7 +141,7 @@
 									<div class="form-group row read-and-understood">
 										<label for="forgotPassword" class="col-sm-2 col-form-label"></label>
 										<div class="col-sm-10">
-											<a href="/etiendahan/customer/password/forgot/">Forgot your password?</a>
+											<a href="/etiendahan/customer/password/forgot/" style="height: 15px; display: block"></a>
 										</div>
 									</div>
 

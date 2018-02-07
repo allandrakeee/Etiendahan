@@ -945,157 +945,91 @@
 				<!-- END OF SECTION 2 -->
 
 				<!-- SECTION 3 - Homepage popular products -->
-				<div id="etiendahan-section-3" class="etiendahan-section">
-					<div class="container">
-						<div class="title-name">
-							<a href="">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-							<h3><span class="wow pulse" data-wow-delay="1000ms">POPULAR PRODUCTS</span></h3>
-						</div>
+				<div id="etiendahan-section-6" class="etiendahan-section">
+						<?php  
+							$result = $mysqli->query("SELECT * FROM tbl_orders");
+							if($result->num_rows == 0):
+						?>
+							<!-- have not recently view -->
+							<div class="container-fluid">
+								No Popular Products Yet
+							</div>
+						<?php else: ?>
+							<!-- have recently view -->
+							<div class="container">
+								<div class="title-name">
+									<a href="/etiendahan/popular-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+									<h3><span class="wow pulse" data-wow-delay="1000ms">POPULAR PRODUCTS</h3>
+								</div>
 
-						<div class="owl-carousel">
-							<div class="item">
-								<a href="/etiendahan/view/">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, consectetur.</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
+								<div class="owl-carousel">
+									<?php  
+										$recently_viewed_products_result = $mysqli->query("SELECT substring_index(group_concat(product_id SEPARATOR ','), ',', 10) as 'product_id_result' FROM tbl_orders");
+										while($recently_viewed_products_row = mysqli_fetch_assoc($recently_viewed_products_result)):
+										$product_id = $recently_viewed_products_row['product_id_result'];
+
+										$product_result_recently_viewed_products = $mysqli->query("SELECT * FROM tbl_products WHERE id IN($product_id) AND stock > 0 AND banned = 0");
+										while($product_row_recently_viewed_products = mysqli_fetch_assoc($product_result_recently_viewed_products)):
+									?>
+									<div class="item">
+										<?php 
+											$product_id_date = $product_row_recently_viewed_products['id'];
+											$date_joined_result_day = $mysqli->query("SELECT DATEDIFF(NOW(),created_at) FROM tbl_products WHERE id = $product_id_date");
+											$date_joined_row_day = $date_joined_result_day->fetch_assoc();	
+											
+											if($date_joined_row_day['DATEDIFF(NOW(),created_at)'] < 3):
+										?>
+										<div class="ribbon view-product ribbon--dimgrey">NEW</div>
+										<?php endif; ?>
+										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
+											<div class="card">
+												<?php $saved_image = explode(',', $product_row_recently_viewed_products['image']); ?>
+												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
+												<div class="card-body">
+													<div class="product-name"><?php echo $product_row_recently_viewed_products['name'] ?></div>
+													<div class="product-price">₱ <?php echo $product_row_recently_viewed_products['price'] ?></div>
+													<div class="product-rating" style="height: 18px;">
+														<?php  
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
+															$ratings_count1 = $ratings_row_count1['total'];
+
+
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
+															$ratings_avg1 = round($ratings_row_avg1['rating']);												
+														?>
+														<?php  
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															if($ratins_result_row1->num_rows == 0):
+														?>
+															No reviews yet
+														<?php else: ?>
+																<?php  
+																	$ii=1;
+																	for($ii;$ii<=$ratings_avg1;$ii++):
+																?>
+																	<i class="fa fa-star" style="width: 10px;"></i>
+																<?php endfor; ?>
+																<?php if($ii <= 5): ?>
+																	<?php 
+																		for($ii;$ii<=5;$ii++):
+																	?>
+																		<i class="fa fa-star-o" style="width: 10px;"></i>
+																	<?php endfor; ?>
+																<?php endif; ?>
+															 		(<?php echo $ratings_count1; ?>)								 		 	
+														<?php endif; ?>
+													</div>
+												</div>
 											</div>
-										</div>
+										</a>
 									</div>
-								</a>
+									<?php endwhile; endwhile; ?>
+								</div>
 							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, ut!</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, odio.</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="item">
-								<a href="https://www.google.com">
-									<div class="card">
-										<div class="card-image img-fluid owl-lazy" data-src="http://via.placeholder.com/200x200/"></div>
-										<div class="card-body">
-											<div class="product-name">Abercrombie Board shorts goodrombie Board shorts good</div>
-											<div class="product-price">₱150.00</div>
-											<div class="product-rating">
-												<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span style="margin-left: 4px;">(400)</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
+						<?php endif; ?>
 					</div>
-				</div>
 				<!-- END OF SECTION 3 -->
 
 				<!-- SECTION 4 - Homepage welcome message -->
