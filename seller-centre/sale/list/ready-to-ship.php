@@ -119,7 +119,57 @@
 				<div class="container inner">
 					<div class="row">
 						<div class="col-md-12">
-							
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Order ID</th>
+										<th scope="col">Product Name</th>
+										<th scope="col">Quantity</th>
+										<th scope="col">Price</th>
+										<th scope="col">Customer Email</th>
+										<th scope="col">Address</th>
+										<th scope="col">Date placed</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<?php  
+										$orders_product_id_result = $mysqli->query("SELECT * FROM tbl_orders WHERE status = 'processing'");
+										while($orders_product_id_row = mysqli_fetch_assoc($orders_product_id_result)):
+										$product_id_orders = $orders_product_id_row['product_id'];
+
+											$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_orders' AND seller_email = '$email'");
+											while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
+											$product_id_orders = $orders_product_row['id'];
+
+									?>
+												<tr>
+													<th scope="row"><?php echo $orders_product_id_row['unique_hash_id'] ?></th>
+													<td><?php echo $orders_product_row['name'] ?></td>
+													<td><?php echo $orders_product_id_row['quantity'] ?></td>
+													<td><?php echo $orders_product_row['price'] ?></td>
+													<td><?php echo $orders_product_id_row['email'] ?></td>
+													<td>
+														<?php
+															$address_id = $orders_product_id_row['address_id'];
+													        $result = $mysqli->query("SELECT * FROM tbl_address WHERE id = '$address_id'");
+															$row = $result->fetch_assoc();
+															echo $row['fullname'].'<br>';
+															echo $row['phone_number'].'<br>';
+															echo $row['complete_address'].'<br>';
+															echo $row['city'].'<br>';
+															echo $row['barangay'].'<br>';
+														?>
+													</td>
+													<td><?php $phpdate = strtotime($orders_product_id_row['created_at']);
+															echo $mysqldate = date('M j, Y', $phpdate); ?>
+													</td>
+													<td><a href="/etiendahan/seller-centre/sale/function/goto-pending/" class="goto-sales" id="<?php echo $orders_product_id_row['id'] ?>"><i class="fa fa-angle-right" style="font-size: 20px; color: dimgrey;"></i></a><span> | </span><a href="/etiendahan/seller-centre/sale/function/goto-ready-to-ship/" class="goto-sales" id="<?php echo $orders_product_id_row['id'] ?>"><i class="fa fa-angle-right" style="font-size: 20px; color: dimgrey;"></i></a></td>
+												</tr>
+									<?php endwhile; endwhile; ?>
+								</tbody>
+							</table>
 						</div>
 					</div>
 

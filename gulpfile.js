@@ -329,6 +329,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('seller-centre/sale/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('seller-centre/sale/function/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('seller-centre/sale/list/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });

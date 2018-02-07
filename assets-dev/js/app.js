@@ -118,6 +118,27 @@ $('ul.navbar-nav li.dropdown .dropdown-menu').hover(function(e) {
 	$('ul.navbar-nav li.dropdown a.nav-link').removeClass('show');
 });
 
+$('table#pending').each(function() {
+    if($(this).find('tr').children("td").length < 1) {
+        $(this).hide();
+        $('<p>No Pending Orders</p>').appendTo('#page-inner');
+    }
+});
+
+$('table#shipped').each(function() {
+    if($(this).find('tr').children("td").length < 1) {
+        $(this).hide();
+        $('<p>No Shipped Orders</p>').appendTo('#page-inner');
+    }
+});
+
+$('table#delivered').each(function() {
+    if($(this).find('tr').children("td").length < 1) {
+        $(this).hide();
+        $('<p>No Delivered Orders</p>').appendTo('#page-inner');
+    }
+});
+
 // Change container to container-fluid
 $( function() {
 if(window.innerWidth <= 1199)
@@ -1180,6 +1201,18 @@ $(document).on('click', '.report-review', function(){
     var report_rating = $(this).attr('id');
     // alert(report_rating);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"report_rating": report_rating});
+});
+
+$(document).on('click', '.manage-order', function(){
+    var manage_order = $(this).attr('id');
+    // alert(manage_order);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"manage_order": manage_order});
+});
+
+$(document).on('click', '.goto-sales', function(){
+    var goto_sales = $(this).attr('id');
+    // alert(goto_sales);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"goto_sales": goto_sales});
 });
 
 $(document).on('click', '.submit-review', function(){

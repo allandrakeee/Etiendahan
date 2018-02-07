@@ -194,7 +194,14 @@
 											<?php echo $wishlists_row['COUNT(product_id)'] ?>
 											<?php endwhile; ?>
 										</div>
-										<div class="sales">Sales 0</div>
+										<div class="sales">
+											<?php 
+												$product_id_order = $product_row['id'];
+										        $product_order_result = $mysqli->query("SELECT SUM(quantity) as 'total_quantity' FROM tbl_orders WHERE product_id = '$product_id_order'");
+												$product_order_row = $product_order_result->fetch_assoc();
+											?>
+											Sales <?php echo ($product_order_row['total_quantity'] == '')?'0':$product_order_row['total_quantity']; ?>
+										</div>
 										
 										<?php if($product_row['banned'] == 1): ?>
 										<div class="delete-product mt-3">

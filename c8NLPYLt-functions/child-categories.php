@@ -94,6 +94,14 @@
 		$_SESSION['action_sic'] = $_POST['action_sic'];
 	}
 
+	if($_POST['manage_order'] != '') {
+		$_SESSION['manage_order'] = $_POST['manage_order'];
+	}
+
+	if($_POST['goto_sales'] != '') {
+		$_SESSION['goto_sales'] = $_POST['goto_sales'];
+	}
+
 	// modify quantity in cart
 	if($_POST['cart_id'] != '') {
 		$_SESSION['cart_id'] = $_POST['cart_id'];

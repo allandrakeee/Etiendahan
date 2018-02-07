@@ -56,6 +56,7 @@
 							    		<?php  
 											$address_result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email' AND default_address = 1");
 											$address_row = $address_result->fetch_assoc();
+											$_SESSION['address_id'] = $address_row['id'];
 							    		?>
 							    		<div class="col-md-2">Delivery Address:</div>
 							    		<div class="col-md-10">
@@ -79,7 +80,7 @@
 								<?php  
 									$countcount = 1;
 									$formatted_total = 0;
-									$cart_group_concat_result = $mysqli->query("SELECT GROUP_CONCAT(product_id ORDER BY id asc) as product_id_g_c FROM tbl_cart WHERE email = '$email'");
+									$cart_group_concat_result = $mysqli->query("SELECT GROUP_CONCAT(product_id ORDER BY id asc) as product_id_g_c FROM tbl_cart WHERE email = '$email' AND quantity > 0");
 									while($cart_group_concat_row = mysqli_fetch_assoc($cart_group_concat_result)):
 									$product_id_cart = $cart_group_concat_row['product_id_g_c'];
 									
@@ -129,7 +130,7 @@
 							<div class="col-md-12 mb-3">
 								<div class="place-order p-2 mt-4" style="height: 72px;">
 									<div class="total-payment d-inline" style="line-height: 55px;">Total Payment: <strong style="font-size: 18px;">₱<?php $shipping_fee = 120 * ($countcount-1); $formatted_total+=$shipping_fee; echo number_format((float)$formatted_total, 2, '.', ','); ?></strong></div>
-									<div class="place-order-button d-inline-block pull-right">
+									<div class="place-order-button d-inline-block pull-right"><?php echo $_SESSION['total_amount_order'] = number_format((float)$formatted_total, 2, '.', ','); ?>
 										<form action="/etiendahan/c8NLPYLt-functions/place-order-function/" method="POST" class="d-inline">
 											<button class="btn btn-primary" type="submit">Place order</button>
 										</form>

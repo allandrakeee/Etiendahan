@@ -443,7 +443,12 @@
                         </div>
                         <div class="card-stacked dimgrey">
                         <div class="card-content">
-                        <h3>84,198</h3> 
+                        <h3><?php 
+                                $product_id_order = $product_row['id'];
+                                $product_order_result = $mysqli->query("SELECT SUM(quantity) as 'total_quantity' FROM tbl_orders");
+                                $product_order_row = $product_order_result->fetch_assoc();
+                            ?>
+                            <?php echo ($product_order_row['total_quantity'] == '')?'0':$product_order_row['total_quantity']; ?></h3> 
                         </div>
                         <div class="card-action">
                         <strong>SALES</strong>
