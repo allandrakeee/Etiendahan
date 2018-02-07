@@ -355,9 +355,9 @@
                           <th scope="col">Birthday</th>
                           <th scope="col">Email</th>
                           <th scope="col">Joined at</th>
-                          <th scope="col">Verified Purchase</th>
+                          <!-- <th scope="col">Verified Purchase</th> -->
                           <th scope="col">Seller Centre</th>
-                          <th scope="col">Active</th>
+                          <!-- <th scope="col">Active</th> -->
                           <th scope="col">Banned</th>
                         </tr>
                       </thead>
@@ -367,19 +367,19 @@
                             while($customers_row = mysqli_fetch_assoc($customers_result)):
                         ?>
                             <tr>
-                              <td style=""><?php echo ($customers_row['fullname'] != '')?$customers_row['fullname']:'-' ?></td>
-                              <td style=""><?php echo ($customers_row['gender'] != '')?$customers_row['gender']:'-' ?></td>
-                              <td style=""><?php echo ($customers_row['birthday'] != '' && $customers_row['birthmonth'] != '' && $customers_row['birthyear'] != '')?$customers_row['birthmonth'].' '.$customers_row['birthday'].', '.$customers_row['birthyear']:'-' ?></td>
-                              <td style=""><?php $customer_email = $customers_row['email']; echo ($customers_row['email'] != '')?"<a href='mailto:$customer_email' target='_blank' style='text-decoration:none;'>$customer_email</a>":'-' ?></td>
-                              <td style="">
+                              <td style="width: 20%"><?php echo ($customers_row['fullname'] != '')?$customers_row['fullname']:'-' ?></td>
+                              <td style="width: 15%"><?php echo ($customers_row['gender'] != '')?$customers_row['gender']:'-' ?></td>
+                              <td style="width: 15%"><?php echo ($customers_row['birthday'] != '' && $customers_row['birthmonth'] != '' && $customers_row['birthyear'] != '')?$customers_row['birthmonth'].' '.$customers_row['birthday'].', '.$customers_row['birthyear']:'-' ?></td>
+                              <td style="width: 15%"><?php $customer_email = $customers_row['email']; echo ($customers_row['email'] != '')?"<a href='mailto:$customer_email' target='_blank' style='text-decoration:none;'>$customer_email</a>":'-' ?></td>
+                              <td style="width: 15%">
                                 <?php  
                                     $phpdate = strtotime($customers_row['joined_at']);
                                     echo $mysqldate = date('M j, Y', $phpdate);
                                 ?>
                               </td>
-                              <td style=""><?php echo ($customers_row['verified_purchase'] == 0)?'No':'<span style="font-weight: bold;">Yes</span>' ?></td>
-                              <td style=""><?php echo ($customers_row['seller_centre'] == 0)?'No':'<span style="font-weight: bold;">Yes</span>' ?></td>
-                              <td style=""><?php echo ($customers_row['active'] == 0)?'No':'<span style="font-weight: bold;">Yes</span>' ?></td>
+                              <!-- <td style=""></td> -->
+                              <td style="width: 15%"><?php echo ($customers_row['seller_centre'] == 0)?'No':'<span style="font-weight: bold;">Yes</span>' ?></td>
+                              <!-- <td style=""></td> -->
                               <td><a href="/etiendahan/ed-admin/restricted/customers/banned/" class="action-banned-customer" id="<?php echo $customers_row['id'] ?>" style="color: dimgrey;"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">pan_tool</i></a></td>
                             </tr>
                         <?php endwhile; ?>

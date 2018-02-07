@@ -365,9 +365,9 @@
                             while($customers_row = mysqli_fetch_assoc($customers_result)):
                         ?>
                             <tr>
-                              <td style=""><?php echo ($customers_row['fullname'] != '')?$customers_row['fullname']:'-' ?></td>
-                              <td style=""><?php $customer_email = $customers_row['email']; echo ($customers_row['email'] != '')?"<a href='mailto:$customer_email' target='_blank' style='text-decoration:none;'>$customer_email</a>":'-' ?></td>
-                              <td style="">
+                              <td style="width: 30%"><?php echo ($customers_row['fullname'] != '')?$customers_row['fullname']:'-' ?></td>
+                              <td style="width: 30%"><?php $customer_email = $customers_row['email']; echo ($customers_row['email'] != '')?"<a href='mailto:$customer_email' target='_blank' style='text-decoration:none;'>$customer_email</a>":'-' ?></td>
+                              <td style="width: 30%">
                                 <?php  
                                     $phpdate = strtotime($sellers_row['joined_at']);
                                     echo $mysqldate = date('M j, Y', $phpdate);

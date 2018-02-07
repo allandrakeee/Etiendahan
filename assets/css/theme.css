@@ -13765,6 +13765,33 @@ html.admin-page {
     .ribbon-promotional.ribbon--dimgrey:after {
       border-top: 35px solid dimgrey; }
 
+#etiendahan-checkout-page {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 70px;
+  color: dimgrey;
+  font-size: 13px; }
+  #etiendahan-checkout-page .customer-name {
+    background-color: #f8f8f8;
+    line-height: 50px;
+    border: 1px solid #dcdcdc; }
+  #etiendahan-checkout-page .delivery-address, #etiendahan-checkout-page .place-order {
+    background-color: #f8f8f8;
+    border: 1px solid #dcdcdc; }
+  #etiendahan-checkout-page .seller-and-product {
+    background-color: #f8f8f8; }
+  #etiendahan-checkout-page .btn-primary {
+    background-color: #333333;
+    border: 0;
+    border-radius: 0;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 18px 25px;
+    cursor: pointer; }
+    #etiendahan-checkout-page .btn-primary:hover, #etiendahan-checkout-page .btn-primary:focus {
+      background-color: #3f3f3f;
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+
 #etiendahan-create-page-section-1 {
   font-family: 'Montserrat', sans-serif;
   margin-top: 100px;

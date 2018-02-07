@@ -261,7 +261,7 @@
 									<div class="totals">
 										<div class="sub-total">Subtotal <span>₱<?php echo number_format((float)$formatted_total, 2, '.', ','); ?></span></div>
 										<div class="grand-total">Grand Total <span>₱<?php echo number_format((float)$formatted_total, 2, '.', ','); ?></span></div>
-										<button class="btn btn-primary" type="submit">Proceed to checkout</button>
+										<a href="/etiendahan/buyer/checkout/"><button class="btn btn-primary" type="submit">Proceed to checkout</button></a>
 									</div>
 								</div>
 							</div>
@@ -270,7 +270,23 @@
 				</div>
 				<!-- END OF SHOPPING CART PAGE -->
 
-
+				<!-- POPUP NOTIFICATION -->
+				<div id="popup-notification-logout-redirect" class="wow fadeIn">
+					<div id="etiendahan-notification">Etiendahan Notification</div>
+					<div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
+					<div class="popup-title text-center mt-1"><i class="fa fa-times-circle mr-1 alert-danger"></i>Can't proceed!</div>
+					<div class="popup-content-logout-redirect text-center">
+						<?php  
+							// Display message only once
+							if ( isset($_SESSION['logout-message-redirect']) ) {
+								echo $_SESSION['logout-message-redirect'];
+								// Don't annoy the user with more messages upon page refresh
+								unset( $_SESSION['logout-message-redirect'] );
+							}
+						?>
+					</div>
+				</div>
+				<!-- END OF POPUP NOTIFICATION -->
 
 
 <!-- footer inner -->

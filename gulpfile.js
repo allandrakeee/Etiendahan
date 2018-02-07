@@ -284,6 +284,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('specialty-in-city/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('buyer/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('customer/account/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });

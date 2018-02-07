@@ -978,16 +978,16 @@ if($("#product-details-page").length > 0) {
 	// });
 }
 
-var myVar;
+var myVar1;
 
-function myFunction() {
-    myVar = setTimeout( function () { 
+function myFunction1() {
+    myVar1 = setTimeout( function () { 
 		        $('.myform').submit();
 		    }, 2000);
 }
 
-function myStopFunction() {
-    clearTimeout(myVar);
+function myStopFunction1() {
+    clearTimeout(myVar1);
 }
 
 jQuery(document).ready(function($) { 
@@ -1003,7 +1003,7 @@ jQuery(document).ready(function($) {
         } else {
             //unchecked
             $(this).removeClass("checked");
-			myStopFunction();
+			myStopFunction1();
         }
 
     })
@@ -1013,7 +1013,7 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) { 
 	$(".activate-seller").click(function () {
 		if($(this).hasClass('checked')){
-		    myFunction();
+		    myFunction1();
 		}
 	});
 });

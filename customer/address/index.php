@@ -23,13 +23,13 @@
 	}
 	else {
 	    // Makes it easier to read
-	    $fullname 	= $_SESSION['fullname'];
-	    $gender     = $_SESSION['gender'];
-	    $email      = $_SESSION['email'];
-	    $active     = $_SESSION['active'];
-	    $birthday   = $_SESSION['birthday'];
-	    $birthmonth = $_SESSION['birthmonth'];
-	    $birthyear  = $_SESSION['birthyear'];
+	    // $fullname 	= $_SESSION['fullname'];
+	    // $gender     = $_SESSION['gender'];
+	    // $email      = $_SESSION['email'];
+	    // $active     = $_SESSION['active'];
+	    // $birthday   = $_SESSION['birthday'];
+	    // $birthmonth = $_SESSION['birthmonth'];
+	    // $birthyear  = $_SESSION['birthyear'];
 	}
 ?>
 

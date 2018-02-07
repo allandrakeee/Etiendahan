@@ -1,0 +1,36 @@
+#etiendahan-checkout-page {
+	font-family: 'Montserrat', sans-serif;
+    margin-top: 70px;
+	color: dimgrey;
+	font-size: 13px;
+
+	.customer-name {
+		background-color: #f8f8f8;
+		line-height: 50px;
+		border: 1px solid #dcdcdc;
+	}	
+
+	.delivery-address, .place-order {
+		background-color: #f8f8f8;
+		border: 1px solid #dcdcdc;
+	}	
+
+	.seller-and-product {
+		background-color: #f8f8f8;
+	}	
+
+	.btn-primary {
+		background-color: #333333;
+		border: 0;
+		border-radius: 0;
+		color: #fff;
+		text-transform: uppercase;
+		padding: 18px 25px;
+		cursor: pointer;
+
+		&:hover, &:focus {
+			background-color: #3f3f3f; 
+			box-shadow: none;
+		}
+	}
+}
