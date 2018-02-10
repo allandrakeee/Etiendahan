@@ -395,7 +395,7 @@
 											<i class="fa fa-user-circle"></i>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<p>Howdie.</p>
+											<p>Howdy.</p>
 
 											<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
 											<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
@@ -781,7 +781,7 @@
 											<i class="fa fa-user-circle"></i>
 										</a>
 										<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-											<p>Howdie.</p>
+											<p>Howdy.</p>
 
 											<!-- Development -->
 											<a href="/etiendahan/customer/account/login/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Log in</div></a>

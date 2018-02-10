@@ -30,6 +30,11 @@
         $mysqli->query("UPDATE tbl_address SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
         $mysqli->query("UPDATE tbl_cart SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
         $mysqli->query("UPDATE tbl_wishlists SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_orders SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_ratings SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_ratings_reports SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_recently_viewed_products SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
+        $mysqli->query("UPDATE tbl_visits SET email = '$new_email' WHERE email='$email'") or die($mysqli->error);
         
         $sql = "UPDATE tbl_customers SET email = '$new_email' WHERE email = '$email'";
 

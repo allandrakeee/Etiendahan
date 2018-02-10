@@ -20,7 +20,7 @@
 	while($cart_row = mysqli_fetch_assoc($cart_result)):
 		$product_id = $cart_row['product_id'];
 		$quantity = $cart_row['quantity'];
-		$sql = "INSERT INTO tbl_orders (id, unique_hash_id, product_id, quantity, email, address_id, created_at, total, status) VALUES (null, '$unique_order_id','$product_id', '$quantity', '$email', '$address_id', NOW(), '$total_amount_order', 'processing')";
+		$sql = "INSERT INTO tbl_orders (id, unique_hash_id, product_id, quantity, email, address_id, created_at, total, status) VALUES (null, '$unique_order_id','$product_id', '$quantity', '$email', '$address_id', CURDATE(), '$total_amount_order', 'processing')";
 		$mysqli->query($sql);
 	endwhile;
 

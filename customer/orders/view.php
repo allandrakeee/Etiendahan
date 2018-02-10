@@ -147,6 +147,132 @@
 										</div>
 									</div>
 								</div>
+								
+								<?php  
+									$count = 1;
+									$orders_count = $mysqli->query("SELECT GROUP_CONCAT(product_id) as product_id_gc FROM tbl_orders WHERE unique_hash_id = '$manage_order'");
+									while($orders_count_row = mysqli_fetch_assoc($orders_count)):
+									$product_id = $orders_count_row['product_id_gc'];
+
+										$orders_count = $mysqli->query("SELECT * FROM tbl_products WHERE id IN($product_id) GROUP BY seller_email");
+										while($orders_count_row = mysqli_fetch_assoc($orders_count)):
+								?>
+									<div class="order-wrapper-content mt-3">
+										<div id="order-header-view-package-seller" class="row">
+											<div class="col-md-6 text-left"><i class="fa fa-cube fa-fw"></i><span>Package <?php echo $count++; ?></span></div>
+											<div class="col-md-6 text-right">
+												<span>
+													<?php
+														$seller_email = $orders_count_row['seller_email']; 
+												        $result = $mysqli->query("SELECT * FROM tbl_customers WHERE email = '$seller_email'");
+														$row = $result->fetch_assoc();
+														echo $row['fullname'];
+													?>
+												</span>
+												<a href="/etiendahan/seller-shop/">
+													<button class="btn btn-primary view-shop" id="<?php echo $orders_count_row['seller_email']; ?>">view shop</button>
+												</a>
+													
+											</div>
+										</div>
+
+										<!-- <div id="order-delivery-shipping" class="row">
+											<div class="col-md-12">
+												<div class="order-delivery-shipping-name">
+													<i class="fa fa-truck fa-fw"></i>Standard Shipping
+												</div>
+												<div class="order-delivery-shipping-date">
+													01/12/2017
+												</div>
+											</div>
+										</div> -->
+
+										<div id="order-delivery-status" class="row">
+											<div class="col-md-12">
+													<?php 
+														$product_id_orders = $orders_count_row['id']; 
+														$result = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_orders'");
+														$row = $result->fetch_assoc();
+													?>
+
+													<?php if($row['status'] == 'processing'): ?>
+															<!-- processing -->
+															<div class="progress">
+													        	<div class="one"></div><div class="two no-color"></div><div class="three no-color"></div>
+													  			<div class="progress-bar" style="width: 0;"></div>
+															</div>
+
+														<?php elseif($row['status'] == 'shipped'): ?>
+															<!-- shipped -->
+															<div class="progress">
+													        	<div class="one"></div><div class="two"></div><div class="three no-color"></div>
+													  			<div class="progress-bar" style="width: 50%;"></div>
+															</div>
+
+														<?php else: ?>
+															<!-- delivered -->
+															<div class="progress">
+													        	<div class="one"></div><div class="two"></div><div class="three"></div>
+													  			<div class="progress-bar" style="width: 100%;"></div>
+															</div>
+														<?php endif; ?>
+
+													<div class="processing-text">Processing</div>
+													<div class="shipped-text">Shipped</div>
+													<div class="delivered-text">Delivered</div>
+											</div>
+										</div>
+										
+
+										<?php  
+											$orders_count1 = $mysqli->query("SELECT GROUP_CONCAT(product_id) as product_id_gc FROM tbl_orders WHERE unique_hash_id = '$manage_order'");
+											while($orders_count_row1 = mysqli_fetch_assoc($orders_count1)):
+											$product_id1 = $orders_count_row1['product_id_gc'];
+
+												$orders_count1 = $mysqli->query("SELECT * FROM tbl_products WHERE id IN($product_id1) AND seller_email = '$seller_email'");
+												while($orders_count_row1 = mysqli_fetch_assoc($orders_count1)):
+										?>
+											<div id="order-delivery-content" class="row">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-md-2">
+															<div class="item-product">
+																<a href="/etiendahan/category/view/product/" class="d-block my-item-product-inner category-product-id" id="<?php echo $orders_count_row1['id']; ?>">
+																	<div class="item-image">
+																		<?php $saved_image = explode(',', $orders_count_row1['image']); ?>
+																		<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
+																	</div>
+																</a>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="item-name">
+																<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $orders_count_row1['id']; ?>"><?php echo $orders_count_row1['name']; ?></a>
+															</div>
+														</div>
+
+														<div class="col-md-2">
+															<div class="item-price">
+																₱<?php echo $orders_count_row1['price']; ?>
+															</div>
+														</div>
+
+														<div class="col-md-2">
+															<div class="item-quantity">
+																x<?php 
+																	$product_id_quantity =  $orders_count_row1['id']; 
+																	$result1 = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_quantity' AND email = '$email'");
+																	$row1 = $result1->fetch_assoc();
+																	echo $row1['quantity'];
+																?>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										<?php endwhile; endwhile;?>
+									</div>
+								<?php endwhile; endwhile; ?>
 							</div>
 						</div>
 					</div>

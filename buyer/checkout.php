@@ -130,7 +130,7 @@
 							<div class="col-md-12 mb-3">
 								<div class="place-order p-2 mt-4" style="height: 72px;">
 									<div class="total-payment d-inline" style="line-height: 55px;">Total Payment: <strong style="font-size: 18px;">₱<?php $shipping_fee = 120 * ($countcount-1); $formatted_total+=$shipping_fee; echo number_format((float)$formatted_total, 2, '.', ','); ?></strong></div>
-									<div class="place-order-button d-inline-block pull-right"><?php echo $_SESSION['total_amount_order'] = number_format((float)$formatted_total, 2, '.', ','); ?>
+									<div class="place-order-button d-inline-block pull-right"><?php $_SESSION['total_amount_order'] = number_format((float)$formatted_total, 2, '.', ','); ?>
 										<form action="/etiendahan/c8NLPYLt-functions/place-order-function/" method="POST" class="d-inline">
 											<button class="btn btn-primary" type="submit">Place order</button>
 										</form>

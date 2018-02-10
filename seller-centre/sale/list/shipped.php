@@ -116,40 +116,125 @@
 					</li>
 				</ul>
 
-				<div class="container inner">
+				<div class="container-fluid inner">
 					<div class="row">
 						<div class="col-md-12" id="page-inner">
 							<table class="table" id="shipped">
 								<thead>
 									<tr>
 										<th scope="col">Order ID</th>
-										<th scope="col">Product Name</th>
+										<th scope="col" style="width: 15%;">Product Name</th>
 										<th scope="col">Quantity</th>
-										<th scope="col">Price</th>
+										<th scope="col" style="width: 10%;">Price</th>
+										<th scope="col" style="width: 20%; font-style: italic;">TOTAL</th>
 										<th scope="col">Customer Email</th>
-										<th scope="col">Address</th>
-										<th scope="col">Date placed</th>
+										<th scope="col" style="width: 20%;">Address</th>
+										<th scope="col" style="width: 10%;">Date placed</th>
 										<th scope="col">Action</th>
 									</tr>
 								</thead>
 
 								<tbody>
 									<?php  
-										$orders_product_id_result = $mysqli->query("SELECT * FROM tbl_orders WHERE status = 'shipped'");
+										$orders_product_id_result = $mysqli->query("SELECT orders.unique_hash_id, orders.email, orders.address_id, orders.created_at FROM tbl_orders orders JOIN tbl_products products on orders.product_id = products.id and orders.status = 'shipped' and products.seller_email = '$email' GROUP by orders.created_at");
 										while($orders_product_id_row = mysqli_fetch_assoc($orders_product_id_result)):
-										$product_id_orders = $orders_product_id_row['product_id'];
-
-											$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_orders' AND seller_email = '$email'");
-											while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
-											$product_id_orders = $orders_product_row['id'];
-
+										$unique_hash_id = $orders_product_id_row['unique_hash_id'];
 									?>
 												<tr>
-													<th scope="row"><?php echo $orders_product_id_row['unique_hash_id'] ?></th>
-													<td><?php echo $orders_product_row['name'] ?></td>
-													<td><?php echo $orders_product_id_row['quantity'] ?></td>
-													<td><?php echo $orders_product_row['price'] ?></td>
-													<td><?php echo $orders_product_id_row['email'] ?></td>
+													<!-- unique hash id -->
+													<th scope="row">#<?php echo $orders_product_id_row['unique_hash_id']; ?></th>
+
+													<!-- product name -->
+													<td>
+														<?php  
+															$count = 1;
+															$product_orders = $mysqli->query("SELECT * FROM tbl_orders WHERE unique_hash_id = '$unique_hash_id' AND status = 'shipped'");
+															while($product_orders_row = mysqli_fetch_assoc($product_orders)):
+														?>
+															<table class="inner-table">
+																<tr>
+																	<td>
+																		<?php 
+																			$product_id = $product_orders_row['product_id'];
+																			$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id' AND seller_email = '$email'");
+																			while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
+																				echo "<span style='font-weight: bold;'>$count.</span> ".$orders_product_row['name'];
+																			endwhile;
+																		?>
+																	</td>
+																</tr>
+															</table>
+														<?php $count++; endwhile; ?>
+													</td>
+
+													<!-- quantity -->
+													<td>
+														<?php  
+															$count = 1;
+															$product_orders = $mysqli->query("SELECT * FROM tbl_orders WHERE unique_hash_id = '$unique_hash_id' AND status = 'shipped'");
+															while($product_orders_row = mysqli_fetch_assoc($product_orders)):
+															$product_id_quantity = $product_orders_row['product_id'];
+
+																$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_quantity' AND seller_email = '$email'");
+																while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
+														?>
+															<table class="inner-table">
+																<tr>
+																	<td><?php echo "<span style='font-weight: bold;'>$count.</span> ".$product_orders_row['quantity']; ?></td>
+																</tr>
+															</table>
+														<?php $count++; endwhile; endwhile; ?>
+													</td>
+
+													<!-- price -->
+													<td>
+														<?php  
+															$count = 1;
+															$product_orders = $mysqli->query("SELECT * FROM tbl_orders WHERE unique_hash_id = '$unique_hash_id' AND status = 'shipped'");
+															while($product_orders_row = mysqli_fetch_assoc($product_orders)):
+														?>
+															<table class="inner-table">
+																<td>
+																		<?php 
+																			$product_id = $product_orders_row['product_id'];
+																			$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id' AND seller_email = '$email'");
+																			while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
+																			 	echo "<span style='font-weight: bold;'>$count.</span> ".$orders_product_row['price'];
+																			endwhile;
+																		?>
+																	</td>
+															</table>
+														<?php $count++; endwhile; ?>
+													</td>
+
+													<!-- TOTAL -->
+													<td>
+														<?php  
+															$final_count = 0;
+															$product_orders = $mysqli->query("SELECT * FROM tbl_orders WHERE unique_hash_id = '$unique_hash_id' AND status = 'shipped'");
+															while($product_orders_row = mysqli_fetch_assoc($product_orders)):
+															$product_id_quantity = $product_orders_row['product_id'];
+
+																$orders_product_result = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$product_id_quantity' AND seller_email = '$email'");
+																while($orders_product_row = mysqli_fetch_assoc($orders_product_result)):
+														?>
+															<table class="inner-table">
+																<tr>
+																	<td><?php $total = str_replace(',', '', $orders_product_row['price']) * $product_orders_row['quantity']; $formatted = number_format((float)$total, 2, '.', ''); ?></td>
+																	<?php $count = number_format((float)$total, 2, '.', ''); ?>
+																	<?php $final_count += $count; ?>
+																</tr>
+															</table>
+														<?php endwhile; endwhile; ?>
+														<?php $final_count_with_shipment_fee = $final_count+120; $final_count_with_shipment_fee_formatted = number_format((float)$final_count_with_shipment_fee, 2, '.', ','); echo number_format((float)$final_count, 2, '.', ',')." + 120 shipment fee = <span style='font-weight: bold;'>$final_count_with_shipment_fee_formatted</span>"; ?>
+													</td>
+
+													<!-- customer email -->
+													<td>
+														<?php echo $orders_product_id_row['email'] ?>
+													</td>
+
+													<!-- address -->
 													<td>
 														<?php
 															$address_id = $orders_product_id_row['address_id'];
@@ -162,12 +247,16 @@
 															echo $row['barangay'].'<br>';
 														?>
 													</td>
+
+													<!-- date placed -->
 													<td><?php $phpdate = strtotime($orders_product_id_row['created_at']);
 															echo $mysqldate = date('M j, Y', $phpdate); ?>
 													</td>
-													<td><a href="/etiendahan/seller-centre/sale/function/goto-pending/" class="goto-sales" id="<?php echo $orders_product_id_row['id'] ?>"><i class="fa fa-angle-left" style="font-size: 20px; color: dimgrey;"></i></a><span> | </span><a href="/etiendahan/seller-centre/sale/function/goto-delivered/" class="goto-sales" id="<?php echo $orders_product_id_row['id'] ?>"><i class="fa fa-angle-right" style="font-size: 20px; color: dimgrey;"></i></a></td>
+
+													<!-- action -->
+													<td><a href="/etiendahan/seller-centre/sale/function/goto-pending/" class="goto-sales" id="<?php echo $orders_product_id_row['unique_hash_id']; ?>"><i class="fa fa-angle-left" style="font-size: 20px; color: dimgrey;"></i></a><span> | </span><a href="/etiendahan/seller-centre/sale/function/goto-delivered/" class="goto-sales" id="<?php echo $orders_product_id_row['unique_hash_id']; ?>"><i class="fa fa-angle-right" style="font-size: 20px; color: dimgrey;"></i></a></td>
 												</tr>
-									<?php endwhile; endwhile; ?>
+									<?php endwhile; ?>
 								</tbody>
 							</table>
 						</div>
@@ -175,8 +264,8 @@
 
 					<div class="row">
 						<div class="col-md-12">
-							<div class="footer">
-								<div class="site-image" style="background-image: url(/etiendahan/temp-img/logo-seller-centre.png);"></div>
+							<div class="footer mb-3">
+								<div class="site-image" style="background-image: url(/etiendahan/temp-img/logo-seller-centre.png); left: 48.5%;"></div>
 								<div class="site-centre">Etiendahan Seller Centre</div>
 								<div class="site-version">Current Version: beta test</div>
 							</div>

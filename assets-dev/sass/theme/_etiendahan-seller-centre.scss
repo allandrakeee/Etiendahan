@@ -642,6 +642,13 @@
 			box-shadow: none;
 		}
 	}
+
+	.inner-table {
+		td {
+			border-top: none;
+			padding: 0;
+		}
+	}
 }
 
 .ribbon {
