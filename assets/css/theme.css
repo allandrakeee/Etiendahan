@@ -14008,6 +14008,19 @@ html.admin-page {
         background-color: #3f3f3f;
         -webkit-box-shadow: none;
                 box-shadow: none; }
+    #etiendahan-customer-page-section-1 .col-md-8 .modal .modal-content .modal-footer button.btn-primary-save {
+      text-transform: uppercase;
+      background-color: #333333;
+      border: 0;
+      border-radius: 0;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 8px 25px;
+      cursor: pointer; }
+      #etiendahan-customer-page-section-1 .col-md-8 .modal .modal-content .modal-footer button.btn-primary-save:hover, #etiendahan-customer-page-section-1 .col-md-8 .modal .modal-content .modal-footer button.btn-primary-save:focus {
+        background-color: #3f3f3f;
+        -webkit-box-shadow: none;
+                box-shadow: none; }
     #etiendahan-customer-page-section-1 .col-md-8 .modal-dialog {
       min-height: calc(100vh - 100px);
       display: -webkit-box;
@@ -14459,6 +14472,17 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 5px; }
     #etiendahan-information-page .container.contact .link a {
       text-decoration: none; }
+  #etiendahan-information-page .container.terms-and-conditions h3 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.12px; }
+  #etiendahan-information-page .container.terms-and-conditions h5 {
+    font-size: 15px;
+    font-weight: 600; }
+  #etiendahan-information-page .container.terms-and-conditions .margin-h {
+    margin-top: 35px; }
+  #etiendahan-information-page .container.terms-and-conditions .margin-p {
+    margin-top: 10px; }
   #etiendahan-information-page .container.privacy-policy h3 {
     font-size: 20px;
     font-weight: 600;

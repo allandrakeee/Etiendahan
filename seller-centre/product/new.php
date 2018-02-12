@@ -172,8 +172,7 @@
 												<?php 
 													}
 												 ?>
-													</select>
-																						
+													</select>							
 											</div>	
 											<div class="col-sm-5">
 												<select class='form-control' id='sub-category' name='subCategory' required>	

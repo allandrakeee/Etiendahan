@@ -136,7 +136,7 @@
 
 								<tbody>
 									<?php  
-										$orders_product_id_result = $mysqli->query("SELECT orders.unique_hash_id, orders.email, orders.address_id, orders.created_at FROM tbl_orders orders JOIN tbl_products products on orders.product_id = products.id and orders.status = 'delivered' and products.seller_email = '$email' GROUP by orders.created_at");
+										$orders_product_id_result = $mysqli->query("SELECT orders.unique_hash_id, orders.email, orders.address_id, orders.created_at FROM tbl_orders orders JOIN tbl_products products on orders.product_id = products.id and orders.status = 'delivered' and products.seller_email = '$email' GROUP BY orders.unique_hash_id ORDER BY orders.created_at");
 										while($orders_product_id_row = mysqli_fetch_assoc($orders_product_id_result)):
 										$unique_hash_id = $orders_product_id_row['unique_hash_id'];
 									?>
@@ -231,7 +231,7 @@
 
 													<!-- customer email -->
 													<td>
-														<?php echo $orders_product_id_row['email'] ?>
+														<?php echo $order_email =  $orders_product_id_row['email'] ?>
 													</td>
 
 													<!-- address -->
@@ -239,12 +239,32 @@
 														<?php
 															$address_id = $orders_product_id_row['address_id'];
 													        $result = $mysqli->query("SELECT * FROM tbl_address WHERE id = '$address_id'");
-															$row = $result->fetch_assoc();
-															echo $row['fullname'].'<br>';
-															echo $row['phone_number'].'<br>';
-															echo $row['complete_address'].'<br>';
-															echo $row['city'].'<br>';
-															echo $row['barangay'].'<br>';
+													        if($result->num_rows == 0) {
+													        	$result1 = $mysqli->query("SELECT * FROM tbl_address WHERE email= '$order_email' AND default_address = 1");
+																if($result1->num_rows == 0) {
+													        		$result12 = $mysqli->query("SELECT * FROM tbl_address WHERE email= '$order_email'");
+																	$row12 = $result12->fetch_assoc();
+																	echo $row12['fullname'].'<br>';
+																	echo $row12['phone_number'].'<br>';
+																	echo $row12['complete_address'].'<br>';
+																	echo $row12['city'].'<br>';
+																	echo $row12['barangay'].'<br>';
+																} else {
+																	$row1 = $result1->fetch_assoc();
+																	echo $row1['fullname'].'<br>';
+																	echo $row1['phone_number'].'<br>';
+																	echo $row1['complete_address'].'<br>';
+																	echo $row1['city'].'<br>';
+																	echo $row1['barangay'].'<br>';
+																}
+													        } else {
+																$row = $result->fetch_assoc();
+																echo $row['fullname'].'<br>';
+																echo $row['phone_number'].'<br>';
+																echo $row['complete_address'].'<br>';
+																echo $row['city'].'<br>';
+																echo $row['barangay'].'<br>';
+															}
 														?>
 													</td>
 

@@ -159,7 +159,7 @@
 								?>
 									<div class="order-wrapper-content mt-3">
 										<div id="order-header-view-package-seller" class="row">
-											<div class="col-md-6 text-left"><i class="fa fa-cube fa-fw"></i><span>Package <?php echo $count++; ?></span></div>
+											<div class="col-md-6 text-left"><i class="fa fa-cube fa-fw"></i><span>Package <?php echo $count++; ?></span><span class="ml-1" style="font-size: 10px; font-style: italic;">(Shipping fee: +₱120.00)</span></div>
 											<div class="col-md-6 text-right">
 												<span>
 													<?php
@@ -191,7 +191,7 @@
 											<div class="col-md-12">
 													<?php 
 														$product_id_orders = $orders_count_row['id']; 
-														$result = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_orders'");
+														$result = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_orders' AND unique_hash_id = '$manage_order'");
 														$row = $result->fetch_assoc();
 													?>
 
@@ -273,6 +273,46 @@
 										<?php endwhile; endwhile;?>
 									</div>
 								<?php endwhile; endwhile; ?>
+
+								<div class="mt-3 mb-3 row" style="font-weight: 600;font-size: 13px;border: 1px solid #b9b9c3;margin: 0;padding: 10px 0;">
+
+									<div class="col-md-3">Delivery Address:</div>
+									<div class="col-md-9">
+										<?php
+											$order_result1 = $mysqli->query("SELECT * FROM tbl_orders WHERE unique_hash_id = '$manage_order'");
+											$order_row1 = $order_result1->fetch_assoc();
+											$order_email = $order_row1['email'];
+											$address_id = $order_row1['address_id'];
+									        $result = $mysqli->query("SELECT * FROM tbl_address WHERE id = '$address_id'");
+									        if($result->num_rows == 0) {
+									        	$result1 = $mysqli->query("SELECT * FROM tbl_address WHERE email= '$order_email' AND default_address = 1");
+												if($result1->num_rows == 0) {
+									        		$result12 = $mysqli->query("SELECT * FROM tbl_address WHERE email= '$order_email'");
+													$row12 = $result12->fetch_assoc();
+													echo $row12['fullname'].'<br>';
+													echo $row12['phone_number'].'<br>';
+													echo $row12['complete_address'].'<br>';
+													echo $row12['city'].'<br>';
+													echo $row12['barangay'].'<br>';
+												} else {
+													$row1 = $result1->fetch_assoc();
+													echo $row1['fullname'].'<br>';
+													echo $row1['phone_number'].'<br>';
+													echo $row1['complete_address'].'<br>';
+													echo $row1['city'].'<br>';
+													echo $row1['barangay'].'<br>';
+												}
+									        } else {
+												$row = $result->fetch_assoc();
+												echo $row['fullname'].'<br>';
+												echo $row['phone_number'].'<br>';
+												echo $row['complete_address'].'<br>';
+												echo $row['city'].'<br>';
+												echo $row['barangay'].'<br>';
+											}
+										?>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

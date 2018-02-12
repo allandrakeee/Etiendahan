@@ -211,7 +211,7 @@
 															?>
 														</strong>
 													</div>
-													<div class="rate-body"><?php echo $ratings_row['body']; ?></div>
+													<div class="rate-body"><?php echo nl2br($ratings_row['body']); ?></div>
 													<div class="report-as-inappropriate pull-right mb-2" style="position: relative;bottom: 48px;">
 														<?php if($ratings_row['report_as_inappropriate'] == 1): ?>
 															pending

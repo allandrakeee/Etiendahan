@@ -2,21 +2,21 @@
 	require '/../../db.php';
 	session_start();
 
-    $cart_result = $mysqli->query("SELECT * FROM tbl_cart");
-    while($cart_row = mysqli_fetch_assoc($cart_result)):
-        $product_result = $cart_row['product_id'];
-        $product_result = $mysqli->query("SELECT * FROM tbl_products");
-        while($product_row = mysqli_fetch_assoc($product_result)):
-            // echo $product_row['banned'];
-            $product_id_to_cart = $product_row['id'];
-            // echo $product_id_to_cart;
-            if($cart_row['quantity'] <= 0 && $product_row['stock'] >= 1):
-                // echo 'asdtest';
-                $sql1 = "UPDATE tbl_cart SET quantity = 1 WHERE product_id = '$product_id_to_cart'";
-                $mysqli->query($sql1);
-            endif;
-        endwhile;
-    endwhile;
+    // $cart_result = $mysqli->query("SELECT * FROM tbl_cart");
+    // while($cart_row = mysqli_fetch_assoc($cart_result)):
+    //     $product_result = $cart_row['product_id'];
+    //     $product_result = $mysqli->query("SELECT * FROM tbl_products");
+    //     while($product_row = mysqli_fetch_assoc($product_result)):
+    //         // echo $product_row['banned'];
+    //         $product_id_to_cart = $product_row['id'];
+    //         // echo $product_id_to_cart;
+    //         if($cart_row['quantity'] <= 0 && $product_row['stock'] >= 1):
+    //             // echo 'asdtest';
+    //             $sql1 = "UPDATE tbl_cart SET quantity = 1 WHERE product_id = '$product_id_to_cart'";
+    //             $mysqli->query($sql1);
+    //         endif;
+    //     endwhile;
+    // endwhile;
 
   	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
 

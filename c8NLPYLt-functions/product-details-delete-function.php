@@ -29,6 +29,8 @@
     $mysqli->query($sql_delete_recently_viewed_products);
     $sql_delete_wishlists = "DELETE FROM tbl_wishlists WHERE product_id = '$id'";
     $mysqli->query($sql_delete_wishlists);
+    $sql_delete_popular_products = "DELETE FROM tbl_orders WHERE product_id = '$id'";
+    $mysqli->query($sql_delete_popular_products);
 
     if ($mysqli->query($sql) or die($mysqli->error)) {
         $email_path = BASEURL.'images/'.$_SESSION['email'].'/';

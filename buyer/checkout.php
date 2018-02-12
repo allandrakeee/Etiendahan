@@ -5,7 +5,7 @@
 
 	$email = $_SESSION['email'];
 
-    $result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email'");
+    $result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email' AND default_address = 1");
 	if($result->num_rows == 0) {
 		$_SESSION['logout-message-redirect'] = 'Required to have atleast one default address <a href="/etiendahan/customer/address/" style="text-decoration:none;">here</a>.';
 		header('location: /etiendahan/cart/');
@@ -106,8 +106,8 @@
 										
 											<div class="product mt-1" style="height: 85px">
 												<?php $saved_image = explode(',', $final_product_row['image']); ?>
-												<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" alt="" style="height: 80px;">
-												<div class="product-name d-inline" style="position: relative;top: -30px;"><?php echo $final_product_row['name'] ?></div>
+												<div class="" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);display: inline-block; height: 80px;width: 80px;background-position: center center;background-size: cover;"></div>
+												<div class="product-name d-inline" style="position: relative;top: -62px;"><?php echo $final_product_row['name'] ?></div>
 												<?php  
 													$final_product = $final_product_row['id'];
 													$quantity_result = $mysqli->query("SELECT * FROM tbl_cart WHERE product_id = '$final_product' AND email = '$email'");

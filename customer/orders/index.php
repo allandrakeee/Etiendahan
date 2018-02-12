@@ -149,7 +149,7 @@
 												</div>
 												<div class="col-md-7 text-right">
 													<div class="order-manage">
-														<a href="/etiendahan/customer/orders/view/" class="manage-order" id="<?php echo $count_distinct_id_row['uniqid_order']; ?>">Manage order</a>
+														<a href="/etiendahan/customer/orders/view/" class="manage-order" id="<?php echo $count_distinct_id_row['uniqid_order']; ?>">View order</a>
 													</div>
 												</div>
 											</div>

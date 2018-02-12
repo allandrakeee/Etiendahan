@@ -90,6 +90,11 @@
                         // http://localhost:8080/etiendahan/verify.php?email='.$email.'&hash='.$hash;  
 
                         // mail( $to, $subject, $message_body );
+                        
+                        $unique_hash_visitors = $_SESSION['unique_hash_visitors'];
+                        $email = $_SESSION['email'];
+                        $sql = "UPDATE tbl_visits SET created_at = NOW(), registered_customer = 1, email = '$email' WHERE hash = '$unique_hash_visitors'";
+                        $mysqli->query($sql);
 
                         header("location: /etiendahan/"); 
                     } else {
@@ -111,6 +116,12 @@
 
                     $_SESSION['logged_in'] = true;
                     $_SESSION['welcome-message'] = $_SESSION['fullname'];
+                        
+                    $unique_hash_visitors = $_SESSION['unique_hash_visitors'];
+                    $email = $_SESSION['email'];
+                    $sql = "UPDATE tbl_visits SET created_at = NOW(), registered_customer = 1, email = '$email' WHERE hash = '$unique_hash_visitors'";
+                    $mysqli->query($sql);
+                    
                     header("location: /etiendahan/");
                 }
             } else {

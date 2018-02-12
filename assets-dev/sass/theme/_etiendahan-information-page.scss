@@ -56,6 +56,29 @@
 		}
 	}
 
+	.container {
+		&.terms-and-conditions {
+			h3 {
+				font-size: 20px;
+				font-weight: 600;
+			    letter-spacing: 0.12px;
+			}
+
+			h5 {
+				font-size: 15px;
+				font-weight: 600;
+			}
+
+			.margin-h {
+				margin-top: 35px;
+			}
+
+			.margin-p {
+				margin-top: 10px;
+			}
+		}
+	}
+
 	// privacy policy
 	.container {
 		&.privacy-policy {

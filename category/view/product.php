@@ -386,7 +386,7 @@
 																	?>
 																</strong>
 														</div>
-															<div class="rate-body"><?php echo $ratings_row['body']; ?></div>
+															<div class="rate-body"><?php echo nl2br($ratings_row['body']); ?></div>
 														</div>
 												<?php endwhile; ?>
 										<?php else: ?>

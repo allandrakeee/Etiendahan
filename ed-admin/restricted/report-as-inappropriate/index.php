@@ -381,7 +381,7 @@
                               </td>
                               <td style=""><?php echo $ratings_row['rating'] ?></td>
                               <td style=""><?php echo $ratings_row['title'] ?></td>
-                              <td style=""><?php echo $ratings_row['body'] ?></td>
+                              <td style=""><?php echo nl2br($ratings_row['body']) ?></td>
                               <td style=""><?php $ratings_row11 = $ratings_row['email']; echo ($ratings_row['email'] != '')?"<a href='mailto:$ratings_row11' target='_blank' style='text-decoration:none;'>$ratings_row11</a>":'-' ?></td>
                               <td style=""><?php $ratings_row111 = $ratings_row1['email']; echo ($ratings_row1['email'] != '')?"<a href='mailto:$ratings_row111' target='_blank' style='text-decoration:none;'>$ratings_row111</a>":'-' ?></td>
                               <td><a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/ignore/" class="action-report-review" id="<?php echo $ratings_row1['rating_id'] ?>" style="color: dimgrey;"><i class="fa fa-times" style="display: inline-block;font-size: 15px;"></i></a><span> | </span><a href="/etiendahan/ed-admin/restricted/report-as-inappropriate/accept/" class="action-report-review" id="<?php echo $ratings_row1['rating_id'] ?>" style="color: dimgrey;"><i class="fa fa-check" style="display: inline-block;font-size: 15px;"></i></a></td>
