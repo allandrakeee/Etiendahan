@@ -61,10 +61,32 @@
 							    		<div class="col-md-2">Delivery Address:</div>
 							    		<div class="col-md-10">
 											<div class="fullname" style="font-size: 15px;"><?php echo $address_row['fullname'] ?></div>
+											<div class="postal-code" style="font-size: 15px;"><?php echo $address_row['postal_code'] ?></div>
 											<div class="complete-address" style="font-size: 15px;"><?php echo $address_row['complete_address'] ?></div>
-											<div class="city" style="font-size: 15px;"><?php echo $address_row['city'] ?></div>
-											<div class="barangay" style="font-size: 15px;"><?php echo $address_row['barangay'] ?></div>
+											<div class="province-citymun-barangay" style="font-size: 15px;">
+												<?php  
+										        	// province
+										        	$province_id = $address_row['province'];
+										        	$province_result = $mysqli->query("SELECT * FROM tbl_refprovince WHERE provCode = '$province_id'");
+													$province_row = $province_result->fetch_assoc();
+													$format_province = strtolower($province_row['provDesc']);
+
+										        	// city mun
+										        	$citymun_id = $address_row['city'];
+										        	$citymun_result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE citymunCode = '$citymun_id'");
+													$citymun_row = $citymun_result->fetch_assoc();
+													$format_citymun = strtolower($citymun_row['citymunDesc']);
+
+										        	// barangay
+										        	$barangay_id = $address_row['barangay'];
+										        	$barangay_result = $mysqli->query("SELECT * FROM tbl_refbrgy WHERE brgyCode = '$barangay_id'");
+													$barangay_row = $barangay_result->fetch_assoc();
+													$format_barangay = strtolower($barangay_row['brgyDesc']);
+										        ?>
+												<?php echo ucwords($format_province).' - '.ucwords($format_citymun).' - '.ucwords($format_barangay); ?>
+											</div>
 											<div class="phone-number" style="font-size: 15px;"><?php echo $address_row['phone_number'] ?></div>
+											<div class="other-notes" style="font-size: 15px;"><?php echo $address_row['other_notes'] ?></div>
 							    		</div>
 							    	</div>
 							    </div>

@@ -38,9 +38,9 @@
 		$_SESSION['address_delete'] = $_POST['address_delete'];
 	}
 
-	if($_POST['address_update'] != '') {
-		$_SESSION['address_update'] = $_POST['address_update'];
-	}
+	// if($_POST['address_update'] != '') {
+	// 	$_SESSION['address_update'] = $_POST['address_update'];
+	// }
 
 	if($_POST['wishlists_delete'] != '') {
 		$_SESSION['wishlists_delete'] = $_POST['wishlists_delete'];

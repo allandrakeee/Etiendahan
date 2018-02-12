@@ -162,7 +162,7 @@
 													<select name="birthyear" class="form-control" required>
 														<option value="">Year</option>
 														<?php
-															for ($x=date("Y"); $x>=1900; $x--) {
+															for ($x=date("Y")-13; $x>=1900; $x--) {
 														?>
 																<option value="<?php echo $x; ?>" <?php if($birthyear == $x) echo 'selected'; ?>><?php echo $x; ?></option>';
 														<?php
