@@ -261,8 +261,8 @@
 														<?php echo ucwords($format_province).' - '.ucwords($format_citymun).' - '.ucwords($format_barangay); ?>
 															
 													</div>
-													<div class="address-other-notes"><?php echo $address_row['other_notes']; ?></div>
 													<div class="address-phone-number"><?php echo $address_row['phone_number']; ?></div>
+													<div class="address-other-notes"><?php echo $address_row['other_notes']; ?></div>
 													<div class="separator"></div>
 											</div>
 											<div class="col-md-2 text-right">

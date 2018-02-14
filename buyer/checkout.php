@@ -106,7 +106,7 @@
 									while($cart_group_concat_row = mysqli_fetch_assoc($cart_group_concat_result)):
 									$product_id_cart = $cart_group_concat_row['product_id_g_c'];
 									
-										$seller_result = $mysqli->query("SELECT distinct(seller_email) as seller_email_distinct FROM tbl_products WHERE id in($product_id_cart) ORDER BY seller_email_distinct asc");
+										$seller_result = $mysqli->query("SELECT distinct(seller_email) as seller_email_distinct FROM tbl_products WHERE id in($product_id_cart) AND banned = 0 ORDER BY seller_email_distinct asc");
 										while($seller_row = mysqli_fetch_assoc($seller_result)):
 
 											$seller_email = $seller_row['seller_email_distinct'];

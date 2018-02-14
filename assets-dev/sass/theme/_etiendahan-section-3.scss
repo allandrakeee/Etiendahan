@@ -57,14 +57,17 @@
 	// owl
 	.owl-prev {
 		position: absolute;
-	    top: -136px;
+		top: -136px;
 		font-size: 14px;
+		overflow: hidden;
 	}
 
 	.owl-next {
-		position: absolute;
-		right: 0;
-	    top: -137px;
+		position: relative;
+		left: 95%;
+		display: inline-block;
+		top: -462px;
+		overflow: hidden;
 	}
 
 	.arrow-wrapper {

@@ -176,16 +176,16 @@
 											</div>
 										</div>
 
-										<!-- <div id="order-delivery-shipping" class="row">
+										<div id="order-delivery-shipping" class="row">
 											<div class="col-md-12">
 												<div class="order-delivery-shipping-name">
-													<i class="fa fa-truck fa-fw"></i>Standard Shipping
+													<i class="fa fa-truck fa-fw"></i>Shipping Information?
 												</div>
 												<div class="order-delivery-shipping-date">
-													01/12/2017
+													Contact your seller <a href="mailto:<?php echo $orders_count_row['seller_email'] ?>" style="text-decoration: none;" target="_blank"><?php echo $orders_count_row['seller_email'] ?></a> for further info.
 												</div>
 											</div>
-										</div> -->
+										</div>
 
 										<div id="order-delivery-status" class="row">
 											<div class="col-md-12">
@@ -261,7 +261,7 @@
 															<div class="item-quantity">
 																x<?php 
 																	$product_id_quantity =  $orders_count_row1['id']; 
-																	$result1 = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_quantity' AND email = '$email'");
+																	$result1 = $mysqli->query("SELECT * FROM tbl_orders WHERE product_id = '$product_id_quantity' AND email = '$email' AND unique_hash_id = '$manage_order'");
 																	$row1 = $result1->fetch_assoc();
 																	echo $row1['quantity'];
 																?>
@@ -290,25 +290,85 @@
 									        		$result12 = $mysqli->query("SELECT * FROM tbl_address WHERE email= '$order_email'");
 													$row12 = $result12->fetch_assoc();
 													echo $row12['fullname'].'<br>';
-													echo $row12['phone_number'].'<br>';
+													echo $row12['postal_code'].'<br>';
 													echo $row12['complete_address'].'<br>';
-													echo $row12['city'].'<br>';
-													echo $row12['barangay'].'<br>';
+
+													// province
+										        	$province_id = $row12['province'];
+										        	$province_result = $mysqli->query("SELECT * FROM tbl_refprovince WHERE provCode = '$province_id'");
+													$province_row = $province_result->fetch_assoc();
+													$format_province = strtolower($province_row['provDesc']);
+
+										        	// city mun
+										        	$citymun_id = $row12['city'];
+										        	$citymun_result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE citymunCode = '$citymun_id'");
+													$citymun_row = $citymun_result->fetch_assoc();
+													$format_citymun = strtolower($citymun_row['citymunDesc']);
+
+										        	// barangay
+										        	$barangay_id = $row12['barangay'];
+										        	$barangay_result = $mysqli->query("SELECT * FROM tbl_refbrgy WHERE brgyCode = '$barangay_id'");
+													$barangay_row = $barangay_result->fetch_assoc();
+													$format_barangay = strtolower($barangay_row['brgyDesc']);
+										        	echo ucwords($format_province).' - '.ucwords($format_citymun).' - '.ucwords($format_barangay).'<br>';
+
+													echo $row12['phone_number'].'<br>';
+													echo $row12['other_notes'].'<br>';										        	
 												} else {
 													$row1 = $result1->fetch_assoc();
 													echo $row1['fullname'].'<br>';
-													echo $row1['phone_number'].'<br>';
+													echo $row1['postal_code'].'<br>';
 													echo $row1['complete_address'].'<br>';
-													echo $row1['city'].'<br>';
-													echo $row1['barangay'].'<br>';
+
+													// province
+										        	$province_id = $row1['province'];
+										        	$province_result = $mysqli->query("SELECT * FROM tbl_refprovince WHERE provCode = '$province_id'");
+													$province_row = $province_result->fetch_assoc();
+													$format_province = strtolower($province_row['provDesc']);
+
+										        	// city mun
+										        	$citymun_id = $row1['city'];
+										        	$citymun_result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE citymunCode = '$citymun_id'");
+													$citymun_row = $citymun_result->fetch_assoc();
+													$format_citymun = strtolower($citymun_row['citymunDesc']);
+
+										        	// barangay
+										        	$barangay_id = $row1['barangay'];
+										        	$barangay_result = $mysqli->query("SELECT * FROM tbl_refbrgy WHERE brgyCode = '$barangay_id'");
+													$barangay_row = $barangay_result->fetch_assoc();
+													$format_barangay = strtolower($barangay_row['brgyDesc']);
+										        	echo ucwords($format_province).' - '.ucwords($format_citymun).' - '.ucwords($format_barangay).'<br>';
+
+													echo $row1['phone_number'].'<br>';
+													echo $row1['other_notes'].'<br>';
 												}
 									        } else {
 												$row = $result->fetch_assoc();
 												echo $row['fullname'].'<br>';
-												echo $row['phone_number'].'<br>';
+												echo $row['postal_code'].'<br>';
 												echo $row['complete_address'].'<br>';
-												echo $row['city'].'<br>';
-												echo $row['barangay'].'<br>';
+
+												// province
+									        	$province_id = $row['province'];
+									        	$province_result = $mysqli->query("SELECT * FROM tbl_refprovince WHERE provCode = '$province_id'");
+												$province_row = $province_result->fetch_assoc();
+												$format_province = strtolower($province_row['provDesc']);
+
+									        	// city mun
+									        	$citymun_id = $row['city'];
+									        	$citymun_result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE citymunCode = '$citymun_id'");
+												$citymun_row = $citymun_result->fetch_assoc();
+												$format_citymun = strtolower($citymun_row['citymunDesc']);
+
+									        	// barangay
+									        	$barangay_id = $row['barangay'];
+									        	$barangay_result = $mysqli->query("SELECT * FROM tbl_refbrgy WHERE brgyCode = '$barangay_id'");
+												$barangay_row = $barangay_result->fetch_assoc();
+												$format_barangay = strtolower($barangay_row['brgyDesc']);
+									        	echo ucwords($format_province).' - '.ucwords($format_citymun).' - '.ucwords($format_barangay).'<br>';
+
+												echo $row['phone_number'].'<br>';
+												echo $row['other_notes'].'<br>';
 											}
 										?>
 									</div>

@@ -1,5 +1,5 @@
-// Homepage recommendations
-#etiendahan-section-6 {
+// Homepage popular products
+#etiendahan-specialty-in-city {
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 30px;
 
@@ -64,10 +64,10 @@
 
 	.owl-next {
 		position: relative;
-		left: 95%;
-		display: inline-block;
-		top: -462px;
-		overflow: hidden;
+	    left: 95%;
+	    display: inline-block;
+	    top: -422px;
+	    overflow: hidden;
 	}
 
 	.arrow-wrapper {
@@ -83,10 +83,9 @@
 		opacity: 1;
 		margin: 0;
 		font-size: 20px;
+
 	}
 	
-	
-
 	a {
 		text-decoration: none;
 
@@ -133,21 +132,6 @@
 					vertical-align: bottom;
 					margin: 15px 0 8px 0;
 				}
-			}
-		}
-	}
-
-
-	.container-fluid {
-		padding: 0;
-		margin-top: 90px;
-
-		.recently-view {
-			padding: 20px 0;
-			background: #CCCCCC;
-
-			div {
-				text-align: center;
 			}
 		}
 	}

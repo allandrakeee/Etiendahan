@@ -66,8 +66,8 @@
 								</div>
 
 								<div class="info">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, cumque est repellendus culpa, ad ut beatae? Fugit, magnam, explicabo alias ut doloribus rem porro, dolor ipsum consectetur quibusdam ducimus aspernatur. Facilis perferendis, dolores pariatur laudantium cumque dolorem qui, deserunt quae officiis atque ullam suscipit obcaecati similique! At ducimus cumque aliquid.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quas sapiente architecto praesentium laborum aliquam animi voluptatum dicta quos blanditiis.</p>
+									<p>Online marketplace offers small and medium businesses to become seen in the Internet and compete with more established brands. Etiendahan empowers these entrepreneurs by placing all their online stores under one roof and gives customers the best shopping experience by providing amazing deals.</p>
+									<p>One of the major hassles of shopping in malls is not really the selection of products, but in being unable to find the right products easily. In Etiendahan, product discovery is just a click away. Online shoppers can find new and interesting offers from local online shops, as well as items from their favorite brands.</p>
 								</div>
 
 								<div class="title margin-h">
@@ -75,8 +75,7 @@
 								</div>
 
 								<div class="info">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, cumque est repellendus culpa, ad ut beatae? Fugit, magnam, explicabo alias ut doloribus rem porro, dolor ipsum consectetur quibusdam ducimus aspernatur. Facilis perferendis, dolores pariatur laudantium cumque dolorem qui, deserunt quae officiis atque ullam suscipit obcaecati similique! At ducimus cumque aliquid.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quas sapiente architecto praesentium laborum aliquam animi voluptatum dicta quos blanditiis.</p>
+									<p>Etiendahan has a wide selection of goods from sellers - from the authentic products here in Dagupan to the latest fashion trends and beauty products. Looking for home appliances for your home? How about toys and gift suggestions for kids and babies? Be amazed of Etiendahan’s huge assortment and competitive pricing. All these and more available in Etiendahan.com.</p>
 								</div>
 							</div>
 						</div>

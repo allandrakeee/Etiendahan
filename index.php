@@ -952,14 +952,14 @@
 						?>
 							<!-- have not recently view -->
 							<div class="container-fluid">
-								No Popular Products Yet
+								<div style="margin-left: 136px;">No Popular Products Yet</div>
 							</div>
 						<?php else: ?>
 							<!-- have recently view -->
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/popular-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1000ms">POPULAR PRODUCTS</h3>
+									<h3><span class="wow pulse" data-wow-delay="1500ms">POPULAR PRODUCTS</h3>
 								</div>
 
 								<div class="owl-carousel">
@@ -1145,7 +1145,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/recently-viewed-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1000ms">YOUR RECENTLY VIEWED PRODUCTS<?php if($user['first_name'] != ''): ?>, <?php echo $user['first_name'] ?><?php endif; ?></span></h3>
+									<h3><span class="wow pulse" data-wow-delay="1500ms">YOUR RECENTLY VIEWED PRODUCTS<?php if($user['first_name'] != ''): ?>, <?php echo $user['first_name'] ?><?php endif; ?></span></h3>
 								</div>
 
 								<div class="owl-carousel">

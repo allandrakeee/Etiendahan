@@ -451,7 +451,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/seller-shop/" class="view-shop" id="<?php echo $row_product['seller_email']; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1000ms">FROM THE SAME SHOP</span></h3>
+									<h3><span class="wow pulse" data-wow-delay="1500ms">FROM THE SAME SHOP</span></h3>
 								</div>
 
 								<div class="owl-carousel">
@@ -524,7 +524,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/related-products/" class="related-products" id="<?php echo $category_name; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1000ms">RELATED PRODUCTS</span></h3>
+									<h3><span class="wow pulse" data-wow-delay="1500ms">RELATED PRODUCTS</span></h3>
 								</div>
 
 								<div class="owl-carousel">

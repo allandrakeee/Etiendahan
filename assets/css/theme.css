@@ -15543,11 +15543,14 @@ input[type="search"].sb-search-input {
   #etiendahan-section-3 .owl-prev {
     position: absolute;
     top: -136px;
-    font-size: 14px; }
+    font-size: 14px;
+    overflow: hidden; }
   #etiendahan-section-3 .owl-next {
-    position: absolute;
-    right: 0;
-    top: -137px; }
+    position: relative;
+    left: 95%;
+    display: inline-block;
+    top: -462px;
+    overflow: hidden; }
   #etiendahan-section-3 .arrow-wrapper {
     color: dimgrey;
     display: block;
@@ -15778,11 +15781,14 @@ input[type="search"].sb-search-input {
   #etiendahan-section-6 .owl-prev {
     position: absolute;
     top: -136px;
-    font-size: 14px; }
+    font-size: 14px;
+    overflow: hidden; }
   #etiendahan-section-6 .owl-next {
-    position: absolute;
-    right: 0;
-    top: -137px; }
+    position: relative;
+    left: 95%;
+    display: inline-block;
+    top: -462px;
+    overflow: hidden; }
   #etiendahan-section-6 .arrow-wrapper {
     color: dimgrey;
     display: block;
@@ -16613,6 +16619,107 @@ input[type="search"].sb-search-input {
                   box-shadow: none; }
   #etiendahan-shopping-cart-page .cart-delete-focus:focus {
     outline: none; }
+
+#etiendahan-specialty-in-city {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 30px; }
+  #etiendahan-specialty-in-city .title-name {
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    margin: 0 auto 85px;
+    line-height: 50px;
+    position: relative; }
+    #etiendahan-specialty-in-city .title-name a {
+      position: relative;
+      top: 100px;
+      right: 0;
+      color: #000;
+      font-size: 15px;
+      width: 100%; }
+      #etiendahan-specialty-in-city .title-name a .fa.fa-chevron-right {
+        font-size: 12px; }
+    #etiendahan-specialty-in-city .title-name span {
+      height: 50px;
+      line-height: 48px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      background-color: #FFFFFF;
+      z-index: 2;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      font-weight: 400;
+      padding: 0 20px;
+      position: relative; }
+  #etiendahan-specialty-in-city .title-name::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    height: 1px;
+    left: 15px;
+    right: 15px;
+    background-color: #e6e6e6;
+    z-index: 1; }
+  #etiendahan-specialty-in-city .owl-prev {
+    position: absolute;
+    top: -136px;
+    font-size: 14px;
+    overflow: hidden; }
+  #etiendahan-specialty-in-city .owl-next {
+    position: relative;
+    left: 95%;
+    display: inline-block;
+    top: -422px;
+    overflow: hidden; }
+  #etiendahan-specialty-in-city .arrow-wrapper {
+    color: dimgrey;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #e6e6e6;
+    line-height: 48px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 0;
+    opacity: 1;
+    margin: 0;
+    font-size: 20px; }
+  #etiendahan-specialty-in-city a {
+    text-decoration: none; }
+    #etiendahan-specialty-in-city a .card {
+      border-radius: 0; }
+      #etiendahan-specialty-in-city a .card .card-image {
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-bottom: 1px solid #e6e6e6; }
+      #etiendahan-specialty-in-city a .card .card-body {
+        padding: 5px 8px; }
+        #etiendahan-specialty-in-city a .card .card-body .product-name {
+          font-size: 0.750rem;
+          font-weight: 600;
+          color: #333333;
+          margin: 10px 0;
+          height: 35px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+        #etiendahan-specialty-in-city a .card .card-body .product-price {
+          font-size: 0.750rem;
+          font-weight: 500;
+          color: #333333; }
+        #etiendahan-specialty-in-city a .card .card-body .product-rating {
+          font-size: 0.750rem;
+          font-weight: 500;
+          color: #333333;
+          float: right;
+          vertical-align: bottom;
+          margin: 15px 0 8px 0; }
 
 #etiendahan-view-product-page {
   font-family: 'Montserrat', sans-serif;
