@@ -77,7 +77,7 @@
 			<div class="main">
 
 				<?php  
-					if ( $logged_in == true) {
+					if($logged_in == true) {
 				?>
 						<!-- SECTION 1 - Homepage navbar and carousel -->
 						<div id="etiendahan-section-1" class="etiendahan-section">
