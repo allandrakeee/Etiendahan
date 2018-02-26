@@ -24,7 +24,6 @@
 			$mysqli->query("INSERT INTO tbl_visits(created_at, hash, email, registered_customer) VALUES(NOW(), '$unique_hash_visitors', 0, 0)") or die($mysqli->error);
 		}
 	}
-	
   	
   	$email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
 
