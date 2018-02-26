@@ -126,7 +126,7 @@
 											<div id="etiendahan-specialty-in-city" class="etiendahan-section mt-5">
 												<div class="container">
 													<div class="title-name">
-														<h3><span class="wow pulse" data-wow-delay="1500ms">AVAILABLE PRODUCTS</span></h3>
+														<h3><span class="wow pulse" data-wow-delay="1500ms">SOME PRODUCTS</span></h3>
 													</div>
 
 													<div class="owl-carousel">

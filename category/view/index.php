@@ -79,7 +79,12 @@
 												$result_category_sub = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$category_id'");
 												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
 											?>
-											<li><a href="/etiendahan/category/view/sub/" class="go-to-sub" id="<?php echo $row_category_sub['id']; ?>"><i class="fa fa-angle-right fa-fw"></i><?php echo $row_category_sub['name']; ?></a></li>
+											<li><a href="/etiendahan/category/view/sub/" class="go-to-sub" id="<?php echo $row_category_sub['id']; ?>"><i class="fa fa-angle-right fa-fw"></i><?php echo $row_category_sub['name']; ?> (<?php
+												$total_count_id = $row_category_sub['id'];
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where sub_id = '$total_count_id' AND stock > 0 AND banned = 0");
+												$count_tbl_products = $result->fetch_assoc();
+												echo $count_tbl_products['count_tbl_products'];
+											 ?>)</a></li>
 											<?php endwhile; ?>
 										</ul>
 									</div>

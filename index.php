@@ -990,17 +990,16 @@
 													<div class="product-price">₱ <?php echo $product_row_recently_viewed_products['price'] ?></div>
 													<div class="product-rating" style="height: 18px;">
 														<?php  
-															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratings_result_count1 = $mysqli->query("SELECT COUNT(*) AS 'total' FROM tbl_ratings WHERE product_id = '$product_id_date'");
 															$ratings_row_count1 = $ratings_result_count1->fetch_assoc();
 															$ratings_count1 = $ratings_row_count1['total'];
 
-
-															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id'");
+															$ratings_result_avg1 = $mysqli->query("SELECT tbl_products.id, tbl_products.name, AVG(tbl_ratings.rating) AS rating FROM tbl_products LEFT JOIN tbl_ratings ON tbl_products.id = tbl_ratings.product_id AND tbl_ratings.product_id = '$product_id_date'");
 															$ratings_row_avg1 = $ratings_result_avg1->fetch_assoc();
 															$ratings_avg1 = round($ratings_row_avg1['rating']);												
 														?>
 														<?php  
-															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id'");
+															$ratins_result_row1 = $mysqli->query("SELECT * FROM tbl_ratings WHERE product_id = '$product_id_date'");
 															if($ratins_result_row1->num_rows == 0):
 														?>
 															No reviews yet
@@ -1039,7 +1038,7 @@
 							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
 							<div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
 							<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Marketplace here in Dagupan</div>
-							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#<a href="https://web.facebook.com/etiendahan/">SHOPATETIENDAHAN</a></div>
+							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div>
 						</div>
 					</div>
 				</div>
@@ -1295,7 +1294,7 @@
 				<div id="etiendahan-section-8" class="etiendahan-section">
 					<div class="container">
 						<div class="footer-title">
-							Copyright © <?php echo date("Y"); ?> by <a href="https://allandrake.wixsite.com/freelancer" target="_blank">ADPD</a>. All rights reserved.
+							Copyright © <?php echo date("Y"); ?> by <a href="https://allandrake.wixsite.com/portfolio/" target="_blank">ADPD</a>. All rights reserved.
 						</div>
 					</div>
 				</div>
