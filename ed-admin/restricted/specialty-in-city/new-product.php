@@ -373,7 +373,7 @@
                         $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
                     ?>
                     <div class="form-group" style="width: 25%">
-                        <label><strong>Owner Shop:</strong></label>
+                        <label><strong>Shop Owner:</strong></label>
                         <select class="browser-default" name="sic_owner" required>
                             <option value = "" selected>Select</option>
                             <?php

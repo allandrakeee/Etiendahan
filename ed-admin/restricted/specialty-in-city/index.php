@@ -338,7 +338,7 @@
           <div class="header"> 
             <h1 class="page-header">
                 Specialty in City
-                <a href="/etiendahan/ed-admin/restricted/specialty-in-city/new-owner-shop/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New Owner Shop</div></a> 
+                <a href="/etiendahan/ed-admin/restricted/specialty-in-city/new-owner-shop/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New Shop Owner</div></a> 
                 <a href="/etiendahan/ed-admin/restricted/specialty-in-city/new-product/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New Product</div></a> 
             </h1>           
         </div>
@@ -351,7 +351,7 @@
                     <table class="table">
                       <thead>
                         <tr style="font-size: 18px;">
-                          <th scope="col" style="text-transform: uppercase;">Owner Shop</th>
+                          <th scope="col" style="text-transform: uppercase;">Shop Owner</th>
                           <th scope="col" style="text-transform: uppercase;">Owner Image</th>
                           <th scope="col" style="text-transform: uppercase;">Action</th>
                         </tr>

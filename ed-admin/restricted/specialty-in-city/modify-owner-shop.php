@@ -342,7 +342,7 @@
                 Specialty in City
                 <ol class="breadcrumb" style="margin-left: 0; padding-left: 0;">
                   <li><a href="/etiendahan/ed-admin/restricted/specialty-in-city/"><i class="fa fa-building-o" style="position: relative;top: 6px;"></i></a></li>
-                  <li class="active">Modify Owner Shop</li>
+                  <li class="active">Modify Shop Owner</li>
                 </ol> 
             </h1>           
         </div>
@@ -356,7 +356,7 @@
                     <div class="form-group">
                         <div class="input-field">
                             <input type="text" class="validate" style="margin-bottom: 8px;" id="owner_name" maxlength="115" name="owner_name" value="<?php echo $row['name'] ?>" required>
-                            <label for="owner_name"><strong>Owner shop:</strong></label>
+                            <label for="owner_name"><strong>Shop Owner:</strong></label>
                         </div>
                     </div>     
 

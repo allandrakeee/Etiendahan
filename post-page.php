@@ -76,13 +76,14 @@
 		
 		//-------------------------------------------------------
 		
-		$access_token	= "EAACUfAHX7VsBAOkSdNUpiJZCTqyuTym9Rmr6ogwiWqTyOorXVhAs4o8SNcp1JBzh9cJitEJadq5G1Pre2ZCZAtMvThuiPRDXyerzvxWF0Snc9i2vLi6AgDyZBXJaX7VgBSFARWWBjZAJjYPVt6KbwFWUB95YffPcGocoSMAZA6zRSU8y94M1wG8aXZAEQkTrorZAtWZCZBNvz06QZDZD";
+		$access_token	= "EAACUfAHX7VsBAN5tiZBndsGj4VNeF8TdZBOelN1QI0Hc4EdfAXuKK71H1BbWE12RgKZCOTIEQxCGDnwZAyU3XJHbP26mjYbw04ge9JH2PxZC4mNEQmUta6n56cWbCzsICbrwwiAblMJ9OgBxg0k4pcUXS4T3zXr1VCSbNsAYi2ZAPgwrQZB7tTRjZAbFpngL6qewrSdyS6uEqwZDZD";
 		$id_page 		= "1742699689126908";
 		$msg 			= "Looking seller for $post_page. Go now to our Sell on Etiendahan page and create an account to start showcase your products.";
 		$post_on 		= "PAGE";
-		
-		//posting($access_user_token, $msg, $post_as)
+
+		// posting($access_user_token, $msg, $post_as);
 		posting($access_token, $id_page, $msg, $post_on);
+		// die();
 		$_SESSION['successfully-posted'] = 'Successfully posted to our page.';
 		header('location: /etiendahan/search/');
 	}
