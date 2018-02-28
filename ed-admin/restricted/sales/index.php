@@ -335,12 +335,12 @@
         <!-- /. NAV SIDE  -->
       
         <div id="page-wrapper">
-          <div class="header"> 
-            <h1 class="page-header">
-                Sales
-                <!-- <a href="/etiendahan/ed-admin/restricted/slides/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
-            </h1>           
-        </div>
+            <div class="header"> 
+                <h1 class="page-header">
+                    Sales
+                    <!-- <a href="/etiendahan/ed-admin/restricted/slides/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
+                </h1>           
+            </div>
         
             <div id="page-inner" class="table-responsive">
                 <?php $customers_result = $mysqli->query("SELECT * FROM tbl_visits"); ?>
@@ -367,9 +367,35 @@
                 <?php endif; ?>
             
             <!-- /. PAGE INNER  -->
+                <div class="row" style="margin-top: 50px; text-align: center;">
+                    <div class="col-md-12">
+                        <div class="title-report" style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Sales Report</div>
+                        
+                        <form action="report/" method="POST">
+                            <div class="row" style="text-align: center;">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-2">
+                                    From
+                                    <div class="form-group">
+                                        <input type="date" class="datepicker" name="from">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    To
+                                    <div class="form-group">
+                                        <input type="date" class="datepicker" name="to">
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-default" name="submit_slides">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         <!-- /. PAGE WRAPPER  -->
-    </div>
+        </div>
     <!-- /. WRAPPER  -->
 
     <!-- POPUP NOTIFICATION -->

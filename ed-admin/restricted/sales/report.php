@@ -29,33 +29,56 @@
 		}
 
 		function viewTable($db) {
+			$from_time = strtotime($_POST['from']);
+			$from_new_format = date('Y-m-d', $from_time);
+			// echo $from_new_format;
+
+			$to_time = strtotime($_POST['to']);
+			$to_new_format = date('Y-m-d', $to_time);
+			// echo $to_new_format;
+
 			$this->SetFont('Times', '', 10);
 
-			$result = $db->query("SELECT o.unique_hash_id, p.name, o.quantity, o.email, DATE_FORMAT(o.created_at, '%M %d, %Y') AS date_placed FROM tbl_orders o join tbl_products p on(o.product_id = p.id)");
-			while($row = $result->fetch(PDO::FETCH_OBJ)) {
-				$this->Cell(43, 10, $row->unique_hash_id, 1, 0, 'C');
-				
-				if($this->GetStringWidth($row->name) >= 98) {
-					$this->SetFont('Times', '', 8);
-					$this->Cell(100, 10, $row->name, 1, 0, 'L');
-					$this->SetFont('Times', '', 10);
-				} else {
-					$this->Cell(100, 10, $row->name, 1, 0, 'L');
-				}
-				
-				$this->Cell(30, 10, $row->quantity, 1, 0, 'C');
-
-				if($this->GetStringWidth($row->email) >= 58) {
-					$this->SetFont('Times', '', 8);
-					$this->Cell(60, 10, $row->email, 1, 0, 'C');
-					$this->SetFont('Times', '', 10);
-				} else {
-					$this->Cell(60, 10, $row->email, 1, 0, 'C');
-				}
-
-				$this->Cell(43, 10, $row->date_placed, 1, 0, 'C');
-				$this->Ln();
+			if($_POST['from'] == '' && $_POST['to'] == '') {
+				$result = $db->query("SELECT o.unique_hash_id, p.name, o.quantity, o.email, DATE_FORMAT(o.created_at, '%M %d, %Y') AS date_placed FROM tbl_orders o join tbl_products p on(o.product_id = p.id)");
+			} else {
+				$result = $db->query("SELECT o.unique_hash_id, p.name, o.quantity, o.email, DATE_FORMAT(o.created_at, '%M %d, %Y') AS date_placed FROM tbl_orders o join tbl_products p on(o.product_id = p.id) WHERE (o.created_at BETWEEN '$from_new_format' AND '$to_new_format')");
 			}
+
+			$count_row = $result->rowCount(); 
+			if($count_row == 0) {
+				$this->Cell(43, 10, '-', 1, 0, 'C');
+				$this->Cell(100, 10, '-', 1, 0, 'C');
+				$this->Cell(30, 10, '-', 1, 0, 'C');
+				$this->Cell(60, 10, '-', 1, 0, 'C');
+				$this->Cell(43, 10, '-', 1, 0, 'C');
+			} else {
+				while($row = $result->fetch(PDO::FETCH_OBJ)) {
+					$this->Cell(43, 10, $row->unique_hash_id, 1, 0, 'C');
+					
+					if($this->GetStringWidth($row->name) >= 98) {
+						$this->SetFont('Times', '', 8);
+						$this->Cell(100, 10, $row->name, 1, 0, 'L');
+						$this->SetFont('Times', '', 10);
+					} else {
+						$this->Cell(100, 10, $row->name, 1, 0, 'L');
+					}
+					
+					$this->Cell(30, 10, $row->quantity, 1, 0, 'C');
+
+					if($this->GetStringWidth($row->email) >= 58) {
+						$this->SetFont('Times', '', 8);
+						$this->Cell(60, 10, $row->email, 1, 0, 'C');
+						$this->SetFont('Times', '', 10);
+					} else {
+						$this->Cell(60, 10, $row->email, 1, 0, 'C');
+					}
+
+					$this->Cell(43, 10, $row->date_placed, 1, 0, 'C');
+					$this->Ln();
+				}
+			}
+
 		}
 	}
 
