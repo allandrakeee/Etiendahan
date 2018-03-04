@@ -104,7 +104,7 @@
 								 	<?php endif; ?>
 									</div>
 									<?php  
-										$product_group_concat_result = $mysqli->query("SELECT GROUP_CONCAT(id), stock FROM tbl_products WHERE seller_email = '$seller_shop_email' AND stock > 0");
+										$product_group_concat_result = $mysqli->query("SELECT GROUP_CONCAT(id), stock FROM tbl_products WHERE seller_email = '$seller_shop_email' AND stock > 0 AND banned = 0");
 										$product_group_concat_row = $product_group_concat_result->fetch_assoc();
 										$product_group_concat = $product_group_concat_row['GROUP_CONCAT(id)'];
 
