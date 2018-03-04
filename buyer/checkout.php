@@ -7,7 +7,7 @@
 
     $result = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email' AND default_address = 1");
 	if($result->num_rows == 0) {
-		$_SESSION['logout-message-redirect'] = 'Required to have atleast one default address <a href="/etiendahan/customer/address/" style="text-decoration:none;">here</a>.';
+		$_SESSION['logout-message-redirect'] = 'Required to have at least one default address <a href="/etiendahan/customer/address/" style="text-decoration:none;">here</a>.';
 		header('location: /etiendahan/cart/');
 	}
 ?>

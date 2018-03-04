@@ -11,7 +11,7 @@
     $result1 = $mysqli->query("SELECT * FROM tbl_address WHERE email = '$email'");
 
     if($result1->num_rows == 1) {
-    	$_SESSION['cant-proceed-message'] = 'Required to have you atleast one address.';
+    	$_SESSION['cant-proceed-message'] = 'Required to have you at least one address.';
 		header('location: /etiendahan/customer/address/');
     } else {
 	    $result = $mysqli->query("SELECT * FROM tbl_orders WHERE address_id = '$address_id'");

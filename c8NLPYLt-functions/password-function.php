@@ -43,7 +43,7 @@
         }
     }
     else {
-        $_SESSION['check-password-message'] = "Password didn't match to you email, try again.";
+        $_SESSION['check-password-message'] = "Password didn't match to your email, try again.";
         header("location: /etiendahan/customer/account/password/");
     }
     

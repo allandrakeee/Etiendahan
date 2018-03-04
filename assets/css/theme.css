@@ -13950,8 +13950,9 @@ html.admin-page {
         font-size: 12px; }
   #etiendahan-customer-page-section-1 .col-md-8 {
     height: 550px;
-    overflow: auto;
-    background-color: #f8f8f8; }
+    background-color: #f8f8f8;
+    overflow-y: auto;
+    overflow-x: hidden; }
     #etiendahan-customer-page-section-1 .col-md-8 .tab-content {
       margin-top: 20px;
       padding-bottom: 2px;

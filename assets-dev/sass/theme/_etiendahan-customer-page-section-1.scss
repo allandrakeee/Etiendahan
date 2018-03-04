@@ -50,8 +50,9 @@
 
 	.col-md-8 {
 		height: 550px;
-		overflow: auto;
 		background-color: #f8f8f8;
+		overflow-y: auto;
+		overflow-x: hidden;
 
 		.tab-content {
 			margin-top: 20px;

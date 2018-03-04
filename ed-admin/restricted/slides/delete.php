@@ -9,7 +9,7 @@
 	$slides_result = $mysqli->query("SELECT * FROM tbl_slides WHERE id = '$id'");
 
 	if($slides_result_delete->num_rows == 1) {
-        $_SESSION['cant-proceed-delete-slide'] = "Required atleast 1 slide.";
+        $_SESSION['cant-proceed-delete-slide'] = "Required at least 1 slide.";
 		header('location: /etiendahan/ed-admin/restricted/slides/');		
 	} else {
 		$slides_row = $slides_result->fetch_assoc();
