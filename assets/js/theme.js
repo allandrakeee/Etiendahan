@@ -47972,6 +47972,165 @@ $(function () {
 	$('[data-toggle="tooltip"]').tooltip()
 })
 
+$(function() {
+    $('.my-gallery-inner.78').hover(
+        function(e){$('.agno').tooltip('toggle');}
+    );
+    $('.79').hover(
+        function(e){$('.aguilar').tooltip('toggle');}
+    );
+    $('.80').hover(
+        function(e){$('.city-of-alaminos').tooltip('toggle');}
+    );
+    $('.81').hover(
+        function(e){$('.alcala').tooltip('toggle');}
+    );
+    $('.82').hover(
+        function(e){$('.anda').tooltip('toggle');}
+    );
+    $('.83').hover(
+        function(e){$('.asingan').tooltip('toggle');}
+    );
+    $('.84').hover(
+        function(e){$('.balungao').tooltip('toggle');}
+    );
+    $('.85').hover(
+        function(e){$('.bani').tooltip('toggle');}
+    );
+    $('.86').hover(
+        function(e){$('.basista').tooltip('toggle');}
+    );
+    $('.87').hover(
+        function(e){$('.bautista').tooltip('toggle');}
+    );
+    $('.88').hover(
+        function(e){$('.bayambang').tooltip('toggle');}
+    );
+    $('.89').hover(
+        function(e){$('.binalonan').tooltip('toggle');}
+    );
+    $('.90').hover(
+        function(e){$('.binmaley').tooltip('toggle');}
+    );
+
+
+    $('.91').hover(
+        function(e){$('.bolinao').tooltip('toggle');}
+    );
+    $('.92').hover(
+        function(e){$('.bugallon').tooltip('toggle');}
+    );
+    $('.93').hover(
+        function(e){$('.burgos').tooltip('toggle');}
+    );
+    $('.94').hover(
+        function(e){$('.calasiao').tooltip('toggle');}
+    );
+    $('.95').hover(
+        function(e){$('.dagupan-city').tooltip('toggle');}
+    );
+    $('.96').hover(
+        function(e){$('.dasol').tooltip('toggle');}
+    );
+    $('.97').hover(
+        function(e){$('.infanta').tooltip('toggle');}
+    );
+    $('.98').hover(
+        function(e){$('.labrador').tooltip('toggle');}
+    );
+    $('.99').hover(
+        function(e){$('.lingayen').tooltip('toggle');}
+    );
+    $('.100').hover(
+        function(e){$('.mabini').tooltip('toggle');}
+    );
+
+
+    $('.101').hover(
+        function(e){$('.malasiqui').tooltip('toggle');}
+    );
+    $('.102').hover(
+        function(e){$('.manaoag').tooltip('toggle');}
+    );
+    $('.103').hover(
+        function(e){$('.mangaldan').tooltip('toggle');}
+    );
+    $('.104').hover(
+        function(e){$('.mangatarem').tooltip('toggle');}
+    );
+    $('.105').hover(
+        function(e){$('.mapandan').tooltip('toggle');}
+    );
+    $('.106').hover(
+        function(e){$('.natividad').tooltip('toggle');}
+    );
+    $('.107').hover(
+        function(e){$('.pozorrubio').tooltip('toggle');}
+    );
+    $('.108').hover(
+        function(e){$('.rosales').tooltip('toggle');}
+    );
+    $('.109').hover(
+        function(e){$('.san-carlos-city').tooltip('toggle');}
+    );
+    $('.110').hover(
+        function(e){$('.san-fabian').tooltip('toggle');}
+    );
+
+
+    $('.111').hover(
+        function(e){$('.san-jacinto').tooltip('toggle');}
+    );
+    $('.112').hover(
+        function(e){$('.san-manuel').tooltip('toggle');}
+    );
+    $('.113').hover(
+        function(e){$('.san-nicolas').tooltip('toggle');}
+    );
+    $('.114').hover(
+        function(e){$('.san-quintin').tooltip('toggle');}
+    );
+    $('.115').hover(
+        function(e){$('.santa-barbara').tooltip('toggle');}
+    );
+    $('.116').hover(
+        function(e){$('.santa-maria').tooltip('toggle');}
+    );
+    $('.117').hover(
+        function(e){$('.santo-tomas').tooltip('toggle');}
+    );
+    $('.118').hover(
+        function(e){$('.sison').tooltip('toggle');}
+    );
+    $('.119').hover(
+        function(e){$('.sual').tooltip('toggle');}
+    );
+    $('.120').hover(
+        function(e){$('.tayug').tooltip('toggle');}
+    );
+
+    $('.121').hover(
+        function(e){$('.umingan').tooltip('toggle');}
+    );
+    $('.122').hover(
+        function(e){$('.urbiztondo').tooltip('toggle');}
+    );
+    $('.123').hover(
+        function(e){$('.city-of-urdaneta').tooltip('toggle');}
+    );
+    $('.124').hover(
+        function(e){$('.villasis').tooltip('toggle');}
+    );
+    $('.125').hover(
+        function(e){$('.laoac').tooltip('toggle');}
+    );
+
+
+
+
+    
+});
+
 // popup notification
 // $(document).ready(function () {
 // 	function load_last_notification() {
@@ -49064,7 +49223,8 @@ $(document).on('click', 'button.delete-image', function(){
 });
 
 $(document).on('click', '.my-gallery-inner', function(){
-    var category_id = $(this).attr('id');
+    var category_id = $(this).data('value');
+    // alert(category_id);
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_id": category_id});
 });
 
@@ -49455,7 +49615,7 @@ $.ui.autocomplete.prototype._renderItem = function (ul, item) {
     item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(this.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
     return $("<li class='li-item d-inline' style='z-index:999999 !important'></li>")
             .data("item.autocomplete", item)
-            .append("<a href='/etiendahan/category/view/product/' class='search-item category-product-id' id='"+item.id+"'>" + item.label + "</a>")
+            .append("<a href='/etiendahan/market/view/product/' class='search-item category-product-id' id='"+item.id+"'>" + item.label + "</a>")
             .appendTo(ul);
 };
 // ============ END OF AUTOCOMPLETE SEARCH ============ 

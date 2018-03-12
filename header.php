@@ -43,18 +43,13 @@
 
 							<!-- MARKET -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
-							</li>
-
-							<!-- LOCATION -->
-							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+								<a class="nav-link cl-effect" href="/etiendahan/market/view/" target="">Market</a>
 							</li>
 
 							<!-- STORES -->
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
-							</li>
+							</li> -->
 
 							
 
@@ -306,7 +301,7 @@
 									<?php else: ?>
 										<div class="item">
 											<div class="item-left">
-												<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+												<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 													<?php $saved_image = explode(',', $product_row['image']); ?>
 													<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
 												</a>
@@ -396,18 +391,13 @@
 
 							<!-- MARKET -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
-							</li>
-
-							<!-- LOCATION -->
-							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+								<a class="nav-link cl-effect" href="/etiendahan/market/view/" target="">Market</a>
 							</li>
 
 							<!-- STORES -->
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
-							</li>
+							</li> -->
 
 							
 

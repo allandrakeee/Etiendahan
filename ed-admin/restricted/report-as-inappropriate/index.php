@@ -235,9 +235,9 @@
                     </li>
 
                     <!-- specialty in city -->
-                    <li>
+                    <!-- <li>
                         <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
-                    </li>
+                    </li> -->
 
                     <!-- slides -->
                     <li>
@@ -245,9 +245,9 @@
                     </li>
 
                     <!-- categories -->
-                    <li>
+                    <!-- <li>
                         <a href="/etiendahan/ed-admin/restricted/categories/" class="waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
-                    </li>
+                    </li> -->
                     
                     <!-- sales -->
                     <li>
@@ -329,6 +329,10 @@
                     ?>
                     <li>
                         <a href="/etiendahan/ed-admin/restricted/visits/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">equalizer</i> Visits (<?php if($visit_row[0] == 0): ?>0<?php else: ?><?php echo number_format((int)$visit_row[0], 0, '', ','); endif; ?>)</a>
+                    </li>
+
+                    <li>
+                        <a href="/etiendahan/ed-admin/restricted/quantity/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;"></i> Quantity </a>
                     </li>
                 </ul>
             </div>

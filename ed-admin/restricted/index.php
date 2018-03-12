@@ -234,9 +234,9 @@
                     </li>
 
                     <!-- specialty in city -->
-                    <li>
+                    <!-- <li>
                         <a href="/etiendahan/ed-admin/restricted/specialty-in-city/" class="waves-effect waves-dark"><i class="fa fa-building-o" style="display: inline-block;font-size: 15px;"></i> Specialty in City </a>
-                    </li>
+                    </li> -->
 
                     <!-- slides -->
                     <li>
@@ -244,9 +244,9 @@
                     </li>
 
                     <!-- categories -->
-                    <li>
+                    <!-- <li>
                         <a href="/etiendahan/ed-admin/restricted/categories/" class="waves-effect waves-dark"><i class="fa fa-list"></i> Categories</a>
-                    </li>
+                    </li> -->
                     
                     <!-- sales -->
                     <li>

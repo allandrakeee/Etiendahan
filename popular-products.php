@@ -84,7 +84,7 @@
 													?>
 													<div class="ribbon view-product ribbon--dimgrey">NEW</div>
 													<?php endif; ?>
-														<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>" style="width: 100%;">
+														<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>" style="width: 100%;">
 															<div class="card">
 																<?php $saved_image = explode(',', $product_row['image']); ?>
 																<div class="card-image lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>

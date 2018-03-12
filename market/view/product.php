@@ -43,16 +43,18 @@
 	$row_product = $result_product->fetch_assoc();
 	// echo 'Sub ID'.$row_product['sub_id'].'<br>';
 	$category_id = $row_product['category_id'];
+	$municipality = $row_product['municipality_id'];
 
 	if($row_product['stock'] <= 0) {
-		header('location: /etiendahan/category/view/');
+		header('location: /etiendahan/market/view/');
 	} 
 	$_SESSION['category_id'] = $category_id;
+	$_SESSION['municipality_id'] = $municipality;
 	$category_id = ((isset($_SESSION['category_id']) && $_SESSION['category_id'] != '')?htmlentities($_SESSION['category_id']):'');
 
-	$result_category = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
+	$result_category = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE id = '$municipality'");
 	$row_category = $result_category->fetch_assoc();
-	// echo $row_category['name']
+	// echo $row_category['citymunDesc']
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +106,7 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item"><a href="/etiendahan/category/view/sub/"><?php echo $row_category['name'] ?></a></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/market/view/sub/" class="my-gallery-inner" id="<?php echo $municipality ?>"><?php echo $row_category['citymunDesc'] ?></a></li>
 								<li class="breadcrumb-item active product-view" style="width: auto" aria-current="page"><?php echo trim($row_product['name']) ?></li>
 							</div>
 						</ol>
@@ -236,7 +238,7 @@
 	 										<button class="btn btn-primary add-to-cart" type="submit" name="add_to_cart" id="<?php echo $category_product_id ?>">Add to Cart</button>
  										</form>
 	 									<div class="product-add-to-wishlist" >
-	 										<form class="wishlists-form" action="/etiendahan/category/view/product/" method="POST">
+	 										<form class="wishlists-form" action="/etiendahan/market/view/product/" method="POST">
 	 											<?php  
 	 												$customer_email = ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');
 	 												$wishlist_result = $mysqli->query("SELECT * FROM tbl_wishlists WHERE product_id = '$category_product_id' AND email = '$customer_email'");
@@ -463,7 +465,7 @@
 									?>
 									<div class="ribbon related ribbon--dimgrey">NEW</div>
 									<?php endif; ?>
-										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+										<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row['image']); ?>
 												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
@@ -536,7 +538,7 @@
 									?>
 									<div class="ribbon related ribbon--dimgrey">NEW</div>
 									<?php endif; ?>
-										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+										<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row['image']); ?>
 												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>

@@ -180,7 +180,7 @@
 																			</div>
 																		</a>																	
 																	<?php else: ?>
-																		<a href="/etiendahan/category/view/product/" class="d-block my-item-inner category-product-id" id="<?php echo $product_row['id']; ?>">
+																		<a href="/etiendahan/market/view/product/" class="d-block my-item-inner category-product-id" id="<?php echo $product_row['id']; ?>">
 																			<div class="item-image">
 																				<?php $saved_image = explode(',', $product_row['image']); ?>
 																				<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
@@ -194,7 +194,7 @@
 																	<?php if($product_row['stock'] <= 0): ?>
 																		<a class="category-product-id" id="<?php echo $product_row['id']; ?>"><?php echo $product_row['name']; ?></a>
 																	<?php else: ?>
-																		<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>"><?php echo $product_row['name']; ?></a>
+																		<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>"><?php echo $product_row['name']; ?></a>
 																	<?php endif; ?>
 																</td>
 																<td class="item-price text-center">

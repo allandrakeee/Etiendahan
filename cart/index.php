@@ -214,7 +214,7 @@
 											<?php else: ?>
 												<tr>
 													<td class="image" scope="row">
-															<a href="/etiendahan/category/view/product/" class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
+															<a href="/etiendahan/market/view/product/" class="d-block my-item-inner category-product-id" id=<?php echo $product_row['id']; ?>>
 																<div class="item-image">
 																	<?php $saved_image = explode(',', $product_row['image']); ?>
 																	<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
@@ -222,7 +222,7 @@
 															</a>
 														</td>
 													<td class="description-button">
-															<a href="/etiendahan/category/view/product/" class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
+															<a href="/etiendahan/market/view/product/" class="product-title category-product-id" id=<?php echo $product_row['id']; ?>><?php echo $product_row['name']; ?></a>
 															<div class="cart-action">
 																<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
 																	<button class="cart-delete cart-delete-focus" id="<?php echo $product_row['id']; ?>" type="submit" name="button_delete_cart">

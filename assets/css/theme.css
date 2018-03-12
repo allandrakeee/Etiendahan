@@ -15066,7 +15066,7 @@ nav a:focus {
 
 #shop-now {
   position: relative;
-  bottom: 115px; }
+  bottom: 110px; }
 
 #shop-now-link {
   position: relative;
@@ -15642,7 +15642,7 @@ input[type="search"].sb-search-input {
 
 #etiendahan-section-4 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 28px; }
+  margin-top: 24px; }
   #etiendahan-section-4 .title-name {
     text-align: center;
     font-size: 22px;
@@ -15682,58 +15682,56 @@ input[type="search"].sb-search-input {
     right: 15px;
     background-color: #e6e6e6;
     z-index: 1; }
-  #etiendahan-section-4 .container {
-    padding: 0; }
-    #etiendahan-section-4 .container .welcome-message-image {
-      height: 450px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;
-      margin-bottom: 25px; }
-    #etiendahan-section-4 .container .welcome-message-overlay {
-      position: relative;
-      background: dimgrey;
-      height: 400px;
-      overflow: hidden;
-      color: #fff; }
-      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-title {
-        position: absolute;
-        top: 40%;
-        font-size: 50px;
-        text-transform: uppercase;
-        line-height: 1;
-        margin-top: 0;
-        font-weight: 700;
-        width: 100%;
-        text-align: center; }
-      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-intro {
-        position: absolute;
-        top: 60%;
-        font-size: 18px;
-        font-family: 'Crimson Text', serif;
-        font-style: italic;
-        line-height: 1;
-        letter-spacing: 0.025em;
-        width: 100%;
-        text-align: center; }
-      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag {
-        position: absolute;
-        top: 66%;
-        font-size: 18px;
-        font-family: 'Crimson Text', serif;
-        font-style: italic;
-        line-height: 1;
-        letter-spacing: 0.025em;
-        width: 100%;
-        text-align: center; }
-        #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag a {
-          display: inline-block;
-          color: inherit;
-          text-decoration: underline; }
+  #etiendahan-section-4 .container .welcome-message-image {
+    height: 450px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin-bottom: 25px; }
+  #etiendahan-section-4 .container .welcome-message-overlay {
+    position: relative;
+    background: dimgrey;
+    height: 400px;
+    overflow: hidden;
+    color: #fff; }
+    #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-title {
+      position: absolute;
+      top: 40%;
+      font-size: 50px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-top: 0;
+      font-weight: 700;
+      width: 100%;
+      text-align: center; }
+    #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-intro {
+      position: absolute;
+      top: 60%;
+      font-size: 18px;
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      line-height: 1;
+      letter-spacing: 0.025em;
+      width: 100%;
+      text-align: center; }
+    #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag {
+      position: absolute;
+      top: 66%;
+      font-size: 18px;
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+      line-height: 1;
+      letter-spacing: 0.025em;
+      width: 100%;
+      text-align: center; }
+      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag a {
+        display: inline-block;
+        color: inherit;
+        text-decoration: underline; }
 
 #etiendahan-section-5 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 20px; }
+  margin-top: 5px; }
   #etiendahan-section-5 .title-name {
     text-align: center;
     font-size: 22px;

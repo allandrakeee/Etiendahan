@@ -16,20 +16,20 @@
 
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 	$category_id = ((isset($_SESSION['category_id']) && $_SESSION['category_id'] != '')?htmlentities($_SESSION['category_id']):'');
-	
-	$sub_category_id = ((isset($_SESSION['sub_category_id']) && $_SESSION['sub_category_id'] != '')?htmlentities($_SESSION['sub_category_id']):'');
-	$result_sub_category = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_category_id'");
-	$row_sub_category = $result_sub_category->fetch_assoc();
 
-	$result_category = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE id = '$category_id'");
+	// if($category_id == '') {
+	// 	header("location: /etiendahan/"); 
+	// }
+
+	$result_category = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
 	$row_category = $result_category->fetch_assoc();
-	// echo $sub_category_id;
+	// echo $category_id;
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buy <?php echo $row_sub_category['name']; ?> Online | Etiendahan</title>
+	<title>Buy <?php echo $row_category['name']; ?> Online | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -62,7 +62,7 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page"><?php echo $row_category['citymunDesc']; ?></li>
+								<li class="breadcrumb-item active" aria-current="page">Market</li>
 							</div>
 						</ol>
 					</nav>
@@ -72,7 +72,8 @@
 							<div class="col-md-3" style="padding-right: 0">
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-list fa-fw"></i>Categories</div>
-									<div class="title"><a href="/etiendahan/location/view/">All Locations</a></div>
+									<div class="title active"><a href="/etiendahan/market/view/">All Locations</a></div>									
+
 									<div class="sub">
 										<ul>
 											<?php  
@@ -80,7 +81,7 @@
 												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
 												$category_name = strtolower($row_category_sub['citymunDesc']);
 											?>
-											<li class=""><a href="/etiendahan/location/view/sub/" class="my-gallery-inner <?php echo ($category_id == $row_category_sub['id'])? 'active' : ''; ?>" id="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
+											<li><a href="/etiendahan/market/view/sub/" class="my-gallery-inner" id="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
 												$total_count_id = $row_category_sub['id'];
 												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where municipality_id = '$total_count_id' AND stock > 0 AND banned = 0");
 												$count_tbl_products = $result->fetch_assoc();
@@ -128,9 +129,11 @@
 
 								<div class="item-wrapper" id="item-wrapper-grid-list">
 									<?php  
+										// $_REQUEST['sort'] = "replace(replace(price, ',', ''), '.', '')+0 desc";
 										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
 										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE municipality_id = '$category_id' AND stock > 0 AND banned = 0 ORDER BY ".$product_order);
+										$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 ORDER BY ".$product_order;
+										$product_result = $mysqli->query($sql);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):
 										$product_id = $product_row['id'];
@@ -145,7 +148,7 @@
 									?>
 									<div class="ribbon view ribbon--dimgrey">NEW</div>
 									<?php endif; ?>
-										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+										<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row['image']); ?>
 												<div class="card-image lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>

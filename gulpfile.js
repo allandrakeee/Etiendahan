@@ -308,7 +308,7 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('category/electronics/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
-    gulp.watch('category/view/*.php').on('change', function(file) {
+    gulp.watch('market/view/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
     gulp.watch('location/view/*.php').on('change', function(file) {

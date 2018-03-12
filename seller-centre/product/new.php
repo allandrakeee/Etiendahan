@@ -154,34 +154,6 @@
 										</div>
 
 										<div class="form-group row">
-											<label for="selectCategory" class="col-sm-2 col-form-label">Category</label>
-											<div class="col-sm-10">
-												<?php
-													// $category_id;
-													// $category_name;
-													$result = $mysqli->query("SELECT * FROM tbl_categories");
-												?>	
-													<select class='form-control' id='category' name='category' required>"
-														<option value=''>Select</option>"
-												<?php  
-													while($category = mysqli_fetch_assoc($result)){
-														$category_id = $category['id'];
-														$category_name = $category['name'];
-												?>
-														<option value='<?php echo $category_id?>' <?php if($category_post == $category_id) echo 'selected'; ?>><?php echo $category_name?></option>
-												<?php 
-													}
-												 ?>
-													</select>							
-											</div>	
-											<!-- <div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory' required>	
-													<option value=''>Sub Category</option>
-												</select>				
-											</div> -->
-										</div>
-
-										<div class="form-group row">
 											<label for="selectCategory" class="col-sm-2 col-form-label">Province</label>
 											<div class="col-sm-10">
 												<?php

@@ -99,7 +99,7 @@
 									<img class="logo" src="temp-img/etiendahan-logo-shrink.png" width="178" height="58" class="d-inline-block align-top" alt="">
 								</a>					
 
-								`<div class="collapse navbar-collapse" id="navbarCenterContent">
+								<div class="collapse navbar-collapse" id="navbarCenterContent">
 									<div class="container">
 										<ul class="navbar-nav">
 
@@ -110,18 +110,13 @@
 
 											<!-- MARKET -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
-											</li>
-
-											<!-- LOCATION -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Municipality</a>
+												<a class="nav-link cl-effect" href="/etiendahan/market/view/" target="">Market</a>
 											</li>
 
 											<!-- STORES -->
-											<li class="nav-item">
+											<!-- <li class="nav-item">
 												<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
-											</li>
+											</li> -->
 
 											
 
@@ -365,7 +360,7 @@
 													<?php else: ?>
 														<div class="item">
 															<div class="item-left">
-																<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+																<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 																	<?php $saved_image = explode(',', $product_row['image']); ?>
 																	<img src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>" style="height: 50px;width: 50px;margin-top: 6px;" alt="" />
 																</a>
@@ -540,18 +535,13 @@
 
 											<!-- MARKET -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
-											</li>
-
-											<!-- LOCATION -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+												<a class="nav-link cl-effect" href="/etiendahan/market/view/" target="">Market</a>
 											</li>
 
 											<!-- STORES -->
-											<li class="nav-item">
+											<!-- <li class="nav-item">
 												<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
-											</li>
+											</li> -->
 
 											
 
@@ -914,7 +904,7 @@
 							?>
 
 					        <div class="col-md-2">
-								<a href="/etiendahan/category/view/sub/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
+								<a href="/etiendahan/market/view/sub/" class="did="<?pmy-gallery-inner hp echo $category_row['id']; ?>">
 									<div class="category-image">
 										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
 									</div>
@@ -944,348 +934,382 @@
 							<h3><span class="wow pulse" data-wow-delay="1000ms">PROVINCE OF PANGASINAN</span></h3>
 						</div> -->
 						<h1 class="mt-3 text-center">PROVINCE OF PANGASINAN</span></h1>
-							<div class="welcome-message-image" style="background-image: url(temp-img/map-of-pangasinan.png);"></div>
-							<!-- <div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
-							<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Local Products | Province of Pangasinan</div>
-							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div> -->
-							<!-- markers -->
-							<div id="map-tips" style="width: 0; height: 0">
-								<!-- bolinao -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 446px;left: 320px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bolinao">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="91" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+						<div class="row">
+							<div class="col-md-2">
+								<ul style="list-style: none; font-size: 12.6px;">
+									<?php  
+										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24");
+										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
+										$category_name = strtolower($row_category_sub['citymunDesc']);
+									?>
 
-								<!-- anda -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 472px;left: 385px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Anda">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="82" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
 
-								<!-- bani -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 468px;left: 318px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bani">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="85" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<?php  
+										endwhile;
+									?>
+								</ul>
+							</div>
+							<div class="col-md-8">
+								<div class="welcome-message-image" style="background-image: url(temp-img/map-of-pangasinan.png);"></div>
+								<!-- <div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
+								<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Local Products | Province of Pangasinan</div>
+								<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div> -->
+								<!-- markers -->
+								<div id="map-tips" style="position: relative;width: 0;height: 0;right: 206px;">
+									<!-- bolinao -->
+									<div class="tooltip-wrapper bolinao" style="position: relative;bottom: 446px;left: 320px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bolinao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 91" data-value="91" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- agno -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 465px;left: 278px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Agno">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="78" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- anda -->
+									<div class="tooltip-wrapper anda" style="position: relative;bottom: 472px;left: 385px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Anda">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 82" data-value="82" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- city of alaminos -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 509px;left: 366px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Alaminos">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="80" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- bani -->
+									<div class="tooltip-wrapper bani" style="position: relative;bottom: 468px;left: 318px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bani">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 85" data-value="85" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- burgos -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 495px;left: 308px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Burgos">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="93" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- agno -->
+									<div class="tooltip-wrapper agno" style="position: relative;bottom: 465px;left: 278px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Agno">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 78" data-value="78" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- dasol -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 485px;left: 298px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dasol">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="96" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- city of alaminos -->
+									<div class="tooltip-wrapper city-of-alaminos" style="position: relative;bottom: 509px;left: 366px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Alaminos">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 80" data-value="80" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- infanta -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 464px;left: 355px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Infanta">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="97" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- burgos -->
+									<div class="tooltip-wrapper burgos" style="position: relative;bottom: 495px;left: 308px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Burgos">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 93" data-value="93" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- mabini -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 561px;left: 369px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mabini">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="100" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- dasol -->
+									<div class="tooltip-wrapper dasol" style="position: relative;bottom: 485px;left: 298px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dasol">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 96" data-value="96" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- sual -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 618px;left: 407px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sual">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="119" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- infanta -->
+									<div class="tooltip-wrapper infanta" style="position: relative;bottom: 464px;left: 355px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Infanta">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 97" data-value="97" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- labrador -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 615px;left: 441px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Labrador">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="98" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- mabini -->
+									<div class="tooltip-wrapper mabini" style="position: relative;bottom: 561px;left: 369px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mabini">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 100" data-value="100" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- bugallon -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 620px;left: 477px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bugallon">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="92" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- sual -->
+									<div class="tooltip-wrapper sual" style="position: relative;bottom: 618px;left: 407px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sual">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 119" data-value="119" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- aguilar -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 609px;left: 495px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Aguilar">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="79" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- labrador -->
+									<div class="tooltip-wrapper labrador" style="position: relative;bottom: 615px;left: 441px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Labrador">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 98" data-value="98" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- mangatarem -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 546px;left: 518px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangatarem">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="104" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- bugallon -->
+									<div class="tooltip-wrapper bugallon" style="position: relative;bottom: 620px;left: 477px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bugallon">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 92" data-value="92" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- lingayen (capital) -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 735px;left: 504px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Lingayen (capital)">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="99" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- aguilar -->
+									<div class="tooltip-wrapper aguilar" style="position: relative;bottom: 609px;left: 495px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Aguilar">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 79" data-value="79" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- binmaley -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 759px;left: 534px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binmaley">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="90" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- mangatarem -->
+									<div class="tooltip-wrapper mangatarem" style="position: relative;bottom: 546px;left: 518px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangatarem">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 104" data-value="104" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- dagupan city -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 815px;left: 569px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dagupan City">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="95" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- lingayen (capital) -->
+									<div class="tooltip-wrapper lingayen" style="position: relative;bottom: 735px;left: 504px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Lingayen (capital)">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 99" data-value="99" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- calasiao -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 818px;left: 577px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Calasiao">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="94" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- binmaley -->
+									<div class="tooltip-wrapper binmaley" style="position: relative;bottom: 759px;left: 534px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binmaley">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 90" data-value="90" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san carlos city -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 811px;left: 555px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Carlos City">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="109" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- dagupan city -->
+									<div class="tooltip-wrapper dagupan-city" style="position: relative;bottom: 815px;left: 569px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dagupan City">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 95" data-value="95" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- urbiztondo -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 790px;left: 580px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Urbiztondo">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="122" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- calasiao -->
+									<div class="tooltip-wrapper calasiao" style="position: relative;bottom: 818px;left: 577px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Calasiao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 94" data-value="94" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- basista -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 842px;left: 607px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Basista">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="86" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- san carlos city -->
+									<div class="tooltip-wrapper san-carlos-city" style="position: relative;bottom: 811px;left: 555px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Carlos City">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 109" data-value="109" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- bayambang -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 822px;left: 627px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bayambang">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="88" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- urbiztondo -->
+									<div class="tooltip-wrapper urbiztondo" style="position: relative;bottom: 790px;left: 580px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Urbiztondo">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 122" data-value="122" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- bautista -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 839px;left: 688px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bautista">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="87" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- basista -->
+									<div class="tooltip-wrapper basista" style="position: relative;bottom: 842px;left: 607px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Basista">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 86" data-value="86" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- alcala -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 919px;left: 689px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Alcala">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="81" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- bayambang -->
+									<div class="tooltip-wrapper bayambang" style="position: relative;bottom: 822px;left: 627px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bayambang">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 88" data-value="88" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- santo tomas -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 954px;left: 721px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santo Tomas">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="117" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- bautista -->
+									<div class="tooltip-wrapper bautista" style="position: relative;bottom: 839px;left: 688px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bautista">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 87" data-value="87" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- rosales -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 978px;left: 755px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Rosales">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="108" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- alcala -->
+									<div class="tooltip-wrapper alcala" style="position: relative;bottom: 919px;left: 689px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Alcala">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 81" data-value="81" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- balungao -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1021px;left: 795px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Balungao">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="84" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- santo tomas -->
+									<div class="tooltip-wrapper santo-tomas" style="position: relative;bottom: 954px;left: 721px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santo Tomas">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 117" data-value="117" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- umingan -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1053px;left: 866px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Umingan">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="121" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- rosales -->
+									<div class="tooltip-wrapper rosales" style="position: relative;bottom: 978px;left: 755px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Rosales">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 108" data-value="108" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san quintin -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1133px;left: 853px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Quintin">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="114" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- balungao -->
+									<div class="tooltip-wrapper balungao" style="position: relative;bottom: 1021px;left: 795px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Balungao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 84" data-value="84" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- natividad -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1190px;left: 845px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Natividad">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="106" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- umingan -->
+									<div class="tooltip-wrapper umingan" style="position: relative;bottom: 1053px;left: 866px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Umingan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 121" data-value="121" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san nicolas -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1257px;left: 807px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Nicolas">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="113" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- san quintin -->
+									<div class="tooltip-wrapper san-quintin" style="position: relative;bottom: 1133px;left: 853px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Quintin">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 114" data-value="114" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san manuel -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1275px;left: 747px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Manuel">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="112" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- natividad -->
+									<div class="tooltip-wrapper natividad" style="position: relative;bottom: 1190px;left: 845px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Natividad">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 106" data-value="106" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- sison -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1341px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sison">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="118" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- san nicolas -->
+									<div class="tooltip-wrapper san-nicolas" style="position: relative;bottom: 1257px;left: 807px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Nicolas">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 113" data-value="113" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san fabian -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1351px;left: 617px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Fabian">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="110" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- san manuel -->
+									<div class="tooltip-wrapper san-manuel" style="position: relative;bottom: 1275px;left: 747px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Manuel">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 112" data-value="112" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- mangaldan -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1347px;left: 599px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangaldan">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="103" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- sison -->
+									<div class="tooltip-wrapper sison" style="position: relative;bottom: 1341px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sison">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 118" data-value="118" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- santa barbara -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1338px;left: 611px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Barbara">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="115" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- san fabian -->
+									<div class="tooltip-wrapper san-fabian" style="position: relative;bottom: 1351px;left: 617px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Fabian">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 110" data-value="110" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- malasiqui -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1326px;left: 646px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Malasiqui">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="101" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- mangaldan -->
+									<div class="tooltip-wrapper mangaldan" style="position: relative;bottom: 1347px;left: 599px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangaldan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 103" data-value="103" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- villasis -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1359px;left: 711px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Villasis">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="124" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- santa barbara -->
+									<div class="tooltip-wrapper santa-barbara" style="position: relative;bottom: 1338px;left: 611px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Barbara">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 115" data-value="115" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- santa maria -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1407px;left: 779px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Maria">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="116" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- malasiqui -->
+									<div class="tooltip-wrapper malasiqui" style="position: relative;bottom: 1326px;left: 646px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Malasiqui">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 101" data-value="101" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- tayug -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1467px;left: 803px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Tayug">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="120" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- villasis -->
+									<div class="tooltip-wrapper villasis" style="position: relative;bottom: 1359px;left: 711px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Villasis">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 124" data-value="124" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- asingan -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1489px;left: 759px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Asingan">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="83" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- santa maria -->
+									<div class="tooltip-wrapper santa-maria" style="position: relative;bottom: 1407px;left: 779px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Maria">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 116" data-value="116" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- binalonan -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1544px;left: 722px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binalonan">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="89" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- tayug -->
+									<div class="tooltip-wrapper tayug" style="position: relative;bottom: 1467px;left: 803px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Tayug">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 120" data-value="120" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- laoac -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1564px;left: 690px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Laoac">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="125" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- asingan -->
+									<div class="tooltip-wrapper asingan" style="position: relative;bottom: 1489px;left: 759px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Asingan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 83" data-value="83" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- pozzorubio -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1625px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Pozzorubio">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="107" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- binalonan -->
+									<div class="tooltip-wrapper binalonan" style="position: relative;bottom: 1544px;left: 722px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binalonan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 89" data-value="89" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- manaoag -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1625px;left: 657px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Manaoag">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="102" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- laoac -->
+									<div class="tooltip-wrapper laoac" style="position: relative;bottom: 1564px;left: 690px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Laoac">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 125" data-value="125" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- san jacinto -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1670px;left: 633px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Jacinto">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="111" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- pozorrubio -->
+									<div class="tooltip-wrapper pozorrubio" style="position: relative;bottom: 1625px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Pozzorubio">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 107" data-value="107" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- city of urdaneta -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1648px;left: 700px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Urdaneta">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="123" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
-								</div>
+									<!-- manaoag -->
+									<div class="tooltip-wrapper manaoag" style="position: relative;bottom: 1625px;left: 657px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Manaoag">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 102" data-value="102" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 
-								<!-- mapandan -->
-								<div class="tooltip-wrapper" style="position: relative;bottom: 1694px;left: 640px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mapandan">
-									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="105" style="display:inline-block; margin-top: 3px;">
-										<img src="temp-img/marker.png" alt="">
-									</a>
+									<!-- san jacinto -->
+									<div class="tooltip-wrapper san-jacinto" style="position: relative;bottom: 1670px;left: 633px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Jacinto">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 111" data-value="111" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- city of urdaneta -->
+									<div class="tooltip-wrapper city-of-urdaneta" style="position: relative;bottom: 1648px;left: 700px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Urdaneta">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 123" data-value="123" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- mapandan -->
+									<div class="tooltip-wrapper mapandan" style="position: relative;bottom: 1694px;left: 640px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mapandan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 105" data-value="105" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
 								</div>
 							</div>
+							<div class="col-md-2">
+								<ul style="list-style: none; font-size: 12.6px;">
+									<?php  
+										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24, 48");
+										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
+										$category_name = strtolower($row_category_sub['citymunDesc']);
+									?>
+
+									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
+
+									<?php  
+										endwhile;
+									?>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- END OF SECTION 4 -->
@@ -1331,7 +1355,7 @@
 										?>
 										<div class="ribbon view-product ribbon--dimgrey">NEW</div>
 										<?php endif; ?>
-										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
+										<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row_recently_viewed_products['image']); ?>
 												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
@@ -1406,7 +1430,7 @@
 								?>
 								<div class="ribbon view-product ribbon--dimgrey">NEW</div>
 								<?php endif; ?>
-								<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
+								<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row['id']; ?>">
 									<div class="card">
 										<?php $saved_image = explode(',', $product_row['image']); ?>
 										<div class="card-image lazy" style="width: 212px;" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
@@ -1503,7 +1527,7 @@
 										?>
 										<div class="ribbon view-product ribbon--dimgrey">NEW</div>
 										<?php endif; ?>
-										<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
+										<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $product_row_recently_viewed_products['id']; ?>">
 											<div class="card">
 												<?php $saved_image = explode(',', $product_row_recently_viewed_products['image']); ?>
 												<div class="card-image img-fluid owl-lazy" data-src="<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>"></div>
@@ -1564,7 +1588,7 @@
 									<!-- <a href="http://localhost:8080/etiendahan/"><img src="http://via.placeholder.com/225x70/" alt=""></a> -->
 									<a href="http://localhost:8080/etiendahan/"><img src="temp-img/etiendahan-logo.png" alt=""></a>
 									<div class="about-text">
-										<p>Join Etiendahan to find everything you need at the best prices. Shopping online at Philippines’ best marketplace cannot get any easier.</p>
+										<p>Join Etiendahan to find local products available at Province of Pangasinan. Shopping online at Philippines’ best marketplace cannot get any easier.</p>
 										<p>Etiendahan provides the right tools to support all our sellers on our marketplace platform. List your products in less than 30 seconds. Sell better and get more exposure for your products.</p>
 									</div>
 

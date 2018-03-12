@@ -237,7 +237,7 @@
 													<div class="row">
 														<div class="col-md-2">
 															<div class="item-product">
-																<a href="/etiendahan/category/view/product/" class="d-block my-item-product-inner category-product-id" id="<?php echo $orders_count_row1['id']; ?>">
+																<a href="/etiendahan/market/view/product/" class="d-block my-item-product-inner category-product-id" id="<?php echo $orders_count_row1['id']; ?>">
 																	<div class="item-image">
 																		<?php $saved_image = explode(',', $orders_count_row1['image']); ?>
 																		<div class="img-fluid" style="background-image: url(<?php echo ($saved_image[0] != '') ? $saved_image[0] : 'http://via.placeholder.com/155x155?text=No+Image+Preview' ; ?>);"></div>
@@ -247,7 +247,7 @@
 														</div>
 														<div class="col-md-6">
 															<div class="item-name">
-																<a href="/etiendahan/category/view/product/" class="category-product-id" id="<?php echo $orders_count_row1['id']; ?>"><?php echo $orders_count_row1['name']; ?></a>
+																<a href="/etiendahan/market/view/product/" class="category-product-id" id="<?php echo $orders_count_row1['id']; ?>"><?php echo $orders_count_row1['name']; ?></a>
 															</div>
 														</div>
 

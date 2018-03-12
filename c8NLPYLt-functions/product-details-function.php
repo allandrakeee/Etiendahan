@@ -6,7 +6,6 @@
     $name           = $mysqli->escape_string($_POST['name']);
     $description    = $mysqli->escape_string($_POST['description']);
     $municipality         = $mysqli->escape_string($_POST['municipality']);
-    $category         = $mysqli->escape_string($_POST['category']);
     $price          = $mysqli->escape_string($_POST['price']);
     $stock          = $mysqli->escape_string($_POST['stock']);
     $id             = $mysqli->escape_string($_SESSION['product_details_id']);
@@ -26,7 +25,7 @@
         }
     }
 
-    $sql = "UPDATE tbl_products SET name = '$name', description = '$description', municipality_id = '$municipality', category_id = '$category', price = '$price', stock = '$stock' WHERE id = '$id'";
+    $sql = "UPDATE tbl_products SET name = '$name', description = '$description', municipality_id = '$municipality', price = '$price', stock = '$stock' WHERE id = '$id'";
     if ($mysqli->query($sql) or die($mysqli->error)) {
         header("location: /etiendahan/seller-centre/product/details/");
         $_SESSION['product-modified-message'] = 'Successfully Modified.';

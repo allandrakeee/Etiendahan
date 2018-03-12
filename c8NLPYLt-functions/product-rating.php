@@ -17,5 +17,5 @@
 	$mysqli->query($sql);
 
 	$_SESSION['message'] = 'Successfully Inserted.';
-	header('location: /etiendahan/category/view/product/');
+	header('location: /etiendahan/market/view/product/');
 ?>

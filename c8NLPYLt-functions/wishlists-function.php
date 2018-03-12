@@ -11,7 +11,7 @@
             // Add user to the database
             if ($mysqli->query($sql) or die($mysqli->error)) {
                 $_SESSION['message'] = 'Successfully added to your wishlists.';
-                header("location: /etiendahan/category/view/product/"); 
+                header("location: /etiendahan/market/view/product/"); 
             } else {
                 // $_SESSION['message'] = 'Registration failed!';
                 // header("location: /etiendahan/error/");
@@ -22,7 +22,7 @@
             // Add user to the database
             if ($mysqli->query($sql) or die($mysqli->error)) {
                 $_SESSION['message'] = 'Successfully removed to your wishlists.';
-                header("location: /etiendahan/category/view/product/"); 
+                header("location: /etiendahan/market/view/product/"); 
             } else {
                 // $_SESSION['message'] = 'Registration failed!';
                 // header("location: /etiendahan/error/");

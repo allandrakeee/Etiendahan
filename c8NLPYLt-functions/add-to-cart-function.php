@@ -22,18 +22,18 @@
 
 			if($total_quatity > $product_result_stock) {
 				$_SESSION['cant-proceed-message'] = 'Exceed the total number of stocks.';
-				header('location: /etiendahan/category/view/product/');
+				header('location: /etiendahan/market/view/product/');
 			} else {
 				$mysqli->query("UPDATE tbl_cart SET quantity = quantity + '$input_quantity' WHERE product_id = '$add_to_cart_product_id' AND email = '$email'") or die($mysqli->error);
 				$_SESSION['message'] = 'Successfully Modified.';
-				header('location: /etiendahan/category/view/product/');
+				header('location: /etiendahan/market/view/product/');
 			}
 
 		} else {
 			$sql = "INSERT INTO tbl_cart (id, product_id, quantity, email) VALUES (null, '$add_to_cart_product_id','$input_quantity', '$email')";
 			if($mysqli->query($sql) or die($mysqli->error)) {
 				$_SESSION['message'] = 'Successfully Inserted.';
-				header('location: /etiendahan/category/view/product/');
+				header('location: /etiendahan/market/view/product/');
 			}
 		}
 	} else {
