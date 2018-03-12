@@ -37,6 +37,16 @@
 	    exit;
 	}
 	
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    if (isset($_POST['button_delete_cart'])) {
+	    	$cart_product_id_delete = $_SESSION['cart_product_id_delete'];
+	    	$email =  $_SESSION['email'];
+
+    	    $sql = "DELETE FROM tbl_cart WHERE product_id = '$cart_product_id_delete' AND email = '$email'";
+		   	$mysqli->query($sql) or die($mysqli->error);
+	    }
+	}
+	
 	$logged_in 	= ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
 
 	$email 	= ((isset($_SESSION['email']) && $_SESSION['email'] != '')?htmlentities($_SESSION['email']):'');

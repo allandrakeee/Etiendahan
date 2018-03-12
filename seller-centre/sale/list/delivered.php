@@ -287,7 +287,7 @@
 							<div class="footer mb-3">
 								<div class="site-image" style="background-image: url(/etiendahan/temp-img/logo-seller-centre.png); left: 48.5%;"></div>
 								<div class="site-centre">Etiendahan Seller Centre</div>
-								<div class="site-version">Current Version: beta test</div>
+								<div class="site-version">Current Version: 1.0.0</div>
 							</div>
 						</div>
 					</div>

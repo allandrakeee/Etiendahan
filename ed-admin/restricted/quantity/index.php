@@ -1,6 +1,7 @@
 <?php  
-    require '/../../db.php';
+    require '../../../db.php';
     session_start();
+    // echo $review_go_to_message_id = $_SESSION['review_go_to_message'];
 
     $logged_in_admin  = ((isset($_SESSION['logged_in_admin']) && $_SESSION['logged_in_admin'] != '')?htmlentities($_SESSION['logged_in_admin']):'');
     if($logged_in_admin == false) {
@@ -21,19 +22,19 @@
     <link rel="icon" href="/etiendahan/temp-img/favicon.ico" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="../assets/materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
     <!-- <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" /> -->
     <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <link href="assets/css/custom-scss.scss" rel="stylesheet" />
+    <link href="../assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom-scss.scss" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="../assets/js/Lightweight-Chart/cssCharts.css"> 
 </head>
 
 <body>
@@ -230,7 +231,7 @@
                 <ul class="nav" id="main-menu">
                     <!-- dashboard -->
                     <li>
-                        <a class="active-menu waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="waves-effect waves-dark" href="/etiendahan/ed-admin/restricted/"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
 
                     <!-- specialty in city -->
@@ -307,8 +308,7 @@
                     <?php  
                         $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE banned = 1");
                         $product_count = $result_product_count->fetch_row();
-                    ?> 
-
+                    ?>    
                     <li>
                         <a href="/etiendahan/ed-admin/restricted/banned-products/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;">pan_tool</i> Banned Products (<?php if($product_count[0] == 0): ?>0<?php else: ?><?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?>)</a>
                     </li>
@@ -332,7 +332,7 @@
                     </li>
 
                     <li>
-                        <a href="/etiendahan/ed-admin/restricted/quantity/" class="waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;"></i> Quantity </a>
+                        <a href="/etiendahan/ed-admin/restricted/quantity/" class="active-menu waves-effect waves-dark"><i class="material-icons dp48" style="display: inline-block;font-size: 15px;"></i> Quantity </a>
                     </li>
                 </ul>
             </div>
@@ -341,303 +341,123 @@
       
         <div id="page-wrapper">
           <div class="header"> 
-                        <h1 class="page-header">
-                            Dashboard
-                        </h1>
-                                    
+            <h1 class="page-header">
+                Quantity
+                <!-- <a href="/etiendahan/ed-admin/restricted/slides/new/"><div class="header-link" style="position: relative;left: 5px;bottom: 3px;display: inline-block;font-size: 15px;background-color: #fff;padding: 5px 8px;border: 1px solid #dcdcdc;cursor: pointer;">Add New</div></a>  -->
+            </h1>           
         </div>
-            <div id="page-inner">
-
-            <div class="dashboard-cards"> 
-                <div class="row">
-                    <!-- customers -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/customers/" style="text-decoration: none;">
-                            <div class="card horizontal cardIcon waves-effect waves-dark">
-                                <div class="card-image dimgrey">
-                                    <i class="material-icons dp48">supervisor_account</i>
-                                </div>
-
-                                <div class="card-stacked dimgrey">
-                                    <div class="card-content">
-                                        <?php  
-                                            $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_customers WHERE banned = 0");
-                                            $product_count = $result_product_count->fetch_row();
-                                        ?>
-                                        <h3><?php if($product_count[0] == 0): ?>
-                                                0
-                                        <?php else: ?>
-                                        <?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?></h3> 
-                                    </div>
-
-                                    <div class="card-action">
-                                        <strong>CUSTOMERS</strong>
-                                    </div>
-                                </div>
-                            </div> 
-                        </a>
+        
+            <div id="page-inner" class="table-responsive">
+                <form action="/etiendahan/c8NLPYLt-functions/add-slides-function/" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <input type="text" class="validate" style="margin-bottom: 8px; width: 30%;" id="search_input" name="search_input" required>
+                            <label for="title"><strong>Enter quantity</strong></label>
+                        </div>
                     </div>
-                    
-                    <!-- sellers -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/sellers/" style="text-decoration: none;">
-                            <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">face</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                        <?php  
-                            $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_sellers WHERE banned = 0");
-                            $product_count = $result_product_count->fetch_row();
-                        ?>
-                        <h3><?php if($product_count[0] == 0): ?>
-                                0
-                            <?php else: ?>
-                            <?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>SELLERS</strong>
-                        </div>
-                        </div>
-                        </div> 
-                        </a>
-                    </div>
-
-                    <!-- products -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/products/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">shopping_cart</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                            <?php  
-                                $count = 1;
-                                $product_result = $mysqli->query("SELECT * FROM tbl_products WHERE banned = 0");
-                                while($product_row = mysqli_fetch_assoc($product_result)):
-                                    $product_seller_email = $product_row['seller_email'];
-                                    $seller_result = $mysqli->query("SELECT * FROM tbl_sellers WHERE banned = 0 AND seller_email LIKE '$product_seller_email' ");
-                                    while($seller_row = mysqli_fetch_assoc($seller_result)):
-
-                                        if($seller_row['seller_email'] == $product_row['seller_email']):
-                                            // echo $count;
-                                            $count++;
-                                        endif;
-                                    endwhile;
-                                endwhile;
-                            ?>
-                        <h3><?php echo $count-1; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>PRODUCTS</strong>
-                        </div>
-                        </div>
-                        </div> 
-                        </a>
-                    </div>    
-                    
-                    <!-- sales -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/sales/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">import_export</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                        <h3><?php 
-                                $product_id_order = $product_row['id'];
-                                $product_order_result = $mysqli->query("SELECT SUM(quantity) as 'total_quantity' FROM tbl_orders");
-                                $product_order_row = $product_order_result->fetch_assoc();
-                            ?>
-                            <?php echo ($product_order_row['total_quantity'] == '')?'0':$product_order_row['total_quantity']; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>SALES</strong>
-                        </div>
-                        </div>
-                        </div>
-                        </a>
-                    </div>
-
-                    <!-- banned customers -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/banned-customers/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">pan_tool</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                            <?php  
-                                $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_customers WHERE banned = 1");
-                                $product_count = $result_product_count->fetch_row();
-                            ?>
-                            <h3><?php if($product_count[0] == 0): ?>
-                                    0
-                            <?php else: ?>
-                            <?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>BANNED CUSTOMERS</strong>
-                        </div>
-                        </div>
-                        </div>
-                        </a>
-                    </div>
-                    
-                    <!-- banned sellers -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/banned-sellers/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">pan_tool</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                            <?php  
-                                $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_sellers WHERE banned = 1");
-                                $product_count = $result_product_count->fetch_row();
-                            ?>
-                            <h3><?php if($product_count[0] == 0): ?>
-                                    0
-                            <?php else: ?>
-                            <?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>BANNED SELLERS</strong>
-                        </div>
-                        </div>
-                        </div>
-                        </a>
-                    </div>
-                    
-                    <!-- banned products -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/banned-products/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">pan_tool</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                            <?php  
-                                $result_product_count = $mysqli->query("SELECT COUNT(*) FROM tbl_products WHERE banned = 1");
-                                $product_count = $result_product_count->fetch_row();
-                            ?>
-                        <h3><?php if($product_count[0] == 0): ?>
-                                0
-                            <?php else: ?>
-                            <?php echo number_format((int)$product_count[0], 0, '', ','); endif; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>BANNED PRODUCTS</strong>
-                        </div>
-                        </div>
-                        </div>
-                        </a>
-                    </div>
-
-                    <!-- visits -->
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <a href="/etiendahan/ed-admin/restricted/visits/" style="text-decoration: none;">
-                        <div class="card horizontal cardIcon waves-effect waves-dark">
-                        <div class="card-image dimgrey">
-                        <i class="material-icons dp48">equalizer</i>
-                        </div>
-                        <div class="card-stacked dimgrey">
-                        <div class="card-content">
-                        <?php  
-                            $visit_result = $mysqli->query("SELECT COUNT(*) FROM tbl_visits");
-                            $visit_row = $visit_result->fetch_row();
-                        ?>
-                        <h3><?php if($visit_row[0] == 0): ?>
-                                0
-                            <?php else: ?>
-                            <?php echo number_format((int)$visit_row[0], 0, '', ','); endif; ?></h3> 
-                        </div>
-                        <div class="card-action">
-                        <strong>VISITS</strong>
-                        </div>
-                        </div>
-                        </div>
-                        </a>
-                    </div>
-
-                                        
-                </div>
-               </div>
+                </form>    
                 
-            </div>
+                <div id="result"></div>
+
+                <!-- <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Product ID</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Quantity</th>
+                        </tr>
+                      </thead>
+                      <tbody id="fbody">
+                         <?php  
+                            $result_quantity = $mysqli->query("SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0");
+                            while($row_quantity = mysqli_fetch_assoc($result_quantity)):
+                        ?>
+                            <tr>
+                              <td><?php echo $row_quantity['id'] ?></td>
+                              <td><?php echo $row_quantity['description'] ?></td>
+                              <td><?php echo $row_quantity['stock'] ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                      </tbody>
+                </table>   -->          
             <!-- /. PAGE INNER  -->
-        </div>
+            </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
 
     <!-- POPUP NOTIFICATION -->
-    <div id="popup-notification-logout-redirect" class="wow fadeIn">
+    <div id="popup-notification-welcome" class="wow fadeIn">
         <div id="etiendahan-notification">Etiendahan Notification</div>
-        <div id="popup-close-logout-redirect" class="popup-close"><i class="fa fa-times"></i></div>
-        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-times-circle" style="margin-right: 2px; color: #721c24; border-color: #f5c6cb; font-size: 18px;"></i>Can't proceed!</div>
-        <div class="popup-content-logout-redirect text-center">
-           <?php  
+        <div id="popup-close-welcome" class="popup-close"><i class="fa fa-times"></i></div>
+        <div class="popup-title text-center" style="margin-top: 5px;"><i class="fa fa-info-circle" style="margin-right: 2px; color: #004085; border-color: #b8daff; font-size: 18px;"></i>Completed!</div>
+        <div class="popup-content-welcome text-center" style="font-size: 14px;">
+            <?php  
                 // Display message only once
-                if ( isset($_SESSION['cant-proceed-message-logged-in']) ) {
-                    echo $_SESSION['cant-proceed-message-logged-in'];
+                if ( isset($_SESSION['success-message']) ) {
+                    echo $_SESSION['success-message'];
                     // Don't annoy the user with more messages upon page refresh
-                    unset($_SESSION['cant-proceed-message-logged-in']);
+                    unset($_SESSION['success-message']);
                 }
             ?>
         </div>
     </div>
     <!-- END OF POPUP NOTIFICATION -->
-    
-        <!-- <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7hfVchB6GQRHcmTwK8aLEAG2QwtYP6_A&callback=initMap">
-    </script> -->
 
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="../assets/js/jquery-1.10.2.js"></script>
     
     <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     
-    <script src="assets/materialize/js/materialize.min.js"></script>
+    <script src="../assets/materialize/js/materialize.min.js"></script>
     
     <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="../assets/js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <!-- <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script> -->
     
     
-    <script src="assets/js/easypiechart.js"></script>
-    <script src="assets/js/easypiechart-data.js"></script>
+    <script src="../assets/js/easypiechart.js"></script>
+    <script src="../assets/js/easypiechart-data.js"></script>
     
-     <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+     <script src="../assets/js/Lightweight-Chart/jquery.chart.js"></script>
     
     <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script> 
- 
+    <script src="../assets/js/custom-scripts.js"></script> 
+    
+    <script>
+    $(document).ready(function(){
+
+     load_data();
+
+     function load_data(query)
+     {
+      $.ajax({
+       url:"/etiendahan/c8NLPYLt-functions/quantity-function.php",
+       method:"POST",
+       data:{query:query},
+       success:function(data)
+       {
+        $('#result').html(data);
+       }
+      });
+     }
+     $('#search_input').keyup(function(){
+      var search = $(this).val();
+      if(search != '')
+      {
+       load_data(search);
+      }
+      else
+      {
+       load_data();
+      }
+     });
+    });
+    </script>
 
 </body>
 

@@ -12,7 +12,7 @@
 		$user = $result->fetch_assoc();
 
 		if ($user['seller_centre'] == 0) {
-			$_SESSION['cant-proceed-message'] = "You must activate first your seller centre account";
+			$_SESSION['cant-proceed-message'] = "You must activate first your seller center account";
             header("location: /etiendahan/seller-centre/account/activate/");
         } else {
             header("location: /etiendahan/seller-centre/");
@@ -162,7 +162,7 @@
 							<div class="footer">
 								<div class="site-image" style="background-image: url(/etiendahan/temp-img/logo-seller-centre.png);"></div>
 								<div class="site-centre">Etiendahan Seller Centre</div>
-								<div class="site-version">Current Version: beta test</div>
+								<div class="site-version">Current Version: 1.0.0</div>
 							</div>
 						</div>
 					</div>
@@ -207,7 +207,7 @@
 				<!-- POPUP NOTIFICATION - logout -->
 				<div id="popup-notification-logout" class="wow fadeIn">
 					<div id="etiendahan-notification">Etiendahan Notification</div>
-					<div id="popup-close" class="popup-close"><i class="fa fa-times"></i></div>
+					<div id="popup-close-logout" class="popup-close"><i class="fa fa-times"></i></div>
 					<div class="popup-title text-center mt-1"><i class="fa fa-info-circle mr-1 alert-primary"></i>You have been logged out, Thanks for stopping by!</div>
 					<div class="popup-content-logout text-center">
 						<?php  
