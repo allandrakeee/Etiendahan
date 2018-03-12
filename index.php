@@ -65,7 +65,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Etiendahan Dagupan | Online Shopping Marketplace</title>
+	<title>Etiendahan | Online Shopping Local Products | Province of Pangasinan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -99,7 +99,7 @@
 									<img class="logo" src="temp-img/etiendahan-logo-shrink.png" width="178" height="58" class="d-inline-block align-top" alt="">
 								</a>					
 
-								<div class="collapse navbar-collapse" id="navbarCenterContent">
+								`<div class="collapse navbar-collapse" id="navbarCenterContent">
 									<div class="container">
 										<ul class="navbar-nav">
 
@@ -108,10 +108,27 @@
 												<a class="nav-link cl-effect" href="/etiendahan/seller-centre/account/signin/" target="_blank">Sell On Etiendahan</a>
 											</li>
 
-											<!-- SPECIALTY IN CITY -->
+											<!-- MARKET -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+												<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
 											</li>
+
+											<!-- LOCATION -->
+											<li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Municipality</a>
+											</li>
+
+											<!-- STORES -->
+											<li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
+											</li>
+
+											
+
+											<!-- SPECIALTY IN CITY -->
+											<!-- <li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+											</li> -->
 
 											<!-- SPECIALTY IN CITY -->
 											<!-- <li class="nav-item dropdown mega-dropdown">
@@ -239,26 +256,8 @@
 											<!-- <li class="nav-item">
 												<a class="nav-link cl-effect" href="#">Accessories</a>
 											</li> -->
-											
-											<?php  
-												$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
-												$men_row = $men_result->fetch_assoc();
-											?>
-											<!-- MEN -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
-											</li>
-											
-											<?php  
-												$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
-												$women_row = $women_result->fetch_assoc();
-											?>
-											<!-- WOMEN -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
-											</li>
 
-											<!-- ALL CATEGORIES -->
+											<!-- SHOP NOW -->
 											<li class="nav-item">
 												<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 											</li>
@@ -539,10 +538,27 @@
 												<a class="nav-link cl-effect" href="/etiendahan/seller-centre/account/signin/" target="_blank">Sell On Etiendahan</a>
 											</li>
 
-											<!-- SPECIALTY IN CITY -->
+											<!-- MARKET -->
 											<li class="nav-item">
-												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+												<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
 											</li>
+
+											<!-- LOCATION -->
+											<li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+											</li>
+
+											<!-- STORES -->
+											<li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
+											</li>
+
+											
+
+											<!-- SPECIALTY IN CITY -->
+											<!-- <li class="nav-item">
+												<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+											</li> -->
 
 											<!-- SPECIALTY IN CITY -->
 											<!-- <li class="nav-item dropdown mega-dropdown">
@@ -671,25 +687,7 @@
 												<a class="nav-link cl-effect" href="#">Accessories</a>
 											</li> -->
 
-											<?php  
-												$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
-												$men_row = $men_result->fetch_assoc();
-											?>
-											<!-- MEN -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
-											</li>
-											
-											<?php  
-												$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
-												$women_row = $women_result->fetch_assoc();
-											?>
-											<!-- WOMEN -->
-											<li class="nav-item">
-												<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
-											</li>
-
-											<!-- ALL CATEGORIES -->
+											<!-- SHOP NOW -->
 											<li class="nav-item">
 												<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 											</li>
@@ -896,21 +894,27 @@
 				
 				
 				<!-- SECTION 2 - Homepage categories -->
-				<div id="etiendahan-section-2" class="etiendahan-section">
+				<!-- <div id="etiendahan-section-2" class="etiendahan-section">
 					<div class="container">
-						<!-- <h1 class="my-4 text-center text-lg-left">CATEGORIES</h1> -->
+						<div class="title-name">
+							<h3><span class="wow pulse" data-wow-delay="1000ms">SHOP BY CATEGORIES</span></h3>
+						</div>
+						<span class="tooltip-wrapper" style="position: relative;left: 68%;bottom: 56px; color: dimgrey" data-toggle="tooltip" data-placement="right" title="Manufactured Products e.g. deboned bangus at Dagupan City, bamboo-based home furnishings at San Carlos City. Non-manufactured Products e.g. mango at Sta. Barbata, onion at Alcala."><i class="fa fa-info-circle" style="color: dimgrey; font-size: 20px;"></i></span>
+
 						<div class="m-3"></div>
 					 	<div class="row text-center text-lg-left">
+					        <div class="col-md-2 col-sm-2" style="border-right: none;">
+					        </div>
 					        <div class="col-md-2 col-sm-2">
 					        </div>
 
 					        <?php  
-								$result_category = $mysqli->query("SELECT * FROM tbl_categories LIMIT 4");
+								$result_category = $mysqli->query("SELECT * FROM tbl_categories LIMIT 2");
 								while($category_row = mysqli_fetch_assoc($result_category)):
 							?>
 
 					        <div class="col-md-2">
-								<a href="/etiendahan/category/view/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
+								<a href="/etiendahan/category/view/sub/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
 									<div class="category-image">
 										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
 									</div>
@@ -922,36 +926,369 @@
 
 					    	<?php endwhile; ?>
 
-					        <div class="col-md-2">
+					        <div class="col-md-2" style="border-right: none;">
+					        </div>
+					        <div class="col-md-2" style="border-right: none;">
 					        </div>
 			      		</div>
 
-			      		<div class="row text-center text-lg-left mt-4">
-					       
-					        <?php  
-								$result_category = $mysqli->query("SELECT * FROM tbl_categories LIMIT 4, 10");
-								while($category_row = mysqli_fetch_assoc($result_category)):
-							?>
-
-					        <div class="col-md-2">
-								<a href="/etiendahan/category/view/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
-									<div class="category-image">
-										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
-									</div>
-									<div class="category-name text-center mb-3">
-										<?php echo $category_row['name']; ?>
-									</div>
-								</a>
-					        </div>
-
-					    	<?php endwhile; ?>	
-
-			      		</div>
-
-			      		<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	 -->
+			      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	
 		      		</div>
-				</div>
+				</div> -->
 				<!-- END OF SECTION 2 -->
+
+				<!-- SECTION 4 - Homepage welcome message -->
+				<div id="etiendahan-section-4" class="etiendahan-section">
+					<div class="container">
+						<!-- <div class="title-name">
+							<h3><span class="wow pulse" data-wow-delay="1000ms">PROVINCE OF PANGASINAN</span></h3>
+						</div> -->
+						<h1 class="mt-3 text-center">PROVINCE OF PANGASINAN</span></h1>
+							<div class="welcome-message-image" style="background-image: url(temp-img/map-of-pangasinan.png);"></div>
+							<!-- <div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
+							<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Local Products | Province of Pangasinan</div>
+							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div> -->
+							<!-- markers -->
+							<div id="map-tips" style="width: 0; height: 0">
+								<!-- bolinao -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 446px;left: 320px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bolinao">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="91" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- anda -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 472px;left: 385px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Anda">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="82" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- bani -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 468px;left: 318px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bani">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="85" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- agno -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 465px;left: 278px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Agno">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="78" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- city of alaminos -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 509px;left: 366px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Alaminos">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="80" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- burgos -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 495px;left: 308px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Burgos">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="93" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- dasol -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 485px;left: 298px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dasol">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="96" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- infanta -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 464px;left: 355px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Infanta">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="97" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- mabini -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 561px;left: 369px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mabini">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="100" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- sual -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 618px;left: 407px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sual">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="119" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- labrador -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 615px;left: 441px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Labrador">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="98" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- bugallon -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 620px;left: 477px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bugallon">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="92" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- aguilar -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 609px;left: 495px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Aguilar">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="79" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- mangatarem -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 546px;left: 518px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangatarem">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="104" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- lingayen (capital) -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 735px;left: 504px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Lingayen (capital)">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="99" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- binmaley -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 759px;left: 534px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binmaley">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="90" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- dagupan city -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 815px;left: 569px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dagupan City">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="95" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- calasiao -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 818px;left: 577px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Calasiao">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="94" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san carlos city -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 811px;left: 555px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Carlos City">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="109" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- urbiztondo -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 790px;left: 580px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Urbiztondo">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="122" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- basista -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 842px;left: 607px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Basista">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="86" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- bayambang -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 822px;left: 627px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bayambang">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="88" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- bautista -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 839px;left: 688px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bautista">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="87" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- alcala -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 919px;left: 689px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Alcala">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="81" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- santo tomas -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 954px;left: 721px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santo Tomas">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="117" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- rosales -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 978px;left: 755px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Rosales">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="108" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- balungao -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1021px;left: 795px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Balungao">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="84" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- umingan -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1053px;left: 866px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Umingan">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="121" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san quintin -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1133px;left: 853px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Quintin">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="114" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- natividad -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1190px;left: 845px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Natividad">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="106" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san nicolas -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1257px;left: 807px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Nicolas">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="113" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san manuel -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1275px;left: 747px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Manuel">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="112" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- sison -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1341px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sison">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="118" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san fabian -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1351px;left: 617px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Fabian">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="110" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- mangaldan -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1347px;left: 599px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangaldan">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="103" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- santa barbara -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1338px;left: 611px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Barbara">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="115" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- malasiqui -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1326px;left: 646px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Malasiqui">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="101" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- villasis -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1359px;left: 711px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Villasis">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="124" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- santa maria -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1407px;left: 779px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Maria">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="116" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- tayug -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1467px;left: 803px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Tayug">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="120" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- asingan -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1489px;left: 759px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Asingan">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="83" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- binalonan -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1544px;left: 722px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binalonan">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="89" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- laoac -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1564px;left: 690px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Laoac">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="125" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- pozzorubio -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1625px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Pozzorubio">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="107" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- manaoag -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1625px;left: 657px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Manaoag">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="102" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- san jacinto -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1670px;left: 633px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Jacinto">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="111" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- city of urdaneta -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1648px;left: 700px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Urdaneta">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="123" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+
+								<!-- mapandan -->
+								<div class="tooltip-wrapper" style="position: relative;bottom: 1694px;left: 640px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mapandan">
+									<a href="/etiendahan/location/view/sub/" class="my-gallery-inner" id="105" style="display:inline-block; margin-top: 3px;">
+										<img src="temp-img/marker.png" alt="">
+									</a>
+								</div>
+							</div>
+					</div>
+				</div>
+				<!-- END OF SECTION 4 -->
 
 				<!-- SECTION 3 - Homepage popular products -->
 				<div id="etiendahan-section-6" class="etiendahan-section">
@@ -960,8 +1297,12 @@
 							if($result->num_rows == 0):
 						?>
 							<!-- have not recently view -->
-							<div class="container-fluid">
-								<div style="margin-left: 136px;">No Popular Products Yet</div>
+							<div class="container" style="padding: 40px 0 70px 0">
+								<div class="title-name" style="margin: 0 auto 35px;">
+									<!-- <a href="/etiendahan/popular-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a> -->
+									<h3><span class="wow pulse" data-wow-delay="1500ms">POPULAR PRODUCTS</h3>
+								</div>
+								<div class="text-center">No Popular Products Yet</div>
 							</div>
 						<?php else: ?>
 							<!-- have recently view -->
@@ -1037,21 +1378,8 @@
 								</div>
 							</div>
 						<?php endif; ?>
-					</div>
-				<!-- END OF SECTION 3 -->
-
-				<!-- SECTION 4 - Homepage welcome message -->
-				<div id="etiendahan-section-4" class="etiendahan-section">
-					<div class="container-fluid">
-						<div class="welcome-message-overlay">
-							<div class="welcome-message-image" style="background-image: url(https://goodybagbsd.weebly.com/uploads/1/0/7/4/107489607/613870564.jpg);"></div>
-							<div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
-							<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Marketplace here in Dagupan</div>
-							<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div>
-						</div>
-					</div>
 				</div>
-				<!-- END OF SECTION 4 -->
+				<!-- END OF SECTION 3 -->
 
 				<!-- SECTION 5 - Homepage daily discover -->
 				<div id="etiendahan-section-5" class="etiendahan-section">
@@ -1063,7 +1391,7 @@
 						
 						<div class="item-wrapper">
 							<?php  
-								$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 15");
+								$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
 								if($product_result->num_rows > 0):
 								while($product_row = mysqli_fetch_assoc($product_result)):
 							?>

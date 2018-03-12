@@ -15450,7 +15450,47 @@ input[type="search"].sb-search-input {
   z-index: 90; }
 
 #etiendahan-section-2 {
-  font-family: 'Montserrat', sans-serif; }
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 50px; }
+  #etiendahan-section-2 .title-name {
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    line-height: 50px;
+    position: relative; }
+    #etiendahan-section-2 .title-name a {
+      position: relative;
+      top: 100px;
+      right: 0;
+      color: #000;
+      font-size: 15px;
+      width: 100%;
+      text-decoration: none; }
+      #etiendahan-section-2 .title-name a .fa.fa-chevron-right {
+        font-size: 12px; }
+    #etiendahan-section-2 .title-name span {
+      height: 50px;
+      line-height: 48px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      background-color: #FFFFFF;
+      z-index: 2;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      font-weight: 400;
+      padding: 0 20px;
+      position: relative; }
+  #etiendahan-section-2 .title-name::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    height: 1px;
+    left: 15px;
+    right: 15px;
+    background-color: #e6e6e6;
+    z-index: 1; }
   #etiendahan-section-2:focus {
     outline: none; }
   #etiendahan-section-2 .row {
@@ -15501,7 +15541,7 @@ input[type="search"].sb-search-input {
 
 #etiendahan-section-3 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 30px; }
+  margin-top: 10px; }
   #etiendahan-section-3 .title-name {
     text-align: center;
     font-size: 22px;
@@ -15602,22 +15642,61 @@ input[type="search"].sb-search-input {
 
 #etiendahan-section-4 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 80px; }
-  #etiendahan-section-4 .container-fluid {
+  margin-top: 28px; }
+  #etiendahan-section-4 .title-name {
+    text-align: center;
+    font-size: 22px;
+    color: #000;
+    line-height: 50px;
+    position: relative; }
+    #etiendahan-section-4 .title-name a {
+      position: relative;
+      top: 100px;
+      right: 0;
+      color: #000;
+      font-size: 15px;
+      width: 100%;
+      text-decoration: none; }
+      #etiendahan-section-4 .title-name a .fa.fa-chevron-right {
+        font-size: 12px; }
+    #etiendahan-section-4 .title-name span {
+      height: 50px;
+      line-height: 48px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      background-color: #FFFFFF;
+      z-index: 2;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      font-weight: 400;
+      padding: 0 20px;
+      position: relative; }
+  #etiendahan-section-4 .title-name::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 25px;
+    height: 1px;
+    left: 15px;
+    right: 15px;
+    background-color: #e6e6e6;
+    z-index: 1; }
+  #etiendahan-section-4 .container {
     padding: 0; }
-    #etiendahan-section-4 .container-fluid .welcome-message-overlay {
+    #etiendahan-section-4 .container .welcome-message-image {
+      height: 450px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      margin-bottom: 25px; }
+    #etiendahan-section-4 .container .welcome-message-overlay {
       position: relative;
       background: dimgrey;
       height: 400px;
       overflow: hidden;
       color: #fff; }
-      #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-image {
-        height: 400px;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        opacity: 0.4; }
-      #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-title {
+      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-title {
         position: absolute;
         top: 40%;
         font-size: 50px;
@@ -15627,7 +15706,7 @@ input[type="search"].sb-search-input {
         font-weight: 700;
         width: 100%;
         text-align: center; }
-      #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-intro {
+      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-intro {
         position: absolute;
         top: 60%;
         font-size: 18px;
@@ -15637,7 +15716,7 @@ input[type="search"].sb-search-input {
         letter-spacing: 0.025em;
         width: 100%;
         text-align: center; }
-      #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-hashtag {
+      #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag {
         position: absolute;
         top: 66%;
         font-size: 18px;
@@ -15647,7 +15726,7 @@ input[type="search"].sb-search-input {
         letter-spacing: 0.025em;
         width: 100%;
         text-align: center; }
-        #etiendahan-section-4 .container-fluid .welcome-message-overlay .welcome-message-hashtag a {
+        #etiendahan-section-4 .container .welcome-message-overlay .welcome-message-hashtag a {
           display: inline-block;
           color: inherit;
           text-decoration: underline; }
@@ -15739,7 +15818,7 @@ input[type="search"].sb-search-input {
 
 #etiendahan-section-6 {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 30px; }
+  margin-top: 40px; }
   #etiendahan-section-6 .title-name {
     text-align: center;
     font-size: 22px;

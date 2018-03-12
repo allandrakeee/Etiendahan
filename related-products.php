@@ -15,13 +15,13 @@
 	}
 
 	$logged_in = ((isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != '')?htmlentities($_SESSION['logged_in']):'');
-	$sub_category_name = ((isset($_SESSION['sub_category_name']) && $_SESSION['sub_category_name'] != '')?htmlentities($_SESSION['sub_category_name']):'');
+	echo $sub_category_name = ((isset($_SESSION['sub_category_name']) && $_SESSION['sub_category_name'] != '')?htmlentities($_SESSION['sub_category_name']):'');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Related Prducts | Etiendahan Dagupan</title>
+	<title>Related Prducts | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -64,14 +64,9 @@
 
 											
 												<?php 
-													$sub_id_result = $mysqli->query("SELECT GROUP_CONCAT(id) FROM tbl_categories_sub WHERE name = '$sub_category_name'");
-													$sub_id_row = $sub_id_result->fetch_assoc();
-													$in_sub_id = $sub_id_row['GROUP_CONCAT(id)'];
-													// echo $in_sub_id;
-													// echo $category_product_id;
 
 
-													$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
+													$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE category_id = '$sub_category_name' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").")");
 													if($product_result->num_rows > 0):
 													while($product_row = mysqli_fetch_assoc($product_result)): 
 													$product_id = $product_row['id'];

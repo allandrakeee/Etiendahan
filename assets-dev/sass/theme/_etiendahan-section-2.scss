@@ -1,6 +1,58 @@
 // Homepage categories
 #etiendahan-section-2 {
 	font-family: 'Montserrat', sans-serif;
+	margin-top: 50px;
+
+	.title-name {
+	    text-align: center;
+		// text-transform: uppercase;
+		font-size: 22px;
+		color: #000;
+		line-height: 50px;
+		position: relative;
+		
+		a {
+			position: relative;
+		    top: 100px;
+		    right: 0;
+		    color: #000;
+		    font-size: 15px;
+		    width: 100%;
+			text-decoration: none;
+				
+			.fa.fa-chevron-right {
+				font-size: 12px;
+			}
+
+		}
+
+		span {
+		    height: 50px;
+		    line-height: 48px;
+		    text-align: center;
+		    display: inline-block;
+		    border: 1px solid #e6e6e6;
+		    background-color: #FFFFFF;
+		    z-index: 2;
+		    font-size: 22px;
+		    letter-spacing: 0.2em;
+		    font-weight: 400;
+		    padding: 0 20px;
+		    position: relative;
+		}
+	}
+
+	.title-name::after {
+	    display: block;
+		content: '';
+		position: absolute;
+		bottom: 25px;
+		height: 1px;
+		left: 15px;
+		right: 15px;
+		background-color: #e6e6e6;
+		z-index: 1;
+	}
 
 	&:focus {
 		outline: none;

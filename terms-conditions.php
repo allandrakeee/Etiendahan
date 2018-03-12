@@ -20,7 +20,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Terms & Conditions | Etiendahan Dagupan</title>
+	<title>Terms & Conditions | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -63,9 +63,9 @@
 							<div class="col-md-12">
 								<h3 style="margin-top: 4px; font-size: 30px;">Terms and Conditions ("Terms")</h3>
 									<p class="margin-p">Last updated: February 09, 2018</p>
-									<p class="margin-p">Etiendahan Dagupan ("us", "we", or "our") operates the http://localhost:8080/etiendahan/ website (the "Service").</p>
+									<p class="margin-p">Etiendahan ("us", "we", or "our") operates the http://localhost:8080/etiendahan/ website (the "Service").</p>
 									<p class="margin-p">Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
-									<p class="margin-p">By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. Terms and Conditions for Etiendahan Dagupan based on the T&C example from TermsFeed.</p>
+									<p class="margin-p">By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service. Terms and Conditions for Etiendahan based on the T&C example from TermsFeed.</p>
 
 								<h3 class="margin-h">Accounts</h3>
 									<p class="margin-p">When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
@@ -73,8 +73,8 @@
 									<p>You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
 
 								<h3 class="margin-h">Links To Other Web Sites</h3>
-									<p class="margin-p">Our Service may contain links to third-party web sites or services that are not owned or controlled by Etiendahan Dagupan.</p>
-									<p>Etiendahan Dagupan has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Etiendahan Dagupan shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+									<p class="margin-p">Our Service may contain links to third-party web sites or services that are not owned or controlled by Etiendahan.</p>
+									<p>Etiendahan has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that Etiendahan shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
 									<p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
 
 								<h3 class="margin-h">Termination</h3>

@@ -29,7 +29,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buy <?php echo $row_sub_category['name']; ?> Online | Etiendahan Dagupan</title>
+	<title>Buy <?php echo $row_sub_category['name']; ?> Online | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -69,23 +69,39 @@
 
 					<div class="container category">
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-3" style="padding-right: 0">
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-list fa-fw"></i>Categories</div>
-									<div class="title"><a href="/etiendahan/category/view/"><?php echo $row_category['name']; ?></a></div>
+									<div class="title"><a href="/etiendahan/category/view/">All Products</a></div>
 									<div class="sub">
 										<ul>
-											<?php  
-												$result_category_sub = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$category_id'");
-												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
-											?>
-											<li class="<?php echo ($row_category_sub['id'] == $sub_category_id)? 'active' : ''; ?>"><a href="/etiendahan/category/view/sub/" class="go-to-sub" id="<?php echo $row_category_sub['id']; ?>"><i class="fa fa-angle-right fa-fw"></i><?php echo $row_category_sub['name']; ?> (<?php
-												$total_count_id = $row_category_sub['id'];
-												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where sub_id = '$total_count_id' AND stock > 0 AND banned = 0");
+											<?php if($category_id == 1): ?>
+											<li class="active"><a href="/etiendahan/category/view/sub/" class="my-gallery-inner" id="1">Manufactured Products (<?php
+												$total_count_id = 1;
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where category_id = '$total_count_id' AND stock > 0 AND banned = 0");
 												$count_tbl_products = $result->fetch_assoc();
 												echo $count_tbl_products['count_tbl_products'];
 											 ?>)</a></li>
-											<?php endwhile; ?>
+											<li class=""><a href="/etiendahan/category/view/sub/" class="my-gallery-inner" id="2">Non-manufactured Products (<?php
+												$total_count_id = 2;
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where category_id = '$total_count_id' AND stock > 0 AND banned = 0");
+												$count_tbl_products = $result->fetch_assoc();
+												echo $count_tbl_products['count_tbl_products'];
+											 ?>)</a></li>
+											<?php elseif($category_id == 2): ?>
+											<li class=""><a href="/etiendahan/category/view/sub/" class="my-gallery-inner" id="1">Manufactured Products (<?php
+												$total_count_id = 1;
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where category_id = '$total_count_id' AND stock > 0 AND banned = 0");
+												$count_tbl_products = $result->fetch_assoc();
+												echo $count_tbl_products['count_tbl_products'];
+											 ?>)</a></li>
+											<li class="active"><a href="/etiendahan/category/view/sub/" class="my-gallery-inner" id="2">Non-manufactured Products (<?php
+												$total_count_id = 2;
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where category_id = '$total_count_id' AND stock > 0 AND banned = 0");
+												$count_tbl_products = $result->fetch_assoc();
+												echo $count_tbl_products['count_tbl_products'];
+											 ?>)</a></li>
+											<?php endif; ?>
 										</ul>
 									</div>
 								</div>
@@ -129,7 +145,7 @@
 									<?php  
 										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
 										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id = '$sub_category_id' AND stock > 0 AND banned = 0 ORDER BY ".$product_order);
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE category_id = '$category_id' AND stock > 0 AND banned = 0 ORDER BY ".$product_order);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):
 										$product_id = $product_row['id'];

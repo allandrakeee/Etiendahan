@@ -23,7 +23,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administrator Page | Etiendahan Dagupan</title> 
+    <title>Administrator Page | Etiendahan</title> 
 
     <!-- favicon -->
     <link rel="shortcut icon" href="/etiendahan/temp-image/favicon.ico" type="image/x-icon">

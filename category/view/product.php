@@ -42,17 +42,11 @@
 	$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE id = '$category_product_id'");
 	$row_product = $result_product->fetch_assoc();
 	// echo 'Sub ID'.$row_product['sub_id'].'<br>';
-	$sub_id = $row_product['sub_id'];
+	$category_id = $row_product['category_id'];
 
 	if($row_product['stock'] <= 0) {
 		header('location: /etiendahan/category/view/');
 	} 
-
-	$result_sub_id = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_id'");
-	$row_sub_id = $result_sub_id->fetch_assoc();
-	$category_id = $row_sub_id['parent_id'];
-	$category_name = $row_sub_id['name'];
-
 	$_SESSION['category_id'] = $category_id;
 	$category_id = ((isset($_SESSION['category_id']) && $_SESSION['category_id'] != '')?htmlentities($_SESSION['category_id']):'');
 
@@ -64,7 +58,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buy <?php echo $row_product['name'] ?> Online | Etiendahan Dagupan</title>
+	<title>Buy <?php echo $row_product['name'] ?> Online | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -110,8 +104,8 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item"><a href="/etiendahan/category/view/"><?php echo $row_category['name'] ?></a></li>
-								<li class="breadcrumb-item active product-view" aria-current="page"><?php echo $row_product['name'] ?></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/category/view/sub/"><?php echo $row_category['name'] ?></a></li>
+								<li class="breadcrumb-item active product-view" style="width: auto" aria-current="page"><?php echo trim($row_product['name']) ?></li>
 							</div>
 						</ol>
 					</nav>
@@ -523,20 +517,13 @@
 						<div id="etiendahan-section-3" class="etiendahan-section">
 							<div class="container">
 								<div class="title-name">
-									<a href="/etiendahan/related-products/" class="related-products" id="<?php echo $category_name; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
+									<a href="/etiendahan/related-products/" class="related-products" id="<?php echo $category_id; ?>">See all<i class="fa fa-chevron-right fa-fw"></i></a>
 									<h3><span class="wow pulse" data-wow-delay="1500ms">RELATED PRODUCTS</span></h3>
 								</div>
 
 								<div class="owl-carousel">
 									<?php 
-										$sub_id_result = $mysqli->query("SELECT GROUP_CONCAT(id) FROM tbl_categories_sub WHERE name = '$category_name'");
-										$sub_id_row = $sub_id_result->fetch_assoc();
-										$in_sub_id = $sub_id_row['GROUP_CONCAT(id)'];
-										// echo $in_sub_id;
-										// echo $category_product_id;
-
-
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE sub_id IN($in_sub_id) AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE category_id = '$category_id' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
 										$product_id = $product_row['id'];
 									?>

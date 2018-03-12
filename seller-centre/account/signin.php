@@ -110,7 +110,7 @@
 						<div class="col-md-7">
 							<div class="info">
 								<div class="title">Be a Power Seller</div>
-								<div class="sub-title">Manage your shop efficiently on Shopee with our Shopee Seller Center</div>
+								<div class="sub-title">Manage your shop efficiently on Etiendahan with our Etiendahan Seller Center</div>
 								<div class="image-wrapper"><div class="image" style="background-image: url(/etiendahan/temp-img/fa-shop.png);"></div></div>
 							</div>
 						</div>

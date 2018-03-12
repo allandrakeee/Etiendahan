@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html class="admin-page">
 <head>
-	<title>Administrator Page | Etiendahan Dagupan</title>
+	<title>Administrator Page | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@
 					        <input type="password" name="p" placeholder="Password" required="required">
 					        <button type="submit" class="btn btn-primary btn-block btn-large" name="l">Let me in.</button>
 					    </form>
-					    <div class="mt-2"><a href="/etiendahan/" style="text-decoration: none; font-size: 11px;color:white;"><i class="fa fa-long-arrow-left"></i> Back to Etiendahan Dagupan</a></div>
+					    <div class="mt-2"><a href="/etiendahan/" style="text-decoration: none; font-size: 11px;color:white;"><i class="fa fa-long-arrow-left"></i> Back to Etiendahan</a></div>
 					</div>
 				</div>
 

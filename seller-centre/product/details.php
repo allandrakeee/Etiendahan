@@ -163,7 +163,8 @@
 				                	$id 				= ((isset($_POST['id']) && $_POST['id'] != '')?htmlentities($_POST['id']): $product_details['id']);
 									$name 		        = ((isset($_POST['name']) && $_POST['name'] != '')?htmlentities($_POST['name']): $product_details['name']);
 									$description 		= ((isset($_POST['description']) && $_POST['description'] != '')?htmlentities($_POST['description']): $product_details['description']);
-									$sub_id 	        = ((isset($_POST['sub_id']) && $_POST['sub_id'] != '')?htmlentities($_POST['sub_id']): $product_details['sub_id']);
+									$municipality_id 		= ((isset($_POST['municipality_id']) && $_POST['municipality_id'] != '')?htmlentities($_POST['municipality_id']): $product_details['municipality_id']);
+									$category_id 		= ((isset($_POST['category_id']) && $_POST['category_id'] != '')?htmlentities($_POST['category_id']): $product_details['category_id']);
 									$price 				= ((isset($_POST['price']) && $_POST['price'] != '')?htmlentities($_POST['price']): $product_details['price']);
 									$stock 				= ((isset($_POST['stock']) && $_POST['stock'] != '')?htmlentities($_POST['stock']): $product_details['stock']);
 
@@ -226,21 +227,16 @@
 
 										<div class="form-group row">
 											<label for="selectCategory" class="col-sm-2 col-form-label">Category</label>
-											<div class="col-sm-5">
+											<div class="col-sm-10">
 												<?php
-													$result_categories_sub = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE id = '$sub_id'");
-													$categories_sub_row = $result_categories_sub->fetch_assoc();
-													$selected_id_sub = $categories_sub_row['id'];
-													$get_category_id = $categories_sub_row['parent_id'];
-
-													$result_categories = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$get_category_id'");
+													$result_categories = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
 													$categories_row = $result_categories->fetch_assoc();
 
 													$get_sub_category_id = $categories_row['id'];
 
 													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
 													echo "<select class='form-control' id='category' name='category' required>";
-													echo "<option value=''>Parent Category</option>";
+													echo "<option value=''>Select</option>";
 													while($category = mysqli_fetch_assoc($result)){
 														$category_id = $category['id'];
 														$category_name = $category['name'];
@@ -249,22 +245,27 @@
 												<?php } ?>
 													</select>							
 											</div>	
-											<div class="col-sm-5">
-												<select class='form-control' id='sub-category' name='subCategory' required>	
-													<option value="">Sub Category</option>
-													<?php 
+										</div>
 
-														// IF EMPTY AND PRODUCT DETAIL HAVE VALUE SHOW THE SUB CATEGORY ID AND PARENT ID IN SUB CATEGORY DROPDOWN LIST
-														$parent_id = ((isset($_POST['parent_id']) && $_POST['parent_id'] != '')?htmlentities($_POST['parent_id']): $get_sub_category_id);
-														$selected = ((isset($_POST['selected']) && $_POST['selected'] != '')?htmlentities($_POST['selected']): $selected_id_sub);
-														$result = $mysqli->query("SELECT * FROM tbl_categories_sub WHERE parent_id = '$parent_id'");
-														$subCategory_post = ((isset($_POST['subCategory']) && $_POST['subCategory'] != '')?htmlentities($_POST['subCategory']):'');
-																	
-													?>
-														<?php while($sub = mysqli_fetch_assoc($result)) : ?>
-															<option value='<?php echo $sub['id'] ?>' <?php if($selected == $sub['id']) echo 'selected'; ?>><?php echo $sub['name'] ?></option>
-														<?php endwhile; ?>
-												</select>				
+										<div class="form-group row">
+											<label for="selectCategory" class="col-sm-2 col-form-label">Province</label>
+											<div class="col-sm-10">
+												<?php
+													$result_categories = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE id = '$municipality_id'");
+													$categories_row = $result_categories->fetch_assoc();
+
+													$get_sub_category_id = $categories_row['id'];
+
+													$result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc");
+													echo "<select class='form-control' id='municipality' name='municipality' required>";
+													echo "<option value=''>Select</option>";
+													while($category = mysqli_fetch_assoc($result)){
+														$category_id = $category['id'];
+														$category_name = strtolower($category['citymunDesc']);
+												?>	
+														<option value='<?php echo $category_id ?>' <?php if($get_sub_category_id == $category_id) echo 'selected'; ?>><?php echo ucwords($category_name) ?></option>
+												<?php } ?>
+													</select>	
 											</div>
 										</div>
 									</div>

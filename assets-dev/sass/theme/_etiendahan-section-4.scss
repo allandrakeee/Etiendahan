@@ -1,10 +1,71 @@
 // Homepage welcome message
 #etiendahan-section-4 {
 	font-family: 'Montserrat', sans-serif;
-	margin-top: 80px;
+	margin-top: 28px;
+	// border-top: #dcdcdc solid 1px;
+	// border-bottom: #dcdcdc solid 1px;
 	
-	.container-fluid {
+	.title-name {
+	    text-align: center;
+		// text-transform: uppercase;
+		font-size: 22px;
+		color: #000;
+		line-height: 50px;
+		position: relative;
+		
+		a {
+			position: relative;
+		    top: 100px;
+		    right: 0;
+		    color: #000;
+		    font-size: 15px;
+		    width: 100%;
+			text-decoration: none;
+				
+			.fa.fa-chevron-right {
+				font-size: 12px;
+			}
+
+		}
+
+		span {
+		    height: 50px;
+		    line-height: 48px;
+		    text-align: center;
+		    display: inline-block;
+		    border: 1px solid #e6e6e6;
+		    background-color: #FFFFFF;
+		    z-index: 2;
+		    font-size: 22px;
+		    letter-spacing: 0.2em;
+		    font-weight: 400;
+		    padding: 0 20px;
+		    position: relative;
+		}
+	}
+
+	.title-name::after {
+	    display: block;
+		content: '';
+		position: absolute;
+		bottom: 25px;
+		height: 1px;
+		left: 15px;
+		right: 15px;
+		background-color: #e6e6e6;
+		z-index: 1;
+	}
+	
+	.container {
 		padding: 0;
+
+		.welcome-message-image {
+			height: 450px;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: contain;
+			margin-bottom: 25px;
+		}
 		
 		.welcome-message-overlay {
 			position: relative;
@@ -14,13 +75,7 @@
 			overflow: hidden;
 			color: #fff;
 
-			.welcome-message-image {
-				height: 400px;
-				background-repeat: no-repeat;
-				background-position: center center;
-				background-size: cover;
-				opacity: 0.4;
-			}
+			
 
 			.welcome-message-title {
 				position: absolute;

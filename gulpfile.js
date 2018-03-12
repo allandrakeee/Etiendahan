@@ -311,6 +311,9 @@ gulp.task('watch', ['styles', 'scripts'], function(){
     gulp.watch('category/view/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });
+    gulp.watch('location/view/*.php').on('change', function(file) {
+        livereload.changed(file.path);
+    });
     gulp.watch('seller-centre/*.php').on('change', function(file) {
         livereload.changed(file.path);
     });

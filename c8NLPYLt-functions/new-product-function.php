@@ -55,14 +55,15 @@
             }
         }
         // Escape all $_POST and $_SESSION variables to protect against SQL injections
-        $name           = $mysqli->escape_string($_POST['name']);
-        $description    = $mysqli->escape_string($_POST['description']);
-        $sub_id         = $mysqli->escape_string($_POST['subCategory']);
-        $price          = $mysqli->escape_string($_POST['price']);
-        $stock          = $mysqli->escape_string($_POST['stock']);
-        $email          = $mysqli->escape_string($_SESSION['email']);
+        $name                = $mysqli->escape_string($_POST['name']);
+        $description         = $mysqli->escape_string($_POST['description']);
+        $municipality_id         = $mysqli->escape_string($_POST['municipality']);
+        $category_id         = $mysqli->escape_string($_POST['category']);
+        $price               = $mysqli->escape_string($_POST['price']);
+        $stock               = $mysqli->escape_string($_POST['stock']);
+        $email               = $mysqli->escape_string($_SESSION['email']);
 
-        $sql = "INSERT INTO tbl_products (id, name, description, sub_id, price, stock, image, created_at, seller_email, banned) VALUES (null, '$name','$description', '$sub_id', '$price', '$stock', '$db_path', NOW(), '$email', 0)";
+        $sql = "INSERT INTO tbl_products (id, name, description, municipality_id, category_id, price, stock, image, created_at, seller_email, banned) VALUES (null, '$name','$description', '$municipality_id', '$category_id', '$price', '$stock', '$db_path', NOW(), '$email', 0)";
 
         if ($mysqli->query($sql) or die($mysqli->error)) {
             header("location: /etiendahan/seller-centre/product/new/");

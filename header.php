@@ -41,10 +41,27 @@
 								<a class="nav-link cl-effect" href="/etiendahan/seller-centre/account/signin/" target="_blank">Sell On Etiendahan</a>
 							</li>
 
-							<!-- SPECIALTY IN CITY -->
+							<!-- MARKET -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+								<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
 							</li>
+
+							<!-- LOCATION -->
+							<li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+							</li>
+
+							<!-- STORES -->
+							<li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
+							</li>
+
+							
+
+							<!-- SPECIALTY IN CITY -->
+							<!-- <li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+							</li> -->
 
 							<!-- SPECIALTY IN CITY -->
 							<!-- <li class="nav-item dropdown mega-dropdown">
@@ -173,25 +190,7 @@
 								<a class="nav-link cl-effect" href="#">Accessories</a>
 							</li> -->
 
-							<?php  
-								$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
-								$men_row = $men_result->fetch_assoc();
-							?>
-							<!-- MEN -->
-							<li class="nav-item">
-								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
-							</li>
-							
-							<?php  
-								$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
-								$women_row = $women_result->fetch_assoc();
-							?>
-							<!-- WOMEN -->
-							<li class="nav-item">
-								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
-							</li>
-
-							<!-- ALL CATEGORIES -->
+							<!-- SHOP NOW -->
 							<li class="nav-item">
 								<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 							</li>
@@ -395,10 +394,27 @@
 								<a class="nav-link cl-effect" href="/etiendahan/seller-centre/account/signin/" target="_blank">Sell On Etiendahan</a>
 							</li>
 
-							<!-- SPECIALTY IN CITY -->
+							<!-- MARKET -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+								<a class="nav-link cl-effect" href="/etiendahan/category/view/" target="">Market</a>
 							</li>
+
+							<!-- LOCATION -->
+							<li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/location/view/" target="">Location</a>
+							</li>
+
+							<!-- STORES -->
+							<li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/stores/" target="">Stores</a>
+							</li>
+
+							
+
+							<!-- SPECIALTY IN CITY -->
+							<!-- <li class="nav-item">
+								<a class="nav-link cl-effect" href="/etiendahan/specialty-in-city/">Specialty in City</a>
+							</li> -->
 
 							<!-- SPECIALTY IN CITY -->
 							<!-- <li class="nav-item dropdown mega-dropdown">
@@ -527,27 +543,9 @@
 								<a class="nav-link cl-effect" href="#">Accessories</a>
 							</li> -->
 
-							<?php  
-								$men_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Men\'s Fashion'");
-								$men_row = $men_result->fetch_assoc();
-							?>
-							<!-- MEN -->
+							<!-- SHOP NOW -->
 							<li class="nav-item">
-								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $men_row['id']; ?>">Men</a>
-							</li>
-							
-							<?php  
-								$women_result = $mysqli->query("SELECT id FROM tbl_categories WHERE name = 'Women\'s Fashion'");
-								$women_row = $women_result->fetch_assoc();
-							?>
-							<!-- WOMEN -->
-							<li class="nav-item">
-								<a class="nav-link cl-effect my-gallery-inner" href="/etiendahan/category/view/" id="<?php echo $women_row['id']; ?>">Women</a>
-							</li>
-
-							<!-- ALL CATEGORIES -->
-							<li class="nav-item">
-								<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect" data-id="shop-now-link">Shop Now</a>
+								<a href='http://localhost:8080/etiendahan/#shop-now' class="nav-link cl-effect scroll-link" data-id="shop-now-link">Shop Now</a>
 							</li>
 						</ul>
 					</div>
