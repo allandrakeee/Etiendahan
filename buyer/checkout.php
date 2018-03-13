@@ -153,6 +153,7 @@
 								<div class="place-order p-2 mt-4" style="height: 72px;">
 									<div class="total-payment d-inline" style="line-height: 55px;">Total Payment: <strong style="font-size: 18px;">₱<?php $shipping_fee = 120 * ($countcount-1); $formatted_total+=$shipping_fee; echo number_format((float)$formatted_total, 2, '.', ','); ?></strong></div>
 									<div class="place-order-button d-inline-block pull-right"><?php $_SESSION['total_amount_order'] = number_format((float)$formatted_total, 2, '.', ','); ?>
+										<div class="tooltip-wrapper" style="position: absolute;right: 215px;top: 48px;color: dimgrey;" data-html="true" data-toggle="tooltip" data-placement="top" title="Please be responsible what you order. Thank you <?php echo strtok($_SESSION['fullname'], " "); ?>! <br> - Etiendahan Team"><i class="fa fa-info-circle" style="margin-top: 2px;color: dimgrey; font-size: 20px;"></i></div>
 										<form action="/etiendahan/c8NLPYLt-functions/place-order-function/" method="POST" class="d-inline">
 											<button class="btn btn-primary" type="submit">Place order</button>
 										</form>
@@ -167,8 +168,8 @@
 	</div>
 						
 	
-				
-
 <!-- footer inner -->
+<script src="/etiendahan/assets/js/theme.js"></script>
 
+</body>
 </html>

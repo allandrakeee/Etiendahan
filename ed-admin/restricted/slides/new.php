@@ -360,16 +360,16 @@
                     </div>
 
                     <?php  
-                        $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
+                        $sic_owner_result = $mysqli->query("SELECT s.id as id, c.fullname as fullname FROM tbl_sellers s join tbl_customers c on(s.seller_email = c.email)");
                     ?>
                     <div class="form-group" style="width: 25%">
                         <label><strong>Link to:</strong></label>
                         <select class="browser-default" name="sic_owner" required>
-                            <option value = "" selected>Select</option>
+                            <option value = "" selected>Seller</option>
                             <?php
                             while($sic_owner_row = mysqli_fetch_assoc($sic_owner_result)):
                             ?>
-                                <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['name'];?></option>
+                                <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['fullname'];?></option>
                             <?php endwhile; ?>
                         </select>             
                     </div>

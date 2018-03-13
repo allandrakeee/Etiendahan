@@ -151,7 +151,7 @@
 						</div>
 
 						<?php  
-							$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email='$email' GROUP BY name");
+							$result_product = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email='$email' GROUP BY id desc");
 							while($product_row = mysqli_fetch_assoc($result_product)):
 							$product_id = $product_row['id'];
 						?>

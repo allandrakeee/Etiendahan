@@ -81,12 +81,12 @@
 												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
 												$category_name = strtolower($row_category_sub['citymunDesc']);
 											?>
-											<li class=""><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo ($category_id == $row_category_sub['id'])? 'active' : ''; ?>" id="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
+											<li class=""><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo ($category_id == $row_category_sub['id'])? 'active-sub' : ''; ?>" data-value="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?></a><span class="<?php echo ($category_id == $row_category_sub['id'])? 'active' : ''; ?>"> (<?php
 												$total_count_id = $row_category_sub['id'];
 												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where municipality_id = '$total_count_id' AND stock > 0 AND banned = 0");
 												$count_tbl_products = $result->fetch_assoc();
 												echo $count_tbl_products['count_tbl_products'];
-											 ?>)</a></li>
+											 ?>)</span></li>
 											<?php endwhile; ?>
 										</ul>
 									</div>
@@ -130,7 +130,7 @@
 								<div class="item-wrapper" id="item-wrapper-grid-list">
 									<?php  
 										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
-										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
+										$product_order = ($sort_request == '') ? "id desc" : $sort_request;
 										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE municipality_id = '$category_id' AND stock > 0 AND banned = 0 ORDER BY ".$product_order);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):

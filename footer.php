@@ -309,6 +309,7 @@
 	</script>
 	<!-- Development - Normal import of theme.js -->
 	<script src="/etiendahan/assets/js/theme.js"></script>
+	<script data-require="jquery-cookie@1.3.1" data-semver="1.3.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.js"></script>
 	
 	<!-- Development - Minifies import of theme.js -->
 	<!-- <script src="/etiendahan/assets/js/theme.min.js"></script> -->

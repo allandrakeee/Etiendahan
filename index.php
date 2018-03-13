@@ -401,7 +401,20 @@
 											<p>Howdy.</p>
 
 											<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
-											<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+											<a href="/etiendahan/customer/orders/">
+												<div class="dropdown-item">
+													<?php  
+														$email =  $_SESSION['email'];
+													  	$result = $mysqli->query("SELECT COUNT(DISTINCT unique_hash_id) as 'total' FROM tbl_orders WHERE email = '$email' ORDER BY unique_hash_id");
+												 		if($result->num_rows == 0):
+													?>
+													<i class="fa fa-caret-right fa-fw"></i>My Orders
+													<?php else: ?>
+														<?php $row = $result->fetch_assoc(); ?>
+													<i class="fa fa-caret-right fa-fw"></i>My Orders <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
+													<?php endif; ?>
+												</div>
+											</a>
 											<a href="/etiendahan/customer/wishlists/">
 												<div class="dropdown-item">
 													<?php  
@@ -464,8 +477,12 @@
 													<div class="text-inner wow fadeInUp" data-wow-delay="600ms" style="visibility: hidden"><?php echo $slides_row['title']; ?></div>
 													<?php  
 														if($slides_row['link_status'] == 1):
+
+														$seller_id = $slides_row['link_to'];
+														$result_banned = $mysqli->query("SELECT * FROM tbl_sellers WHERE id = '$seller_id'");
+														$row_banned = $result_banned->fetch_assoc();
 													?>
-														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="/etiendahan/specialty-in-city/#sic-<?php echo $slides_row['link_to']; ?>">View Shop</a></div>
+														<div class="link-slider wow fadeInUp" data-wow-delay="920ms" style="visibility: hidden"><a href="/etiendahan/seller-shop/" class="view-shop" id="<?php echo $row_banned['seller_email'] ?>">View Shop</a></div>
 													<?php endif; ?>
 												</div>
 											</div>
@@ -881,10 +898,395 @@
 					}
 				?>
 
-				
-				
+				<!-- SECTION 4 - Homepage welcome message -->
+				<div id="etiendahan-section-4" class="etiendahan-section">
+					<div class="container">
+						<!-- <div class="title-name">
+							<h3><span class="wow pulse" data-wow-delay="1000ms">PROVINCE OF PANGASINAN</span></h3>
+						</div> -->
+						<h1 class="text-center wow slideInUp" data-wow-delay="400ms" style="visibility: hidden !important;">PROVINCE OF PANGASINAN</span></h1>
+						<div class="row">
+							<div class="col-md-2">
+								<ul style="list-style: none; font-size: 12.6px;">
+									<?php  
+										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24");
+										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
+										$category_name = strtolower($row_category_sub['citymunDesc']);
+									?>
+
+									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
+
+									<?php  
+										endwhile;
+									?>
+								</ul>
+							</div>
+							<div class="col-md-8">
+								<div class="welcome-message-image wow fadeInUp" data-wow-delay="550ms" style="background-image: url(temp-img/map-of-pangasinan.png); visibility: hidden !important;"></div>
+								<!-- <div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
+								<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Local Products | Province of Pangasinan</div>
+								<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div> -->
+								<!-- markers -->
+								<div id="map-tips" style="position: relative;width: 0;height: 0;right: 206px;">
+									<!-- bolinao -->
+									<div class="tooltip-wrapper bolinao wow fadeInUp" data-wow-delay="1010ms" style="position: relative;bottom: 446px;left: 320px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bolinao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 91" data-value="91" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- anda -->
+									<div class="tooltip-wrapper anda wow fadeInUp" data-wow-delay="1050ms" style="position: relative;bottom: 472px;left: 385px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Anda">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 82" data-value="82" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- bani -->
+									<div class="tooltip-wrapper bani wow fadeInUp" data-wow-delay="1020ms" style="position: relative;bottom: 468px;left: 318px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bani">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 85" data-value="85" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- agno -->
+									<div class="tooltip-wrapper agno wow fadeInUp" data-wow-delay="1000ms" style="position: relative;bottom: 465px;left: 278px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Agno">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 78" data-value="78" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- city of alaminos -->
+									<div class="tooltip-wrapper city-of-alaminos wow fadeInUp" data-wow-delay="1060ms" style="position: relative;bottom: 509px;left: 366px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Alaminos">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 80" data-value="80" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- burgos -->
+									<div class="tooltip-wrapper burgos wow fadeInUp" data-wow-delay="1030ms" style="position: relative;bottom: 495px;left: 308px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Burgos">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 93" data-value="93" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- dasol -->
+									<div class="tooltip-wrapper dasol wow fadeInUp" data-wow-delay="1040ms" style="position: relative;bottom: 485px;left: 298px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dasol">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 96" data-value="96" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- infanta -->
+									<div class="tooltip-wrapper infanta wow fadeInUp" data-wow-delay="1080ms" style="position: relative;bottom: 464px;left: 355px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Infanta">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 97" data-value="97" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- mabini -->
+									<div class="tooltip-wrapper mabini wow fadeInUp" data-wow-delay="1070ms" style="position: relative;bottom: 561px;left: 369px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mabini">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 100" data-value="100" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- sual -->
+									<div class="tooltip-wrapper sual wow fadeInUp" data-wow-delay="1090ms" style="position: relative;bottom: 618px;left: 407px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sual">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 119" data-value="119" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- labrador -->
+									<div class="tooltip-wrapper labrador wow fadeInUp" data-wow-delay="1100ms" style="position: relative;bottom: 615px;left: 441px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Labrador">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 98" data-value="98" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- bugallon -->
+									<div class="tooltip-wrapper bugallon wow fadeInUp" data-wow-delay="1120ms" style="position: relative;bottom: 620px;left: 477px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bugallon">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 92" data-value="92" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- aguilar -->
+									<div class="tooltip-wrapper aguilar wow fadeInUp" data-wow-delay="1130ms" style="position: relative;bottom: 609px;left: 495px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Aguilar">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 79" data-value="79" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- mangatarem -->
+									<div class="tooltip-wrapper mangatarem wow fadeInUp" data-wow-delay="1140ms" style="position: relative;bottom: 546px;left: 518px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangatarem">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 104" data-value="104" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- lingayen (capital) -->
+									<div class="tooltip-wrapper lingayen wow fadeInUp" data-wow-delay="1110ms" style="position: relative;bottom: 735px;left: 504px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Lingayen (capital)">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 99" data-value="99" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- binmaley -->
+									<div class="tooltip-wrapper binmaley wow fadeInUp" data-wow-delay="1150ms" style="position: relative;bottom: 759px;left: 534px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binmaley">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 90" data-value="90" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- dagupan city -->
+									<div class="tooltip-wrapper dagupan-city wow fadeInUp" data-wow-delay="1160ms" style="position: relative;bottom: 815px;left: 569px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dagupan City">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 95" data-value="95" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- calasiao -->
+									<div class="tooltip-wrapper calasiao wow fadeInUp" data-wow-delay="1170ms" style="position: relative;bottom: 818px;left: 577px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Calasiao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 94" data-value="94" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san carlos city -->
+									<div class="tooltip-wrapper san-carlos-city wow fadeInUp" data-wow-delay="1180ms" style="position: relative;bottom: 811px;left: 555px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Carlos City">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 109" data-value="109" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- urbiztondo -->
+									<div class="tooltip-wrapper urbiztondo wow fadeInUp" data-wow-delay="1190ms" style="position: relative;bottom: 790px;left: 580px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Urbiztondo">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 122" data-value="122" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- basista -->
+									<div class="tooltip-wrapper basista wow fadeInUp" data-wow-delay="1220ms" style="position: relative;bottom: 842px;left: 607px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Basista">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 86" data-value="86" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- bayambang -->
+									<div class="tooltip-wrapper bayambang wow fadeInUp" data-wow-delay="1230ms" style="position: relative;bottom: 822px;left: 627px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bayambang">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 88" data-value="88" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- bautista -->
+									<div class="tooltip-wrapper bautista wow fadeInUp" data-wow-delay="1300ms" style="position: relative;bottom: 839px;left: 688px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bautista">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 87" data-value="87" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- alcala -->
+									<div class="tooltip-wrapper alcala wow fadeInUp" data-wow-delay="1290ms" style="position: relative;bottom: 919px;left: 689px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Alcala">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 81" data-value="81" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- santo tomas -->
+									<div class="tooltip-wrapper santo-tomas wow fadeInUp" data-wow-delay="1390ms" style="position: relative;bottom: 954px;left: 721px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santo Tomas">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 117" data-value="117" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- rosales -->
+									<div class="tooltip-wrapper rosales wow fadeInUp" data-wow-delay="1400ms" style="position: relative;bottom: 978px;left: 755px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Rosales">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 108" data-value="108" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- balungao -->
+									<div class="tooltip-wrapper balungao wow fadeInUp" data-wow-delay="1460ms" style="position: relative;bottom: 1021px;left: 795px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Balungao">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 84" data-value="84" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- umingan -->
+									<div class="tooltip-wrapper umingan wow fadeInUp" data-wow-delay="1470ms" style="position: relative;bottom: 1053px;left: 866px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Umingan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 121" data-value="121" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san quintin -->
+									<div class="tooltip-wrapper san-quintin wow fadeInUp" data-wow-delay="1440ms" style="position: relative;bottom: 1133px;left: 853px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Quintin">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 114" data-value="114" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- natividad -->
+									<div class="tooltip-wrapper natividad wow fadeInUp" data-wow-delay="1420ms" style="position: relative;bottom: 1190px;left: 845px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Natividad">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 106" data-value="106" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san nicolas -->
+									<div class="tooltip-wrapper san-nicolas wow fadeInUp" data-wow-delay="1410ms" style="position: relative;bottom: 1257px;left: 807px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Nicolas">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 113" data-value="113" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san manuel -->
+									<div class="tooltip-wrapper san-manuel wow fadeInUp" data-wow-delay="1330ms" style="position: relative;bottom: 1275px;left: 747px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Manuel">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 112" data-value="112" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- sison -->
+									<div class="tooltip-wrapper sison wow fadeInUp" data-wow-delay="1310ms" style="position: relative;bottom: 1341px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sison">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 118" data-value="118" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san fabian -->
+									<div class="tooltip-wrapper san-fabian wow fadeInUp" data-wow-delay="1240ms" style="position: relative;bottom: 1351px;left: 617px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Fabian">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 110" data-value="110" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- mangaldan -->
+									<div class="tooltip-wrapper mangaldan wow fadeInUp" data-wow-delay="1200ms" style="position: relative;bottom: 1347px;left: 599px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangaldan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 103" data-value="103" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- santa barbara -->
+									<div class="tooltip-wrapper santa-barbara wow fadeInUp" data-wow-delay="1210ms" style="position: relative;bottom: 1338px;left: 611px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Barbara">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 115" data-value="115" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- malasiqui -->
+									<div class="tooltip-wrapper malasiqui wow fadeInUp" data-wow-delay="1280ms" style="position: relative;bottom: 1326px;left: 646px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Malasiqui">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 101" data-value="101" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- villasis -->
+									<div class="tooltip-wrapper villasis wow fadeInUp" data-wow-delay="1380ms" style="position: relative;bottom: 1359px;left: 711px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Villasis">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 124" data-value="124" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- santa maria -->
+									<div class="tooltip-wrapper santa-maria wow fadeInUp" data-wow-delay="1450ms" style="position: relative;bottom: 1407px;left: 779px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Maria">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 116" data-value="116" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- tayug -->
+									<div class="tooltip-wrapper tayug wow fadeInUp" data-wow-delay="1430ms" style="position: relative;bottom: 1467px;left: 803px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Tayug">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 120" data-value="120" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- asingan -->
+									<div class="tooltip-wrapper asingan wow fadeInUp" data-wow-delay="1360ms" style="position: relative;bottom: 1489px;left: 759px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Asingan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 83" data-value="83" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- binalonan -->
+									<div class="tooltip-wrapper binalonan wow fadeInUp" data-wow-delay="1340ms" style="position: relative;bottom: 1544px;left: 722px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binalonan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 89" data-value="89" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- laoac -->
+									<div class="tooltip-wrapper laoac wow fadeInUp" data-wow-delay="1350ms" style="position: relative;bottom: 1564px;left: 690px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Laoac">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 125" data-value="125" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- pozorrubio -->
+									<div class="tooltip-wrapper pozorrubio wow fadeInUp" data-wow-delay="1320ms" style="position: relative;bottom: 1625px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Pozzorubio">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 107" data-value="107" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- manaoag -->
+									<div class="tooltip-wrapper manaoag wow fadeInUp" data-wow-delay="1260ms" style="position: relative;bottom: 1625px;left: 657px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Manaoag">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 102" data-value="102" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- san jacinto -->
+									<div class="tooltip-wrapper san-jacinto wow fadeInUp" data-wow-delay="1250ms" style="position: relative;bottom: 1670px;left: 633px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Jacinto">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 111" data-value="111" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- city of urdaneta -->
+									<div class="tooltip-wrapper city-of-urdaneta wow fadeInUp" data-wow-delay="1370ms" style="position: relative;bottom: 1648px;left: 700px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Urdaneta">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 123" data-value="123" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+
+									<!-- mapandan -->
+									<div class="tooltip-wrapper mapandan wow fadeInUp" data-wow-delay="1270ms" style="position: relative;bottom: 1694px;left: 640px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mapandan">
+										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 105" data-value="105" style="display:inline-block; margin-top: 3px;">
+											<img src="temp-img/marker.png" alt="">
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<ul style="list-style: none; font-size: 12.6px; text-align: right;">
+									<?php  
+										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24, 48");
+										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
+										$category_name = strtolower($row_category_sub['citymunDesc']);
+									?>
+
+									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
+
+									<?php  
+										endwhile;
+									?>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END OF SECTION 4 -->
+
 				<!-- SECTION 2 - Homepage categories -->
-				<!-- <div id="etiendahan-section-2" class="etiendahan-section">
+				<div id="etiendahan-section-2" class="etiendahan-section">
 					<div class="container">
 						<div class="title-name">
 							<h3><span class="wow pulse" data-wow-delay="1000ms">SHOP BY CATEGORIES</span></h3>
@@ -904,7 +1306,7 @@
 							?>
 
 					        <div class="col-md-2">
-								<a href="/etiendahan/market/view/sub/" class="did="<?pmy-gallery-inner hp echo $category_row['id']; ?>">
+								<a href="/etiendahan/market/view/sub/" class="d-block my-gallery-inner" id="<?php echo $category_row['id']; ?>">
 									<div class="category-image">
 										<div class="zoom img-fluid lazy" data-src="<?php echo ($category_row['image'] != '')? $category_row['image'] : 'http://via.placeholder.com/150/?text=No+Image+Preview'; ?>"></div>
 									</div>
@@ -922,397 +1324,10 @@
 					        </div>
 			      		</div>
 
-			      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	
+			      		<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, quidem. Aperiam eaque porro cum, qui! Repellat quibusdam eos officiis consequuntur quidem nesciunt autem cum quos magnam reiciendis mollitia explicabo provident, adipisci optio fuga libero quo ad eveniet cumque. Quod voluptatum praesentium similique id voluptate blanditiis debitis, officia deserunt nemo et quis distinctio aliquam enim. Fuga illo blanditiis aperiam dolores eos expedita nihil, qui facere cum, ex, consequatur similique laborum rerum porro consectetur repellat dicta ipsam natus aspernatur. Deleniti expedita consequuntur in incidunt dolor. Magni ab accusamus dolore aperiam sapiente neque ad voluptas, nihil eligendi dolorum quidem recusandae quis rerum maxime molestiae aliquid deserunt minima libero necessitatibus? Doloremque minima quaerat dolorum quia repellendus eos delectus eum odit quo id. Voluptas necessitatibus, similique, cupiditate cum temporibus, perferendis dolorum nisi impedit eligendi consequatur, totam nobis culpa dolor minima. Nisi excepturi repudiandae quo labore, in delectus fugit doloremque. Illum voluptas magni ab saepe tempora veniam quidem odio dignissimos sapiente consequuntur laborum molestias amet incidunt optio sint, repellendus distinctio dolorum, delectus quam quaerat magnam officiis commodi consectetur. Dolor facilis, veniam molestiae dolores ratione exercitationem velit illum repellendus hic illo tempora dolore modi incidunt reprehenderit, alias magnam iusto nesciunt enim aspernatur officiis. Placeat veniam explicabo quia odit libero? Maxime, possimus iure ipsum quidem beatae iste explicabo perspiciatis quod in hic, officia laudantium error ipsam cupiditate natus nam eum debitis voluptatum impedit eligendi. Quibusdam libero dolor voluptatem vero corrupti et quia minima odit deserunt dolorum ipsum impedit doloremque corporis, magnam nisi perferendis iusto, eligendi unde, esse placeat! Nesciunt ipsa a provident corrupti sapiente neque! Consectetur animi fugiat officia doloremque cupiditate excepturi quo rerum porro aut perferendis commodi, blanditiis, iure nam sit exercitationem nulla magni omnis sequi vero perspiciatis. Laboriosam obcaecati cum laudantium, repellendus, autem eius. Non pariatur cupiditate beatae! Alias corporis vero nulla enim voluptas. Molestias velit, at architecto delectus nihil illo explicabo rem cupiditate enim neque possimus amet atque, soluta quos sit. Perspiciatis maiores vel sequi suscipit ipsam illum voluptates nostrum quo aperiam ex, voluptatibus provident nam quas quibusdam, incidunt. Sint, totam quis vero aliquam natus veniam veritatis pariatur quas velit non ad eum est hic dolores debitis fugit cupiditate unde repudiandae maiores. Nisi et aliquid aliquam sunt, cumque repudiandae, voluptatibus molestiae, culpa natus quaerat adipisci illum at ex possimus, quia nemo saepe necessitatibus veritatis nam optio suscipit laudantium? Laudantium quaerat quia illo consequuntur ad odio repellat eaque inventore! Consectetur velit quod error tenetur suscipit autem, ipsum voluptatem rem tempora cumque odio excepturi iste facilis ducimus est ad aliquam dignissimos esse, soluta accusantium dolore? Enim nostrum vitae, amet ea quis itaque cumque harum nobis quasi ex sequi explicabo saepe veritatis dignissimos eum quos repellat, recusandae pariatur ducimus blanditiis sint quidem. Dolores quisquam nisi, illo ab enim, voluptates accusantium quo doloribus aliquid et sequi necessitatibus corporis harum adipisci. Possimus nesciunt sunt quo temporibus itaque adipisci illo veniam nemo consequatur modi laudantium rerum sit amet, commodi eaque culpa, animi! Fuga vitae ea quam deserunt, suscipit quibusdam doloribus saepe dicta at minima iure recusandae sint consequatur laudantium laboriosam, cupiditate!</p>	 -->
 		      		</div>
-				</div> -->
-				<!-- END OF SECTION 2 -->
-
-				<!-- SECTION 4 - Homepage welcome message -->
-				<div id="etiendahan-section-4" class="etiendahan-section">
-					<div class="container">
-						<!-- <div class="title-name">
-							<h3><span class="wow pulse" data-wow-delay="1000ms">PROVINCE OF PANGASINAN</span></h3>
-						</div> -->
-						<h1 class="mt-3 text-center">PROVINCE OF PANGASINAN</span></h1>
-						<div class="row">
-							<div class="col-md-2">
-								<ul style="list-style: none; font-size: 12.6px;">
-									<?php  
-										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24");
-										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
-										$category_name = strtolower($row_category_sub['citymunDesc']);
-									?>
-
-									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
-
-									<?php  
-										endwhile;
-									?>
-								</ul>
-							</div>
-							<div class="col-md-8">
-								<div class="welcome-message-image" style="background-image: url(temp-img/map-of-pangasinan.png);"></div>
-								<!-- <div class="welcome-message-title wow fadeInUp" data-wow-delay="300ms">Welcome to Etiendahan</div>
-								<div class="welcome-message-intro wow fadeInUp" data-wow-delay="600ms">Online Shopping Local Products | Province of Pangasinan</div>
-								<div class="welcome-message-hashtag wow fadeInUp" data-wow-delay="600ms">#SHOPATETIENDAHAN</div> -->
-								<!-- markers -->
-								<div id="map-tips" style="position: relative;width: 0;height: 0;right: 206px;">
-									<!-- bolinao -->
-									<div class="tooltip-wrapper bolinao" style="position: relative;bottom: 446px;left: 320px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bolinao">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 91" data-value="91" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- anda -->
-									<div class="tooltip-wrapper anda" style="position: relative;bottom: 472px;left: 385px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Anda">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 82" data-value="82" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- bani -->
-									<div class="tooltip-wrapper bani" style="position: relative;bottom: 468px;left: 318px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bani">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 85" data-value="85" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- agno -->
-									<div class="tooltip-wrapper agno" style="position: relative;bottom: 465px;left: 278px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Agno">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 78" data-value="78" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- city of alaminos -->
-									<div class="tooltip-wrapper city-of-alaminos" style="position: relative;bottom: 509px;left: 366px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Alaminos">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 80" data-value="80" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- burgos -->
-									<div class="tooltip-wrapper burgos" style="position: relative;bottom: 495px;left: 308px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Burgos">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 93" data-value="93" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- dasol -->
-									<div class="tooltip-wrapper dasol" style="position: relative;bottom: 485px;left: 298px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dasol">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 96" data-value="96" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- infanta -->
-									<div class="tooltip-wrapper infanta" style="position: relative;bottom: 464px;left: 355px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Infanta">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 97" data-value="97" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- mabini -->
-									<div class="tooltip-wrapper mabini" style="position: relative;bottom: 561px;left: 369px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mabini">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 100" data-value="100" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- sual -->
-									<div class="tooltip-wrapper sual" style="position: relative;bottom: 618px;left: 407px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sual">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 119" data-value="119" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- labrador -->
-									<div class="tooltip-wrapper labrador" style="position: relative;bottom: 615px;left: 441px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Labrador">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 98" data-value="98" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- bugallon -->
-									<div class="tooltip-wrapper bugallon" style="position: relative;bottom: 620px;left: 477px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bugallon">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 92" data-value="92" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- aguilar -->
-									<div class="tooltip-wrapper aguilar" style="position: relative;bottom: 609px;left: 495px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Aguilar">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 79" data-value="79" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- mangatarem -->
-									<div class="tooltip-wrapper mangatarem" style="position: relative;bottom: 546px;left: 518px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangatarem">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 104" data-value="104" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- lingayen (capital) -->
-									<div class="tooltip-wrapper lingayen" style="position: relative;bottom: 735px;left: 504px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Lingayen (capital)">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 99" data-value="99" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- binmaley -->
-									<div class="tooltip-wrapper binmaley" style="position: relative;bottom: 759px;left: 534px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binmaley">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 90" data-value="90" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- dagupan city -->
-									<div class="tooltip-wrapper dagupan-city" style="position: relative;bottom: 815px;left: 569px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Dagupan City">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 95" data-value="95" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- calasiao -->
-									<div class="tooltip-wrapper calasiao" style="position: relative;bottom: 818px;left: 577px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Calasiao">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 94" data-value="94" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san carlos city -->
-									<div class="tooltip-wrapper san-carlos-city" style="position: relative;bottom: 811px;left: 555px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Carlos City">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 109" data-value="109" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- urbiztondo -->
-									<div class="tooltip-wrapper urbiztondo" style="position: relative;bottom: 790px;left: 580px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Urbiztondo">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 122" data-value="122" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- basista -->
-									<div class="tooltip-wrapper basista" style="position: relative;bottom: 842px;left: 607px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Basista">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 86" data-value="86" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- bayambang -->
-									<div class="tooltip-wrapper bayambang" style="position: relative;bottom: 822px;left: 627px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bayambang">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 88" data-value="88" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- bautista -->
-									<div class="tooltip-wrapper bautista" style="position: relative;bottom: 839px;left: 688px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Bautista">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 87" data-value="87" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- alcala -->
-									<div class="tooltip-wrapper alcala" style="position: relative;bottom: 919px;left: 689px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Alcala">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 81" data-value="81" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- santo tomas -->
-									<div class="tooltip-wrapper santo-tomas" style="position: relative;bottom: 954px;left: 721px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santo Tomas">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 117" data-value="117" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- rosales -->
-									<div class="tooltip-wrapper rosales" style="position: relative;bottom: 978px;left: 755px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Rosales">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 108" data-value="108" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- balungao -->
-									<div class="tooltip-wrapper balungao" style="position: relative;bottom: 1021px;left: 795px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Balungao">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 84" data-value="84" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- umingan -->
-									<div class="tooltip-wrapper umingan" style="position: relative;bottom: 1053px;left: 866px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Umingan">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 121" data-value="121" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san quintin -->
-									<div class="tooltip-wrapper san-quintin" style="position: relative;bottom: 1133px;left: 853px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Quintin">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 114" data-value="114" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- natividad -->
-									<div class="tooltip-wrapper natividad" style="position: relative;bottom: 1190px;left: 845px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Natividad">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 106" data-value="106" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san nicolas -->
-									<div class="tooltip-wrapper san-nicolas" style="position: relative;bottom: 1257px;left: 807px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Nicolas">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 113" data-value="113" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san manuel -->
-									<div class="tooltip-wrapper san-manuel" style="position: relative;bottom: 1275px;left: 747px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Manuel">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 112" data-value="112" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- sison -->
-									<div class="tooltip-wrapper sison" style="position: relative;bottom: 1341px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Sison">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 118" data-value="118" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san fabian -->
-									<div class="tooltip-wrapper san-fabian" style="position: relative;bottom: 1351px;left: 617px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Fabian">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 110" data-value="110" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- mangaldan -->
-									<div class="tooltip-wrapper mangaldan" style="position: relative;bottom: 1347px;left: 599px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mangaldan">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 103" data-value="103" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- santa barbara -->
-									<div class="tooltip-wrapper santa-barbara" style="position: relative;bottom: 1338px;left: 611px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Barbara">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 115" data-value="115" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- malasiqui -->
-									<div class="tooltip-wrapper malasiqui" style="position: relative;bottom: 1326px;left: 646px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Malasiqui">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 101" data-value="101" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- villasis -->
-									<div class="tooltip-wrapper villasis" style="position: relative;bottom: 1359px;left: 711px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Villasis">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 124" data-value="124" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- santa maria -->
-									<div class="tooltip-wrapper santa-maria" style="position: relative;bottom: 1407px;left: 779px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Santa Maria">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 116" data-value="116" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- tayug -->
-									<div class="tooltip-wrapper tayug" style="position: relative;bottom: 1467px;left: 803px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Tayug">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 120" data-value="120" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- asingan -->
-									<div class="tooltip-wrapper asingan" style="position: relative;bottom: 1489px;left: 759px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Asingan">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 83" data-value="83" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- binalonan -->
-									<div class="tooltip-wrapper binalonan" style="position: relative;bottom: 1544px;left: 722px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Binalonan">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 89" data-value="89" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- laoac -->
-									<div class="tooltip-wrapper laoac" style="position: relative;bottom: 1564px;left: 690px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Laoac">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 125" data-value="125" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- pozorrubio -->
-									<div class="tooltip-wrapper pozorrubio" style="position: relative;bottom: 1625px;left: 680px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Pozzorubio">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 107" data-value="107" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- manaoag -->
-									<div class="tooltip-wrapper manaoag" style="position: relative;bottom: 1625px;left: 657px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Manaoag">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 102" data-value="102" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- san jacinto -->
-									<div class="tooltip-wrapper san-jacinto" style="position: relative;bottom: 1670px;left: 633px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="San Jacinto">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 111" data-value="111" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- city of urdaneta -->
-									<div class="tooltip-wrapper city-of-urdaneta" style="position: relative;bottom: 1648px;left: 700px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="City Of Urdaneta">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 123" data-value="123" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-
-									<!-- mapandan -->
-									<div class="tooltip-wrapper mapandan" style="position: relative;bottom: 1694px;left: 640px;display: inline-block;" data-toggle="tooltip" data-placement="top" title="Mapandan">
-										<a href="/etiendahan/market/view/sub/" class="my-gallery-inner 105" data-value="105" style="display:inline-block; margin-top: 3px;">
-											<img src="temp-img/marker.png" alt="">
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-2">
-								<ul style="list-style: none; font-size: 12.6px;">
-									<?php  
-										$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc LIMIT 24, 48");
-										while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
-										$category_name = strtolower($row_category_sub['citymunDesc']);
-									?>
-
-									<a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>" style="color: black;"><li><?php echo ucwords($category_name) ?></li></a>
-
-									<?php  
-										endwhile;
-									?>
-								</ul>
-							</div>
-						</div>
-					</div>
 				</div>
-				<!-- END OF SECTION 4 -->
+				<!-- END OF SECTION 2 -->
 
 				<!-- SECTION 3 - Homepage popular products -->
 				<div id="etiendahan-section-6" class="etiendahan-section">
@@ -1324,7 +1339,7 @@
 							<div class="container" style="padding: 40px 0 70px 0">
 								<div class="title-name" style="margin: 0 auto 35px;">
 									<!-- <a href="/etiendahan/popular-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a> -->
-									<h3><span class="wow pulse" data-wow-delay="1500ms">POPULAR PRODUCTS</h3>
+									<h3><span class="wow pulse" data-wow-delay="1200ms">POPULAR PRODUCTS</h3>
 								</div>
 								<div class="text-center">No Popular Products Yet</div>
 							</div>
@@ -1333,7 +1348,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/popular-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1500ms">POPULAR PRODUCTS</h3>
+									<h3><span class="wow pulse" data-wow-delay="1200ms">POPULAR PRODUCTS</h3>
 								</div>
 
 								<div class="owl-carousel">
@@ -1410,7 +1425,7 @@
 					<div class="container">
 						<div class="title-name">
 							<a href="/etiendahan/daily-discover/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-							<h3><span class="wow pulse" data-wow-delay="1000ms">DAILY DISCOVER</span></h3>
+							<h3><span class="wow pulse" data-wow-delay="1300ms">DAILY DISCOVER</span></h3>
 						</div>
 						
 						<div class="item-wrapper">
@@ -1488,7 +1503,7 @@
 				
 				<?php if($logged_in == true): ?>
 					<!-- SECTION 6 - Homepage recently_viewed_products -->
-					<div id="etiendahan-section-6" class="etiendahan-section">
+					<div id="etiendahan-recently-viewed-products" class="etiendahan-section">
 						<?php  
 							$result = $mysqli->query("SELECT * FROM tbl_recently_viewed_products WHERE email = '$email'");
 							if($result->num_rows == 0):
@@ -1505,7 +1520,7 @@
 							<div class="container">
 								<div class="title-name">
 									<a href="/etiendahan/recently-viewed-products/">See all<i class="fa fa-chevron-right fa-fw"></i></a>
-									<h3><span class="wow pulse" data-wow-delay="1500ms">YOUR RECENTLY VIEWED PRODUCTS<?php if($user['first_name'] != ''): ?>, <?php echo $user['first_name'] ?><?php endif; ?></span></h3>
+									<h3><span class="wow pulse" data-wow-delay="1400ms">YOUR RECENTLY VIEWED PRODUCTS<?php if($user['first_name'] != ''): ?>, <?php echo $user['first_name'] ?><?php endif; ?></span></h3>
 								</div>
 
 								<div class="owl-carousel">

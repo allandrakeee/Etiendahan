@@ -106,7 +106,7 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item"><a href="/etiendahan/market/view/sub/" class="my-gallery-inner" id="<?php echo $municipality ?>"><?php echo $row_category['citymunDesc'] ?></a></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $municipality ?>" data-value="<?php echo $municipality ?>"><?php echo $row_category['citymunDesc'] ?></a></li>
 								<li class="breadcrumb-item active product-view" style="width: auto" aria-current="page"><?php echo trim($row_product['name']) ?></li>
 							</div>
 						</ol>
@@ -452,7 +452,7 @@
 
 								<div class="owl-carousel">
 									<?php 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE seller_email = '$email' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY id desc LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
 										$product_id = $product_row['id'];
 									?>
@@ -525,7 +525,7 @@
 
 								<div class="owl-carousel">
 									<?php 
-										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE category_id = '$category_id' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY RAND(".date("Ymd").") LIMIT 10");
+										$product_result = $mysqli->query("SELECT * FROM tbl_products WHERE category_id = '$category_id' AND id != '$category_product_id' AND stock > 0 AND banned = 0 ORDER BY id desc LIMIT 10");
 										while($product_row = mysqli_fetch_assoc($product_result)): 
 										$product_id = $product_row['id'];
 									?>

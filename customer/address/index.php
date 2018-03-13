@@ -94,7 +94,16 @@
 										<div class="card-header" role="tab" id="headingTwo">
 											<h5 class="mb-0">
 												<a href="/etiendahan/customer/orders/">
-												Orders
+													<?php  
+														$email =  $_SESSION['email'];
+													  	$result = $mysqli->query("SELECT COUNT(DISTINCT unique_hash_id) as 'total' FROM tbl_orders WHERE email = '$email' ORDER BY unique_hash_id");
+												 		if($result->num_rows == 0):
+													?>
+													Orders
+													<?php else: ?>
+														<?php $row = $result->fetch_assoc(); ?>
+													Orders <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
+													<?php endif; ?>
 												</a>
 											</h5>
 										</div>
@@ -103,7 +112,16 @@
 										<div class="card-header" role="tab" id="headingThree">
 											<h5 class="mb-0">
 												<a href="/etiendahan/customer/wishlists/">
+												<?php  
+													$email =  $_SESSION['email'];
+												  	$result = $mysqli->query("SELECT COUNT(*) as 'total' FROM tbl_wishlists WHERE email = '$email'");
+											 		if($result->num_rows == 0):
+												?>
 												Wishlists
+												<?php else: ?>
+													<?php $row = $result->fetch_assoc(); ?>
+												Wishlists <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
+												<?php endif; ?>
 												</a>
 											</h5>
 										</div>

@@ -342,7 +342,20 @@
 							<p>Howdy.</p>
 
 							<a href="/etiendahan/customer/account/profile/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>Manage my account</div></a>
-							<a href="/etiendahan/customer/orders/"><div class="dropdown-item"><i class="fa fa-caret-right fa-fw"></i>My Orders</div></a>
+							<a href="/etiendahan/customer/orders/">
+								<div class="dropdown-item">
+									<?php  
+										$email =  $_SESSION['email'];
+									  	$result = $mysqli->query("SELECT COUNT(DISTINCT unique_hash_id) as 'total' FROM tbl_orders WHERE email = '$email' ORDER BY unique_hash_id");
+								 		if($result->num_rows == 0):
+									?>
+									<i class="fa fa-caret-right fa-fw"></i>My Orders
+									<?php else: ?>
+										<?php $row = $result->fetch_assoc(); ?>
+									<i class="fa fa-caret-right fa-fw"></i>My Orders <?php $total_row = $row['total']; echo ($row['total'] == 0)? '' : "($total_row)" ?>
+									<?php endif; ?>
+								</div>
+							</a>
 							<a href="/etiendahan/customer/wishlists/">
 								<div class="dropdown-item">
 									<?php  

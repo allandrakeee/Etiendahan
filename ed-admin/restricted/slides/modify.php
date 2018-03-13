@@ -366,7 +366,7 @@
                     </div>                    
 
                     <?php  
-                        $sic_owner_result = $mysqli->query("SELECT * FROM tbl_sic_owner");
+                        $sic_owner_result = $mysqli->query("SELECT s.id as id, c.fullname as fullname FROM tbl_sellers s join tbl_customers c on(s.seller_email = c.email)");
                     ?>
                     <div class="form-group" style="width: 25%">
                         <label><strong>Link to:</strong></label>
@@ -376,9 +376,9 @@
                             while($sic_owner_row = mysqli_fetch_assoc($sic_owner_result)):
                             ?>
                                 <?php if($sic_owner_row['id'] == $slides_row['link_to']): ?>
-                                    <option value="<?php echo $sic_owner_row['id'];?>" selected><?php echo $sic_owner_row['name'];?></option>
+                                    <option value="<?php echo $sic_owner_row['id'];?>" selected><?php echo $sic_owner_row['fullname'];?></option>
                                 <?php else: ?>
-                                    <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['name'];?></option>
+                                    <option value="<?php echo $sic_owner_row['id'];?>"><?php echo $sic_owner_row['fullname'];?></option>
                                 <?php endif; ?>
                             <?php endwhile; ?>
                         </select>               

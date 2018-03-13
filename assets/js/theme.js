@@ -47967,6 +47967,70 @@ $(document).ready(function(){
 	});
 });
 
+var target = window.location.hash,
+    target = target.replace('#', '');
+
+// delete hash so the page won't scroll to it
+window.location.hash = "";
+
+// now whenever you are ready do whatever you want
+// (in this case I use jQuery to scroll to the tag after the page has loaded)
+$(window).on('load', function() {
+    if (target) {
+        $('html, body').animate({
+            scrollTop: $("#" + target).offset().top
+        }, 850, 'swing', function () {});
+    }
+});
+
+
+// if (location.hash === "#shop-now") {
+    
+
+//     $(window).on('load', function() {
+//         if (window.location.hash) {
+//             setTimeout(function() {
+//                 $('html, body').scrollTop(0).show();
+//                 $('html, body').delay(500).animate({
+//                     scrollTop: $(window.location.hash).offset().top
+//                     }, 1000)
+//             }, 150);
+//         } else {
+//             $('html, body').show();
+
+//         }
+//     });
+// }
+
+// $(window).on('load', function() {
+//     if (window.location.hash) {
+//         setTimeout(function() {
+//             $('html, body').scrollTop(0).show();
+//             $('html, body').delay(1000).animate({
+//                 scrollTop: $(window.location.hash).offset().top
+//                 }, 1000)
+//         }, 150);
+//     } else {
+//         $('html, body').show();
+
+//     }
+// });
+
+// $('html, body').hide();
+// $(window).on('load', function() {
+//     if (window.location.hash) {
+//         setTimeout(function() {
+//             $('html, body').scrollTop(0).show();
+//             $('html, body').delay(300).animate({
+//                 scrollTop: $(window.location.hash).offset().top
+//                 }, 1000)
+//         }, 0);
+//     } else {
+//         $('html, body').show();
+
+//     }
+// });
+
 // tooltips
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip()
@@ -48418,51 +48482,6 @@ $(document).ready(function() {
     });
 });
 
-if (location.hash === "#shop-now") {
-    $('html, body').hide();
-	$(window).on('load', function() {
-	    if (window.location.hash) {
-	        setTimeout(function() {
-	            $('html, body').scrollTop(0).show();
-	            $('html, body').delay(500).animate({
-	                scrollTop: $(window.location.hash).offset().top
-	                }, 1000)
-	        }, 150);
-	    } else {
-	        $('html, body').show();
-
-	    }
-	});
-}
-
-$(window).on('load', function() {
-    if (window.location.hash) {
-        setTimeout(function() {
-            $('html, body').scrollTop(0).show();
-            $('html, body').delay(1000).animate({
-                scrollTop: $(window.location.hash).offset().top
-                }, 1000)
-        }, 150);
-    } else {
-        $('html, body').show();
-
-    }
-});
-
-// $('html, body').hide();
-// $(window).on('load', function() {
-//     if (window.location.hash) {
-//         setTimeout(function() {
-//             $('html, body').scrollTop(0).show();
-//             $('html, body').delay(300).animate({
-//                 scrollTop: $(window.location.hash).offset().top
-//                 }, 1000)
-//         }, 0);
-//     } else {
-//         $('html, body').show();
-
-//     }
-// });
 // ============ END OF REGISTER PAGE - SECTION 1 ============
 
 

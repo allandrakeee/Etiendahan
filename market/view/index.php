@@ -81,7 +81,7 @@
 												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
 												$category_name = strtolower($row_category_sub['citymunDesc']);
 											?>
-											<li><a href="/etiendahan/market/view/sub/" class="my-gallery-inner" id="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
+											<li><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
 												$total_count_id = $row_category_sub['id'];
 												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where municipality_id = '$total_count_id' AND stock > 0 AND banned = 0");
 												$count_tbl_products = $result->fetch_assoc();
@@ -131,7 +131,7 @@
 									<?php  
 										// $_REQUEST['sort'] = "replace(replace(price, ',', ''), '.', '')+0 desc";
 										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
-										$product_order = ($sort_request == '') ? "RAND(".date("Ymd").")" : $sort_request;
+										$product_order = ($sort_request == '') ? "id desc" : $sort_request;
 										$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 ORDER BY ".$product_order;
 										$product_result = $mysqli->query($sql);
 										if($product_result->num_rows > 0):
