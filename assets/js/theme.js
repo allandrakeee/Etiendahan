@@ -49247,6 +49247,18 @@ $(document).on('click', '.my-gallery-inner', function(){
     $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"category_id": category_id});
 });
 
+$(document).on('click', '.location-category', function(){
+    var location_category = $(this).attr('id');
+    alert(location_category);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"location_category": location_category});
+});
+
+$(document).on('click', '.product-category', function(){
+    var product_category = $(this).attr('id');
+    // alert(product_category);
+    $.post("/etiendahan/c8NLPYLt-functions/child-categories/", {"product_category": product_category});
+});
+
 $(document).on('click', 'a.go-to-sub', function(){
     var sub_category_id = $(this).attr('id');
     // alert(sub_category_id);

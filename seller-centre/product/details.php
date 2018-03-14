@@ -226,6 +226,26 @@
 										</div>
 
 										<div class="form-group row">
+											<label for="selectCategory" class="col-sm-2 col-form-label">Category</label>
+											<div class="col-sm-10">
+												<?php
+													$result_categories = $mysqli->query("SELECT * FROM tbl_categories WHERE id = '$category_id'");
+													$categories_row = $result_categories->fetch_assoc();
+													$get_sub_category_id = $categories_row['id'];
+													$result = $mysqli->query("SELECT * FROM tbl_categories ORDER BY name");
+													echo "<select class='form-control' id='category' name='category' required>";
+													echo "<option value=''>Select</option>";
+													while($category = mysqli_fetch_assoc($result)){
+														$category_id = $category['id'];
+														$category_name = $category['name'];
+												?>	
+														<option value='<?php echo $category_id ?>' <?php if($get_sub_category_id == $category_id) echo 'selected'; ?>><?php echo $category_name ?></option>
+												<?php } ?>
+													</select>							
+											</div>	
+										</div>
+
+										<div class="form-group row">
 											<label for="selectCategory" class="col-sm-2 col-form-label">Province</label>
 											<div class="col-sm-10">
 												<?php

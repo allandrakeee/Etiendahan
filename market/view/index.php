@@ -29,7 +29,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buy <?php echo $row_category['name']; ?> Online | Etiendahan</title>
+	<title>Market | Etiendahan</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name=viewport content="width=device-width, initial-scale=1">
@@ -62,7 +62,7 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Market</li>
+								<li class="breadcrumb-item active" aria-current="page">Products</li>
 							</div>
 						</ol>
 					</nav>
@@ -72,19 +72,18 @@
 							<div class="col-md-3" style="padding-right: 0">
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-list fa-fw"></i>Categories</div>
-									<div class="title active"><a href="/etiendahan/market/view/">All Locations</a></div>
-																		
+									<div class="title active"><a href="/etiendahan/market/view/">Products</a></div>									
 
 									<div class="sub">
 										<ul>
 											<?php  
-												$result_category_sub = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc");
+												$result_category_sub = $mysqli->query("SELECT * FROM tbl_categories");
 												while($row_category_sub = mysqli_fetch_assoc($result_category_sub)):
-												$category_name = strtolower($row_category_sub['citymunDesc']);
+												$category_name = $row_category_sub['name'];
 											?>
-											<li><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $row_category_sub['id'] ?>" data-value="<?php echo $row_category_sub['id'] ?>"><?php echo ucwords($category_name) ?> (<?php
+											<li><a href="/etiendahan/market/view/sub/" class="product-category" id="<?php echo $row_category_sub['id'] ?>"><?php echo $category_name ?> (<?php
 												$total_count_id = $row_category_sub['id'];
-												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where municipality_id = '$total_count_id' AND stock > 0 AND banned = 0");
+												$result = $mysqli->query("SELECT count(*) as 'count_tbl_products' FROM `tbl_products` where category_id = '$total_count_id' AND stock > 0 AND banned = 0");
 												$count_tbl_products = $result->fetch_assoc();
 												echo $count_tbl_products['count_tbl_products'];
 											 ?>)</a></li>
@@ -95,18 +94,40 @@
 
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-filter fa-fw"></i>SEARCH FILTER</div>
-									<div class="search-filter-price-range">Price Range</div>
+									
 									<?php $product_sort = ((isset($_POST['sort']) && $_POST['sort'] != '')?htmlentities($_POST['sort']):''); ?>
+									<?php $location_sort = ((isset($_POST['locations']) && $_POST['locations'] != '')?htmlentities($_POST['locations']):''); ?>
 									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
+										<div class="search-filter-price-range">Location</div>
+
+										<select name="locations" class="form-control" style="margin-left: 20px; margin-right: 20px; width: 85%;">
+											<option value="">All Locations</option>
+											<?php
+					                		$location_category = ((isset($_SESSION['location_category']) && $_SESSION['location_category'] != '')?htmlentities($_SESSION['location_category']):'');
+                        					$sic_owner_result = $mysqli->query("SELECT * FROM tbl_refcitymun WHERE provCode = '0155' ORDER BY citymunDesc");
+							                while($sic_owner_row = mysqli_fetch_assoc($sic_owner_result)):
+							                	$result_id = $sic_owner_row['id'];
+							                	$category_name = strtolower($sic_owner_row['citymunDesc']);
+							                ?>
+												<?php if($location_category != ''): ?>
+													<?php $category_id = "AND municipality_id = $result_id"; ?>
+						                        	<option value="AND municipality_id = '<?php echo $sic_owner_row['id'];?>'" <?php if($location_category == $category_id) echo 'selected'; ?>><?php echo ucwords($category_name);?></option>
+												<?php else: ?>
+													<?php $category_id = "AND municipality_id = '$result_id'"; ?>				
+						                        	<option value="AND municipality_id = '<?php echo $sic_owner_row['id'];?>'" <?php if($location_sort == $category_id) echo 'selected'; ?>><?php echo ucwords($category_name);?></option>
+												<?php endif; ?>
+							                <?php endwhile; ?>
+										</select>
+
+										<div class="search-filter-price-range">Price Range</div>
 										<div class="price-range-filter">
 											<label>
-												<input type="radio" id="inlineRadioLowToHigh" value="replace(replace(price, ',', ''), '.', '')+0 asc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 asc") echo "checked";?> required> Low to High
+												<input type="radio" id="inlineRadioLowToHigh" value="replace(replace(price, ',', ''), '.', '')+0 asc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 asc") echo "checked";?>> Low to High
 											</label>
 
 											<label>
-												<input type="radio" id="inlineRadioHighToLow" value="replace(replace(price, ',', ''), '.', '')+0 desc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 desc") echo "checked";?> required> High to Low
+												<input type="radio" id="inlineRadioHighToLow" value="replace(replace(price, ',', ''), '.', '')+0 desc" name="sort" <?php if($product_sort=="replace(replace(price, ',', ''), '.', '')+0 desc") echo "checked";?>> High to Low
 											</label>
-
 
 											<!-- <input class="number" type="number" placeholder="₱ MIN">
 											<div class="separator"></div>
@@ -116,7 +137,7 @@
 									</form>
 									<div class="separator-button"></div>
 									<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="POST">
-										<button class="btn btn-primary" value="" name="sort">Clear All</button>
+										<button class="btn btn-primary" value="" name="clear_all">Clear All</button>
 									</form>
 									<div class="separator-bottom"></div>
 								</div>
@@ -132,8 +153,20 @@
 									<?php  
 										// $_REQUEST['sort'] = "replace(replace(price, ',', ''), '.', '')+0 desc";
 										$sort_request = ((isset($_REQUEST['sort']) && $_REQUEST['sort'] != '')?htmlentities($_REQUEST['sort']):'');
+										$locations_request = ((isset($_REQUEST['locations']) && $_REQUEST['locations'] != '')?htmlentities($_REQUEST['locations']):'');
 										$product_order = ($sort_request == '') ? "id desc" : $sort_request;
-										$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 ORDER BY ".$product_order;
+										$location_order = ($locations_request == '') ? "" : $locations_request;
+
+										if($location_order != '') {
+											$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 $location_order ORDER BY ".$product_order;
+											unset($_SESSION["location_category"]);
+										} else if($location_category != '') {
+											$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 $location_category ORDER BY ".$product_order;
+											unset($_SESSION["location_category"]);
+										} else {
+											$sql = "SELECT * FROM tbl_products WHERE stock > 0 AND banned = 0 $location_order ORDER BY ".$product_order;
+											unset($_SESSION["location_category"]);
+										}
 										$product_result = $mysqli->query($sql);
 										if($product_result->num_rows > 0):
 										while($product_row = mysqli_fetch_assoc($product_result)):

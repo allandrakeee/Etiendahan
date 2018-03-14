@@ -10,6 +10,14 @@
 		$_SESSION['category_id'] = $_POST['category_id'];
 	}
 
+	if($_POST['product_category'] != '') {
+		$_SESSION['product_category'] = $_POST['product_category'];
+	}
+
+	if($_POST['location_category'] != '') {
+		$_SESSION['location_category'] = $_POST['location_category'];
+	}
+
 	if($_POST['sub_category_id'] != '') {
 		$_SESSION['sub_category_id'] = $_POST['sub_category_id'];
 	}
