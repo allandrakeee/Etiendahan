@@ -72,7 +72,8 @@
 							<div class="col-md-3" style="padding-right: 0">
 								<div class="sidebar-wrapper">
 									<div class="header text-center"><i class="fa fa-list fa-fw"></i>Categories</div>
-									<div class="title active"><a href="/etiendahan/market/view/">All Locations</a></div>									
+									<div class="title active"><a href="/etiendahan/market/view/">All Locations</a></div>
+																		
 
 									<div class="sub">
 										<ul>
