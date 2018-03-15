@@ -63,6 +63,7 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/market/view/">Products</a></li>
 								<li class="breadcrumb-item active" aria-current="page"><?php echo ($category_id == 1) ? 'Manufactured Products' : 'Non-manufactured Products'; ?></li>
 							</div>
 						</ol>

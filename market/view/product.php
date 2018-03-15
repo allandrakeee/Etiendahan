@@ -106,7 +106,8 @@
 						<ol class="breadcrumb">
 							<div class="container">
 								<li class="breadcrumb-item"><a href="/etiendahan/" title="Back to the frontpage"><i class="fa fa-home"></i>Home</a></li>
-								<li class="breadcrumb-item"><a href="/etiendahan/market/view/sub/" class="my-gallery-inner <?php echo $municipality ?>" data-value="<?php echo $municipality ?>"><?php echo $row_category['citymunDesc'] ?></a></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/market/view/">Products</a></li>
+								<li class="breadcrumb-item"><a href="/etiendahan/market/view/sub/"><?php echo ($category_id == 1) ? 'Manufactured Products' : 'Non-manufactured Products'; ?></a></li>
 								<li class="breadcrumb-item active product-view" style="width: auto" aria-current="page"><?php echo trim($row_product['name']) ?></li>
 							</div>
 						</ol>
